@@ -1,5 +1,5 @@
 {
-  "name": "montex",
+  "name": "mbs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,8 +28,8 @@
     "redux-saga": "^0.16.2"
   },
   "scripts": {
-    "start": "react-scripts build",
     "dev": "react-scripts start",
+    "start": "PORT=5000 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
