@@ -3,14 +3,13 @@
 Để chạy ứng dụng, ta cần copy file **.env.example** và đổi tên thành **.env**
 
 ## Cài đặt package
-npm install
+`npm install`
 
 ## Dev
-npm run dev
+`npm run dev`
 
-*Để chạy server*
-## Server
-npm start
+## Server *Để chạy server*
+`npm start`
 
 ## Cấu trúc thư mục
 */src* chứa toàn bộ source code cần tìm.
@@ -21,4 +20,4 @@ npm start
 
 Code sử dụng chuẩn ESlint của công ty Miracles do CEO chấp nhận. Không fix .eslint
 ##Để test ESlint trước khi push code.
-npm run test
+`npm run test`
