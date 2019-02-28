@@ -28,8 +28,8 @@
     "redux-saga": "^0.16.2"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "PORT=5000 react-scripts build",
+    "start": "PORT=9000 react-scripts build",
+    "dev": "PORT=9001 react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
