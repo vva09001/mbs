@@ -18,6 +18,7 @@
 */store/* được dùng bởi redux-saga. Cấu trúc ở đây ứng với mỗi module sẽ có 1 store. Ví dụ ta có danh sách sản phẩm => sẽ có store sản phẩm bao gồm các actions, reducers, và các lệnh saga.
 */container/* chứ các page được dùng.
 
-Code sử dụng chuẩn ESlint của công ty Miracles do CEO chấp nhận. Không fix .eslint
+Code sử dụng chuẩn ESlint của công ty Miracles do CEO chấp nhận. Không fix .eslint.
+
 ##Để test ESlint trước khi push code.
 `npm run test`
