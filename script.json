@@ -1,7 +1,7 @@
 {
   "apps" : [{
     "name"      : "mbs",
-    "script"    : "npm",
+    "script"    : "npm run",
     "args"        : "dev"
   }]
 }
