@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // components: header
-import Header from '../../components/header';
-import Footer from '../../components/footer';
+import Header from '../../components/common/header';
+import Footer from '../../components/common/footer';
 // components: First
 
 const Layout1 = props => (
   <div>
-    <Header slide={props.slide} isLoggedIn={props.isLoggedIn}/>
-    {props.children}
+    <Header />
+    <div className="container-fluid">{props.children}</div>
     <Footer />
   </div>
 );
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.User.token !== null ? true : false
+    // isLoggedIn: state.User.token !== null ? true : false
   };
 };
 

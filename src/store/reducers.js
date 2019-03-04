@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
 
-import User from './user/reducer';
-import Coin from './coin/reducer';
+import Bonds from './bonds/reducer';
 
 const reducers = combineReducers({
-  User,
-  Coin
+  Bonds
 });
 
 export default reducers;
