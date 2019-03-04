@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import history from '../utils/history';
 import RootContainer from './rootContainer';
 import HomePage from './homepage';
+import BondsDetail from './bonds/detail';
 
 const AppRouter = props => {
   return (
@@ -14,7 +15,7 @@ const AppRouter = props => {
       <RootContainer>
         <Switch>
           <Route exact path="/" component={HomePage} />
-
+          <Route exact path="/bonds" component={BondsDetail} />
         </Switch>
       </RootContainer>
     </Router>

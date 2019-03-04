@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import Layout1 from '../layout/layout1';
+import Layout from '../layout/layout';
 import Card from '../../components/common/card';
 // import bondsActions from '../../store/coin/actions';
 
@@ -14,11 +14,11 @@ class HomePage extends Component {
   componentDidMount() {}
   render() {
     return (
-      <Layout1 slide={true}>
+      <Layout type>
         {_.map(this.props.bonds, item => (
           <Card item={item} />
         ))}
-      </Layout1>
+      </Layout>
     );
   }
 }
@@ -33,8 +33,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-};
+const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,
