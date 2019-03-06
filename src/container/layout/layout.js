@@ -8,15 +8,16 @@ import Footer from '../../components/common/footer';
 // components: First
 
 const Layout = props => (
-  <div>
-    {props.type ? <Header /> : <Header1 />}
-    <div className="container-fluid">{props.children}</div>
+  <div className="container-fluid">
+    {props.type ? <Header title={props.title} /> : <Header1 title={props.title} />}
+    {props.children}
     <Footer />
   </div>
 );
 
 Layout.propTypes = {
-  type: PropTypes.bool
+  type: PropTypes.bool,
+  title: PropTypes.string
 };
 
 const mapStateToProps = state => {

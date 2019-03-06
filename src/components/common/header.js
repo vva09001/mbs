@@ -1,25 +1,18 @@
 import React from 'react';
-const header = () => {
+import PropTypes from 'prop-types';
+const header = props => {
   return (
-    <nav className="navbar navbar-dark bg-dark">
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExample01"
-        aria-controls="navbarsExample01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon" />
-      </button>
-      <a className="navbar-brand" href="#">
-        MBS
-      </a>
-      <button className="navbar-toggler" type="button">
-        <i className="fas fa-search" />
-      </button>
-    </nav>
+    <div className="header-wrapper row justify-content-end">
+      <div className="col-6 text-center"><h3>{props.title}</h3></div>
+      <div className="col-3 text-right">
+        <button className="navbar-toggler filter" type="button">
+          <img src="img/filter.png" />Lọc
+        </button>
+      </div>
+    </div>
   );
+};
+header.propTypes = {
+  title: PropTypes.string
 };
 export default header;
