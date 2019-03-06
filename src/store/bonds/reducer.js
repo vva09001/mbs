@@ -3,24 +3,28 @@ import actions from './actions';
 const initialState = {
   list: [
     {
+      id: 1,
       title: 'NVL123',
       date: '09/10/2019',
       quatity: 10000,
       percent: 8
     },
     {
+      id: 2,
       title: 'NVL1234',
       date: '09/10/2019',
       quatity: 10000,
       percent: 8
     },
     {
+      id: 3,
       title: 'NVL1235',
       date: '09/10/2019',
       quatity: 10000,
       percent: 8
     },
     {
+      id: 4,
       title: 'NVL1236',
       date: '09/10/2019',
       quatity: 10000,

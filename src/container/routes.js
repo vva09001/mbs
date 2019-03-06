@@ -9,13 +9,13 @@ import RootContainer from './rootContainer';
 import HomePage from './homepage';
 import BondsDetail from './bonds/detail';
 
-const AppRouter = props => {
+const AppRouter = () => {
   return (
     <Router history={history}>
       <RootContainer>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/bonds" component={BondsDetail} />
+          <Route exact path="/bonds/:id" component={BondsDetail} />
         </Switch>
       </RootContainer>
     </Router>
@@ -24,7 +24,7 @@ const AppRouter = props => {
 AppRouter.propTypes = {
   isLoggedIn: PropTypes.bool
 };
-const mapStateToProps = state => {
+const mapStateToProps = () => {
   return {
     // isLoggedIn: state.User.token !== null ? true : false
   };
