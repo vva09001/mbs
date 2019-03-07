@@ -1,25 +1,31 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 import Icon from './icon';
-const footer = () => {
+const footer = props => {
+  const { t } = props;
   return (
     <div className="footer-wrapper fixed-bottom">
       <a className="col-3" href="#">
         <Icon name="mua-ban" height="35" />
-        Mua bán
+        {t('Mua bán')}
       </a>
       <a className="col-3" href="#">
         <Icon name="san-pham" height="35" />
-        Sản phẩm
+        {t('Sản phẩm')}
       </a>
       <a className="col-3" href="#">
         <Icon name="danh-muc" height="35" />
-        Danh mục
+        {t('Danh mục')}
       </a>
       <a className="col-3" href="#">
         <Icon name="mua-ban" height="35" />
-        Quản lý
+        {t('Quản lý')}
       </a>
     </div>
   );
 };
-export default footer;
+footer.propTypes = {
+  t: PropTypes.func
+};
+export default withTranslation()(footer);

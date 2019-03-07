@@ -7,21 +7,21 @@ const initialState = {
       title: 'NVL123',
       date: '09/10/2019',
       quatity: 10000,
-      percent: 8
+      percent: 8.7
     },
     {
       id: 2,
       title: 'NVL1234',
       date: '09/10/2019',
       quatity: 10000,
-      percent: 8
+      percent: 8.8
     },
     {
       id: 3,
       title: 'NVL1235',
       date: '09/10/2019',
       quatity: 10000,
-      percent: 8
+      percent: 8.9
     },
     {
       id: 4,
