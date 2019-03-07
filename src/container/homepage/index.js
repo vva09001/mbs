@@ -16,7 +16,7 @@ class HomePage extends Component {
     return (
       <Layout type title="Sản phẩm">
         {_.map(this.props.bonds, item => (
-          <Card item={item} />
+          <Card item={item} key={item.id}/>
         ))}
       </Layout>
     );

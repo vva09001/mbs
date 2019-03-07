@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import history from '../../utils/history';
+import Icon from './icon';
 const card = props => {
   return (
     <div className="card">
@@ -9,8 +10,8 @@ const card = props => {
           {props.item.title}
           <span className="link">
             <span className="badge badge-danger">{props.item.percent}% /năm</span>
-            <a onClick={() => history.push({ pathname: '/coin-detail/' + props.item.id })}>
-              <img alt="next" src="img/arrow.png" />
+            <a onClick={() => history.push({ pathname: '/bonds/' + props.item.id })}>
+              <Icon name="arrow" width="18" height="24" />
             </a>
           </span>
         </li>

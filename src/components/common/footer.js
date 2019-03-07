@@ -1,21 +1,22 @@
 import React from 'react';
+import Icon from './icon';
 const footer = () => {
   return (
     <div className="footer-wrapper fixed-bottom">
       <a className="col-3" href="#">
-        <img alt="mua-ban" src="/img/mua-ban.png" />
+        <Icon name="mua-ban" height="53" />
         Mua bán
       </a>
       <a className="col-3" href="#">
-        <img alt="san-pham" src="/img/san-pham.png" />
+        <Icon name="san-pham" height="53" />
         Sản phẩm
       </a>
       <a className="col-3" href="#">
-        <img alt="danh-muc" src="/img/danh-muc.png" />
+        <Icon name="danh-muc" height="53" />
         Danh mục
       </a>
       <a className="col-3" href="#">
-        <img alt="quan-ly" src="/img/quan-ly.png" />
+        <Icon name="mua-ban" height="53" />
         Quản lý
       </a>
     </div>

@@ -8,27 +8,36 @@ body {
   }
   a {
     cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
   }
   .container-fluid {
     max-width: 750px;
+    padding-top: 85px;
+    padding-bottom: 85px;
   }
 }
 
 .header-wrapper {
-  padding: 20px 0px;
+  padding: 20px 15px;
   background-color: #fff;
   margin-bottom: 22px;
   box-shadow: 0px 9px 16px 6px #ccc;
+  &>div {
+    padding: 0px;
+  }
   h3 {
     font-weight: bold;
-    font-size: 34px;
+    font-size: 21px;
     margin: 0;
   }
   .filter {
-    font-size: 30px;
+    font-size: 19px;
     font-weight: bold;
-    img {
+    svg {
       margin-right: 12px;
+
     }
   }
 }
@@ -44,17 +53,24 @@ body {
     padding: 14px 0px 8px;
     color: #999999;
     font-weight: bold;
-    font-size: 24px;
-    img {
+    font-size: 15px;
+    svg {
       margin-bottom: 10px;
+      fill: #999999;
+    }
+  }
+  a:hover {
+    color: #005197;
+    svg {
+      fill: #005197;
     }
   }
 }
 .card {
-  margin-bottom: 30px;
+  margin-bottom: 18px;
   li {
     padding: 10px 25px;
-    font-size: 30px;
+    font-size: 19px;
     align-items: center;
     display: flex;
     width: 100%;
@@ -72,7 +88,7 @@ body {
   }
   .title {
     color: #005197;
-    font-size: 34px;
+    font-size: 21px;
     font-weight: bold;
     .link {
       display: flex;
@@ -80,6 +96,9 @@ body {
       .badge {
         font-size: 120%;
         margin-right: 12px;
+      }
+      svg {
+        fill: #c4261d;
       }
     }
 
