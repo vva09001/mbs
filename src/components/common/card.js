@@ -29,6 +29,7 @@ const card = props => {
             <span className="quatity">{props.item.quatity}</span> {t('trái phiếu')}
           </p>
         </li>
+        {props.children}
       </ul>
     </div>
   );

@@ -17,6 +17,90 @@ body {
     padding-top: 85px;
     padding-bottom: 85px;
   }
+  .white-bg {
+    background-color: #fff;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 21px;
+    margin: 0;
+  }
+  h4 {
+    font-weight: normal;
+    font-size: 20px;
+    margin: 0;
+  }
+  h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .col-form-label {
+    font-size: 20px;
+  }
+  .react-datepicker-wrapper {
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+    background: #f4f4f4 url(/img/calendar.png) no-repeat center right 10px ;
+    border-radius: 4px;
+    width: 100%;
+    .react-datepicker__input-container {
+      display: block;
+    }
+
+    input {
+      font-size: 16px;
+      font-weight: bold;
+      background: transparent;
+      border: 0px;
+      width: 100%;
+      color: #000000;
+    }
+  }
+  .input-group {
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    padding-left: 20px;
+    margin-bottom: 0;
+    border-radius: 4px;
+    width: 100%;
+    background: #f4f4f4;
+    input {
+      font-size: 16px;
+      font-weight: bold;
+      background: transparent;
+      border: 0px;
+      width: 100%;
+      padding: 0px;
+      height: auto;
+      color: #000000;
+      &[type="text"]{
+        border: 0px;
+        background: transparent;
+      }
+    }
+    .input-group-text {
+      color: #000000;
+      padding: 0px 10px;
+      height: auto;
+      font-size: 16px;
+      font-weight: bold;
+      border: 0px;
+      background: transparent;
+    }
+  }
+  .sum-field {
+    color: #005197 !important;
+    input {
+      color: #005197 !important;
+    }
+    .input-group-text {
+      color: #005197 !important;
+    }
+  }
 }
 
 .header-wrapper {
@@ -102,7 +186,5 @@ body {
         fill: #c4261d;
       }
     }
-
   }
-
 }

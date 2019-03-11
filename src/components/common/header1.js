@@ -1,20 +1,23 @@
 import React from 'react';
-const header = () => {
+import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
+const header = props => {
+  const { t } = props;
   return (
-    <nav className="navbar navbar-dark bg-dark">
-      <button
-        className="navbar-toggler"
-        type="button"
-      >
-        <i class="fas fa-angle-left"></i>
-      </button>
-      <a className="navbar-brand" href="#">
-        MBS
-      </a>
-      <button className="navbar-toggler" type="button">
-        <i className="fas fa-search" />
-      </button>
-    </nav>
+    <div className="header-wrapper fixed-top row">
+      <div className="col-4">
+        <button className="navbar-toggler filter" type="button">
+          <img src="/img/chevron-left.png" height="20"/>
+        </button>
+      </div>
+      <div className="col-4 text-center">
+        <h3>{t(props.title)}</h3>
+      </div>
+    </div>
   );
 };
-export default header;
+header.propTypes = {
+  title: PropTypes.string,
+  t: PropTypes.func
+};
+export default withTranslation()(header);
