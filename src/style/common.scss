@@ -1,83 +1,103 @@
 body {
   background-color: #e7e7e7;
+
   .list-group-item {
     border-color: #dcdde0;
   }
+
   table.table-striped {
     border: 4px;
     overflow: hidden;
     border: 1px solid #dcdde0;
+
     thead {
-      tr:nth-of-type(odd){
+      tr:nth-of-type(odd) {
         background: #e4e4e4;
       }
     }
+
     tr {
       border-bottom: 1px solid #dcdde0;
-      &:nth-of-type(odd){
+
+      &:nth-of-type(odd) {
         background: #f4f4f4;
       }
     }
   }
+
   .badge-danger {
     background: #c4261d;
   }
+
   a {
     cursor: pointer;
+
     &:hover {
       text-decoration: none;
     }
   }
+
   .container-fluid {
     max-width: 750px;
     padding-top: 85px;
     padding-bottom: 85px;
   }
+
   .white-bg {
     background-color: #fff;
   }
+
   h3 {
     font-weight: bold;
     font-size: 21px;
     margin: 0;
   }
+
   h4 {
     font-weight: normal;
     font-size: 20px;
     margin: 0;
   }
+
   h5 {
     font-size: 18px;
     font-weight: bold;
     margin: 0;
   }
+
   .color {
     font-weight: bold;
     color: #005197;
   }
+
+  .color {
+    color: #c4261d;
+  }
+
   .col-form-label {
     font-size: 20px;
+
     span {
       color: #c4261d;
       font-size: 30px;
       font-weight: bold;
       line-height: normal;
     }
+
     small {
       font-size: 18px;
       font-weight: bold;
       line-height: normal;
     }
   }
+
   .react-datepicker-wrapper {
-    padding-top: calc(.375rem + 1px);
-    padding-bottom: calc(.375rem + 1px);
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: calc(.375rem + 1px) 20px;
     margin-bottom: 0;
-    background: #f4f4f4 url(/img/calendar.png) no-repeat center right 10px ;
+    background: #f4f4f4 url("/img/calendar.png") no-repeat center right 10px;
     border-radius: 4px;
     width: 100%;
+
     .react-datepicker__input-container {
       display: block;
     }
@@ -86,11 +106,12 @@ body {
       font-size: 16px;
       font-weight: bold;
       background: transparent;
-      border: 0px;
+      border: 0;
       width: 100%;
       color: #000000;
     }
   }
+
   .input-group {
     padding-top: calc(.375rem + 1px);
     padding-bottom: calc(.375rem + 1px);
@@ -99,25 +120,29 @@ body {
     border-radius: 4px;
     width: 100%;
     background: #f4f4f4;
+
     &.number-field {
       display: inline-flex;
-      width:auto;
+      width: auto;
       padding-right: 20px;
     }
+
     input {
       font-size: 16px;
       font-weight: bold;
       background: transparent;
-      border: 0px;
+      border: 0;
       width: 100%;
-      padding: 0px;
+      padding: 0;
       height: auto;
       color: #000000;
-      &[type="text"]{
-        border: 0px;
+
+      &[type="text"] {
+        border: 0;
         background: transparent;
       }
-      &[type="number"]{
+
+      &[type="number"] {
         width: 55px;
         flex: 55px;
         -webkit-flex: 55px;
@@ -125,31 +150,37 @@ body {
         max-width: 55px;
       }
     }
+
     .input-group-text {
       color: #000000;
-      padding: 0px 10px;
+      padding: 0 10px;
       height: auto;
       font-size: 16px;
       font-weight: bold;
-      border: 0px;
+      border: 0;
       background: transparent;
     }
   }
+
   .sum-field {
     color: #005197 !important;
     font-weight: bold;
+
     input {
       color: #005197 !important;
     }
+
     .input-group-text {
       color: #005197 !important;
     }
   }
+
   .btn {
     border-radius: 4px;
     max-width: 300px;
     margin: 0 auto;
   }
+
   .btn-light {
     width: 28px;
     height: 28px;
@@ -159,15 +190,17 @@ body {
     padding: 0;
     align-items: center;
     justify-content: center;
-    border-radius: 0px;
+    border-radius: 0;
   }
+
   .btn-primary {
     color: #fff;
     background-color: #005197;
     border-color: #005197;
     height: 55px;
   }
-  .collapse-custom{
+
+  .collapse-custom {
     width: 15px;
     height: 15px;
     color: #fff;
@@ -184,52 +217,120 @@ body {
   padding: 20px 15px;
   background-color: #fff;
   margin-bottom: 22px;
-  box-shadow: 0px 9px 16px 6px #ccc;
-  &>div {
-    padding: 0px;
+  box-shadow: 0 9px 16px 6px #ccc;
+
+  & > div {
+    padding: 0;
   }
+
   h3 {
     font-weight: bold;
     font-size: 21px;
     margin: 0;
   }
+
   .filter {
     font-size: 19px;
     font-weight: bold;
+
     svg {
       margin-right: 12px;
+    }
+  }
+}
 
+.form-check-label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked ~ .checkmark {
+      background-color: #2196F3;
+    }
+    &:checked ~ .checkmark:after{
+      display: block;
     }
   }
 
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  &:hover {
+    .checkmark{
+      background-color: #ccc;
+    }
+  }
+
+
 }
+
 .footer-wrapper {
   background: #fff;
-  box-shadow: 0px -9px 10px 0px #ccc;
+  box-shadow: 0 -9px 10px 0 #ccc;
   display: flex;
+
   a {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 14px 0px 8px;
+    padding: 14px 0 8px;
     color: #999999;
     font-weight: bold;
     font-size: 15px;
+
     svg {
       margin-bottom: 10px;
       fill: #999999;
     }
   }
+
   a:hover {
     color: #005197;
+
     svg {
       fill: #005197;
     }
   }
 }
+
 .card {
   margin-bottom: 18px;
+
   li {
     padding: 10px 25px;
     font-size: 19px;
@@ -237,29 +338,36 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
+
     span {
       font-weight: bold;
     }
+
     p {
       margin: 0;
       font-weight: bold;
+
       .quatity {
         color: #c4261d;
       }
     }
   }
+
   .title {
     color: #005197;
     font-size: 21px;
     font-weight: bold;
+
     .link {
       display: flex;
       align-items: center;
+
       .badge {
         font-size: 120%;
         margin-right: 12px;
         width: 150px;
       }
+
       svg {
         fill: #c4261d;
       }

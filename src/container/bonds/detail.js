@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Layout from '../layout/layout';
+import history from '../../utils/history';
 import Popup from '../../components/common/popup';
 import { Section1, Section2, Section3, Section4 } from '../../components/detail/section';
 
@@ -59,7 +60,11 @@ class Detail extends Component {
             refs="table2"
             onClick={this.showPopup}
           />
-          <button type="button" className="btn btn-primary btn-lg btn-block">
+          <button
+            type="button"
+            onClick={() => history.push({ pathname: '/bonds/buy/order' })}
+            className="btn btn-primary btn-lg btn-block"
+          >
             Đặt lệnh mua
           </button>
         </div>
