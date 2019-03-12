@@ -3,6 +3,22 @@ body {
   .list-group-item {
     border-color: #dcdde0;
   }
+  table.table-striped {
+    border: 4px;
+    overflow: hidden;
+    border: 1px solid #dcdde0;
+    thead {
+      tr:nth-of-type(odd){
+        background: #e4e4e4;
+      }
+    }
+    tr {
+      border-bottom: 1px solid #dcdde0;
+      &:nth-of-type(odd){
+        background: #f4f4f4;
+      }
+    }
+  }
   .badge-danger {
     background: #c4261d;
   }
@@ -35,8 +51,23 @@ body {
     font-weight: bold;
     margin: 0;
   }
+  .color {
+    font-weight: bold;
+    color: #005197;
+  }
   .col-form-label {
     font-size: 20px;
+    span {
+      color: #c4261d;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: normal;
+    }
+    small {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: normal;
+    }
   }
   .react-datepicker-wrapper {
     padding-top: calc(.375rem + 1px);
@@ -68,6 +99,11 @@ body {
     border-radius: 4px;
     width: 100%;
     background: #f4f4f4;
+    &.number-field {
+      display: inline-flex;
+      width:auto;
+      padding-right: 20px;
+    }
     input {
       font-size: 16px;
       font-weight: bold;
@@ -80,6 +116,13 @@ body {
       &[type="text"]{
         border: 0px;
         background: transparent;
+      }
+      &[type="number"]{
+        width: 55px;
+        flex: 55px;
+        -webkit-flex: 55px;
+        display: block;
+        max-width: 55px;
       }
     }
     .input-group-text {
@@ -94,12 +137,46 @@ body {
   }
   .sum-field {
     color: #005197 !important;
+    font-weight: bold;
     input {
       color: #005197 !important;
     }
     .input-group-text {
       color: #005197 !important;
     }
+  }
+  .btn {
+    border-radius: 4px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .btn-light {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #c9cdd4;
+    background: #fff;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #005197;
+    border-color: #005197;
+    height: 55px;
+  }
+  .collapse-custom{
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 15px;
   }
 }
 
@@ -124,6 +201,7 @@ body {
 
     }
   }
+
 }
 .footer-wrapper {
   background: #fff;
