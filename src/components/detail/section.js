@@ -7,7 +7,7 @@ const Section1 = () => {
     <div className="section">
       <div className="row">
         <div className="col-12">
-          <h3>
+          <h3 className="mb-4">
             NVL1235860 <img src="/img/popup-icon.png" />
           </h3>
           <div className="row">

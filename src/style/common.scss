@@ -1,6 +1,6 @@
 body {
   background-color: #e7e7e7;
-
+  font-family: Arial;
   .list-group-item {
     border-color: #dcdde0;
   }
@@ -91,6 +91,7 @@ body {
       font-weight: bold;
       line-height: normal;
     }
+
   }
 
   .react-datepicker-wrapper {
@@ -112,8 +113,21 @@ body {
       width: 100%;
       color: #000000;
     }
-  }
 
+  }
+  .confirm-content {
+    border: 1px solid #dcdde0;
+    border-radius: 4px;
+    padding: 15px 10px;
+    background-color: #fff;
+    margin-bottom: 30px;
+    p {
+      margin-top: 0px;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
   .input-group {
     padding-top: calc(.375rem + 1px);
     padding-bottom: calc(.375rem + 1px);
@@ -200,6 +214,7 @@ body {
     background-color: #005197;
     border-color: #005197;
     height: 55px;
+    font-size: 18px;
   }
 
   .collapse-custom {
@@ -340,6 +355,7 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    line-height: 30px;
 
     span {
       font-weight: bold;
@@ -352,6 +368,9 @@ body {
       .quatity {
         color: #c4261d;
       }
+    }
+    .quatity-text {
+      font-size: 30px;
     }
   }
 
@@ -374,5 +393,10 @@ body {
         fill: #c4261d;
       }
     }
+  }
+  .btn-primary {
+    padding-left: 23px;
+    padding-right: 23px;
+    margin: 0px;
   }
 }

@@ -10,7 +10,7 @@ class Order extends Component {
   }
   render() {
     return (
-      <Layout type title="Đặt lệnh mua">
+      <Layout type={1} title="Đặt lệnh mua">
         <div className="bond-detail">
           <h2 className="text-center color-1">Thông tin về giao dịch</h2>
           <table className="table table-bordered bg-white">
@@ -88,7 +88,7 @@ class Order extends Component {
           </label>
           <button
             type="button"
-            onClick={() => history.push({ pathname: '/bonds/buy/order' })}
+            onClick={() => history.push({ pathname: '/bonds/buy/confirm' })}
             className="btn btn-primary btn-lg btn-block"
           >
             Đặt lệnh mua

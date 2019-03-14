@@ -29,7 +29,7 @@ class Detail extends Component {
   componentDidMount() {}
   render() {
     return (
-      <Layout title="Chi Tiết Sản phẩm">
+      <Layout type={1} title="Chi Tiết Sản phẩm">
         <div className="bond-detail">
           {this.state.toggle.popup && (
             <Popup title="Thông tin trái phiếu">
