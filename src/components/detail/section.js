@@ -2,23 +2,23 @@ import React, { Fragment, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 
-const Section1 = () => {
+const Section1 = props => {
   return (
     <div className="section">
       <div className="row">
         <div className="col-12">
           <h3 className="mb-4">
-            NVL1235860 <img src="/img/popup-icon.png" />
+            {props.item.bondName} <img src="/img/popup-icon.png" />
           </h3>
           <div className="row">
             <div className="col-6">
               <h4>Ngày đáo hạn</h4>
-              <h5>24/10/2019</h5>
+              <h5>{props.item.maturityDate}</h5>
             </div>
             <div className="col-6 text-right">
               <h4>Hạn mức</h4>
               <h5>
-                <span>23.659</span> trái phiếu
+                <span>{props.item.roomBalance}</span> trái phiếu
               </h5>
             </div>
           </div>
@@ -26,6 +26,10 @@ const Section1 = () => {
       </div>
     </div>
   );
+};
+
+Section1.propTypes = {
+  item: PropTypes.object
 };
 
 const Section2 = () => {

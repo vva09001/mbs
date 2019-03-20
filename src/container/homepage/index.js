@@ -5,16 +5,26 @@ import _ from 'lodash';
 
 import Layout from '../layout/layout';
 import Card from '../../components/common/card';
-// import bondsActions from '../../store/coin/actions';
+import Loading from '../../components/common/loading';
+import bondsActions from '../../store/bonds/actions';
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.bondsFetch({
+      userid:1212,
+      channel: 'VT'
+    })
+  }
   render() {
     return (
       <Layout type="3" title="Sản phẩm">
+        {
+          this.props.loading && <Loading />
+        }
+
         {_.map(this.props.bonds, item => (
           <Card item={item} key={item.id}/>
         ))}
@@ -29,11 +39,14 @@ HomePage.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    bonds: state.Bonds.list
+    bonds: state.Bonds.list,
+    loading: state.Bonds.loading
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  bondsFetch: bondsActions.list
+};
 
 export default connect(
   mapStateToProps,

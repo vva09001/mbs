@@ -6,17 +6,12 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../style/index.scss';
-
-const Loader = () => (
-  <div className="App">
-    <div>loading...</div>
-  </div>
-);
+import Loading from '../components/common/loading'
 
 const RootContainer = props => {
   return (
     <div className="App">
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loading />}>
         {props.children}
         <ToastContainer />
       </Suspense>

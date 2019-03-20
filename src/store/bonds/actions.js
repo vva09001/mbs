@@ -3,13 +3,15 @@ const actions = {
   BONDS_LIST: 'BONDS_LIST',
   BONDS_DETAIL: 'BONDS_DETAIL',
   BONDS_GET: 'BONDS_GET',
+  BONDS_LOADING: 'BONDS_LOADING',
   BONDS_ERROR: 'BONDS_ERROR',
-  list: () => ({
-    type: actions.BONDS_LIST
+  list: params => ({
+    type: actions.BONDS_LIST,
+    params
   }),
-  detail: id => ({
+  detail: params => ({
     type: actions.BONDS_GET,
-    id
+    params
   })
 };
 export default actions;

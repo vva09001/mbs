@@ -3,10 +3,10 @@ import Promise from 'bluebird';
 const { REACT_APP_BASE_URL } = process.env;
 
 const request = axios.create({
-  baseURL: REACT_APP_BASE_URL + 'api/',
+  baseURL: REACT_APP_BASE_URL,
   timeout: 5000,
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/x-www-form-urlencoded'
   }
 });
 

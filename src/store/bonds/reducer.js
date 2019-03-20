@@ -1,37 +1,9 @@
 import actions from './actions';
 
 const initialState = {
-  list: [
-    {
-      id: 1,
-      title: 'NVL123',
-      date: '09/10/2019',
-      quatity: 10000,
-      percent: 8.7
-    },
-    {
-      id: 2,
-      title: 'NVL1234',
-      date: '09/10/2019',
-      quatity: 10000,
-      percent: 8.8
-    },
-    {
-      id: 3,
-      title: 'NVL1235',
-      date: '09/10/2019',
-      quatity: 10000,
-      percent: 8.9
-    },
-    {
-      id: 4,
-      title: 'NVL1236',
-      date: '09/10/2019',
-      quatity: 10000,
-      percent: 8
-    }
-  ],
+  list: [],
   detail: {},
+  loading: false,
   error: ''
 };
 
@@ -41,6 +13,8 @@ const Bonds = (state = initialState, action) => {
       return { ...state, list: action.list };
     case actions.BONDS_DETAIL:
       return { ...state, detail: action.detail };
+    case actions.BONDS_LOADING:
+      return { ...state, loading: !state.loading };
     case actions.BONDS_ERROR:
       return { ...state, error: action.error };
     default:

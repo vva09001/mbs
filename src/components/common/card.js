@@ -9,24 +9,24 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          {t(props.item.title)}
+          {t(props.item.bondName)}
           <span className="link">
             <span className="badge badge-danger">
-              {props.item.percent}%/{t('năm')}
+              {props.item.termRate}%/{t('năm')}
             </span>
-            <a onClick={() => history.push({ pathname: '/bonds/' + props.item.id })}>
+            <a onClick={() => history.push({ pathname: '/bonds/' + props.item.bondCode })}>
               <Icon name="arrow" width="18" height="24" />
             </a>
           </span>
         </li>
         <li className="list-group-item">
           {t('Ngày đáo hạn')}
-          <span className="float-right">{props.item.date}</span>
+          <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
           {t('Đang còn')}
           <p className="float-right">
-            <span className="quatity">{props.item.quatity}</span> {t('trái phiếu')}
+            <span className="quatity">{props.item.roomBalance}</span> {t('trái phiếu')}
           </p>
         </li>
         {props.children}

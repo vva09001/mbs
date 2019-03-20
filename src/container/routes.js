@@ -26,7 +26,7 @@ const AppRouter = () => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/bonds" component={BondsList} />
-          <Route exact path="/bonds/:id" component={BondsDetail} />
+          <Route exact path="/bonds/:code" component={BondsDetail} />
           <Route exact path="/bonds/buy/order" component={BondsBuyOrder} />
           <Route exact path="/bonds/buy/confirm" component={BondsBuyConfirm} />
           <Route exact path="/bonds/sale/order" component={BondsSaleOrder} />
