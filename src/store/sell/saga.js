@@ -1,14 +1,14 @@
 import actions from './actions';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
-import { buyInfo, buyFlow } from '../../services/sell';
+import { Info, Flow } from '../../services/sell';
 
-export function* buyFlowSaga() {
-  yield takeEvery(actions.BUY_FLOW_GET, function*(data) {
+export function* sellFlowSaga() {
+  yield takeEvery(actions.SELL_FLOW_GET, function*(data) {
     try {
       yield put({ type: actions.BUY_LOADING });
 
       // Get request
-      const res = yield buyFlow(data.params);
+      const res = yield Flow(data.params);
 
       // handle request
       if (res.status === 200) {
@@ -22,13 +22,13 @@ export function* buyFlowSaga() {
   });
 }
 
-export function* buyInfoSaga() {
-  yield takeEvery(actions.BONDS_GET, function*(data) {
+export function* sellInfoSaga() {
+  yield takeEvery(actions.SELL_INFO_GET, function*(data) {
     try {
       yield put({ type: actions.BONDS_LOADING });
 
       // get request
-      const res = yield buyInfo(data.params);
+      const res = yield Info(data.params);
 
       // handle request
       if (res.status === 200) {
@@ -43,5 +43,5 @@ export function* buyInfoSaga() {
 }
 
 export default function* rootSaga() {
-  yield all([fork(buyFlowSaga), fork(buyInfoSaga)]);
+  yield all([fork(sellFlowSaga), fork(sellInfoSaga)]);
 }

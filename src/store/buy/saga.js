@@ -12,32 +12,32 @@ export function* buyFlowSaga() {
 
       // handle request
       if (res.status === 200) {
-        yield put({ type: actions.BUY_FLOW, list: res.data.data.data });
+        yield put({ type: actions.BUY_FLOW, flow: res.data.data.data });
       }
 
       yield put({ type: actions.BUY_LOADING });
     } catch (error) {
-      yield put({ type: actions.BONDS_ERROR, error: error.message });
+      yield put({ type: actions.BUY_ERROR, error: error.message });
     }
   });
 }
 
 export function* buyInfoSaga() {
-  yield takeEvery(actions.BONDS_GET, function*(data) {
+  yield takeEvery(actions.BUY_INFO_GET, function*(data) {
     try {
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.BUY_LOADING });
 
       // get request
       const res = yield Info(data.params);
 
       // handle request
       if (res.status === 200) {
-        yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
+        yield put({ type: actions.BUY_INFO, info: res.data.data });
       }
 
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.BUY_LOADING });
     } catch (error) {
-      yield put({ type: actions.USER_ERROR, error: error.message });
+      yield put({ type: actions.BUY_ERROR, error: error.message });
     }
   });
 }

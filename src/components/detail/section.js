@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 
@@ -29,7 +29,8 @@ const Section1 = props => {
 };
 
 Section1.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
+  loading: PropTypes.bool
 };
 
 const Section2 = () => {
