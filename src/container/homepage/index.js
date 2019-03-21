@@ -14,19 +14,17 @@ class HomePage extends Component {
   }
   componentDidMount() {
     this.props.bondsFetch({
-      userid:1212,
+      userid: 1212,
       channel: 'VT'
-    })
+    });
   }
   render() {
     return (
       <Layout type="3" title="Sản phẩm">
-        {
-          this.props.loading && <Loading />
-        }
+        {this.props.loading && <Loading />}
 
         {_.map(this.props.bonds, item => (
-          <Card item={item} key={item.id}/>
+          <Card item={item} key={item.id} />
         ))}
       </Layout>
     );
@@ -34,7 +32,8 @@ class HomePage extends Component {
 }
 
 HomePage.propTypes = {
-  bonds: PropTypes.array
+  bonds: PropTypes.array,
+  loading: PropTypes.bool
 };
 
 const mapStateToProps = state => {

@@ -77,13 +77,13 @@ const Section2 = () => {
   );
 };
 
-const Section3 = () => {
+const Section3 = props => {
   return (
     <div>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">Lãi suất đáo hạn</label>
         <div className="col-6 text-right col-form-label">
-          <span>8</span>
+          <span>{props.item.termRate}</span>
           <small>%/năm</small>
         </div>
       </div>
@@ -102,6 +102,10 @@ const Section3 = () => {
       </div>
     </div>
   );
+};
+
+Section3.propTypes = {
+  item: PropTypes.object
 };
 
 const Section4 = ({ title, onClick, status, refs }) => {

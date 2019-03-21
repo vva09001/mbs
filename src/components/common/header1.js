@@ -7,7 +7,7 @@ const header = props => {
     <div className="header-wrapper fixed-top row align-items-center">
       <div className="col-4">
         <button className="navbar-toggler filter" type="button">
-          <img src="/img/chevron-left.png" height="20"/>
+          <img src="/img/chevron-left.png" height="20" alt="back"/>
         </button>
       </div>
       <div className="col-4 text-center">

@@ -25,7 +25,7 @@ class Detail extends Component {
       userId: 1212,
       channel: 'VT',
       code: this.props.match.params.code
-    })
+    });
   }
   showPopup = type => {
     this.setState({
@@ -39,23 +39,23 @@ class Detail extends Component {
   render() {
     return (
       <Layout type={1} title="Chi Tiết Sản phẩm">
-      {this.state.toggle.popup && (
-        <Popup title="Thông tin trái phiếu">
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">Cras justo odio</li>
-            <li className="list-group-item">Dapibus ac facilisis in</li>
-            <li className="list-group-item">Vestibulum at eros</li>
-          </ul>
-        </Popup>
-      )}
-        {
-          this.props.loading ? <Loading /> :
+        {this.state.toggle.popup && (
+          <Popup title="Thông tin trái phiếu">
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">Cras justo odio</li>
+              <li className="list-group-item">Dapibus ac facilisis in</li>
+              <li className="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </Popup>
+        )}
+        {this.props.loading ? (
+          <Loading />
+        ) : (
           <div className="bond-detail">
-
             <Section1 item={this.props.bond} />
             <form>
               <Section2 />
-              <Section3 />
+              <Section3 item={this.props.bond} />
             </form>
             <div className="form-group sum-field row">
               <label className="col-12 col-form-label">TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)</label>
@@ -80,14 +80,15 @@ class Detail extends Component {
               Đặt lệnh mua
             </button>
           </div>
-        }
+        )}
       </Layout>
     );
   }
 }
 
 Detail.propTypes = {
-  bonds: PropTypes.array
+  bond: PropTypes.object,
+  loading: PropTypes.bool
 };
 
 const mapStateToProps = state => {

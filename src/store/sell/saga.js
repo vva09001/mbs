@@ -1,34 +1,34 @@
 import actions from './actions';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
-import { list, detail } from '../../services/bonds';
+import { buyInfo, buyFlow } from '../../services/sell';
 
-export function* bondsList() {
-  yield takeEvery(actions.BONDS_LIST, function*(data) {
+export function* buyFlowSaga() {
+  yield takeEvery(actions.BUY_FLOW_GET, function*(data) {
     try {
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.BUY_LOADING });
 
       // Get request
-      const res = yield list(data.params);
+      const res = yield buyFlow(data.params);
 
       // handle request
       if (res.status === 200) {
-        yield put({ type: actions.BONDS, list: res.data.data.data });
+        yield put({ type: actions.BUY_FLOW, list: res.data.data.data });
       }
 
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.BUY_LOADING });
     } catch (error) {
       yield put({ type: actions.BONDS_ERROR, error: error.message });
     }
   });
 }
 
-export function* bondsGet() {
+export function* buyInfoSaga() {
   yield takeEvery(actions.BONDS_GET, function*(data) {
     try {
       yield put({ type: actions.BONDS_LOADING });
 
       // get request
-      const res = yield detail(data.params);
+      const res = yield buyInfo(data.params);
 
       // handle request
       if (res.status === 200) {
@@ -43,5 +43,5 @@ export function* bondsGet() {
 }
 
 export default function* rootSaga() {
-  yield all([fork(bondsList), fork(bondsGet)]);
+  yield all([fork(buyFlowSaga), fork(buyInfoSaga)]);
 }
