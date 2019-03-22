@@ -10,7 +10,7 @@ import Footer from '../../components/common/footer';
 const header = props => {
   switch (props.type) {
     case 1:
-      return (<Header1 title={props.title} />)
+      return (<Header1 title={props.title} path={props.path} />)
       break;
     case 2:
       return (<Header2 title={props.title} />)

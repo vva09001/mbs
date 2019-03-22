@@ -6,8 +6,8 @@ import history from '../../utils/history';
 import bondsActions from '../../store/bonds/actions';
 import buyActions from '../../store/buy/actions';
 import Popup from '../../components/common/popup';
-import Loading from '../../components/common/loading';
-import { Section1, Section2, Section3, Section4 } from '../../components/detail/section';
+import { Section1, Section3, Section4 } from '../../components/detail/section';
+import Section2 from '../../components/detail/section2';
 
 class Detail extends Component {
   constructor(props) {
@@ -18,26 +18,27 @@ class Detail extends Component {
         table1: true,
         table2: false
       },
-      startDate: new Date()
+      params: {
+        date: new Date(),
+        amount: 0,
+        sum: 0,
+      }
     };
   }
+
   componentDidMount() {
     this.props.bondsDetail({
       userId: 1212,
       channel: 'VT',
       code: this.props.match.params.code
     });
-    this.props.buyInfo({
-      userId: 1212,
-      channel: 'VT',
-      code: this.props.match.params.code
-    });
-    this.props.buyFlow({
+    this.props.buyFetch({
       userId: 1212,
       channel: 'VT',
       code: this.props.match.params.code
     });
   }
+
   showPopup = type => {
     this.setState({
       toggle: {
@@ -47,9 +48,23 @@ class Detail extends Component {
     });
   };
 
+  handleParam = (key, value) => {
+    this.setState({
+      ...this.state,
+      [key]: value
+    })
+  }
+  test() {
+    this.handleParam('params', {
+      date: new Date(),
+      amount: 10,
+      sum: 10,
+    })
+    console.log(this.state.params)
+  }
   render() {
     return (
-      <Layout type={1} title="Chi Tiết Sản phẩm">
+      <Layout type={1} path="/" title="Chi Tiết Sản phẩm">
         {this.state.toggle.popup && (
           <Popup title="Thông tin trái phiếu">
             <ul className="list-group list-group-flush">
@@ -62,35 +77,32 @@ class Detail extends Component {
         <div className="bond-detail">
           <Section1 item={this.props.bond} loading={this.props.bondLoading} />
           <form>
-            <Section2 />
-            <Section3 item={this.props.bond} />
+            <Section2 item={this.props.info} loading={this.props.buyLoading} params={this.state.params} handleParam={this.handleParam}/>
+            <Section3 item={this.props.info} loading={this.props.buyLoading}/>
           </form>
           <div className="form-group sum-field row">
             <label className="col-12 col-form-label">TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)</label>
           </div>
-          {this.props.buyLoading ? (
-            <Loading />
-          ) : (
             <Section4
               title="Chưa bao gồm tái đầu tư coupon:"
               status={this.state.toggle.table1}
               refs="table1"
               onClick={this.showPopup}
+              loading={this.props.buyLoading}
+              item={this.props.flow.nonInvest}
+
             />
-          )}
-          {this.props.buyLoading ? (
-            <Loading />
-          ) : (
             <Section4
               title="Đã bao gồm tái đầu tư coupon:"
               status={this.state.toggle.table2}
               refs="table2"
               onClick={this.showPopup}
+              loading={this.props.buyLoading}
+              item={this.props.flow.invest}
             />
-          )}
           <button
             type="button"
-            onClick={() => console.log(this.props.bond)}
+            onClick={() => this.test()}
             className="btn btn-primary btn-lg btn-block"
           >
             Đặt lệnh mua
@@ -113,6 +125,8 @@ Detail.propTypes = {
 const mapStateToProps = state => {
   return {
     bond: state.Bonds.detail,
+    info: state.Buy.info,
+    flow: state.Buy.flow,
     bondLoading: state.Bonds.loading,
     buyLoading: state.Buy.loading
   };
@@ -120,8 +134,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   bondsDetail: bondsActions.detail,
-  buyInfo: buyActions.getInfo,
-  buyFlow: buyActions.getFlow
+  buyFetch: buyActions.getBuy
 };
 
 export default connect(

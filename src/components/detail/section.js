@@ -1,8 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
+import _ from 'lodash';
+import Loading from '../common/loading';
 
 const Section1 = props => {
+  if(props.loading){
+    return (
+      <Loading />
+    )
+  }
   return (
     <div className="section">
       <div className="row">
@@ -33,52 +40,12 @@ Section1.propTypes = {
   loading: PropTypes.bool
 };
 
-const Section2 = () => {
-  return (
-    <div className="section-2">
-      <div className="form-group row">
-        <label className="col-6 col-form-label">Ngày giao dịch</label>
-        <div className="col-6">
-          <DatePicker />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label className="col-6 col-form-label">Giá đơn mua</label>
-        <div className="col-6">
-          <div className="input-group">
-            <input type="text" className="form-control" />
-            <div className="input-group-append">
-              <div className="input-group-text">VND</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="form-group row">
-        <label className="col-sm-6 col-form-label">Số lượng TP mua</label>
-        <div className="col-sm-6">
-          <div className="input-group number-field">
-            <button className="btn btn-light">+</button>
-            <input type="number" className="form-control" />
-            <button className="btn btn-light">-</button>
-          </div>
-        </div>
-      </div>
-      <div className="form-group sum-field row">
-        <label className="col-6 col-form-label">GIÁ TRỊ ĐẦU TƯ</label>
-        <div className="col-6">
-          <div className="input-group">
-            <input type="text" className="form-control" disabled value="510,760,000" />
-            <div className="input-group-append">
-              <div className="input-group-text">VND</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const Section3 = props => {
+  if(props.loading){
+    return (
+      <Loading />
+    )
+  }
   return (
     <div>
       <div className="form-group row align-items-center">
@@ -91,13 +58,13 @@ const Section3 = props => {
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">Thời gian nắm giữ</label>
         <div className="col-6 text-right col-form-label">
-          <small>365 ngày</small>
+          <small>{props.item.numInvestDate} ngày</small>
         </div>
       </div>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">Lãi suất đầu tư</label>
         <div className="col-6 text-right col-form-label">
-          <span>7,2</span>
+          <span>{props.item.reinvestmentRate}</span>
           <small>%/năm</small>
         </div>
       </div>
@@ -109,7 +76,13 @@ Section3.propTypes = {
   item: PropTypes.object
 };
 
-const Section4 = ({ title, onClick, status, refs }) => {
+const Section4 = props => {
+  const { title, onClick, status, refs} = props
+  if(props.loading) {
+    return (
+      <Loading />
+    )
+  }
   return (
     <Fragment>
       <div className="row">
@@ -132,21 +105,13 @@ const Section4 = ({ title, onClick, status, refs }) => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Coupon</td>
-                  <td>02/04/2019</td>
-                  <td>8,600,0000</td>
-                </tr>
-                <tr>
-                  <td>Coupon</td>
-                  <td>02/04/2019</td>
-                  <td>8,600,0000</td>
-                </tr>
-                <tr>
-                  <td>Giá trị KH nhận được cuối kỳ</td>
-                  <td>02/04/2019</td>
-                  <td>8,600,0000</td>
-                </tr>
+                {_.map(props.item, item => (
+                  <tr>
+                    <td>{item.content}</td>
+                    <td>{item.payCouponDate}</td>
+                    <td>{item.cashNonInvest}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -159,6 +124,7 @@ Section4.propTypes = {
   title: PropTypes.string,
   onClick: PropTypes.func,
   status: PropTypes.bool,
-  refs: PropTypes.string
+  refs: PropTypes.string,
+  loading: PropTypes.bool
 };
-export { Section1, Section2, Section3, Section4 };
+export { Section1, Section3, Section4 };
