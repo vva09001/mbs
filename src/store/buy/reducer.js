@@ -1,50 +1,10 @@
 import actions from './actions';
+import getContractBuyInfo from '../../db/getContractBuyInfo.json';
+import getContractBuyFlow from '../../db/getContractBuyFlow.json';
 
 const initialState = {
-  flow: {
-    "nonInvest": [
-      {
-        "content":"coupon",
-        "payCouponDate":"10/10/2019",
-        "cashNonInvest": 100,
-      }
-      ],
-      "invest": [
-      {
-        "content":"coupon",
-        "cashNonInvest": 100,
-        "payCouponDate":"10/10/2020",
-        "lastPayCouponDate":"",
-        "reinvestmentRate": 200,
-        "cashInvest": 100
-      }
-    ]
-  },
-  info: {
-    "contractCode":"10",
-    "bondCode":"TEST2",
-    "customerName":"",
-    "customerId":"",
-    "customerIdDate":"",
-    "customerIdPlace":"",
-    "maturityDate":"",
-    "roomBalance": 10,
-    "couponPayment": 10,
-    "buyDate":"",
-    "termRate": 8,
-    "reinvestmentRate": 0,
-    "buyVol": 10,
-    "buyVolMin": 20,
-    "buyPrice": 30,
-    "buyFee": 40,
-    "buyValue": 50,
-    "numInvestDate": 60,
-    "sumCashNoninvest": 70,
-    "sumCashInvest": 80,
-    "termNoninvest": 90,
-    "termInvest": 100,
-    "status":""
-  },
+  flow: getContractBuyFlow,
+  info: getContractBuyInfo,
   loading: false,
   error: ''
 };

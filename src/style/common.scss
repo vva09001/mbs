@@ -2,6 +2,12 @@
   outline: none !important;
 }
 body {
+  .btn-transparent {
+    display: inline-block;
+    padding: 0;
+    border: 0px;
+    background: transparent;
+  }
   background-color: #e7e7e7;
   font-family: Arial;
   .list-group-item {
@@ -29,7 +35,7 @@ body {
   }
 
   .badge-danger {
-    background: #c4261d;
+    background: #ff3b30;
   }
 
   a {
@@ -70,6 +76,12 @@ body {
     margin: 0;
   }
 
+  h6, .h6 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
   .color {
     font-weight: bold;
     color: #005197;
@@ -77,6 +89,10 @@ body {
 
   .color-1 {
     color: #c4261d;
+  }
+
+  .text-primary {
+      color: #263d60;
   }
 
   .col-form-label {
@@ -236,26 +252,66 @@ body {
 
 .header-wrapper {
   padding: 20px 15px;
-  background-color: #fff;
+  background: linear-gradient(to right, #17adb0, #007edc);
   margin-bottom: 22px;
   box-shadow: 0 9px 16px 6px #ccc;
+  color: #fff;
 
   & > div {
     padding: 0;
+  }
+
+  & > .col-10 {
+    padding-right: 15px;
+  }
+
+  &.no-shadow {
+      box-shadow: none;
+  }
+
+  .header-search {
+    padding-right: 15px;
+    border-radius: 4px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5);
+    i {
+      color: #fff;
+      padding: 10px 10px;
+    }
+    input[type="text"] {
+      background: transparent;
+      color: #fff;
+      border: 0;
+      width: 100%;
+      &::placeholder {
+        color:#fff;
+        opacity: 1;
+      }
+
+      &:-ms-input-placeholder {
+       color: #fff;
+      }
+
+      &::-ms-input-placeholder {
+       color: #fff;
+      }
+    }
   }
 
   h3 {
     font-weight: bold;
     font-size: 21px;
     margin: 0;
+
   }
 
   .filter {
     font-size: 19px;
     font-weight: bold;
-
+    color: #fff;
     svg {
       margin-right: 12px;
+      fill: #fff;
     }
   }
 }
@@ -348,7 +404,22 @@ body {
     }
   }
 }
-
+.nav-tabs {
+  background: #fff;
+  width: 100%;
+  .nav-link {
+    border: 0px;
+    border-bottom: 3px solid #fff;
+    color: #b6b6b6;
+    font-size: 14px;
+    border-radius: 0;
+    background: transparent;
+    &:hover, &.active {
+      border-color: #4cd964;
+      color: #263d60;
+    }
+  }
+}
 .card {
   margin-bottom: 18px;
 
@@ -379,9 +450,11 @@ body {
   }
 
   .title {
-    color: #005197;
-    font-size: 21px;
-    font-weight: bold;
+    button {
+      color: #007ddd;
+      font-size: 21px;
+      font-weight: bold;
+    }
 
     .link {
       display: flex;
@@ -392,9 +465,13 @@ body {
         margin-right: 12px;
         width: 150px;
       }
-
+      button {
+        background: transparent;
+        border: 0;
+        padding: 0;
+      }
       svg {
-        fill: #c4261d;
+        fill: #ff3b30;
       }
     }
   }
@@ -402,5 +479,17 @@ body {
     padding-left: 23px;
     padding-right: 23px;
     margin: 0px;
+  }
+}
+.buy-button {
+  span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    background-color: #17adb0;
+    border-radius: 50%;
+
   }
 }

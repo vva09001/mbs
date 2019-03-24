@@ -4,8 +4,19 @@
   padding-bottom: 30px;
 
   h3 {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     img {
       vertical-align: top;
+    }
+    .link {
+      display: flex;
+      align-items: center;
+
+      svg {
+        fill: #c4261d;
+      }
     }
   }
   h5 {

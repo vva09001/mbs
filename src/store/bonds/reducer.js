@@ -1,8 +1,10 @@
 import actions from './actions';
+import getList from '../../db/getList.json';
+import getdetail from '../../db/getdetail.json';
 
 const initialState = {
-  list: [],
-  detail: {},
+  list: getList,
+  detail: getdetail,
   loading: false,
   error: ''
 };

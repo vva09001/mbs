@@ -1,21 +1,29 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import DatePicker from 'react-datepicker';
 import _ from 'lodash';
+import history from '../../utils/history';
 import Loading from '../common/loading';
+import Icon from '../common/icon';
 
 const Section1 = props => {
-  if(props.loading){
-    return (
-      <Loading />
-    )
+  if (props.loading) {
+    return <Loading />;
   }
   return (
     <div className="section">
       <div className="row">
         <div className="col-12">
           <h3 className="mb-4">
-            {props.item.bondName} <img src="/img/popup-icon.png" />
+            {props.item.bondName}
+            <span className="link">
+              <a
+                onClick={() => {
+                  history.push({ pathname: '/bonds/buy/info' });
+                }}
+              >
+                <Icon name="arrow" width="18" height="24" />
+              </a>
+            </span>
           </h3>
           <div className="row">
             <div className="col-6">
@@ -37,14 +45,13 @@ const Section1 = props => {
 
 Section1.propTypes = {
   item: PropTypes.object,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  action: PropTypes.func
 };
 
 const Section3 = props => {
-  if(props.loading){
-    return (
-      <Loading />
-    )
+  if (props.loading) {
+    return <Loading />;
   }
   return (
     <div>
@@ -73,15 +80,14 @@ const Section3 = props => {
 };
 
 Section3.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
+  loading: PropTypes.bool
 };
 
 const Section4 = props => {
-  const { title, onClick, status, refs} = props
-  if(props.loading) {
-    return (
-      <Loading />
-    )
+  const { title, onClick, status, refs } = props;
+  if (props.loading) {
+    return <Loading />;
   }
   return (
     <Fragment>
@@ -89,7 +95,7 @@ const Section4 = props => {
         <div className="col-12">
           {title} <span className="color">217,377,499 VND</span>
           <span onClick={() => onClick(refs)} className="float-right collapse-custom">
-            {status ? '+' : '-'}
+            {status ? '-' : '+'}
           </span>
         </div>
       </div>
@@ -106,7 +112,7 @@ const Section4 = props => {
               </thead>
               <tbody>
                 {_.map(props.item, item => (
-                  <tr>
+                  <tr key={item.content}>
                     <td>{item.content}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{item.cashNonInvest}</td>
@@ -125,6 +131,7 @@ Section4.propTypes = {
   onClick: PropTypes.func,
   status: PropTypes.bool,
   refs: PropTypes.string,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  item: PropTypes.array
 };
 export { Section1, Section3, Section4 };

@@ -5,20 +5,30 @@ import PropTypes from 'prop-types';
 import Header from '../../components/common/header';
 import Header1 from '../../components/common/header1';
 import Header2 from '../../components/common/header2';
+import Header3 from '../../components/common/header3';
 import Footer from '../../components/common/footer';
 // components: First
 const header = props => {
   switch (props.type) {
     case 1:
-      return (<Header1 title={props.title} path={props.path} />)
+      return <Header1 title={props.title} path={props.path} />;
       break;
     case 2:
-      return (<Header2 title={props.title} />)
+      return <Header2 title={props.title} />;
+      break;
+    case 3:
+      return <Header3 title={props.title} />;
       break;
     default:
-      return (<Header title={props.title} />)
+      return <Header title={props.title} />;
   }
-}
+};
+
+header.propTypes = {
+  type: PropTypes.number,
+  title: PropTypes.string
+};
+
 const Layout = props => (
   <div className="container-fluid">
     {header(props)}

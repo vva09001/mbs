@@ -1,0 +1,22 @@
+{
+  "bondCode":"Test1",
+  "bondName":"Test1",
+  "roomBalance": 8,
+  "maturityDate":"12/02/2020",
+  "releaseDate":  "12/02/2020",
+  "interestFixRate": 4,
+  "termFixCount": 1,
+  "termRate": 2,
+  "issuerBond":"Test1",
+  "collateral":"Test1",
+  "parValue": 8,
+  "issuePrice": 7,
+  "issueBondVal": 6,
+  "couponPayment": 5,
+  "releaseForm":"Test1",
+  "termBond":"Test1",
+  "depositAgents":"Test1",
+  "paymentAgents":"Test1",
+  "rightBuyDesc":"Test1",
+  "interestFloatRange":"Test1"
+}

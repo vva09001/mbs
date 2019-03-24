@@ -16,12 +16,12 @@ class Detail extends Component {
       toggle: {
         popup: false,
         table1: true,
-        table2: false
+        table2: true
       },
       params: {
         date: new Date(),
         amount: 0,
-        sum: 0,
+        sum: 0
       }
     };
   }
@@ -52,15 +52,20 @@ class Detail extends Component {
     this.setState({
       ...this.state,
       [key]: value
-    })
-  }
+    });
+  };
+  handleOrderBuy = () => {
+    history.push({ pathname: '/bonds/buy/order' });
+  };
+  handleBondInfo = () => {
+    history.push({ pathname: '/bonds/buy/info' });
+  };
   test() {
     this.handleParam('params', {
       date: new Date(),
       amount: 10,
-      sum: 10,
-    })
-    console.log(this.state.params)
+      sum: 10
+    });
   }
   render() {
     return (
@@ -77,32 +82,36 @@ class Detail extends Component {
         <div className="bond-detail">
           <Section1 item={this.props.bond} loading={this.props.bondLoading} />
           <form>
-            <Section2 item={this.props.info} loading={this.props.buyLoading} params={this.state.params} handleParam={this.handleParam}/>
-            <Section3 item={this.props.info} loading={this.props.buyLoading}/>
+            <Section2
+              item={this.props.info}
+              loading={this.props.buyLoading}
+              params={this.state.params}
+              handleParam={this.handleParam}
+            />
+            <Section3 item={this.props.info} loading={this.props.buyLoading} />
           </form>
           <div className="form-group sum-field row">
             <label className="col-12 col-form-label">TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)</label>
           </div>
-            <Section4
-              title="Chưa bao gồm tái đầu tư coupon:"
-              status={this.state.toggle.table1}
-              refs="table1"
-              onClick={this.showPopup}
-              loading={this.props.buyLoading}
-              item={this.props.flow.nonInvest}
-
-            />
-            <Section4
-              title="Đã bao gồm tái đầu tư coupon:"
-              status={this.state.toggle.table2}
-              refs="table2"
-              onClick={this.showPopup}
-              loading={this.props.buyLoading}
-              item={this.props.flow.invest}
-            />
+          <Section4
+            title="Chưa bao gồm tái đầu tư coupon:"
+            status={this.state.toggle.table1}
+            refs="table1"
+            onClick={this.showPopup}
+            loading={this.props.buyLoading}
+            item={this.props.flow.nonInvest}
+          />
+          <Section4
+            title="Đã bao gồm tái đầu tư coupon:"
+            status={this.state.toggle.table2}
+            refs="table2"
+            onClick={this.showPopup}
+            loading={this.props.buyLoading}
+            item={this.props.flow.invest}
+          />
           <button
             type="button"
-            onClick={() => this.test()}
+            onClick={() => this.handleOrderBuy()}
             className="btn btn-primary btn-lg btn-block"
           >
             Đặt lệnh mua
@@ -118,8 +127,9 @@ Detail.propTypes = {
   bondLoading: PropTypes.bool,
   buyLoading: PropTypes.bool,
   bondsDetail: PropTypes.func,
-  buyInfo: PropTypes.func,
-  buyFlow: PropTypes.func
+  info: PropTypes.func,
+  flow: PropTypes.func,
+  buyFetch: PropTypes.func
 };
 
 const mapStateToProps = state => {

@@ -9,14 +9,14 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          {t(props.item.bondName)}
+          <button className="btn-transparent" onClick={() => history.push({ pathname: '/bonds/' + props.item.bondCode })}>{t(props.item.bondName)}</button>
           <span className="link">
             <span className="badge badge-danger">
               {props.item.termRate}%/{t('năm')}
             </span>
-            <a onClick={() => history.push({ pathname: '/bonds/' + props.item.bondCode })}>
+            <button onClick={() => history.push({ pathname: '/bonds/' + props.item.bondCode })}>
               <Icon name="arrow" width="18" height="24" />
-            </a>
+            </button>
           </span>
         </li>
         <li className="list-group-item">

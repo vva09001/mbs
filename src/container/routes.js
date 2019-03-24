@@ -7,12 +7,14 @@ import PropTypes from 'prop-types';
 import history from '../utils/history';
 import RootContainer from './rootContainer';
 import HomePage from './homepage';
-import BondsList from './bonds/list';
 
+import BondsList from './bonds/list';
 import BondsDetail from './bonds/detail';
 
+import BondsBuyList from './bonds/buy/list';
 import BondsBuyOrder from './bonds/buy/order';
 import BondsBuyConfirm from './bonds/buy/confirm';
+import BondsBuyInfo from './bonds/buy/info';
 
 import BondsSaleOrder from './bonds/sale/order';
 import BondsSaleConfirm from './bonds/sale/confirm';
@@ -27,7 +29,9 @@ const AppRouter = () => {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/bonds" component={BondsList} />
           <Route exact path="/bonds/:code" component={BondsDetail} />
+          <Route exact path="/bonds/buy/list" component={BondsBuyList} />
           <Route exact path="/bonds/buy/order" component={BondsBuyOrder} />
+          <Route exact path="/bonds/buy/info" component={BondsBuyInfo} />
           <Route exact path="/bonds/buy/confirm" component={BondsBuyConfirm} />
           <Route exact path="/bonds/sale/order" component={BondsSaleOrder} />
           <Route exact path="/bonds/sale/confirm" component={BondsSaleConfirm} />

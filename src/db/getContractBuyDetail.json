@@ -1,0 +1,23 @@
+{
+  "contractCode":"Contract1",
+  "customerName":"customerName1",
+  "customerId":"customerId",
+  "customerIdDate":"12/02/2020",
+  "customerIdPlace":"12",
+  "bondCode":"bondCode1",
+  "buyDate":"bondCode",
+  "termRate":7,
+  "reinvestmentRate":8,
+  "buyVol":25,
+  "buyPrice":12,
+  "buyFee":24,
+  "buyValue":56,
+  "maturityDate":"12/02/2020",
+  "status":"pending",
+  "numInvestDate": "12/02/2020",
+  "sumCashNonInvest": 1,
+  "sumCashInvest": 2,
+  "termNonInvest": 3,
+  "termInvest": 4,
+  "taxPit": 5
+}

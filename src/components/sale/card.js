@@ -11,9 +11,9 @@ const card = props => {
         <li className="list-group-item title">
           {t(props.item.title)}
           <span className="link">
-            <a onClick={() => history.push({ pathname: '/bonds/' + props.item.id })}>
+            <button onClick={() => history.push({ pathname: '/bonds/' + props.item.id })}>
               <Icon name="arrow" width="18" height="24" />
-            </a>
+            </button>
           </span>
         </li>
         <li className="list-group-item">

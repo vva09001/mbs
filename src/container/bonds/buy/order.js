@@ -9,14 +9,16 @@ class Order extends Component {
     super(props);
   }
   render() {
+    const {bond} = this.props;
+    const path = '/bonds/'+this.props.bond.bondCode
     return (
-      <Layout type={1} title="Đặt lệnh mua">
+      <Layout type={1} path={path} title="Đặt lệnh mua">
         <div className="bond-detail">
           <h2 className="text-center color-1">Thông tin về giao dịch</h2>
           <table className="table table-bordered bg-white">
             <tr>
               <td width="50%">Mã trái phiếu:</td>
-              <td width="50%">NVL012020</td>
+              <td width="50%">{bond.bondName}</td>
             </tr>
             <tr>
               <td>Ngày giao dịch TP:</td>
@@ -24,7 +26,7 @@ class Order extends Component {
             </tr>
             <tr>
               <td>Ngày đáo hạn TP:</td>
-              <td>31/12/2020</td>
+              <td>{bond.maturityDate}</td>
             </tr>
             <tr>
               <td>Số lượng trái phiếu đăng ký mua:</td>
@@ -100,12 +102,12 @@ class Order extends Component {
 }
 
 Order.propTypes = {
-  bonds: PropTypes.array
+  bond: PropTypes.object
 };
 
 const mapStateToProps = state => {
   return {
-    bonds: state.Bonds.list
+    bond: state.Bonds.detail
   };
 };
 

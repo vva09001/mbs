@@ -6,8 +6,12 @@ const header = ({ t, title, path }) => {
   return (
     <div className="header-wrapper fixed-top row align-items-center">
       <div className="col-4">
-        <button className="navbar-toggler filter" type="button" onClick={() => history.push({ pathname: path })}>
-          <img src="/img/chevron-left.png" height="20" alt="back"/>
+        <button
+          className="navbar-toggler filter"
+          type="button"
+          onClick={() => history.push({ pathname: path })}
+        >
+          <img src="/img/chevron-left.png" height="20" alt="back" />
         </button>
       </div>
       <div className="col-4 text-center">
@@ -19,6 +23,7 @@ const header = ({ t, title, path }) => {
 header.propTypes = {
   title: PropTypes.string,
   back: PropTypes.string,
-  t: PropTypes.func
+  t: PropTypes.func,
+  path: PropTypes.string
 };
 export default withTranslation()(header);
