@@ -9,17 +9,19 @@ import RootContainer from './rootContainer';
 import HomePage from './homepage';
 
 import BondsList from './bonds/list';
-import BondsDetail from './bonds/detail';
 
-import BondsBuyList from './bonds/buy/list';
-import BondsBuyOrder from './bonds/buy/order';
-import BondsBuyConfirm from './bonds/buy/confirm';
-import BondsBuyInfo from './bonds/buy/info';
+import BondsBuyList from './buy/list';
+import BondsBuyDetail from './buy/detail';
+import BondsBuyOrder from './buy/order';
+import BondsBuyTerm from './buy/term';
+import BondsBuyFlow from './buy/flow';
+import BondsBuyConfirm from './buy/confirm';
+import BondsBuyInfo from './buy/info';
 
-import BondsSaleOrder from './bonds/sale/order';
-import BondsSaleConfirm from './bonds/sale/confirm';
-import BondsSaleList from './bonds/sale/list';
-import BondsSaleActions from './bonds/trade/actions';
+import BondsSaleOrder from './sale/order';
+import BondsSaleConfirm from './sale/confirm';
+import BondsSaleList from './sale/list';
+import BondsSaleActions from './trade/actions';
 
 const AppRouter = () => {
   return (
@@ -27,16 +29,13 @@ const AppRouter = () => {
       <RootContainer>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/bonds" component={BondsList} />
-          <Route exact path="/bonds/:code" component={BondsDetail} />
-          <Route exact path="/bonds/buy/list" component={BondsBuyList} />
-          <Route exact path="/bonds/buy/order" component={BondsBuyOrder} />
-          <Route exact path="/bonds/buy/info" component={BondsBuyInfo} />
-          <Route exact path="/bonds/buy/confirm" component={BondsBuyConfirm} />
-          <Route exact path="/bonds/sale/order" component={BondsSaleOrder} />
-          <Route exact path="/bonds/sale/confirm" component={BondsSaleConfirm} />
-          <Route exact path="/bonds/sale/list" component={BondsSaleList} />
-          <Route exact path="/bonds/sale/actions/:type" component={BondsSaleActions} />
+          <Route exact path="/buy/" component={BondsBuyList} />
+          <Route exact path="/buy/info" component={BondsBuyInfo} />
+          <Route exact path="/buy/order" component={BondsBuyOrder} />
+          <Route exact path="/buy/term" component={BondsBuyTerm} />
+          <Route exact path="/buy/flow" component={BondsBuyFlow} />
+          <Route exact path="/buy/confirm" component={BondsBuyConfirm} />
+          <Route exact path="/buy/:code" component={BondsBuyDetail} />
         </Switch>
       </RootContainer>
     </Router>

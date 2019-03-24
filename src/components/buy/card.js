@@ -2,19 +2,24 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import history from '../../utils/history';
-import Icon from './icon';
+import Icon from '../common/icon';
 const card = props => {
   const { t } = props;
   return (
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          <button className="btn-transparent" onClick={() => history.push({ pathname: '/bonds/' + props.item.bondCode })}>{t(props.item.bondName)}</button>
+          <button
+            className="btn-transparent"
+            onClick={() => history.push({ pathname: '/buy/' + props.item.bondCode })}
+          >
+            {t(props.item.bondName)}
+          </button>
           <span className="link">
             <span className="badge badge-danger">
               {props.item.termRate}%/{t('năm')}
             </span>
-            <button onClick={() => history.push({ pathname: '/bonds/' + props.item.bondCode })}>
+            <button onClick={() => history.push({ pathname: '/buy/' + props.item.bondCode })}>
               <Icon name="arrow" width="18" height="24" />
             </button>
           </span>

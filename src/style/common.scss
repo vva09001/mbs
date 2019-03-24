@@ -13,7 +13,9 @@ body {
   .list-group-item {
     border-color: #dcdde0;
   }
-
+  .popup-click {
+    cursor: pointer;
+  }
   table.table-striped {
     border: 4px;
     overflow: hidden;
@@ -87,19 +89,20 @@ body {
     color: #005197;
   }
 
-  .color-1 {
-    color: #c4261d;
-  }
 
   .text-primary {
-      color: #263d60;
+      color: #263d60 !important;
   }
-
+  .text-info {
+    color: #007ddd !important;
+  }
+  .color-1, .text-danger {
+    color: #ff3b30 !important;
+  }
   .col-form-label {
-    font-size: 20px;
+    font-size: 14px;
 
     span {
-      color: #c4261d;
       font-size: 30px;
       font-weight: bold;
       line-height: normal;
@@ -170,14 +173,13 @@ body {
       width: 100%;
       padding: 0;
       height: auto;
-      color: #000000;
 
       &[type="text"] {
         border: 0;
         background: transparent;
       }
 
-      &[type="number"] {
+      &.number {
         width: 55px;
         flex: 55px;
         -webkit-flex: 55px;
@@ -188,7 +190,6 @@ body {
     }
 
     .input-group-text {
-      color: #000000;
       padding: 0 10px;
       height: auto;
       font-size: 16px;
@@ -211,12 +212,6 @@ body {
     }
   }
 
-  .btn {
-    border-radius: 4px;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
   .btn-light {
     width: 28px;
     height: 28px;
@@ -236,17 +231,24 @@ body {
     height: 55px;
     font-size: 18px;
   }
-
+  .btn-danger {
+    background-color: #c4261d;
+  }
   .collapse-custom {
     width: 15px;
     height: 15px;
     color: #fff;
-    background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     line-height: 15px;
+  }
+  .bg-gradient-primary {
+    background: linear-gradient(to right, #17adb0, #007edc);
+  }
+  .border-secondary {
+      border-color: #b6b6b6 !important;
   }
 }
 
@@ -491,5 +493,20 @@ body {
     background-color: #17adb0;
     border-radius: 50%;
 
+  }
+}
+.dropdown-menu {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  .dropdown-item {
+    font-size: 19px;
+    padding: 11px 15px;
+    border-bottom: 1px solid #e7e7e7;
+    &:hover {
+      background: #e7e7e7;
+    }
+    &:last-child {
+      border-bottom: 0px;
+    }
   }
 }

@@ -54,12 +54,6 @@ class Detail extends Component {
       [key]: value
     });
   };
-  handleOrderBuy = () => {
-    history.push({ pathname: '/bonds/buy/order' });
-  };
-  handleBondInfo = () => {
-    history.push({ pathname: '/bonds/buy/info' });
-  };
   test() {
     this.handleParam('params', {
       date: new Date(),
@@ -71,12 +65,16 @@ class Detail extends Component {
     return (
       <Layout type={1} path="/" title="Chi Tiết Sản phẩm">
         {this.state.toggle.popup && (
-          <Popup title="Thông tin trái phiếu">
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Cras justo odio</li>
-              <li className="list-group-item">Dapibus ac facilisis in</li>
-              <li className="list-group-item">Vestibulum at eros</li>
-            </ul>
+          <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('popup')}>
+            <p>
+              <strong>Coupon:</strong> MSB trả sang giá trị về
+            </p>
+            <p>
+              <strong>Tái đầu tư coupon:</strong> MSB trả sang giá trị về
+            </p>
+            <p>
+              <strong>Lãi suất đầu tư:</strong> MSB trả sang giá trị về
+            </p>
           </Popup>
         )}
         <div className="bond-detail">
@@ -88,10 +86,16 @@ class Detail extends Component {
               params={this.state.params}
               handleParam={this.handleParam}
             />
-            <Section3 item={this.props.info} loading={this.props.buyLoading} />
+            <Section3
+              showPopup={this.showPopup}
+              item={this.props.info}
+              loading={this.props.buyLoading}
+            />
           </form>
-          <div className="form-group sum-field row">
-            <label className="col-12 col-form-label">TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)</label>
+          <div className="row mb-1">
+            <label className="col-12 col-form-label text-primary">
+              <strong>TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)</strong>
+            </label>
           </div>
           <Section4
             title="Chưa bao gồm tái đầu tư coupon:"
@@ -109,13 +113,17 @@ class Detail extends Component {
             loading={this.props.buyLoading}
             item={this.props.flow.invest}
           />
-          <button
-            type="button"
-            onClick={() => this.handleOrderBuy()}
-            className="btn btn-primary btn-lg btn-block"
-          >
-            Đặt lệnh mua
-          </button>
+          <div className="row justify-content-center">
+            <div className="col-5">
+              <button
+                type="button"
+                onClick={() => history.push({ pathname: '/buy/order/' })}
+                className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
+              >
+                Đặt lệnh mua
+              </button>
+            </div>
+          </div>
         </div>
       </Layout>
     );
@@ -129,7 +137,8 @@ Detail.propTypes = {
   bondsDetail: PropTypes.func,
   info: PropTypes.func,
   flow: PropTypes.func,
-  buyFetch: PropTypes.func
+  buyFetch: PropTypes.func,
+  match: PropTypes.object
 };
 
 const mapStateToProps = state => {

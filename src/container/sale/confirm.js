@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import history from '../../../utils/history';
-import Layout from '../../layout/layout';
+import history from '../../utils/history';
+import Layout from '../layout/layout';
 
 class Confirm extends Component {
   constructor(props) {

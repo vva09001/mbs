@@ -10,10 +10,23 @@ const header = props => {
         <h3 className="text-uppercase">{t(props.title)}</h3>
       </div>
       <div className="col-4 text-right">
-        <button className="navbar-toggler filter" type="button">
-          <Icon name="filter" width="20" height="20" />
-          {t('Lọc')}
-        </button>
+        <div className="dropdown">
+          <button className="navbar-toggler filter" type="button">
+            <Icon name="filter" width="20" height="20" />
+            {t('Lọc')}
+          </button>
+          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a className="dropdown-item" href="#">
+              SL TP đang còn
+            </a>
+            <a className="dropdown-item" href="#">
+              Lãi suất
+            </a>
+            <a className="dropdown-item" href="#">
+              Ngày đáo hạn
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

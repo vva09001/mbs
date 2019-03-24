@@ -18,7 +18,7 @@ const Section1 = props => {
             <span className="link">
               <a
                 onClick={() => {
-                  history.push({ pathname: '/bonds/buy/info' });
+                  history.push({ pathname: '/buy/info/' });
                 }}
               >
                 <Icon name="arrow" width="18" height="24" />
@@ -27,14 +27,14 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-6">
-              <h4>Ngày đáo hạn</h4>
-              <h5>{props.item.maturityDate}</h5>
+              <h4 className="mb-2">Ngày đáo hạn</h4>
+              <p className="mb-0 text-primary">{props.item.maturityDate}</p>
             </div>
             <div className="col-6 text-right">
-              <h4>Hạn mức</h4>
-              <h5>
+              <h4 className="mb-2">Hạn mức</h4>
+              <p className="mb-0 text-primary">
                 <span>{props.item.roomBalance}</span> trái phiếu
-              </h5>
+              </p>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ const Section3 = props => {
     return <Loading />;
   }
   return (
-    <div>
+    <Fragment>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">Lãi suất đáo hạn</label>
         <div className="col-6 text-right col-form-label">
@@ -69,19 +69,28 @@ const Section3 = props => {
         </div>
       </div>
       <div className="form-group row align-items-center">
-        <label className="col-6 col-form-label">Lãi suất đầu tư</label>
+        <label className="col-6 col-form-label">
+          Lãi suất đầu tư
+          <img
+            onClick={() => props.showPopup('popup')}
+            alt="popup-click"
+            src="/img/popup-icon.png"
+            className="align-top ml-2 popup-click"
+          />
+        </label>
         <div className="col-6 text-right col-form-label">
           <span>{props.item.reinvestmentRate}</span>
           <small>%/năm</small>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
 Section3.propTypes = {
   item: PropTypes.object,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  showPopup: PropTypes.func
 };
 
 const Section4 = props => {
@@ -93,10 +102,12 @@ const Section4 = props => {
     <Fragment>
       <div className="row">
         <div className="col-12">
-          {title} <span className="color">217,377,499 VND</span>
-          <span onClick={() => onClick(refs)} className="float-right collapse-custom">
-            {status ? '-' : '+'}
-          </span>
+          <div className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center">
+            <span>{title} <strong>217,377,499 VND</strong></span>
+            <span onClick={() => onClick(refs)} className="float-right collapse-custom">
+              {status ? '-' : '+'}
+            </span>
+          </div>
         </div>
       </div>
       {status && (

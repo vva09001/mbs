@@ -9,9 +9,6 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
   }
-  goTo(page) {
-    history.push({ pathname: page });
-  }
   render() {
     return (
       <Layout type={3}>
@@ -38,24 +35,18 @@ class HomePage extends Component {
         </div>
         <div className="row white-bg ">
           <div className="col-12 text-center">
-            <button
-              onClick={() => this.goTo('/bonds/buy/list')}
-              className="m-5 buy-button btn btn-transparent h6 text-primary"
-            >
+            <a href="/buy/" className="m-5 buy-button btn btn-transparent h6 text-primary">
               <span className="mt-2">
                 <img src="/img/buy.png" alg="buy" />
               </span>
               Mua
-            </button>
-            <button
-              onClick={() => this.goTo('/bonds/sale/list')}
-              className="m-5 buy-button btn btn-transparent h6 text-primary"
-            >
+            </a>
+            <a href="/sell/" className="m-5 buy-button btn btn-transparent h6 text-primary">
               <span className="mt-2">
                 <img src="/img/sell.png" alg="buy" />
               </span>
               Bán
-            </button>
+            </a>
           </div>
         </div>
       </Layout>

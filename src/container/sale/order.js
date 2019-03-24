@@ -2,24 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import DatePicker from 'react-datepicker';
-import history from '../../../utils/history';
-import Layout from '../../layout/layout';
-import Card from '../../../components/common/card';
+import history from '../../utils/history';
+import Layout from '../layout/layout';
 // import bondsActions from '../../store/coin/actions';
 
-class Actions extends Component {
+class Order extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      type: 'cancel'
-    }
   }
-  componentDidMount() {
-    this.setState({
-      type: this.props.match.params.type
-    })
-  }
+  componentDidMount() {}
   render() {
     return (
       <Layout type={2} title="Bán Trái Phiếu">
@@ -80,8 +71,7 @@ class Actions extends Component {
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày giao dịch bán:</label>
               <div className="col-6">
-                {this.state.type === "edit"?<DatePicker />: '03/11/2019'}
-
+              01/04/2019
               </div>
             </div>
             <div className="form-group row">
@@ -117,7 +107,7 @@ class Actions extends Component {
               onClick={() => history.push({ pathname: '/bonds/buy/order' })}
               className="btn btn-primary btn-lg btn-block"
             >
-              {this.state.type === "edit"?"Sửa bán": 'Hủy bán'}
+              Đặt lệnh bán
             </button>
           </div>
         </div>
@@ -126,7 +116,7 @@ class Actions extends Component {
   }
 }
 
-Actions.propTypes = {
+Order.propTypes = {
   bonds: PropTypes.array
 };
 
@@ -141,4 +131,4 @@ const mapDispatchToProps = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Actions);
+)(Order);

@@ -5,12 +5,12 @@ const header = props => {
   const { t } = props;
   return (
     <div className="header-wrapper no-shadow fixed-top row">
-      <div className="col-2 text-center">
+      <div className="col-2 col-sm-1 text-center">
         <button className="navbar-toggler filter" type="button">
           <img src="/img/chevron-left.png" height="20" alt="back"/>
         </button>
       </div>
-      <div className="col-10 text-center">
+      <div className="col-10 col-sm-11 text-center">
         <div className="header-search">
           <i className="fa fa-search" />
           <input type="text" placeholder="Tìm kiếm ứng dụng"/>
