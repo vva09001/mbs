@@ -6,7 +6,7 @@ import Layout from '../layout/layout';
 const Info = props => {
   const path = '/buy/' + props.bond.bondCode;
   return (
-    <Layout type={1} path={path} title="Thông tin trái phiếu">
+    <Layout type={1} title="Thông tin trái phiếu">
       <div className="bond-detail">
         <h2 className="text-center color-1">Thông tin về trái phiếu đăng ký mua</h2>
         <table className="table table-bordered bg-white">

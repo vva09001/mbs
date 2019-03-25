@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import history from '../../utils/history';
 import Layout from '../layout/layout';
 import bondsActions from '../../store/bonds/actions';
 
@@ -35,18 +35,22 @@ class HomePage extends Component {
         </div>
         <div className="row white-bg ">
           <div className="col-12 text-center">
-            <a href="/buy/" className="m-5 buy-button btn btn-transparent h6 text-primary">
-              <span className="mt-2">
-                <img src="/img/buy.png" alg="buy" />
+            <Link to="/buy/">
+              <span className="m-5 buy-button btn btn-transparent h6 text-primary">
+                <span className="mt-2">
+                  <img src="/img/buy.png" alg="buy" />
+                </span>
+                Mua
               </span>
-              Mua
-            </a>
-            <a href="/sell/" className="m-5 buy-button btn btn-transparent h6 text-primary">
-              <span className="mt-2">
-                <img src="/img/sell.png" alg="buy" />
+            </Link>
+            <Link to="/sell/">
+              <span className="m-5 buy-button btn btn-transparent h6 text-primary">
+                <span className="mt-2">
+                  <img src="/img/sell.png" alg="buy" />
+                </span>
+                Bán
               </span>
-              Bán
-            </a>
+            </Link>
           </div>
         </div>
       </Layout>

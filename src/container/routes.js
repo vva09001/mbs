@@ -36,6 +36,10 @@ const AppRouter = () => {
           <Route exact path="/buy/flow" component={BondsBuyFlow} />
           <Route exact path="/buy/confirm" component={BondsBuyConfirm} />
           <Route exact path="/buy/:code" component={BondsBuyDetail} />
+
+          <Route exact path="/sell/" component={BondsSaleList} />
+          <Route exact path="/sell/order" component={BondsSaleOrder} />
+          <Route exact path="/sell/confirm" component={BondsSaleConfirm} />
         </Switch>
       </RootContainer>
     </Router>

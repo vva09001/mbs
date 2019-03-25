@@ -33,7 +33,8 @@ class List extends Component {
 
 List.propTypes = {
   bonds: PropTypes.array,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  bondsFetch: PropTypes.func
 };
 
 const mapStateToProps = state => {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import history from '../../utils/history';
+import { Link } from 'react-router-dom';
 import Layout from '../layout/layout';
 
 class Order extends Component {
@@ -12,7 +13,7 @@ class Order extends Component {
     const { bond } = this.props;
     const path = '/buy/' + this.props.bond.bondCode;
     return (
-      <Layout type={1} path={path} title="Đặt lệnh mua">
+      <Layout type={1} title="Đặt lệnh mua">
         <div className="bond-detail">
           <h2 className="text-center color-1">Thông tin về giao dịch</h2>
           <table className="table table-bordered bg-white">
@@ -78,11 +79,11 @@ class Order extends Component {
             </tbody>
           </table>
           <div className="term-condition">
-            <a href="/buy/info">Thông tin trái phiếu</a>
+            <Link to="/buy/info">Thông tin trái phiếu</Link>
             <br />
-            <a href="/buy/term">Điều khoản và điều kiện đăng ký mua</a>
+            <Link to="/buy/term">Điều khoản và điều kiện đăng ký mua</Link>
             <br />
-            <a href="/buy/flow">Chi tiết dòng tiền</a>
+            <Link to="/buy/flow">Chi tiết dòng tiền</Link>
           </div>
           <label className="form-check-label">
             Tôi xác nhận rằng tôi đã đọc và đống ý với các điều khoản và điều kiện của đăng ký mua

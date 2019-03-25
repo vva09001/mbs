@@ -2,15 +2,11 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import history from '../../utils/history';
-const header = ({ t, title, path }) => {
+const header = ({ t, title }) => {
   return (
     <div className="header-wrapper fixed-top row align-items-center">
       <div className="col-4">
-        <button
-          className="navbar-toggler filter"
-          type="button"
-          onClick={() => history.push({ pathname: path })}
-        >
+        <button className="navbar-toggler filter" type="button" onClick={() => history.goBack()}>
           <img src="/img/chevron-left.png" height="20" alt="back" />
         </button>
       </div>
@@ -22,8 +18,6 @@ const header = ({ t, title, path }) => {
 };
 header.propTypes = {
   title: PropTypes.string,
-  back: PropTypes.string,
-  t: PropTypes.func,
-  path: PropTypes.string
+  t: PropTypes.func
 };
 export default withTranslation()(header);
