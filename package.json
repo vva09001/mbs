@@ -27,10 +27,8 @@
     "redux-saga": "^0.16.2"
   },
   "scripts": {
-    "start": "cross-env PORT=9000 react-scripts start",
-    "dev": "cross-env PORT=9001 react-scripts start",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,5 +50,6 @@
     "nodemon": "^1.18.9",
     "prettier": "1.15.3",
     "prettier-eslint": "^8.8.2"
-  }
+  },
+  "homepage": "http://build.muabanacclienminh.com"
 }
