@@ -114,7 +114,7 @@ class Detail extends Component {
             item={this.props.flow.invest}
           />
           <div className="row justify-content-center">
-            <div className="col-5">
+            <div className="col-9">
               <button
                 type="button"
                 onClick={() => history.push({ pathname: '/buy/order/' })}

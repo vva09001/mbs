@@ -6,10 +6,10 @@ const header = props => {
   const { t } = props;
   return (
     <div className="header-wrapper fixed-top row align-items-center justify-content-end">
-      <div className="col-4 text-center">
+      <div className="col-8 text-center">
         <h3 className="text-uppercase">{t(props.title)}</h3>
       </div>
-      <div className="col-4 text-right">
+      <div className="col-2 text-right">
         <div className="dropdown">
           <button className="navbar-toggler filter" type="button">
             <Icon name="filter" width="20" height="20" />

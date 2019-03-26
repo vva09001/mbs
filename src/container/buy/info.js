@@ -8,7 +8,7 @@ const Info = props => {
   return (
     <Layout type={1} title="Thông tin trái phiếu">
       <div className="bond-detail">
-        <h2 className="text-center color-1">Thông tin về trái phiếu đăng ký mua</h2>
+        <h2 className="text-center color-1 mb-4">Thông tin về trái phiếu đăng ký mua</h2>
         <table className="table table-bordered bg-white">
           <tr>
             <td width="50%">

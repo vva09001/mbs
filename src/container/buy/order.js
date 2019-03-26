@@ -13,9 +13,9 @@ class Order extends Component {
     const { bond } = this.props;
     const path = '/buy/' + this.props.bond.bondCode;
     return (
-      <Layout type={1} title="Đặt lệnh mua">
+      <Layout type={1} title="Xác nhận giao dịch mua">
         <div className="bond-detail">
-          <h2 className="text-center color-1">Thông tin về giao dịch</h2>
+          <h2 className="text-center color-1 mb-4">Thông tin về giao dịch</h2>
           <table className="table table-bordered bg-white">
             <tbody>
               <tr>
@@ -92,7 +92,7 @@ class Order extends Component {
             <span className="checkmark" />
           </label>
           <div className="row justify-content-center">
-            <div className="col-5">
+            <div className="col-9">
               <button
                 type="button"
                 onClick={() => history.push({ pathname: '/buy/confirm' })}

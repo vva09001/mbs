@@ -5,12 +5,12 @@ const header = props => {
   const { t } = props;
   return (
     <div className="header-wrapper fixed-top row">
-      <div className="col-4">
+      <div className="col-2">
         <button className="navbar-toggler filter" type="button">
           <img src="/img/menu.png" height="20" alt="menu"/>
         </button>
       </div>
-      <div className="col-4 text-center">
+      <div className="col-8 text-center">
         <h3 className="text-uppercase">{t(props.title)}</h3>
       </div>
     </div>

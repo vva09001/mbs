@@ -44,12 +44,12 @@ class Confirm extends Component {
           </Popup>
         )}
         <div className="bond-buy-comfirm">
-          <h2 className="text-center color-1">
+          <h2 className="text-center color-1 mb-2">
             <strong>Đề nghị chuyển nhượng trái phiếu công ty...</strong>
           </h2>
-          <h2 className="text-center color-1">
+          <h3 className="text-center color-1 mb-4">
             <strong>Mã Trái Phiếu: NVL012020</strong>
-          </h2>
+          </h3>
           <p>
             <b>I. Bên chuyển nhượng</b>
           </p>
@@ -224,7 +224,7 @@ class Confirm extends Component {
             </p>
           </div>
           <div className="row justify-content-center">
-            <div className="col-5">
+            <div className="col-9">
               <button
                 type="button"
                 onClick={() => this.showPopup('success')}

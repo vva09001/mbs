@@ -15,7 +15,7 @@ const Flow = props => {
   return (
     <Layout type={1} title="Xác thực giao dịch mua">
       <div className="buy-wrapper">
-        <h2 className="text-center color-1">Dòng tiền nhận được khi mua trái phiếu</h2>
+        <h2 className="text-center color-1 mb-4">Dòng tiền nhận được khi mua trái phiếu</h2>
         <div className="row">
           <div className="col-12">
             <p className="mb-0">

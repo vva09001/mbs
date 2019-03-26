@@ -5,12 +5,12 @@ import history from '../../utils/history';
 const header = ({ t, title }) => {
   return (
     <div className="header-wrapper fixed-top row align-items-center">
-      <div className="col-4">
+      <div className="col-2">
         <button className="navbar-toggler filter" type="button" onClick={() => history.goBack()}>
           <img src="/img/chevron-left.png" height="20" alt="back" />
         </button>
       </div>
-      <div className="col-4 text-center">
+      <div className="col-8 text-center">
         <h3 className="text-uppercase">{t(title)}</h3>
       </div>
     </div>

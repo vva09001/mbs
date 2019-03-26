@@ -62,8 +62,8 @@ export default class Section2 extends Component {
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-sm-6 col-form-label">Số lượng TP mua</label>
-          <div className="col-sm-6">
+          <label className="col-6 col-form-label">Số lượng TP mua</label>
+          <div className="col-6">
             <div className="input-group number-field">
               <a className="btn btn-light text-primary" onClick={() => this.handleMount(false)}>
                 -
