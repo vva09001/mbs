@@ -1,5 +1,12 @@
 import request from '../utils/request';
 
+const Authentication = params => {
+  return request({
+    url: '/account/checkStatus',
+    method: 'get',
+    params: params
+  });
+};
 const Check = params => {
   return request({
     url: '/account/checkStatus',
@@ -28,4 +35,4 @@ const Link = params => {
     params: params
   });
 };
-export { Check, Register, CheckLink, Link };
+export { Authentication, Check, Register, CheckLink, Link };

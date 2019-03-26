@@ -4,11 +4,14 @@ const initialState = {
   loading: false,
   token: null,
   account: {},
-  error: ''
+  error: '',
+  auth: false
 };
 
-const User = (state = initialState, action) => {
+const Account = (state = initialState, action) => {
   switch (action.type) {
+    case actions.AUTH:
+      return { ...state, auth: action.auth };
     case actions.TOKEN:
       return { ...state, token: action.token };
     case actions.USER:
@@ -20,4 +23,4 @@ const User = (state = initialState, action) => {
   }
 };
 
-export default User;
+export default Account;

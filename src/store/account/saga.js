@@ -1,17 +1,16 @@
 import actions from './actions';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
-import { Register } from '../../services/account';
+import { Authentication } from '../../services/account';
 
-export function* registerSaga() {
-  yield takeEvery(actions.REGISTER_REQUEST, function*(data) {
+export function* authSaga() {
+  yield takeEvery(actions.AUTH_REQUEST, function*(data) {
     try {
-      const response = yield Register(data.data)
-        .then(res => {
-          return res;
-        })
-        .catch(e => e);
-      if (response.status === 200) {
+      // Get response
+      const res = yield Authentication(data.data)
+      if (res.status === 200) {
+        yield put({ type: actions.AUTH, auth: true });
       } else {
+        yield put({ type: actions.AUTH, error: false });
       }
     } catch (error) {
       yield put({ type: actions.USER_ERROR, error: error.message });
@@ -21,5 +20,5 @@ export function* registerSaga() {
 
 
 export default function* rootSaga() {
-  yield all([fork(registerSaga)]);
+  yield all([fork(authSaga)]);
 }

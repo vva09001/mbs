@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Layout from '../layout/layout';
-import bondsActions from '../../store/bonds/actions';
+import accountActions from '../../store/account/actions';
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
+  }
+  componentDidMount() {
+    this.props.checkAuth(this.props.match.params)
   }
   render() {
     return (
@@ -58,13 +61,19 @@ class HomePage extends Component {
   }
 }
 
-HomePage.propTypes = {};
-
-const mapStateToProps = () => {
-  return {};
+HomePage.propTypes = {
+  checkAuth: PropTypes.func
 };
 
-const mapDispatchToProps = {};
+const mapStateToProps = state => {
+  return {
+    auth: state.Account.auth
+  };
+};
+
+const mapDispatchToProps = {
+  checkAuth: accountActions.auth
+};
 
 export default connect(
   mapStateToProps,
