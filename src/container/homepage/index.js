@@ -58,21 +58,13 @@ class HomePage extends Component {
   }
 }
 
-HomePage.propTypes = {
-  bonds: PropTypes.array,
-  loading: PropTypes.bool
+HomePage.propTypes = {};
+
+const mapStateToProps = () => {
+  return {};
 };
 
-const mapStateToProps = state => {
-  return {
-    bonds: state.Bonds.list,
-    loading: state.Bonds.loading
-  };
-};
-
-const mapDispatchToProps = {
-  bondsFetch: bondsActions.list
-};
+const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,

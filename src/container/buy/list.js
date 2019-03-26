@@ -15,7 +15,9 @@ class List extends Component {
   componentDidMount() {
     this.props.bondsFetch({
       userid: 1212,
-      channel: 'VT'
+      channel: 'VT',
+      num: 40,
+      page: 1
     });
   }
   render() {
