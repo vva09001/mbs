@@ -8,16 +8,16 @@ export function* buyFetchSaga() {
       yield put({ type: actions.BUY_LOADING });
 
       // Get request
-      // const resFlow = yield Flow(data.params);
-      // const resInfo = yield Info(data.params);
+      const resFlow = yield Flow(data.params);
+      const resInfo = yield Info(data.params);
 
       // handle request
-      // if (resFlow.status === 200) {
-      //   yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data.data });
-      // }
-      // if (resInfo.status === 200) {
-      //   yield put({ type: actions.BUY_INFO, info: resInfo.data.data });
-      // }
+      if (resFlow.status === 200) {
+        yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data.data });
+      }
+      if (resInfo.status === 200) {
+        yield put({ type: actions.BUY_INFO, info: resInfo.data.data });
+      }
 
       yield put({ type: actions.BUY_LOADING });
     } catch (error) {
@@ -29,14 +29,6 @@ export function* buyFetchSaga() {
 export function* buyInfoSaga() {
   yield takeEvery(actions.BUY_INFO_GET, function*(data) {
     try {
-
-
-      // get request
-
-
-      // handle request
-
-
 
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });

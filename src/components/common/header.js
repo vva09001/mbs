@@ -16,15 +16,9 @@ const header = props => {
             {t('Lọc')}
           </button>
           <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="#">
-              SL TP đang còn
-            </a>
-            <a className="dropdown-item" href="#">
-              Lãi suất
-            </a>
-            <a className="dropdown-item" href="#">
-              Ngày đáo hạn
-            </a>
+            <button className="dropdown-item">SL TP đang còn</button>
+            <button className="dropdown-item">Lãi suất</button>
+            <button className="dropdown-item">Ngày đáo hạn</button>
           </div>
         </div>
       </div>

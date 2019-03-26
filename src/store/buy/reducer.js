@@ -1,10 +1,8 @@
 import actions from './actions';
-import getContractBuyInfo from '../../db/getContractBuyInfo.json';
-import getContractBuyFlow from '../../db/getContractBuyFlow.json';
 
 const initialState = {
-  flow: getContractBuyFlow,
-  info: getContractBuyInfo,
+  flow: [],
+  info: {},
   loading: false,
   error: ''
 };

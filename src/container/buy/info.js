@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Layout from '../layout/layout';
 
-const Info = props => {
-  const path = '/buy/' + props.bond.bondCode;
+const Info = ({detail}) => {
   return (
     <Layout type={1} title="Thông tin trái phiếu">
       <div className="bond-detail">
@@ -14,43 +13,43 @@ const Info = props => {
             <td width="50%">
               <b>Tổ chức Phát hành</b>
             </td>
-            <td width="50%">Công ty Cổ phần Tập đoàn Đầu tư Địa ốc Nova (NVL)</td>
+            <td width="50%">{detail.issuerBond}</td>
           </tr>
           <tr>
             <td>
               <b>Mã Trái Phiếu</b>
             </td>
-            <td>NVL-01</td>
+            <td>{detail.bondCode}</td>
           </tr>
           <tr>
             <td>
               <b>Mệnh giá Trái Phiếu</b>
             </td>
-            <td>100,000 VNĐ/ Trái Phiếu</td>
+            <td>{detail.parValue} VNĐ/ Trái Phiếu</td>
           </tr>
           <tr>
             <td>
               <b>Giá phát hành</b>
             </td>
-            <td>100% mệnh giá</td>
+            <td>{detail.issuePrice}% mệnh giá</td>
           </tr>
           <tr>
             <td>
               <b>Kỳ hạn Trái Phiếu</b>
             </td>
-            <td>1 năm</td>
+            <td>{detail.termBond} năm</td>
           </tr>
           <tr>
             <td>
               <b>Ngày phát hành</b>
             </td>
-            <td>14/02/2017</td>
+            <td>{detail.releaseDate}</td>
           </tr>
           <tr>
             <td>
               <b>Ngày đáo hạn</b>
             </td>
-            <td>14/02/2018</td>
+            <td>{detail.maturityDate}</td>
           </tr>
           <tr>
             <td>
@@ -71,19 +70,19 @@ const Info = props => {
             <td>
               <b>Hình thức</b>
             </td>
-            <td>Ghi sổ</td>
+            <td>{detail.releaseForm}</td>
           </tr>
           <tr>
             <td>
               <b>Quyền liên quan đến Trái Phiếu</b>
             </td>
-            <td>NVL012020</td>
+            <td>{detail.rightBuyDesc}</td>
           </tr>
           <tr>
             <td>
               <b>Đại lý đăng ký và thanh toán</b>
             </td>
-            <td>Công ty cổ phần chứng khoán MB</td>
+            <td>{detail.depositAgents}</td>
           </tr>
         </table>
       </div>
@@ -92,12 +91,13 @@ const Info = props => {
 };
 
 Info.propTypes = {
-  bonds: PropTypes.array
+  detail: PropTypes.object
 };
 
 const mapStateToProps = state => {
   return {
-    bond: state.Bonds.detail
+    info: state.Buy.info,
+    detail: state.Bonds.detail
   };
 };
 

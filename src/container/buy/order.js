@@ -10,8 +10,7 @@ class Order extends Component {
     super(props);
   }
   render() {
-    const { bond } = this.props;
-    const path = '/buy/' + this.props.bond.bondCode;
+    const { bond, info } = this.props;
     return (
       <Layout type={1} title="Xác nhận giao dịch mua">
         <div className="bond-detail">
@@ -36,11 +35,11 @@ class Order extends Component {
               </tr>
               <tr>
                 <td>Đơn giá mua:</td>
-                <td>104,985 VND/ Trái Phiếu</td>
+                <td>{info.buyPrice} VND/ Trái Phiếu</td>
               </tr>
               <tr>
                 <td>Phí giao dịch:</td>
-                <td>0 VND</td>
+                <td>{info.buyFee} VND</td>
               </tr>
               <tr>
                 <td>
@@ -71,10 +70,6 @@ class Order extends Component {
                   Tiền lãi Trái Phiếu được trả sau, định kỳ mỗi [.....] tháng một lần vào ngày cuối
                   cùng của mỗi kỳ tình lãi
                 </td>
-              </tr>
-              <tr>
-                <td>Mã trái phiếu:</td>
-                <td>NVL012020</td>
               </tr>
             </tbody>
           </table>
@@ -109,12 +104,14 @@ class Order extends Component {
 }
 
 Order.propTypes = {
-  bond: PropTypes.object
+  bond: PropTypes.object,
+  info: PropTypes.object
 };
 
 const mapStateToProps = state => {
   return {
-    bond: state.Bonds.detail
+    bond: state.Bonds.detail,
+    info: state.Buy.info
   };
 };
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import Layout from '../layout/layout';
 import history from '../../utils/history';
 import bondsActions from '../../store/bonds/actions';
@@ -54,6 +55,66 @@ class Detail extends Component {
       [key]: value
     });
   };
+  nonInvertRender() {
+    return (
+      <Section4
+        title="Đã bao gồm tái đầu tư coupon:"
+        status={this.state.toggle.table2}
+        refs="table2"
+        onClick={this.showPopup}
+        loading={this.props.buyLoading}
+        item={this.props.flow.invest}
+      >
+        <thead>
+          <tr>
+            <th scope="col">Nội dung</th>
+            <th scope="col">Ngày thanh toán</th>
+            <th scope="col">Tiền nhận (VND)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {_.map(this.props.flow.nonInvest, item => (
+            <tr key={item.cashNonInvest}>
+              <td>{item.content}</td>
+              <td>{item.payCouponDate}</td>
+              <td>{item.cashNonInvest}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Section4>
+    );
+  }
+  invertRender() {
+    return (
+      <Section4
+        title="Đã bao gồm tái đầu tư coupon:"
+        status={this.state.toggle.table2}
+        refs="table2"
+        onClick={this.showPopup}
+        loading={this.props.buyLoading}
+        item={this.props.flow.invest}
+      >
+        <thead>
+          <tr>
+            <th scope="col">Sô tiền coupon tái đầu tư (VND)</th>
+            <th scope="col">Ngày đầu tư</th>
+            <th scope="col">Ngày kết thúc đầu tư</th>
+            <th scope="col">Lãi tái đầu tư nhận được (VND)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {_.map(this.props.flow.invest, item => (
+            <tr key={item.cashNonInvest}>
+              <td>{item.reinvestmentRate}</td>
+              <td>{item.payCouponDate}</td>
+              <td>{item.lastPayCouponDate}</td>
+              <td>{item.cashInvest}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Section4>
+    );
+  }
   test() {
     this.handleParam('params', {
       date: new Date(),
@@ -67,13 +128,13 @@ class Detail extends Component {
         {this.state.toggle.popup && (
           <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('popup')}>
             <p>
-              <strong>Coupon:</strong> MSB trả sang giá trị về
+              <strong>Coupon:</strong> {this.props.bond.couponPayment}
             </p>
             <p>
-              <strong>Tái đầu tư coupon:</strong> MSB trả sang giá trị về
+              <strong>Tái đầu tư coupon:</strong> {this.props.info.sumCashInvest}
             </p>
             <p>
-              <strong>Lãi suất đầu tư:</strong> MSB trả sang giá trị về
+              <strong>Lãi suất đầu tư:</strong> {this.props.info.reinvestmentRate}
             </p>
           </Popup>
         )}
@@ -97,22 +158,8 @@ class Detail extends Component {
               <strong>TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)</strong>
             </label>
           </div>
-          <Section4
-            title="Chưa bao gồm tái đầu tư coupon:"
-            status={this.state.toggle.table1}
-            refs="table1"
-            onClick={this.showPopup}
-            loading={this.props.buyLoading}
-            item={this.props.flow.nonInvest}
-          />
-          <Section4
-            title="Đã bao gồm tái đầu tư coupon:"
-            status={this.state.toggle.table2}
-            refs="table2"
-            onClick={this.showPopup}
-            loading={this.props.buyLoading}
-            item={this.props.flow.invest}
-          />
+          {this.nonInvertRender()}
+          {this.invertRender()}
           <div className="row justify-content-center">
             <div className="col-9">
               <button
@@ -135,8 +182,8 @@ Detail.propTypes = {
   bondLoading: PropTypes.bool,
   buyLoading: PropTypes.bool,
   bondsDetail: PropTypes.func,
-  info: PropTypes.func,
-  flow: PropTypes.func,
+  info: PropTypes.object,
+  flow: PropTypes.array,
   buyFetch: PropTypes.func,
   match: PropTypes.object
 };

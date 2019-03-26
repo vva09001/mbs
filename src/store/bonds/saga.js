@@ -7,13 +7,13 @@ export function* bondsList() {
     try {
       yield put({ type: actions.BONDS_LOADING });
 
-      // // Get request
-      // const res = yield list(data.params);
-      //
-      // // handle request
-      // if (res.status === 200) {
-      //   yield put({ type: actions.BONDS, list: res.data.data.data });
-      // }
+      // Get request
+      const res = yield list(data.params);
+
+      // handle request
+      if (res.status === 200) {
+        yield put({ type: actions.BONDS, list: res.data.data.data });
+      }
 
       yield put({ type: actions.BONDS_LOADING });
     } catch (error) {
@@ -27,13 +27,13 @@ export function* bondsGet() {
     try {
       yield put({ type: actions.BONDS_LOADING });
 
-      // // get request
-      // const res = yield detail(data.params);
-      //
-      // // handle request
-      // if (res.status === 200) {
-      //   yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
-      // }
+      // get request
+      const res = yield detail(data.params);
+
+      // handle request
+      if (res.status === 200) {
+        yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
+      }
 
       yield put({ type: actions.BONDS_LOADING });
     } catch (error) {

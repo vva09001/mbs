@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import history from '../../utils/history';
 import Loading from '../common/loading';
 import Icon from '../common/icon';
@@ -103,7 +102,9 @@ const Section4 = props => {
       <div className="row">
         <div className="col-12">
           <div className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center">
-            <span>{title} <strong>217,377,499 VND</strong></span>
+            <span>
+              {title} <strong>217,377,499 VND</strong>
+            </span>
             <span onClick={() => onClick(refs)} className="float-right collapse-custom">
               {status ? '-' : '+'}
             </span>
@@ -113,24 +114,7 @@ const Section4 = props => {
       {status && (
         <div className="row">
           <div className="col-12">
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Nội dung</th>
-                  <th scope="col">Ngày thanh toán</th>
-                  <th scope="col">Tiền nhận</th>
-                </tr>
-              </thead>
-              <tbody>
-                {_.map(props.item, item => (
-                  <tr key={item.content}>
-                    <td>{item.content}</td>
-                    <td>{item.payCouponDate}</td>
-                    <td>{item.cashNonInvest}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <table className="table table-striped">{props.children}</table>
           </div>
         </div>
       )}

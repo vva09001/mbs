@@ -11,7 +11,7 @@
       "content":"coupon",
       "cashNonInvest": 100,
       "payCouponDate":"10/10/2020",
-      "lastPayCouponDate":"",
+      "lastPayCouponDate":"10/10/2020",
       "reinvestmentRate": 200,
       "cashInvest": 100
     }

@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import history from '../../utils/history';
 import Layout from '../layout/layout';
 import Popup from '../../components/common/popup';
-// import bondsActions from '../../store/coin/actions';
 
 class Confirm extends Component {
   constructor(props) {
