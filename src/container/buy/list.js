@@ -14,7 +14,7 @@ class List extends Component {
   }
   componentDidMount() {
     this.props.bondsFetch({
-      userid: 1212,
+      userid: this.props.profile.id,
       channel: 'VT',
       num: 40,
       page: 1
@@ -36,12 +36,14 @@ class List extends Component {
 List.propTypes = {
   bonds: PropTypes.array,
   loading: PropTypes.bool,
-  bondsFetch: PropTypes.func
+  bondsFetch: PropTypes.func,
+  profile: PropTypes.object
 };
 
 const mapStateToProps = state => {
   return {
     bonds: state.Bonds.list,
+    profile: state.Account.profile,
     loading: state.Bonds.loading
   };
 };

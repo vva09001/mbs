@@ -6,7 +6,7 @@ export function* authSaga() {
   yield takeEvery(actions.AUTH_REQUEST, function*(data) {
     try {
       // Get response
-      const res = yield Authentication(data.data)
+      const res = yield Authentication(data.data);
       if (res.status === 200) {
         yield put({ type: actions.AUTH, auth: true });
       } else {
@@ -17,7 +17,6 @@ export function* authSaga() {
     }
   });
 }
-
 
 export default function* rootSaga() {
   yield all([fork(authSaga)]);

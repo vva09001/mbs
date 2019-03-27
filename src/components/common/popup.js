@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 const popup = props => {
+  const { t } = props;
   return (
     <div className="popup">
       <div className="popup-wrapper rounded bg-white position-relative">
@@ -14,7 +16,7 @@ const popup = props => {
             onClick={props.showPopup}
             className="btn btn-primary rounded-bottom border-0 btn-lg btn-block "
           >
-            ĐÓNG
+            {t('ĐÓNG')}
           </button>
         </div>
       </div>
@@ -24,4 +26,4 @@ const popup = props => {
 popup.propTypes = {
   showPopup: PropTypes.func
 };
-export default popup;
+export default withTranslation()(popup);

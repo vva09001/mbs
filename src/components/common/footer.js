@@ -2,8 +2,7 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import Icon from './icon';
-const footer = props => {
-  const { t } = props;
+const footer = ({ t }) => {
   return (
     <div className="footer-wrapper fixed-bottom">
       <a className="col-3" href="#">

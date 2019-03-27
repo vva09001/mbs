@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Layout from '../layout/layout';
 import history from '../../utils/history';
+import FormatTime from '../../utils/moment';
 import bondsActions from '../../store/bonds/actions';
 import buyActions from '../../store/buy/actions';
 import Popup from '../../components/common/popup';
@@ -29,12 +30,12 @@ class Detail extends Component {
 
   componentDidMount() {
     this.props.bondsDetail({
-      userId: 1212,
+      userId: this.props.profile.id,
       channel: 'VT',
       code: this.props.match.params.code
     });
     this.props.buyFetch({
-      userId: 1212,
+      userId: this.props.profile.id,
       channel: 'VT',
       code: this.props.match.params.code
     });
@@ -73,10 +74,10 @@ class Detail extends Component {
           </tr>
         </thead>
         <tbody>
-          {_.map(this.props.flow.nonInvest, item => (
+          {_.map(this.props.flow.flowNonInvest, item => (
             <tr key={item.cashNonInvest}>
               <td>{item.content}</td>
-              <td>{item.payCouponDate}</td>
+              <td>{FormatTime(item.payCouponDate)}</td>
               <td>{item.cashNonInvest}</td>
             </tr>
           ))}
@@ -103,8 +104,8 @@ class Detail extends Component {
           </tr>
         </thead>
         <tbody>
-          {_.map(this.props.flow.invest, item => (
-            <tr key={item.cashNonInvest}>
+          {_.map(this.props.flow.flowInvest, item => (
+            <tr key={item.cashInvest}>
               <td>{item.reinvestmentRate}</td>
               <td>{item.payCouponDate}</td>
               <td>{item.lastPayCouponDate}</td>
@@ -185,7 +186,8 @@ Detail.propTypes = {
   info: PropTypes.object,
   flow: PropTypes.array,
   buyFetch: PropTypes.func,
-  match: PropTypes.object
+  match: PropTypes.object,
+  profile: PropTypes.object
 };
 
 const mapStateToProps = state => {
@@ -194,7 +196,8 @@ const mapStateToProps = state => {
     info: state.Buy.info,
     flow: state.Buy.flow,
     bondLoading: state.Bonds.loading,
-    buyLoading: state.Buy.loading
+    buyLoading: state.Buy.loading,
+    profile: state.Account.profile
   };
 };
 

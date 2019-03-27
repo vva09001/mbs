@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import history from '../../utils/history';
 import Loading from '../common/loading';
 import Icon from '../common/icon';
 
 const Section1 = props => {
+  const { t } = props
   if (props.loading) {
     return <Loading />;
   }
@@ -26,13 +28,13 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-6">
-              <h4 className="mb-2">Ngày đáo hạn</h4>
+              <h4 className="mb-2">{t('Ngày đáo hạn')}</h4>
               <p className="mb-0 text-primary">{props.item.maturityDate}</p>
             </div>
             <div className="col-6 text-right">
-              <h4 className="mb-2">Hạn mức</h4>
+              <h4 className="mb-2">{t('Hạn mức')}</h4>
               <p className="mb-0 text-primary">
-                <span>{props.item.roomBalance}</span> trái phiếu
+                <span>{props.item.roomBalance}</span> {t('trái phiếu')}
               </p>
             </div>
           </div>
@@ -45,7 +47,8 @@ const Section1 = props => {
 Section1.propTypes = {
   item: PropTypes.object,
   loading: PropTypes.bool,
-  action: PropTypes.func
+  action: PropTypes.func,
+  t: PropTypes.func
 };
 
 const Section3 = props => {
@@ -89,7 +92,8 @@ const Section3 = props => {
 Section3.propTypes = {
   item: PropTypes.object,
   loading: PropTypes.bool,
-  showPopup: PropTypes.func
+  showPopup: PropTypes.func,
+  t: PropTypes.func
 };
 
 const Section4 = props => {
@@ -127,6 +131,7 @@ Section4.propTypes = {
   status: PropTypes.bool,
   refs: PropTypes.string,
   loading: PropTypes.bool,
-  item: PropTypes.array
+  item: PropTypes.array,
+  t: PropTypes.func
 };
 export { Section1, Section3, Section4 };

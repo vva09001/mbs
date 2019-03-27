@@ -13,7 +13,7 @@ export function* buyFetchSaga() {
 
       // handle request
       if (resFlow.status === 200) {
-        yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data.data });
+        yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data });
       }
       if (resInfo.status === 200) {
         yield put({ type: actions.BUY_INFO, info: resInfo.data.data });

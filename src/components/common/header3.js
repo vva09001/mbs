@@ -1,8 +1,7 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-const header = props => {
-  const { t } = props;
+const header = ({ t }) => {
   return (
     <div className="header-wrapper no-shadow fixed-top row">
       <div className="col-2 col-sm-1 text-center">
@@ -13,7 +12,7 @@ const header = props => {
       <div className="col-10 col-sm-11 text-center">
         <div className="header-search">
           <i className="fa fa-search" />
-          <input type="text" placeholder="Tìm kiếm ứng dụng"/>
+          <input type="text" placeholder={t('Tìm kiếm ứng dụng')}/>
         </div>
       </div>
     </div>

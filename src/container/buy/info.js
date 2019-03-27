@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Layout from '../layout/layout';
 
-const Info = ({detail}) => {
+const Info = ({ detail }) => {
   return (
     <Layout type={1} title="Thông tin trái phiếu">
       <div className="bond-detail">
