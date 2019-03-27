@@ -2,49 +2,49 @@ import request from '../utils/request';
 
 const List = params => {
   return request({
-    url: '/bond/getListContractBuy',
+    url: '/api/bond/getListContractBuy',
     method: 'get',
     params: params
   });
 };
 const Detail = params => {
   return request({
-    url: '/bond/getContractBuyDetail',
+    url: '/api/bond/getContractBuyDetail',
     method: 'get',
     params: params
   });
 };
 const Info = params => {
   return request({
-    url: '/bond/getContractBuyInfo',
+    url: '/api/bond/getContractBuyInfo',
     method: 'get',
     params: params
   });
 };
 const Flow = params => {
   return request({
-    url: '/bond/getContractBuyFlow',
+    url: '/api/bond/getContractBuyFlow',
     method: 'get',
     params: params
   });
 };
 const Update = params => {
   return request({
-    url: '/bond/updateContractBuy',
+    url: '/api/bond/updateContractBuy',
     method: 'get',
     params: params
   });
 };
 const Approve = params => {
   return request({
-    url: '/bond/approveContractBuy',
+    url: '/api/bond/approveContractBuy',
     method: 'get',
     params: params
   });
 };
 const Delete = params => {
   return request({
-    url: '/bond/deleteContractBuy',
+    url: '/api/bond/deleteContractBuy',
     method: 'get',
     params: params
   });

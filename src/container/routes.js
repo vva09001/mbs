@@ -28,10 +28,11 @@ const AppRouter = props => {
     <Router history={history}>
       <RootContainer>
         <Switch>
-          <Route exact path="/:merchant_code/:msisdn/:time" component={HomePage} />
+          <Route path="/:merchant_code/:msisdn/:time" component={HomePage} />
+          <Route exact path="/" component={HomePage} />
           {props.auth ? (
             <Fragment>
-              <Route path="/buy/" component={BondsBuyList} />
+              <Route exact path="/buy/" component={BondsBuyList} />
               <Route path="/buy/info" component={BondsBuyInfo} />
               <Route path="/buy/order" component={BondsBuyOrder} />
               <Route path="/buy/term" component={BondsBuyTerm} />
@@ -39,14 +40,14 @@ const AppRouter = props => {
               <Route path="/buy/confirm" component={BondsBuyConfirm} />
               <Route path="/buy/:code" component={BondsBuyDetail} />
 
-              <Route path="/sell/" component={BondsSaleList} />
+              <Route exact path="/sell/" component={BondsSaleList} />
               <Route path="/sell/order" component={BondsSaleOrder} />
               <Route path="/sell/confirm" component={BondsSaleConfirm} />
             </Fragment>
           ) : (
             <Redirect
               to={{
-                pathname: '/error'
+                pathname: '/'
               }}
             />
           )}

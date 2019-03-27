@@ -5,7 +5,7 @@ const initialState = {
   token: null,
   account: {},
   error: '',
-  auth: false
+  auth: true
 };
 
 const Account = (state = initialState, action) => {

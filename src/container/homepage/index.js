@@ -10,9 +10,16 @@ class HomePage extends Component {
     super(props);
   }
   componentDidMount() {
-    this.props.checkAuth(this.props.match.params)
+    this.props.checkAuth(this.props.match.params);
   }
   render() {
+    if (!this.props.auth) {
+      return (
+        <div className="col-12">
+          <h6 className="text-primary text-center mt-2 mb-3">Không check được Authenticate</h6>
+        </div>
+      );
+    }
     return (
       <Layout type={3}>
         <div className="row">
@@ -62,7 +69,9 @@ class HomePage extends Component {
 }
 
 HomePage.propTypes = {
-  checkAuth: PropTypes.func
+  checkAuth: PropTypes.func,
+  auth: PropTypes.bool,
+  match: PropTypes.object
 };
 
 const mapStateToProps = state => {

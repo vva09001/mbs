@@ -9,6 +9,6 @@ const actions = {
   auth: data => ({
     type: actions.AUTH_REQUEST,
     data
-  }),
+  })
 };
 export default actions;

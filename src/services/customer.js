@@ -2,14 +2,14 @@ import request from '../utils/request';
 
 const info = params => {
   return request({
-    url: '/bond/getCustomerInfo',
+    url: '/api/bond/getCustomerInfo',
     method: 'get',
     params: params
   });
 };
 const buyFlow = params => {
   return request({
-    url: '/bond/getContractBuyFlow',
+    url: '/api/bond/getContractBuyFlow',
     method: 'get',
     params: params
   });

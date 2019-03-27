@@ -2,35 +2,35 @@ import request from '../utils/request';
 
 const Authentication = params => {
   return request({
-    url: '/account/checkStatus',
+    url: '/auth/viettelpay/authorize',
     method: 'get',
     params: params
   });
 };
 const Check = params => {
   return request({
-    url: '/account/checkStatus',
+    url: '/api/account/checkStatus',
     method: 'get',
     params: params
   });
 };
 const Register = params => {
   return request({
-    url: '/account/register',
+    url: '/api/account/register',
     method: 'get',
     params: params
   });
 };
 const CheckLink = params => {
   return request({
-    url: '/account/checkAccountToLink',
+    url: '/api/account/checkAccountToLink',
     method: 'get',
     params: params
   });
 };
 const Link = params => {
   return request({
-    url: '/account/link',
+    url: '/api/account/link',
     method: 'get',
     params: params
   });
