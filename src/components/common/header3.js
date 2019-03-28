@@ -7,20 +7,19 @@ const header = () => {
     <div className="header-wrapper no-shadow fixed-top row">
       <div className="col-2 col-sm-1 text-center">
         <button className="navbar-toggler filter" type="button">
-          <img src="/img/chevron-left.png" height="20" alt="back"/>
+          <img src="/img/chevron-left.png" height="20" alt="back" />
         </button>
       </div>
       <div className="col-10 col-sm-11 text-center">
         <div className="header-search">
           <i className="fa fa-search" />
-          <input type="text" placeholder={t('Tìm kiếm ứng dụng')}/>
+          <input type="text" placeholder={t('Tìm kiếm ứng dụng')} />
         </div>
       </div>
     </div>
   );
 };
 header.propTypes = {
-  title: PropTypes.string,
-  t: PropTypes.func
+  title: PropTypes.string
 };
 export default header;
