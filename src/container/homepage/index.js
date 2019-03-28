@@ -10,7 +10,7 @@ class HomePage extends Component {
     super(props);
   }
   componentDidMount() {
-    this.props.checkAuth(this.props.match.params);
+    this.props.checkAuth(this.props.location.search);
   }
   render() {
     if (!this.props.auth) {

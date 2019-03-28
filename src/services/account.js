@@ -2,9 +2,8 @@ import request from '../utils/request';
 
 const Authentication = params => {
   return request({
-    url: '/auth/viettelpay/authorize',
-    method: 'get',
-    params: params
+    url: '/auth/viettelpay/authorize' + params,
+    method: 'get'
   });
 };
 const Check = params => {
