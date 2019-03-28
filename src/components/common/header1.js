@@ -1,8 +1,9 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import history from '../../utils/history';
-const header = ({ t, title }) => {
+const header = ({ title }) => {
+  const { t } = useTranslation();
   return (
     <div className="header-wrapper fixed-top row align-items-center">
       <div className="col-2">
@@ -20,4 +21,4 @@ header.propTypes = {
   title: PropTypes.string,
   t: PropTypes.func
 };
-export default withTranslation()(header);
+export default header;

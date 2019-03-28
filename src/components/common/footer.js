@@ -1,8 +1,8 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import Icon from './icon';
-const footer = ({ t }) => {
+const footer = () => {
+  const { t } = useTranslation();
   return (
     <div className="footer-wrapper fixed-bottom">
       <a className="col-3" href="#">
@@ -24,7 +24,5 @@ const footer = ({ t }) => {
     </div>
   );
 };
-footer.propTypes = {
-  t: PropTypes.func
-};
-export default withTranslation()(footer);
+footer.propTypes = {};
+export default footer;

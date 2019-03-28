@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import history from '../../utils/history';
 import Loading from '../common/loading';
 import Icon from '../common/icon';
 
 const Section1 = props => {
-  const { t } = props
+  const { t, i18n } = useTranslation();
   if (props.loading) {
     return <Loading />;
   }
@@ -134,4 +134,5 @@ Section4.propTypes = {
   item: PropTypes.array,
   t: PropTypes.func
 };
+
 export { Section1, Section3, Section4 };
