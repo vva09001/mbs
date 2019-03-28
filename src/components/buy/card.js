@@ -1,10 +1,10 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import history from '../../utils/history';
 import Icon from '../common/icon';
 const card = props => {
-  const { t } = props;
+  const { t } = useTranslation();
   return (
     <div className="card">
       <ul className="list-group list-group-flush">
@@ -40,7 +40,6 @@ const card = props => {
   );
 };
 card.propTypes = {
-  item: PropTypes.object,
-  t: PropTypes.func
+  item: PropTypes.object
 };
-export default withTranslation()(card);
+export default card;

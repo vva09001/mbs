@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import history from '../../utils/history';
 import Loading from '../common/loading';
 import Icon from '../common/icon';
+const { t } = useTranslation();
 
 const Section1 = props => {
-  const { t, i18n } = useTranslation();
   if (props.loading) {
     return <Loading />;
   }

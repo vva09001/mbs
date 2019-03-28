@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Layout from '../layout/layout';
 import history from '../../utils/history';
-import FormatTime from '../../utils/moment';
+import { FormatTime } from '../../utils/moment';
 import bondsActions from '../../store/bonds/actions';
 import buyActions from '../../store/buy/actions';
 import Popup from '../../components/common/popup';
@@ -89,7 +89,7 @@ class Detail extends Component {
     return (
       <Section4
         title="Đã bao gồm tái đầu tư coupon:"
-        status={this.state.toggle.table2}
+        status={this.state.toggle.table1}
         refs="table2"
         onClick={this.showPopup}
         loading={this.props.buyLoading}
@@ -107,8 +107,8 @@ class Detail extends Component {
           {_.map(this.props.flow.flowInvest, item => (
             <tr key={item.cashInvest}>
               <td>{item.reinvestmentRate}</td>
-              <td>{item.payCouponDate}</td>
-              <td>{item.lastPayCouponDate}</td>
+              <td>{FormatTime(item.payCouponDate)}</td>
+              <td>{FormatTime(item.lastPayCouponDate)}</td>
               <td>{item.cashInvest}</td>
             </tr>
           ))}
