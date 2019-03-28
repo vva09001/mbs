@@ -50,7 +50,7 @@ body {
 
   .container-fluid {
     max-width: 750px;
-    padding-top: 85px;
+    padding-top: 55px;
     padding-bottom: 85px;
   }
 
@@ -250,12 +250,22 @@ body {
   .border-secondary {
       border-color: #b6b6b6 !important;
   }
+  .horizontal-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: block;
+    button {
+      display: inline-block;
+      float: none;
+    }
+  }
+
 }
 
 .header-wrapper {
   padding: 10px 15px;
   background: linear-gradient(to right, #17adb0, #007edc);
-  margin-bottom: 22px;
   box-shadow: 0 9px 16px 6px #ccc;
   color: #fff;
 

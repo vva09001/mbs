@@ -97,7 +97,7 @@ class Detail extends Component {
       >
         <thead>
           <tr>
-            <th scope="col">Sô tiền coupon tái đầu tư (VND)</th>
+            <th scope="col">Số tiền coupon tái đầu tư (VND)</th>
             <th scope="col">Ngày đầu tư</th>
             <th scope="col">Ngày kết thúc đầu tư</th>
             <th scope="col">Lãi tái đầu tư nhận được (VND)</th>

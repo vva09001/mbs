@@ -32,7 +32,7 @@ header.propTypes = {
 const Layout = props => (
   <Fragment>
     {header(props)}
-    <div className="container-fluid min-vh-100">{props.children}</div>
+    <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>
     <Footer />
   </Fragment>
 );

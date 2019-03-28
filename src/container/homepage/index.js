@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Layout from '../layout/layout';
+import Layout from '../layout/layout1';
 import accountActions from '../../store/account/actions';
 
 class HomePage extends Component {
@@ -24,11 +24,11 @@ class HomePage extends Component {
       <Layout type={3}>
         <div className="row">
           <div className="col-12">
-            <h6 className="text-primary mt-2 mb-3">Tất cả</h6>
+            <h6 className="text-primary mt-3 mb-3">Tất cả</h6>
           </div>
         </div>
         <div className="row">
-          <div className="nav nav-tabs">
+          <div className="nav nav-tabs horizontal-scroll">
             <button className="nav-item nav-link">Viễn thông</button>
             <button className="nav-item nav-link">Hóa đơn</button>
             <button className="nav-item nav-link active">Tài chính, bảo hiểm</button>
@@ -43,7 +43,7 @@ class HomePage extends Component {
             </h6>
           </div>
         </div>
-        <div className="row white-bg ">
+        <div className="row white-bg h-100 ">
           <div className="col-12 text-center">
             <Link to="/buy/">
               <span className="m-5 buy-button btn btn-transparent h6 text-primary">
