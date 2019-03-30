@@ -38,7 +38,12 @@ class HomePage extends Component {
         <div className="row">
           <div className="col-12 text-center">
             <h6 className="text-primary mt-3 mb-3">
-              <img alt="logo" src="/img/logo.png" className="mr-2" />
+              <img
+                alt="logo"
+                src="/img/logo.png"
+                srcSet="/img/logo@3x.png 3x, /img/logo.png 2x, /img/logo.png 1x"
+                className="mr-2"
+              />
               CTCP Chứng khoán MB
             </h6>
           </div>
@@ -71,7 +76,8 @@ class HomePage extends Component {
 HomePage.propTypes = {
   checkAuth: PropTypes.func,
   auth: PropTypes.bool,
-  match: PropTypes.object
+  match: PropTypes.object,
+  location: PropTypes.object
 };
 
 const mapStateToProps = state => {

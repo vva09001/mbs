@@ -7,11 +7,12 @@ export function* authSaga() {
     try {
       // Get response
       const res = yield Authentication(data.data);
-      if (res.status === 200) {
-        yield put({ type: actions.AUTH, auth: true });
-      } else {
-        yield put({ type: actions.AUTH, error: false });
-      }
+      console.log(res)
+      // if (res.status === 200) {
+      //   yield put({ type: actions.AUTH, auth: true });
+      // } else {
+      //   yield put({ type: actions.AUTH, error: false });
+      // }
     } catch (error) {
       yield put({ type: actions.USER_ERROR, error: error.message });
     }

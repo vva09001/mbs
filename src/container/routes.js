@@ -8,8 +8,6 @@ import history from '../utils/history';
 import RootContainer from './rootContainer';
 import HomePage from './homepage';
 
-import BondsList from './bonds/list';
-
 import BondsBuyList from './buy/list';
 import BondsBuyDetail from './buy/detail';
 import BondsBuyOrder from './buy/order';
@@ -21,6 +19,8 @@ import BondsBuyInfo from './buy/info';
 import BondsSaleOrder from './sale/order';
 import BondsSaleConfirm from './sale/confirm';
 import BondsSaleList from './sale/list';
+
+import BondsTradeList from './trade/list';
 import BondsSaleActions from './trade/actions';
 
 const AppRouter = props => {
@@ -43,6 +43,8 @@ const AppRouter = props => {
               <Route exact path="/sell/" component={BondsSaleList} />
               <Route path="/sell/order" component={BondsSaleOrder} />
               <Route path="/sell/confirm" component={BondsSaleConfirm} />
+
+              <Route exact path="/trade/" component={BondsTradeList} />
             </Fragment>
           ) : (
             <Redirect

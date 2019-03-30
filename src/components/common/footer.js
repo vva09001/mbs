@@ -1,26 +1,27 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import Icon from './icon';
 const footer = () => {
   const { t } = useTranslation();
   return (
     <div className="footer-wrapper fixed-bottom">
-      <a className="col-3" href="#">
+      <Link to="/">
         <Icon name="mua-ban" height="35" />
         {t('Mua bán')}
-      </a>
-      <a className="col-3" href="#">
+      </Link>
+      <Link to="/buy/">
         <Icon name="san-pham" height="35" />
         {t('Sản phẩm')}
-      </a>
-      <a className="col-3" href="#">
+      </Link>
+      <Link to="/buy/">
         <Icon name="danh-muc" height="35" />
-        {t('Danh mục')}
-      </a>
-      <a className="col-3" href="#">
+        {t('Tài sản')}
+      </Link>
+      <Link to="/buy/">
         <Icon name="mua-ban" height="35" />
         {t('Quản lý')}
-      </a>
+      </Link>
     </div>
   );
 };
