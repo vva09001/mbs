@@ -20,13 +20,15 @@ const header = props => {
       return <Header3 title={props.title} />;
       break;
     default:
-      return <Header title={props.title} />;
+      return <Header title={props.title} toggle={props.toggle} onToggle={props.onToggle} />;
   }
 };
 
 header.propTypes = {
   type: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  toggle: PropTypes.bool,
+  onToggle: PropTypes.func
 };
 
 const Layout = props => (

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import Icon from './icon';
-const header = ({ title }) => {
+const header = ({ title, toggle, onToggle}) => {
   const { t } = useTranslation();
   return (
     <div className="header-wrapper fixed-top row align-items-center justify-content-end">
@@ -11,21 +11,28 @@ const header = ({ title }) => {
       </div>
       <div className="col-3 text-right">
         <div className="dropdown">
-          <button className="navbar-toggler filter" type="button">
+          <button onClick={() => onToggle()} className="navbar-toggler filter" type="button">
             <Icon name="filter" width="20" height="20" />
             {t('Lọc')}
           </button>
-          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <button className="dropdown-item">{t('SL TP đang còn')}</button>
-            <button className="dropdown-item">{t('Lãi suất')}</button>
-            <button className="dropdown-item">{t('Ngày đáo hạn')}</button>
-          </div>
+          {toggle && (
+            <div
+              className="dropdown-menu dropdown-menu-right show"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <button className="dropdown-item">{t('SL TP đang còn')}</button>
+              <button className="dropdown-item">{t('Lãi suất')}</button>
+              <button className="dropdown-item">{t('Ngày đáo hạn')}</button>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
 header.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  toggle: PropTypes.bool,
+  onToggle: PropTypes.func
 };
 export default header;

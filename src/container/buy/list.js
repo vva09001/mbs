@@ -11,6 +11,9 @@ import bondsActions from '../../store/bonds/actions';
 class List extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      toggle: false
+    };
   }
   componentDidMount() {
     this.props.bondsFetch({
@@ -20,9 +23,14 @@ class List extends Component {
       page: 1
     });
   }
+  _toggle = () => {
+    this.setState({
+      toggle: !this.state.toggle
+    });
+  };
   render() {
     return (
-      <Layout type="3" title="Sản phẩm">
+      <Layout toggle={this.state.toggle} onToggle={this._toggle} title="Sản phẩm">
         {this.props.loading && <Loading />}
 
         {_.map(this.props.bonds, item => (
