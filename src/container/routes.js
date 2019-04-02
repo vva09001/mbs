@@ -23,6 +23,8 @@ import BondsSaleList from './sale/list';
 import BondsTradeList from './trade/list';
 import BondsSaleActions from './trade/actions';
 
+import BondsUserList from './user/list';
+
 const AppRouter = props => {
   return (
     <Router history={history}>
@@ -45,6 +47,8 @@ const AppRouter = props => {
           <Route path="/sell/confirm/" component={BondsSaleConfirm} />
 
           <Route exact path="/trade/" component={BondsTradeList} />
+
+          <Route exact path="/user/bonds/" component={BondsUserList} />
         </Switch>
       </RootContainer>
     </Router>
