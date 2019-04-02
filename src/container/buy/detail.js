@@ -77,7 +77,7 @@ class Detail extends Component {
           {_.map(this.props.flow.flowNonInvest, item => (
             <tr key={item.cashNonInvest}>
               <td>{item.content}</td>
-              <td>{FormatTime(item.payCouponDate)}</td>
+              <td>{item.payCouponDate}</td>
               <td>{item.cashNonInvest}</td>
             </tr>
           ))}
@@ -107,8 +107,8 @@ class Detail extends Component {
           {_.map(this.props.flow.flowInvest, item => (
             <tr key={item.cashInvest}>
               <td>{item.reinvestmentRate}</td>
-              <td>{FormatTime(item.payCouponDate)}</td>
-              <td>{FormatTime(item.lastPayCouponDate)}</td>
+              <td>{item.payCouponDate}</td>
+              <td>{item.lastPayCouponDate}</td>
               <td>{item.cashInvest}</td>
             </tr>
           ))}

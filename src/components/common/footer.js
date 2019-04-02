@@ -14,11 +14,11 @@ const footer = () => {
         <Icon name="san-pham" height="35" />
         {t('Sản phẩm')}
       </Link>
-      <Link to="/buy/">
+      <Link to="//trade/">
         <Icon name="danh-muc" height="35" />
         {t('Tài sản')}
       </Link>
-      <Link to="/buy/">
+      <Link to="/trade/">
         <Icon name="mua-ban" height="35" />
         {t('Quản lý')}
       </Link>

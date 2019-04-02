@@ -30,29 +30,21 @@ const AppRouter = props => {
         <Switch>
           <Route path="/:merchant_code/:msisdn/:time" component={HomePage} />
           <Route exact path="/" component={HomePage} />
-          {props.auth ? (
-            <Fragment>
-              <Route exact path="/buy/" component={BondsBuyList} />
-              <Route path="/buy/info" component={BondsBuyInfo} />
-              <Route path="/buy/order" component={BondsBuyOrder} />
-              <Route path="/buy/term" component={BondsBuyTerm} />
-              <Route path="/buy/flow" component={BondsBuyFlow} />
-              <Route path="/buy/confirm" component={BondsBuyConfirm} />
-              <Route exact path="/buy/:code" component={BondsBuyDetail} />
 
-              <Route exact path="/sell/" component={BondsSaleList} />
-              <Route path="/sell/order" component={BondsSaleOrder} />
-              <Route path="/sell/confirm" component={BondsSaleConfirm} />
+          <Route exact path="/buy/" component={BondsBuyList} />
 
-              <Route exact path="/trade/" component={BondsTradeList} />
-            </Fragment>
-          ) : (
-            <Redirect
-              to={{
-                pathname: '/'
-              }}
-            />
-          )}
+          <Route path="/buy/info/" component={BondsBuyInfo} />
+          <Route path="/buy/order/" component={BondsBuyOrder} />
+          <Route path="/buy/term/" component={BondsBuyTerm} />
+          <Route path="/buy/flow/" component={BondsBuyFlow} />
+          <Route path="/buy/confirm/" component={BondsBuyConfirm} />
+          <Route exact path="/buy/:code" component={BondsBuyDetail} />
+
+          <Route exact path="/sell/" component={BondsSaleList} />
+          <Route path="/sell/order/" component={BondsSaleOrder} />
+          <Route path="/sell/confirm/" component={BondsSaleConfirm} />
+
+          <Route exact path="/trade/" component={BondsTradeList} />
         </Switch>
       </RootContainer>
     </Router>
