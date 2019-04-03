@@ -26,13 +26,9 @@ export function* buyFetchSaga() {
   });
 }
 
-export function* buyInfoSaga() {
-  yield takeEvery(actions.BUY_INFO_GET, function*(data) {
-    try {
-
-    } catch (error) {
-      yield put({ type: actions.BUY_ERROR, error: error.message });
-    }
+export function* setSaga() {
+  yield takeEvery(actions.SET_BUY, function*(data) {
+    yield put({ type: actions.BUY_BOOK, book: data.params });
   });
 }
 

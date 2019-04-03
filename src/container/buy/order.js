@@ -1,20 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import history from '../../utils/history';
 import { Link } from 'react-router-dom';
+import { FormatTime } from '../../utils/moment';
+import history from '../../utils/history';
 import Layout from '../layout/layout';
 
 class Order extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      date: new Date(),
+      toggle: {
+        checkbox: false
+      }
+    };
+  }
+  onCheckBox() {
+    this.setState({
+      toggle: {
+        checkbox: !this.state.toggle.checkbox
+      }
+    });
   }
   render() {
     const { bond, info } = this.props;
     return (
-      <Layout type={1} title="Xác nhận giao dịch mua">
+      <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
         <div className="bond-detail">
-          <h2 className="text-center color-1 mb-4">Thông tin về giao dịch</h2>
+          <h2 className="text-center color-1 mb-4">THÔNG TIN VỀ GIAO DỊCH</h2>
           <table className="table table-bordered bg-white">
             <tbody>
               <tr>
@@ -23,7 +37,7 @@ class Order extends Component {
               </tr>
               <tr>
                 <td>Ngày giao dịch TP:</td>
-                <td>23/01/2019</td>
+                <td>{FormatTime(this.state.date)}</td>
               </tr>
               <tr>
                 <td>Ngày đáo hạn TP:</td>
@@ -81,9 +95,13 @@ class Order extends Component {
             <Link to="/buy/flow">Chi tiết dòng tiền</Link>
           </div>
           <label className="form-check-label">
-            Tôi xác nhận rằng tôi đã đọc và đống ý với các điều khoản và điều kiện của đăng ký mua
-            trái phiếu được nêu trên đây.
-            <input type="checkbox" value="" />
+            <strong>
+              <i>
+                Tôi xác nhận rằng tôi đã đọc và đống ý với các điều khoản và điều kiện của đăng ký
+                trái phiếu được nêu trên đây.
+              </i>
+            </strong>
+            <input type="checkbox" />
             <span className="checkmark" />
           </label>
           <div className="row justify-content-center">
@@ -93,7 +111,7 @@ class Order extends Component {
                 onClick={() => history.push({ pathname: '/buy/confirm' })}
                 className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
               >
-                Đặt lệnh mua
+                XÁC NHẬN
               </button>
             </div>
           </div>

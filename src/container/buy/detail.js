@@ -68,9 +68,9 @@ class Detail extends Component {
       >
         <thead>
           <tr>
-            <th scope="col">Nội dung</th>
-            <th scope="col">Ngày thanh toán</th>
-            <th scope="col">Tiền nhận (VND)</th>
+            <th width="33%">Nội dung</th>
+            <th width="33%">Ngày thanh toán</th>
+            <th width="33%">Tiền nhận (VND)</th>
           </tr>
         </thead>
         <tbody>
@@ -97,10 +97,10 @@ class Detail extends Component {
       >
         <thead>
           <tr>
-            <th scope="col">Số tiền coupon tái đầu tư (VND)</th>
-            <th scope="col">Ngày đầu tư</th>
-            <th scope="col">Ngày kết thúc đầu tư</th>
-            <th scope="col">Lãi tái đầu tư nhận được (VND)</th>
+            <th width="25%">Số tiền coupon tái đầu tư (VND)</th>
+            <th width="25%">Ngày đầu tư</th>
+            <th width="25%">Ngày kết thúc đầu tư</th>
+            <th width="25%">Lãi tái đầu tư nhận được (VND)</th>
           </tr>
         </thead>
         <tbody>
@@ -203,7 +203,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   bondsDetail: bondsActions.detail,
-  buyFetch: buyActions.getBuy
+  buyFetch: buyActions.getBuy,
+
 };
 
 export default connect(

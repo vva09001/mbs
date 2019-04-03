@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DatePicker from 'react-datepicker';
+import { FormatTime } from '../../utils/moment';
 import Loading from '../common/loading';
 
 export default class Section2 extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      date: new Date()
+    };
   }
   handleMount(type) {
     if (type) {
@@ -42,7 +44,14 @@ export default class Section2 extends Component {
         <div className="form-group row">
           <label className="col-6 col-form-label">Ngày giao dịch</label>
           <div className="col-6">
-            <DatePicker value={this.props.params.data} />
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control text-primary date-field"
+                disabled
+                value={FormatTime(this.state.date)}
+              />
+            </div>
           </div>
         </div>
         <div className="form-group row">

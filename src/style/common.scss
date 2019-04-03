@@ -25,6 +25,9 @@ body {
       tr:nth-of-type(odd) {
         background: #e4e4e4;
       }
+      th {
+        vertical-align: top;
+      }
     }
 
     tr {
@@ -126,7 +129,6 @@ body {
     .react-datepicker__input-container {
       display: block;
     }
-
     input {
       font-size: 16px;
       font-weight: bold;
@@ -135,8 +137,8 @@ body {
       width: 100%;
       color: #000000;
     }
-
   }
+
   .confirm-content {
     border: 1px solid #dcdde0;
     border-radius: 4px;
@@ -163,6 +165,7 @@ body {
       display: inline-flex;
       width: auto;
       padding-right: 20px;
+      border: 1px solid #c9cdd4;
     }
 
     input {
@@ -186,6 +189,10 @@ body {
         display: block;
         max-width: 55px;
         text-align: center;
+      }
+
+      &.date-field {
+        background: #f4f4f4 url("/img/calendar.png") no-repeat center right 10px;
       }
     }
 

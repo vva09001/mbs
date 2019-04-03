@@ -32,7 +32,7 @@ const Section1 = props => {
               <p className="mb-0 text-primary">{props.item.maturityDate}</p>
             </div>
             <div className="col-6 text-right">
-              <h4 className="mb-2">{t('Hạn mức')}</h4>
+              <h4 className="mb-2">{t('Đang còn')}</h4>
               <p className="mb-0 text-primary">
                 <span>{props.item.roomBalance}</span> {t('trái phiếu')}
               </p>

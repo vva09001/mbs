@@ -3,6 +3,7 @@ import actions from './actions';
 const initialState = {
   flow: [],
   info: {},
+  book: {},
   loading: false,
   error: ''
 };
@@ -13,6 +14,8 @@ const Buy = (state = initialState, action) => {
       return { ...state, flow: action.flow };
     case actions.BUY_INFO:
       return { ...state, info: action.info };
+    case actions.BUY_BOOK:
+      return { ...state, book: action.book };
     case actions.BUY_LOADING:
       return { ...state, loading: !state.loading };
     case actions.BUY_ERROR:
