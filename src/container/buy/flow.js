@@ -13,7 +13,7 @@ const Flow = props => {
   const path = '/buy/' + props.bond.bondCode;
 
   return (
-    <Layout type={1} title="Xác thực giao dịch mua">
+    <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
       <div className="buy-wrapper">
         <h2 className="text-center color-1 mb-4">Dòng tiền nhận được khi mua trái phiếu</h2>
         <div className="row">

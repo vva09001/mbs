@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { withTranslation } from 'react-i18next';
 import Layout from '../layout/layout';
-import history from '../../utils/history';
-import { FormatTime } from '../../utils/moment';
 import bondsActions from '../../store/bonds/actions';
 import buyActions from '../../store/buy/actions';
 import Popup from '../../components/common/popup';
@@ -23,20 +21,19 @@ class Detail extends Component {
       params: {
         date: new Date(),
         amount: 0,
-        sum: 0
+        sum: 0,
+        userId: '',
+        channel: '',
+        code: ''
       }
     };
   }
 
   componentDidMount() {
     this.props.bondsDetail({
-      userId: this.props.profile.id,
-      channel: 'VT',
       code: this.props.match.params.code
     });
     this.props.buyFetch({
-      userId: this.props.profile.id,
-      channel: 'VT',
       code: this.props.match.params.code
     });
   }
@@ -56,7 +53,47 @@ class Detail extends Component {
       [key]: value
     });
   };
+  _setBuy = () => {
+    this.setState(
+      {
+        ...this.state,
+        params: {
+          ...this.state.params,
+          userId: this.props.profile.id,
+          channel: 'VT',
+          code: this.props.match.params.code
+        }
+      },
+      () => {
+        this.props.setBuy(this.state.params);
+      }
+    );
+  };
   nonInvertRender() {
+    const label = ['Nội dung', 'Ngày thanh toán', 'Tiền nhận (VND)'];
+    const content = ['content', 'payCouponDate', 'cashNonInvest'];
+    return (
+      <Section4
+        title="Chưa bao gồm tái đầu tư coupon:"
+        status={this.state.toggle.table1}
+        refs="table1"
+        onClick={this.showPopup}
+        loading={this.props.buyLoading}
+        items={this.props.flow.flowNonInvest}
+        label={label}
+        content={content}
+        sum={this.props.flowCash.cashFolowSource}
+      />
+    );
+  }
+  invertRender() {
+    const label = [
+      'Số tiền coupon tái đầu tư (VND)',
+      'Ngày đầu tư',
+      'Ngày kết thúc đầu tư',
+      'Lãi tái đầu tư nhận được (VND)'
+    ];
+    const content = ['reinvestmentRate', 'payCouponDate', 'lastPayCouponDate', 'cashInvest'];
     return (
       <Section4
         title="Đã bao gồm tái đầu tư coupon:"
@@ -64,56 +101,11 @@ class Detail extends Component {
         refs="table2"
         onClick={this.showPopup}
         loading={this.props.buyLoading}
-        item={this.props.flow.invest}
-      >
-        <thead>
-          <tr>
-            <th width="33%">Nội dung</th>
-            <th width="33%">Ngày thanh toán</th>
-            <th width="33%">Tiền nhận (VND)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {_.map(this.props.flow.flowNonInvest, item => (
-            <tr key={item.cashNonInvest}>
-              <td>{item.content}</td>
-              <td>{item.payCouponDate}</td>
-              <td>{item.cashNonInvest}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Section4>
-    );
-  }
-  invertRender() {
-    return (
-      <Section4
-        title="Đã bao gồm tái đầu tư coupon:"
-        status={this.state.toggle.table1}
-        refs="table2"
-        onClick={this.showPopup}
-        loading={this.props.buyLoading}
-        item={this.props.flow.invest}
-      >
-        <thead>
-          <tr>
-            <th width="25%">Số tiền coupon tái đầu tư (VND)</th>
-            <th width="25%">Ngày đầu tư</th>
-            <th width="25%">Ngày kết thúc đầu tư</th>
-            <th width="25%">Lãi tái đầu tư nhận được (VND)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {_.map(this.props.flow.flowInvest, item => (
-            <tr key={item.cashInvest}>
-              <td>{item.reinvestmentRate}</td>
-              <td>{item.payCouponDate}</td>
-              <td>{item.lastPayCouponDate}</td>
-              <td>{item.cashInvest}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Section4>
+        items={this.props.flow.flowInvest}
+        label={label}
+        content={content}
+        sum={this.props.flowCash.cashFolowCoupon}
+      />
     );
   }
   test() {
@@ -124,12 +116,13 @@ class Detail extends Component {
     });
   }
   render() {
+    const { t } = this.props;
     return (
-      <Layout type={1} path="/" title="Chi Tiết Sản phẩm">
+      <Layout type={1} path="/" title="CHI  TIẾT SẢN PHẨM">
         {this.state.toggle.popup && (
           <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('popup')}>
             <p>
-              <strong>Coupon:</strong> {this.props.bond.couponPayment}
+              <strong>{t('Coupon')}:</strong> {this.props.bond.couponPayment}
             </p>
             <p>
               <strong>Tái đầu tư coupon:</strong> {this.props.info.sumCashInvest}
@@ -165,10 +158,10 @@ class Detail extends Component {
             <div className="col-9">
               <button
                 type="button"
-                onClick={() => history.push({ pathname: '/buy/order/' })}
+                onClick={() => this._setBuy()}
                 className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
               >
-                Đặt lệnh mua
+                ĐẶT LỆNH MUA
               </button>
             </div>
           </div>
@@ -184,8 +177,10 @@ Detail.propTypes = {
   buyLoading: PropTypes.bool,
   bondsDetail: PropTypes.func,
   info: PropTypes.object,
-  flow: PropTypes.array,
+  flow: PropTypes.object,
+  flowCash: PropTypes.object,
   buyFetch: PropTypes.func,
+  setBuy: PropTypes.func,
   match: PropTypes.object,
   profile: PropTypes.object
 };
@@ -195,6 +190,7 @@ const mapStateToProps = state => {
     bond: state.Bonds.detail,
     info: state.Buy.info,
     flow: state.Buy.flow,
+    flowCash: state.Buy.flowCash,
     bondLoading: state.Bonds.loading,
     buyLoading: state.Buy.loading,
     profile: state.Account.profile
@@ -204,10 +200,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   bondsDetail: bondsActions.detail,
   buyFetch: buyActions.getBuy,
-
+  setBuy: buyActions.set
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Detail);
+)(withTranslation()(Detail));

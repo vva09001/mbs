@@ -1,14 +1,17 @@
 const actions = {
   BUY: 'BUY',
   BUY_GET: 'BUY_GET',
+  BUY_CONTRACT: 'BUY_CONTRACT',
+  BUY_GET_CONTRACT: 'BUY_GET_CONTRACT',
   BUY_FLOW: 'BUY_FLOW',
+  BUY_FLOW_CASH: 'BUY_FLOW_CASH',
   BUY_FLOW_GET: 'BUY_FLOW_GET',
   BUY_INFO: 'BUY_INFO',
   BUY_INFO_GET: 'BUY_INFO_GET',
   BUY_BOOK: 'BUY_BOOK',
   SET_BUY: 'SET_BUY',
-  BUY_ORDER: 'BUY_ORDER',
-  BUY_CONFIRM: 'BUY_CONFIRM',
+  BUY_UPDATE: 'BUY_UPDATE',
+  BUY_APPROVE: 'BUY_APPROVE',
   BUY_LOADING: 'BUY_LOADING',
   BUY_ERROR: 'BUY_ERROR',
   getBuy: params => ({
@@ -27,13 +30,14 @@ const actions = {
     type: actions.SET_BUY,
     params
   }),
-  order: params => ({
-    type: actions.BUY_ORDER,
-    params
+  update: () => ({
+    type: actions.BUY_UPDATE
   }),
-  confirm: params => ({
-    type: actions.BUY_CONFIRM,
-    params
+  getContract: () => ({
+    type: actions.BUY_GET_CONTRACT
+  }),
+  approve: () => ({
+    type: actions.BUY_APPROVE
   })
 };
 export default actions;

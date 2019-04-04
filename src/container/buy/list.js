@@ -17,22 +17,29 @@ class List extends Component {
   }
   componentDidMount() {
     this.props.bondsFetch({
-      userid: this.props.profile.id,
-      channel: 'VT',
       num: 40,
       page: 1
     });
   }
+  _bondsFetch = params => {
+    this.props.bondsFetch(params);
+  };
   _toggle = () => {
     this.setState({
       toggle: !this.state.toggle
     });
   };
   render() {
+    if (this.props.loading) {
+      return <Loading />;
+    }
     return (
-      <Layout toggle={this.state.toggle} onToggle={this._toggle} title="Sản phẩm">
-        {this.props.loading && <Loading />}
-
+      <Layout
+        toggle={this.state.toggle}
+        onClick={this._bondsFetch}
+        onToggle={this._toggle}
+        title="Sản phẩm"
+      >
         {_.map(this.props.bonds, item => (
           <Card item={item} key={item.bondCode} />
         ))}

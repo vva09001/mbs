@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import { FormatTime } from '../../utils/moment';
 import Loading from '../common/loading';
 
-export default class Section2 extends Component {
+class Section2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,13 +37,14 @@ export default class Section2 extends Component {
     });
   }
   render() {
+    const { t } = this.props;
     if (this.props.loading) {
       return <Loading />;
     }
     return (
       <div className="section-2">
         <div className="form-group row">
-          <label className="col-6 col-form-label">Ngày giao dịch</label>
+          <label className="col-6 col-form-label">{t('Ngày giao dịch')}</label>
           <div className="col-6">
             <div className="input-group">
               <input
@@ -55,7 +57,7 @@ export default class Section2 extends Component {
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-6 col-form-label">Giá đơn mua</label>
+          <label className="col-6 col-form-label">{t('Giá đơn mua')}</label>
           <div className="col-6">
             <div className="input-group">
               <input
@@ -65,13 +67,13 @@ export default class Section2 extends Component {
                 value={this.props.item.buyPrice}
               />
               <div className="input-group-append">
-                <div className="input-group-text text-primary">VND</div>
+                <div className="input-group-text text-primary">{t('VND')}</div>
               </div>
             </div>
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-6 col-form-label">Số lượng TP mua</label>
+          <label className="col-6 col-form-label">{t('Số lượng TP mua')}</label>
           <div className="col-6">
             <div className="input-group number-field">
               <a className="btn btn-light text-primary" onClick={() => this.handleMount(false)}>
@@ -90,7 +92,7 @@ export default class Section2 extends Component {
         </div>
         <div className="form-group row">
           <label className="col-6 col-form-label text-primary">
-            <strong>GIÁ TRỊ ĐẦU TƯ</strong>
+            <strong>{t('GIÁ TRỊ ĐẦU TƯ')}</strong>
           </label>
           <div className="col-6">
             <div className="input-group">
@@ -101,7 +103,7 @@ export default class Section2 extends Component {
                 value={this.props.params.sum}
               />
               <div className="input-group-append">
-                <div className="input-group-text text-primary">VND</div>
+                <div className="input-group-text text-primary">{t('VND')}</div>
               </div>
             </div>
           </div>
@@ -116,3 +118,5 @@ Section2.propTypes = {
   params: PropTypes.object,
   handleParam: PropTypes.func
 };
+
+export default withTranslation()(Section2);

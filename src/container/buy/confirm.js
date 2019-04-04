@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import Layout from '../layout/layout';
+import buyActions from '../../store/buy/actions';
 import Popup from '../../components/common/popup';
+import Loading from '../../components/common/loading';
 
 class Confirm extends Component {
   constructor(props) {
@@ -13,9 +14,11 @@ class Confirm extends Component {
         error: false,
         success: false
       }
-    }
+    };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getContract();
+  }
   showPopup = type => {
     this.setState({
       toggle: {
@@ -25,8 +28,12 @@ class Confirm extends Component {
     });
   };
   render() {
+    const { contract } = this.props;
+    if (this.props.buyLoading) {
+      return <Loading />;
+    }
     return (
-      <Layout type={1} title="Xác nhận giao dịch mua">
+      <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
         {this.state.toggle.success && (
           <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('success')}>
             <span>
@@ -43,16 +50,16 @@ class Confirm extends Component {
         )}
         <div className="bond-buy-comfirm">
           <h2 className="text-center color-1 mb-2">
-            <strong>Đề nghị chuyển nhượng trái phiếu công ty...</strong>
+            <strong>ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY ...</strong>
           </h2>
           <h3 className="text-center color-1 mb-4">
-            <strong>Mã Trái Phiếu: NVL012020</strong>
+            <strong>Mã Trái Phiếu: {contract.bondCode}</strong>
           </h3>
           <p>
             <b>I. Bên chuyển nhượng</b>
           </p>
           <div className="row">
-            <div className="col-4">Tên tổ chức(cá nhân)</div>
+            <div className="col-4">Tên tổ chức</div>
             <div className="col-8">
               <b>: Công ty cổ phần chứng khoán MB</b>
             </div>
@@ -118,16 +125,18 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">Tên tổ chức(cá nhân)</div>
             <div className="col-8">
-              <b>: Lê Văn Bộ</b>
+              <b>: {contract.customerName}</b>
             </div>
           </div>
           <div className="row">
             <div className="col-4">Số CMND/HC/ĐKKD</div>
-            <div className="col-8">: 168274711 Cấp ngày: 11/12/2005</div>
+            <div className="col-8">
+              : {contract.customerId} Cấp ngày: {contract.customerIdDate}
+            </div>
           </div>
           <div className="row">
             <div className="col-4">Nơi cấp</div>
-            <div className="col-8">: CA Hà Nam</div>
+            <div className="col-8">: {contract.customerIdPlace}</div>
           </div>
           <div className="row">
             <div className="col-4">Địa chỉ liên hệ</div>
@@ -179,27 +188,27 @@ class Confirm extends Component {
           </p>
           <div className="row">
             <div className="col-4">Số trái phiếu chuyển nhượng</div>
-            <div className="col-8">: 100 Trái phiếu</div>
+            <div className="col-8">: {contract.buyVol} Trái phiếu</div>
           </div>
           <div className="row">
             <div className="col-4">Mệnh giá mỗi trái phiếu</div>
-            <div className="col-8">: 100,000 VNĐ/Trái phiếu</div>
+            <div className="col-8">: {contract.buyPrice} VNĐ/Trái phiếu</div>
           </div>
           <div className="row">
             <div className="col-4">Giá chuyển nhượng</div>
-            <div className="col-8">: 102,853 VNĐ/Trái phiếu</div>
+            <div className="col-8">: {contract.buyPrice + contract.buyFee} VNĐ/Trái phiếu</div>
           </div>
           <div className="row">
             <div className="col-4">Tổng giá trị chuyển nhượng</div>
-            <div className="col-8">: 10,853,300 VNĐ</div>
+            <div className="col-8">: {contract.buyValue} VNĐ</div>
           </div>
           <div className="row">
             <div className="col-4">Phí chuyển nhượng</div>
-            <div className="col-8">:</div>
+            <div className="col-8">: {contract.buyFee}</div>
           </div>
           <div className="row">
             <div className="col-4">Thuế TNCN tạm khấu trừ</div>
-            <div className="col-8">:</div>
+            <div className="col-8">: {contract.taxPit}</div>
           </div>
           <p>
             <i>(Thuế TNCN tạm khấu trừ = Tổng giá trị chuyển nhượng x 0.10%)</i>
@@ -239,16 +248,22 @@ class Confirm extends Component {
 }
 
 Confirm.propTypes = {
-  bonds: PropTypes.array
+  contract: PropTypes.object,
+  getContract: PropTypes.func,
+  buyLoading: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
-    bonds: state.Bonds.list
+    contract: state.Buy.contract,
+    buyLoading: state.Buy.loading
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  getContract: buyActions.getContract,
+  approve: buyActions.approve
+};
 
 export default connect(
   mapStateToProps,

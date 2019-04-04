@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import buyActions from '../../store/buy/actions';
 import { FormatTime } from '../../utils/moment';
-import history from '../../utils/history';
 import Layout from '../layout/layout';
 
 class Order extends Component {
@@ -16,15 +16,18 @@ class Order extends Component {
       }
     };
   }
-  onCheckBox() {
+  onCheckBox = () => {
     this.setState({
       toggle: {
         checkbox: !this.state.toggle.checkbox
       }
     });
-  }
+  };
+  _updateBuy = () => {
+    this.props.update();
+  };
   render() {
-    const { bond, info } = this.props;
+    const { bond, info, book } = this.props;
     return (
       <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
         <div className="bond-detail">
@@ -37,7 +40,7 @@ class Order extends Component {
               </tr>
               <tr>
                 <td>Ngày giao dịch TP:</td>
-                <td>{FormatTime(this.state.date)}</td>
+                <td>{FormatTime(book.date)}</td>
               </tr>
               <tr>
                 <td>Ngày đáo hạn TP:</td>
@@ -45,7 +48,7 @@ class Order extends Component {
               </tr>
               <tr>
                 <td>Số lượng trái phiếu đăng ký mua:</td>
-                <td>2,000 Trái Phiếu</td>
+                <td>{book.amount} Trái Phiếu</td>
               </tr>
               <tr>
                 <td>Đơn giá mua:</td>
@@ -60,7 +63,7 @@ class Order extends Component {
                   <b>Tổng tiền đầu tư:</b>
                 </td>
                 <td>
-                  <b>210,284,955 VND</b>
+                  <b>{book.sum} VND</b>
                   <br />
                   <i>
                     (bằng chữ hai trăm mười triệu hai trăm tám mươi bốn ngàn chín trăm năm mươi lăm
@@ -101,15 +104,16 @@ class Order extends Component {
                 trái phiếu được nêu trên đây.
               </i>
             </strong>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={() => this.onCheckBox()} />
             <span className="checkmark" />
           </label>
           <div className="row justify-content-center">
             <div className="col-9">
               <button
                 type="button"
-                onClick={() => history.push({ pathname: '/buy/confirm' })}
+                onClick={() => this._updateBuy()}
                 className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
+                disabled={!this.state.toggle.checkbox}
               >
                 XÁC NHẬN
               </button>
@@ -123,17 +127,22 @@ class Order extends Component {
 
 Order.propTypes = {
   bond: PropTypes.object,
-  info: PropTypes.object
+  info: PropTypes.object,
+  book: PropTypes.object,
+  update: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
     bond: state.Bonds.detail,
-    info: state.Buy.info
+    info: state.Buy.info,
+    book: state.Buy.book
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  update: buyActions.update
+};
 
 export default connect(
   mapStateToProps,

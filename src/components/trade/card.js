@@ -1,10 +1,12 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import history from '../../utils/history';
 import Icon from '../common/icon';
+
+const { t } = useTranslation();
+
 const card = props => {
-  const { t } = props;
   return (
     <div className="card">
       <ul className="list-group list-group-flush">
@@ -25,21 +27,21 @@ const card = props => {
           <span className="float-right">{props.item.date}</span>
         </li>
         <li className="list-group-item">
-          Giá trị tiền đầu tư
+          {t('Giá trị tiền đầu tư')}
           <p className="float-right">
-            <span className="quatity">1,125,698,356</span> VND
+            <span className="quatity">1,125,698,356</span> {t('VND')}
           </p>
         </li>
         <li className="list-group-item">
-          Tiền nhận được sau đầu tư
+          {t('Tiền nhận được sau đầu tư')}
           <p className="float-right">
-            <span className="quatity">1,125,698,356</span> VND
+            <span className="quatity">1,125,698,356</span> {t('VND')}
           </p>
         </li>
         <li className="list-group-item">
-          Lãi suất đầu tư
+          {t('Lãi suất đầu tư')}
           <p className="float-right">
-            <span className="quatity quatity-text">10</span>%/năm
+            <span className="quatity quatity-text">10</span>%/{t('năm')}
           </p>
         </li>
         {props.children}
@@ -49,6 +51,7 @@ const card = props => {
 };
 card.propTypes = {
   item: PropTypes.object,
-  t: PropTypes.func
+  t: PropTypes.func,
+  children: PropTypes.node
 };
-export default withTranslation()(card);
+export default card;

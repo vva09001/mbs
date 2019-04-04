@@ -4,7 +4,8 @@ const initialState = {
   loading: false,
   token: null,
   profile: {
-    id: 123456789
+    userId: 123456789,
+    channel: 'VT'
   },
   error: '',
   auth: true

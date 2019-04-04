@@ -20,15 +20,24 @@ const header = props => {
       return <Header3 title={props.title} />;
       break;
     default:
-      return <Header title={props.title} toggle={props.toggle} onToggle={props.onToggle} />;
+      return (
+        <Header
+          title={props.title}
+          toggle={props.toggle}
+          onToggle={props.onToggle}
+          onClick={props.onClick}
+        />
+      );
   }
 };
 
 header.propTypes = {
   type: PropTypes.number,
   title: PropTypes.string,
+  path: PropTypes.path,
   toggle: PropTypes.bool,
-  onToggle: PropTypes.func
+  onToggle: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 const Layout = props => (
@@ -41,7 +50,9 @@ const Layout = props => (
 
 Layout.propTypes = {
   type: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.node
 };
 
 const mapStateToProps = state => {

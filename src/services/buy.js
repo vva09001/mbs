@@ -28,9 +28,23 @@ const Flow = params => {
     params: params
   });
 };
+const FlowCash = params => {
+  return request({
+    url: '/api/bond/getflowcash',
+    method: 'get',
+    params: params
+  });
+};
 const Update = params => {
   return request({
     url: '/api/bond/updateContractBuy',
+    method: 'get',
+    params: params
+  });
+};
+const Contract = params => {
+  return request({
+    url: '/api/bond/getContractBuyDetail',
     method: 'get',
     params: params
   });
@@ -49,4 +63,4 @@ const Delete = params => {
     params: params
   });
 };
-export { List, Detail, Info, Flow, Update, Approve, Delete };
+export { List, Detail, Info, Flow, FlowCash, Update, Contract, Approve, Delete };

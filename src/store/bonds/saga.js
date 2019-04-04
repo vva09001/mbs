@@ -1,6 +1,7 @@
 import actions from './actions';
-import { all, fork, put, takeEvery } from 'redux-saga/effects';
+import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { list, detail } from '../../services/bonds';
+import { accountProfile } from '../selectors';
 
 export function* bondsList() {
   yield takeEvery(actions.BONDS_LIST, function*(data) {
@@ -8,10 +9,16 @@ export function* bondsList() {
       yield put({ type: actions.BONDS_LOADING });
 
       // Get request
-      const res = yield list(data.params);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userid: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield list(params);
 
       // handle request
-      if (res.status === 200) {
+      if (res.data.result === 0) {
         yield put({ type: actions.BONDS, list: res.data.data.data });
       }
 
@@ -28,10 +35,16 @@ export function* bondsGet() {
       yield put({ type: actions.BONDS_LOADING });
 
       // get request
-      const res = yield detail(data.params);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userid: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield detail(params);
 
       // handle request
-      if (res.status === 200) {
+      if (res.data.result === 0) {
         yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
       }
 
