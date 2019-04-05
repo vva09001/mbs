@@ -10,7 +10,9 @@ class List extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {}
+  componentDidMount() {
+
+  }
   render() {
     return (
       <Layout type={2} title="Danh mục TP có thể bán">
@@ -37,7 +39,9 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+
+};
 
 export default connect(
   mapStateToProps,

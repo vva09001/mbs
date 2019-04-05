@@ -27,6 +27,9 @@ class Confirm extends Component {
       }
     });
   };
+  _onApprove = () => {
+    this.props.approve()
+  }
   render() {
     const { contract } = this.props;
     if (this.props.buyLoading) {
@@ -250,6 +253,7 @@ class Confirm extends Component {
 Confirm.propTypes = {
   contract: PropTypes.object,
   getContract: PropTypes.func,
+  approve: PropTypes.func,
   buyLoading: PropTypes.bool
 };
 

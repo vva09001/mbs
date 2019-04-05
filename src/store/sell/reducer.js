@@ -1,6 +1,7 @@
 import actions from './actions';
 
 const initialState = {
+  list: [],
   flow: [],
   info: {},
   date: [],
