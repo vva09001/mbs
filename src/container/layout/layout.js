@@ -11,7 +11,7 @@ import Footer from '../../components/common/footer';
 const header = props => {
   switch (props.type) {
     case 1:
-      return <Header1 title={props.title} path={props.path} />;
+      return <Header1 title={props.title} />;
       break;
     case 2:
       return <Header2 title={props.title} />;
@@ -34,7 +34,6 @@ const header = props => {
 header.propTypes = {
   type: PropTypes.number,
   title: PropTypes.string,
-  path: PropTypes.path,
   toggle: PropTypes.bool,
   onToggle: PropTypes.func,
   onClick: PropTypes.func
