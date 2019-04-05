@@ -12,7 +12,7 @@ export function* bondsList() {
       const profile = yield select(accountProfile);
       const params = {
         ...data.params,
-        userid: profile.userId,
+        userId: profile.userId,
         channel: profile.channel
       };
       const res = yield list(params);
@@ -38,7 +38,7 @@ export function* bondsGet() {
       const profile = yield select(accountProfile);
       const params = {
         ...data.params,
-        userid: profile.userId,
+        userId: profile.userId,
         channel: profile.channel
       };
       const res = yield detail(params);

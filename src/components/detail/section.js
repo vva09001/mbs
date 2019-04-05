@@ -5,9 +5,10 @@ import _ from 'lodash';
 import history from '../../utils/history';
 import Loading from '../common/loading';
 import Icon from '../common/icon';
-const { t } = useTranslation();
+
 
 const Section1 = props => {
+  const { t } = useTranslation();
   if (props.loading) {
     return <Loading />;
   }
@@ -52,6 +53,7 @@ Section1.propTypes = {
 };
 
 const Section3 = props => {
+  const { t } = useTranslation();
   if (props.loading) {
     return <Loading />;
   }
@@ -96,10 +98,11 @@ Section3.propTypes = {
   loading: PropTypes.bool,
   showPopup: PropTypes.func
 };
-const showContent = (items, content) =>
-  _.map(content, (item, index) => <td key={index}>{items[item]}</td>);
+const showContent = (items, content, t) =>
+  _.map(content, (item, index) => <td key={index}>{t(items[item])}</td>);
 
 const Section4 = props => {
+  const { t } = useTranslation();
   const { title, sum, label, items, content, onClick, status, refs } = props;
   if (props.loading) {
     return <Loading />;
@@ -134,7 +137,7 @@ const Section4 = props => {
               </thead>
               <tbody>
                 {_.map(items, (res, index) => (
-                  <tr key={index}>{showContent(res, content)}</tr>
+                  <tr key={index}>{showContent(res, content, t)}</tr>
                 ))}
               </tbody>
             </table>
@@ -146,7 +149,7 @@ const Section4 = props => {
 };
 Section4.propTypes = {
   title: PropTypes.string,
-  sum: PropTypes.string,
+  sum: PropTypes.number,
   onClick: PropTypes.func,
   status: PropTypes.bool,
   refs: PropTypes.string,

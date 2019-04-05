@@ -93,7 +93,7 @@ class Detail extends Component {
       'Ngày kết thúc đầu tư',
       'Lãi tái đầu tư nhận được (VND)'
     ];
-    const content = ['reinvestmentRate', 'payCouponDate', 'lastPayCouponDate', 'cashInvest'];
+    const content = ['cashInvest', 'payCouponDate', 'lastPayCouponDate', 'reinvestmentRate'];
     return (
       <Section4
         title="Đã bao gồm tái đầu tư coupon:"
@@ -125,10 +125,10 @@ class Detail extends Component {
               <strong>{t('Coupon')}:</strong> {this.props.bond.couponPayment}
             </p>
             <p>
-              <strong>Tái đầu tư coupon:</strong> {this.props.info.sumCashInvest}
+              <strong>{t('Tái đầu tư coupon')}:</strong> {this.props.info.sumCashInvest}
             </p>
             <p>
-              <strong>Lãi suất đầu tư:</strong> {this.props.info.reinvestmentRate}
+              <strong>{t('Lãi suất đầu tư')}:</strong> {this.props.info.reinvestmentRate}
             </p>
           </Popup>
         )}
@@ -136,7 +136,8 @@ class Detail extends Component {
           <Section1 item={this.props.bond} loading={this.props.bondLoading} />
           <form>
             <Section2
-              item={this.props.info}
+              info={this.props.info}
+              bond={this.props.bond}
               loading={this.props.buyLoading}
               params={this.state.params}
               handleParam={this.handleParam}
@@ -149,7 +150,7 @@ class Detail extends Component {
           </form>
           <div className="row mb-1">
             <label className="col-12 col-form-label text-primary">
-              <strong>TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)</strong>
+              <strong>{t('TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)')}</strong>
             </label>
           </div>
           {this.nonInvertRender()}
@@ -161,7 +162,7 @@ class Detail extends Component {
                 onClick={() => this._setBuy()}
                 className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
               >
-                ĐẶT LỆNH MUA
+                {t('ĐẶT LỆNH MUA')}
               </button>
             </div>
           </div>
@@ -182,7 +183,8 @@ Detail.propTypes = {
   buyFetch: PropTypes.func,
   setBuy: PropTypes.func,
   match: PropTypes.object,
-  profile: PropTypes.object
+  profile: PropTypes.object,
+  t: PropTypes.func
 };
 
 const mapStateToProps = state => {

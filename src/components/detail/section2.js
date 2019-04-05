@@ -13,28 +13,32 @@ class Section2 extends Component {
   }
   handleMount(type) {
     if (type) {
-      this.props.handleParam('params', {
-        ...this.props.params,
-        amount: this.props.params.amount + 1,
-        sum: this.props.item.buyPrice * (this.props.params.amount + 1)
-      });
+      if (this.props.params.amount < this.props.bond.roomBalance) {
+        this.props.handleParam('params', {
+          ...this.props.params,
+          amount: this.props.params.amount + 1,
+          sum: this.props.info.buyPrice * (this.props.params.amount + 1)
+        });
+      }
     } else {
-      if (this.props.params.amount > 0) {
+      if (this.props.params.amount > this.props.info.buyVolMin) {
         this.props.handleParam('params', {
           ...this.props.params,
           amount: this.props.params.amount - 1,
-          sum: this.props.item.buyPrice * (this.props.params.amount - 1)
+          sum: this.props.info.buyPrice * (this.props.params.amount - 1)
         });
       }
     }
   }
   _onChangeAmount(event) {
     const number = parseInt(event.target.value);
-    this.props.handleParam('params', {
-      ...this.props.params,
-      amount: number,
-      sum: number * this.props.item.buyPrice
-    });
+    if (number <= this.props.info.buyVol || number >= this.props.info.buyVolMin) {
+      this.props.handleParam('params', {
+        ...this.props.params,
+        amount: number,
+        sum: number * this.props.info.buyPrice
+      });
+    }
   }
   render() {
     const { t } = this.props;
@@ -64,7 +68,7 @@ class Section2 extends Component {
                 type="text"
                 className="form-control text-primary"
                 disabled
-                value={this.props.item.buyPrice}
+                value={this.props.info.buyPrice}
               />
               <div className="input-group-append">
                 <div className="input-group-text text-primary">{t('VND')}</div>
@@ -113,10 +117,12 @@ class Section2 extends Component {
   }
 }
 Section2.propTypes = {
-  item: PropTypes.object,
+  info: PropTypes.object,
+  bond: PropTypes.object,
   loading: PropTypes.bool,
   params: PropTypes.object,
-  handleParam: PropTypes.func
+  handleParam: PropTypes.func,
+  t: PropTypes.func
 };
 
 export default withTranslation()(Section2);
