@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Layout from '../layout/layout-noAuth';
-import accountActions from '../../store/account/actions';
+import authActions from '../../store/auth/actions';
 
 class HomePage extends Component {
   constructor(props) {
@@ -78,7 +78,7 @@ const mapStateToProps = () => {
 };
 
 const mapDispatchToProps = {
-  checkAuth: accountActions.auth
+  checkAuth: authActions.auth
 };
 
 export default connect(

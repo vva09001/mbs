@@ -78,10 +78,10 @@ Layout.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.Account.token !== null ? true : false,
-    buyError: state.Buy.error !== '' ? state.Buy.error : false,
-    sellError: state.Sell.error !== '' ? state.Sell.error : false,
-    bondsError: state.Bonds.error !== '' ? state.Bonds.error : false
+    isLoggedIn: state.Auth.token !== null ? true : false,
+    buyError: state.Buy.error,
+    sellError: state.Sell.error,
+    bondsError: state.Bonds.error
   };
 };
 

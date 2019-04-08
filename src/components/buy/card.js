@@ -13,7 +13,7 @@ const card = props => {
             className="btn-transparent"
             onClick={() => history.push({ pathname: '/buy/' + props.item.bondCode })}
           >
-            {t(props.item.bondCode)}
+            {props.item.bondCode}
           </button>
           <span className="link">
             <span className="badge badge-danger">
