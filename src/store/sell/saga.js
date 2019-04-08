@@ -1,7 +1,34 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
-import { Info, Flow } from '../../services/sell';
-import { getToken } from '../selectors';
+import { List, Info, Flow } from '../../services/sell';
+import { accountProfile, getToken } from '../selectors';
+
+export function* sellListSaga() {
+  yield takeEvery(actions.SELL_LIST_GET, function*(data) {
+    try {
+      yield put({ type: actions.SELL_LOADING, loading: true });
+
+      // Get request
+      const token = yield select(getToken);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userId: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield List(params, token);
+
+      // handle request
+      if (res.data.result === 0) {
+        yield put({ type: actions.SELL_LIST, list: res.data.data.data });
+      }
+
+      yield put({ type: actions.SELL_LOADING, loading: false });
+    } catch (error) {
+      yield put({ type: actions.SELL_ERROR, error: error.message });
+    }
+  });
+}
 
 export function* sellFlowSaga() {
   yield takeEvery(actions.SELL_FLOW_GET, function*(data) {
@@ -46,5 +73,5 @@ export function* sellInfoSaga() {
 }
 
 export default function* rootSaga() {
-  yield all([fork(sellFlowSaga), fork(sellInfoSaga)]);
+  yield all([fork(sellListSaga), fork(sellFlowSaga), fork(sellInfoSaga)]);
 }

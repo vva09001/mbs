@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const header = ({ title }) => {
   const { t } = useTranslation();
   return (
-    <div className="header-wrapper fixed-top row">
+    <div className="header-wrapper fixed-top align-items-center row">
       <div className="col-2">
         <button className="navbar-toggler filter" type="button">
           <img src="/img/menu.png" height="20" alt="menu" />

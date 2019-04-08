@@ -2,7 +2,7 @@ import request from '../utils/request';
 
 const List = (params, token) => {
   return request({
-    url: '/api/bond/getListContractSell',
+    url: '/api/bond/getListContractBuy',
     method: 'get',
     headers: {
       Authorization: token
@@ -14,6 +14,9 @@ const Detail = (params, token) => {
   return request({
     url: '/api/bond/getContractSellDetail',
     method: 'get',
+    headers: {
+      Authorization: token
+    },
     params: params
   });
 };
@@ -41,6 +44,9 @@ const Update = (params, token) => {
   return request({
     url: '/api/bond/updateContractSell',
     method: 'get',
+    headers: {
+      Authorization: token
+    },
     params: params
   });
 };

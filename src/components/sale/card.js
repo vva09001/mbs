@@ -11,40 +11,56 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          {t(props.item.title)}
+          <button
+            className="btn-transparent"
+            onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}
+          >
+            {props.item.bondCode}
+          </button>
           <span className="link">
-            <button onClick={() => history.push({ pathname: '/bonds/' + props.item.id })}>
+            <button onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}>
               <Icon name="arrow" width="18" height="24" />
             </button>
           </span>
         </li>
         <li className="list-group-item">
           {t('Ngày giao dịch mua')}
-          <span className="float-right">{props.item.date}</span>
+          <span className="float-right">{props.item.buyDate}</span>
         </li>
         <li className="list-group-item">
           {t('Ngày đáo hạn')}
-          <span className="float-right">{props.item.date}</span>
+          <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
           {t('Số lượng TP sở hữu')}
           <p className="float-right">
-            <span className="quatity">2.000</span> {t('TP')}
+            <span className="quatity">{props.item.buyVol}</span> {t('TP')}
           </p>
         </li>
         <li className="list-group-item">
           {t('Giá trị đầu tư')}
           <p className="float-right">
-            <span className="quatity">210,284,955</span> {t('VND')}
+            <span className="quatity">{props.item.buyValue}</span> {t('VND')}
           </p>
         </li>
         <li className="list-group-item">
           {t('Lãi suất')}
           <p className="float-right">
-            <span className="quatity quatity-text">10</span>%/{t('năm')}
+            <span className="quatity quatity-text">{props.item.termRate}</span>
+            %/
+            {t('năm')}
           </p>
         </li>
-        {props.children}
+        <li className="list-group-item justify-content-center">
+          <div className="col-9">
+            <button
+              onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}
+              className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
+            >
+              BÁN
+            </button>
+          </div>
+        </li>
       </ul>
     </div>
   );

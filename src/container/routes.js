@@ -16,9 +16,9 @@ import BondsBuyFlow from './buy/flow';
 import BondsBuyConfirm from './buy/confirm';
 import BondsBuyInfo from './buy/info';
 
-import BondsSaleOrder from './sale/order';
-import BondsSaleConfirm from './sale/confirm';
-import BondsSaleList from './sale/list';
+import BondsSaleOrder from './sell/order';
+import BondsSaleConfirm from './sell/confirm';
+import BondsSaleList from './sell/list';
 
 import BondsTradeList from './trade/list';
 import BondsSaleActions from './trade/actions';
@@ -43,7 +43,7 @@ const AppRouter = props => {
           <Route exact path="/buy/:code" component={BondsBuyDetail} />
 
           <Route exact path="/sell/" component={BondsSaleList} />
-          <Route path="/sell/order/" component={BondsSaleOrder} />
+          <Route path="/sell/order/:code" component={BondsSaleOrder} />
           <Route path="/sell/confirm/" component={BondsSaleConfirm} />
 
           <Route exact path="/trade/" component={BondsTradeList} />
