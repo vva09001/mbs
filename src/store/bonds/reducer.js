@@ -14,7 +14,7 @@ const Bonds = (state = initialState, action) => {
     case actions.BONDS_DETAIL:
       return { ...state, detail: action.detail };
     case actions.BONDS_LOADING:
-      return { ...state, loading: !state.loading };
+      return { ...state, loading: action.loading };
     case actions.BONDS_ERROR:
       return { ...state, error: action.error };
     default:

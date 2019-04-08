@@ -7,7 +7,7 @@ import { accountProfile, buyGetBook, buyGetContract, getToken } from '../selecto
 export function* buyFetchSaga() {
   yield takeEvery(actions.BUY_GET, function*(data) {
     try {
-      yield put({ type: actions.BUY_LOADING });
+      yield put({ type: actions.BUY_LOADING, loading: true });
 
       // Get request
       const token = yield select(getToken);
@@ -32,7 +32,7 @@ export function* buyFetchSaga() {
         yield put({ type: actions.BUY_INFO, info: resInfo.data.data });
       }
 
-      yield put({ type: actions.BUY_LOADING });
+      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
     }
@@ -49,7 +49,7 @@ export function* setBuySaga() {
 export function* updateBuySaga() {
   yield takeEvery(actions.BUY_UPDATE, function*() {
     try {
-      yield put({ type: actions.BUY_LOADING });
+      yield put({ type: actions.BUY_LOADING, loading: true });
 
       // Get request
       const token = yield select(getToken);
@@ -68,7 +68,7 @@ export function* updateBuySaga() {
         yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
       }
 
-      yield put({ type: actions.BUY_LOADING });
+      yield put({ type: actions.BUY_LOADING, loading: false });
       yield history.push({ pathname: '/buy/confirm/' });
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
@@ -79,7 +79,7 @@ export function* updateBuySaga() {
 export function* getContractSaga() {
   yield takeEvery(actions.BUY_GET_CONTRACT, function*() {
     try {
-      yield put({ type: actions.BUY_LOADING });
+      yield put({ type: actions.BUY_LOADING, loading: true });
 
       // Get request
       const token = yield select(getToken);
@@ -98,7 +98,7 @@ export function* getContractSaga() {
         yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
       }
 
-      yield put({ type: actions.BUY_LOADING });
+      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
     }
@@ -108,7 +108,7 @@ export function* getContractSaga() {
 export function* approveBuySaga() {
   yield takeEvery(actions.BUY_APPROVE, function*() {
     try {
-      yield put({ type: actions.BUY_LOADING });
+      yield put({ type: actions.BUY_LOADING, loading: true });
 
       // // select book and contract code
       // const book = yield select(buyGetBook);
@@ -127,7 +127,7 @@ export function* approveBuySaga() {
       //   yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
       // }
 
-      yield put({ type: actions.BUY_LOADING });
+      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
     }

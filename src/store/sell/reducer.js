@@ -16,7 +16,7 @@ const Sell = (state = initialState, action) => {
     case actions.SELL_INFO:
       return { ...state, info: action.info };
     case actions.SELL_LOADING:
-      return { ...state, loading: !state.loading };
+      return { ...state, loading: action.loading };
     case actions.SELL_ERROR:
       return { ...state, error: action.error };
     default:

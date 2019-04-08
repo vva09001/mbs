@@ -6,7 +6,7 @@ import { accountProfile, getToken } from '../selectors';
 export function* bondsList() {
   yield takeEvery(actions.BONDS_LIST, function*(data) {
     try {
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.BONDS_LOADING, loading: true });
 
       // Get request
       const token = yield select(getToken);
@@ -23,7 +23,7 @@ export function* bondsList() {
         yield put({ type: actions.BONDS, list: res.data.data.data });
       }
 
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.BONDS_LOADING, loading: false });
     } catch (error) {
       yield put({ type: actions.BONDS_ERROR, error: error.message });
     }
@@ -33,7 +33,7 @@ export function* bondsList() {
 export function* bondsGet() {
   yield takeEvery(actions.BONDS_GET, function*(data) {
     try {
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.BONDS_LOADING, loading: true });
 
       // get request
       const token = yield select(getToken);
@@ -50,7 +50,7 @@ export function* bondsGet() {
         yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
       }
 
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.BONDS_LOADING, loading: false });
     } catch (error) {
       yield put({ type: actions.USER_ERROR, error: error.message });
     }

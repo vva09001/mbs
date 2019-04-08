@@ -23,7 +23,7 @@ const Buy = (state = initialState, action) => {
     case actions.BUY_CONTRACT:
       return { ...state, contract: action.contract };
     case actions.BUY_LOADING:
-      return { ...state, loading: !state.loading };
+      return { ...state, loading: action.loading };
     case actions.BUY_ERROR:
       return { ...state, error: action.error };
     default:
