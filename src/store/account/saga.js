@@ -6,14 +6,12 @@ export function* authSaga() {
   yield takeEvery(actions.AUTH_REQUEST, function*(data) {
     try {
       // Get response
-      // const res = yield Authentication(data.data);
-      // console.log(res)
-      // if (res.status === 200) {
-      //   yield put({ type: actions.TOKEN, token: res.data.data['_mbs.gw.session'] });
-      //   yield put({ type: actions.AUTH, auth: true });
-      // } else {
-      //   yield put({ type: actions.AUTH, error: false });
-      // }
+      const res = yield Authentication(data.data);
+      if (res.status === 200) {
+        yield put({ type: actions.AUTH, auth: res.data });
+      } else {
+        yield put({ type: actions.AUTH, auth: { token: null } });
+      }
     } catch (error) {
       yield put({ type: actions.USER_ERROR, error: error.message });
     }

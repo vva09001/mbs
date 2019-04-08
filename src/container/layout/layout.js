@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // components: header
@@ -39,24 +39,38 @@ header.propTypes = {
   onClick: PropTypes.func
 };
 
-const Layout = props => (
-  <Fragment>
-    {header(props)}
-    <div className="container-fluid min-vh-100">{props.children}</div>
-    <Footer />
-  </Fragment>
-);
+const Layout = props => {
+  if (props.isLoggedIn) {
+    return (
+      <Fragment>
+        {header(props)}
+        <div className="container-fluid min-vh-100">{props.children}</div>
+        <Footer />
+      </Fragment>
+    );
+  }
+  return (
+    <Fragment>
+      {header(props)}
+      <div className="container-fluid min-vh-100 text-center">
+        <h1>No Auth</h1>
+      </div>
+      <Footer />
+    </Fragment>
+  );
+};
 
 Layout.propTypes = {
   type: PropTypes.number,
   title: PropTypes.string,
   onClick: PropTypes.func,
+  isLoggedIn: PropTypes.bool,
   children: PropTypes.node
 };
 
 const mapStateToProps = state => {
   return {
-    // isLoggedIn: state.User.token !== null ? true : false
+    isLoggedIn: state.Account.token !== null ? true : false
   };
 };
 

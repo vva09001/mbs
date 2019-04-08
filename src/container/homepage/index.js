@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Layout from '../layout/layout1';
+import Layout from '../layout/layout-noAuth';
 import accountActions from '../../store/account/actions';
 
 class HomePage extends Component {
@@ -13,13 +13,6 @@ class HomePage extends Component {
     this.props.checkAuth(this.props.location.search);
   }
   render() {
-    if (!this.props.auth) {
-      return (
-        <div className="col-12">
-          <h6 className="text-primary text-center mt-2 mb-3">Không check được Authenticate</h6>
-        </div>
-      );
-    }
     return (
       <Layout type={3}>
         <div className="row">
@@ -80,10 +73,8 @@ HomePage.propTypes = {
   location: PropTypes.object
 };
 
-const mapStateToProps = state => {
-  return {
-    auth: state.Account.auth
-  };
+const mapStateToProps = () => {
+  return {};
 };
 
 const mapDispatchToProps = {

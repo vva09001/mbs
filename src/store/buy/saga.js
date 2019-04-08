@@ -2,7 +2,7 @@ import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { Info, Flow, FlowCash, Update, Contract, Approve } from '../../services/buy';
 import history from '../../utils/history';
-import { accountProfile, buyGetBook, buyGetContract } from '../selectors';
+import { accountProfile, buyGetBook, buyGetContract, getToken } from '../selectors';
 
 export function* buyFetchSaga() {
   yield takeEvery(actions.BUY_GET, function*(data) {
@@ -10,15 +10,16 @@ export function* buyFetchSaga() {
       yield put({ type: actions.BUY_LOADING });
 
       // Get request
+      const token = yield select(getToken);
       const profile = yield select(accountProfile);
       const params = {
         ...data.params,
         userId: profile.userId,
         channel: profile.channel
       };
-      const resFlow = yield Flow(params);
-      const resFlowCash = yield FlowCash(params);
-      const resInfo = yield Info(params);
+      const resFlow = yield Flow(params, token);
+      const resFlowCash = yield FlowCash(params, token);
+      const resInfo = yield Info(params, token);
 
       // handle request
       if (resFlow.data.result === 0) {
@@ -50,18 +51,17 @@ export function* updateBuySaga() {
     try {
       yield put({ type: actions.BUY_LOADING });
 
-      // select book
-      const book = yield select(buyGetBook);
-
       // Get request
+      const token = yield select(getToken);
       const profile = yield select(accountProfile);
+      const book = yield select(buyGetBook);
       const params = {
         userId: profile.userId,
         channel: profile.channel,
         code: book.code,
         volume: book.amount
       };
-      const res = yield Update(params);
+      const res = yield Update(params, token);
 
       // handle request
       if (res.data.result === 0) {
@@ -81,17 +81,17 @@ export function* getContractSaga() {
     try {
       yield put({ type: actions.BUY_LOADING });
 
-      // select book and contract code
+      // Get request
+      const token = yield select(getToken);
       const account = yield select(accountProfile);
       const contract = yield select(buyGetContract);
 
-      // Get request
       const params = {
         userId: account.userId,
         channel: account.channel,
         contractCode: contract.contractCode
       };
-      const res = yield Contract(params);
+      const res = yield Contract(params, token);
 
       // handle request
       if (res.data.result === 0) {

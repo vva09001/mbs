@@ -1,7 +1,7 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { list, detail } from '../../services/bonds';
-import { accountProfile } from '../selectors';
+import { accountProfile, getToken } from '../selectors';
 
 export function* bondsList() {
   yield takeEvery(actions.BONDS_LIST, function*(data) {
@@ -9,13 +9,14 @@ export function* bondsList() {
       yield put({ type: actions.BONDS_LOADING });
 
       // Get request
+      const token = yield select(getToken);
       const profile = yield select(accountProfile);
       const params = {
         ...data.params,
         userId: profile.userId,
         channel: profile.channel
       };
-      const res = yield list(params);
+      const res = yield list(params, token);
 
       // handle request
       if (res.data.result === 0) {
@@ -35,13 +36,14 @@ export function* bondsGet() {
       yield put({ type: actions.BONDS_LOADING });
 
       // get request
+      const token = yield select(getToken);
       const profile = yield select(accountProfile);
       const params = {
         ...data.params,
         userId: profile.userId,
         channel: profile.channel
       };
-      const res = yield detail(params);
+      const res = yield detail(params, token);
 
       // handle request
       if (res.data.result === 0) {

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // components: header
@@ -11,7 +11,7 @@ import Footer from '../../components/common/footer';
 const header = props => {
   switch (props.type) {
     case 1:
-      return <Header1 title={props.title} path={props.path} />;
+      return <Header1 title={props.title} />;
       break;
     case 2:
       return <Header2 title={props.title} />;
@@ -39,13 +39,12 @@ const Layout = props => (
 
 Layout.propTypes = {
   type: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  children: PropTypes.node
 };
 
-const mapStateToProps = state => {
-  return {
-    // isLoggedIn: state.User.token !== null ? true : false
-  };
+const mapStateToProps = () => {
+  return {};
 };
 
 const mapDispatchToProps = {};

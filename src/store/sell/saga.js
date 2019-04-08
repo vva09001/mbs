@@ -1,6 +1,7 @@
 import actions from './actions';
-import { all, fork, put, takeEvery } from 'redux-saga/effects';
+import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { Info, Flow } from '../../services/sell';
+import { getToken } from '../selectors';
 
 export function* sellFlowSaga() {
   yield takeEvery(actions.SELL_FLOW_GET, function*(data) {
@@ -8,7 +9,8 @@ export function* sellFlowSaga() {
       yield put({ type: actions.BUY_LOADING });
 
       // Get request
-      const res = yield Flow(data.params);
+      const token = yield select(getToken);
+      const res = yield Flow(data.params, token);
 
       // handle request
       if (res.status === 200) {
@@ -28,7 +30,8 @@ export function* sellInfoSaga() {
       yield put({ type: actions.BONDS_LOADING });
 
       // get request
-      const res = yield Info(data.params);
+      const token = yield select(getToken);
+      const res = yield Info(data.params, token);
 
       // handle request
       if (res.status === 200) {
