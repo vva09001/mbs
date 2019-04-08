@@ -7,18 +7,17 @@ import Header1 from '../../components/common/header1';
 import Header2 from '../../components/common/header2';
 import Header3 from '../../components/common/header3';
 import Footer from '../../components/common/footer';
+import Popup from '../../components/common/popup';
+
 // components: First
 const header = props => {
   switch (props.type) {
     case 1:
       return <Header1 title={props.title} />;
-      break;
     case 2:
       return <Header2 title={props.title} />;
-      break;
     case 3:
       return <Header3 title={props.title} />;
-      break;
     default:
       return (
         <Header
@@ -38,6 +37,12 @@ header.propTypes = {
   onToggle: PropTypes.func,
   onClick: PropTypes.func
 };
+
+const Alert = message => (
+  <Popup title="Thông tin trái phiếu">
+    <p>{message}</p>
+  </Popup>
+);
 
 const Layout = props => {
   if (props.isLoggedIn) {
@@ -65,12 +70,18 @@ Layout.propTypes = {
   title: PropTypes.string,
   onClick: PropTypes.func,
   isLoggedIn: PropTypes.bool,
+  buyError: PropTypes.string,
+  sellError: PropTypes.string,
+  bondsError: PropTypes.string,
   children: PropTypes.node
 };
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.Account.token !== null ? true : false
+    isLoggedIn: state.Account.token !== null ? true : false,
+    buyError: state.Buy.error !== '' ? state.Buy.error : false,
+    sellError: state.Sell.error !== '' ? state.Sell.error : false,
+    bondsError: state.Bonds.error !== '' ? state.Bonds.error : false
   };
 };
 

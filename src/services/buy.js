@@ -64,6 +64,9 @@ const Contract = (params, token) => {
   return request({
     url: '/api/bond/getContractBuyDetail',
     method: 'get',
+    headers: {
+      Authorization: token
+    },
     params: params
   });
 };

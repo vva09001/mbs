@@ -36,7 +36,7 @@ class Order extends Component {
             <tbody>
               <tr>
                 <td width="50%">Mã trái phiếu:</td>
-                <td width="50%">{bond.bondName}</td>
+                <td width="50%">{bond.bondCode}</td>
               </tr>
               <tr>
                 <td>Ngày giao dịch TP:</td>

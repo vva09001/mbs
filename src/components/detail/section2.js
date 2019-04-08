@@ -32,7 +32,7 @@ class Section2 extends Component {
   }
   _onChangeAmount(event) {
     const number = parseInt(event.target.value);
-    if (number <= this.props.info.buyVol || number >= this.props.info.buyVolMin) {
+    if (number < this.props.info.buyVol && number > this.props.info.buyVolMin) {
       this.props.handleParam('params', {
         ...this.props.params,
         amount: number,

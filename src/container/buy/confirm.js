@@ -28,8 +28,8 @@ class Confirm extends Component {
     });
   };
   _onApprove = () => {
-    this.props.approve()
-  }
+    this.props.approve();
+  };
   render() {
     const { contract } = this.props;
     if (this.props.buyLoading) {

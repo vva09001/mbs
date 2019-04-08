@@ -1,11 +1,12 @@
 import React, { Suspense } from 'react';
 import { CookiesProvider } from 'react-cookie';
+
 // import style
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../style/index.scss';
-import Loading from '../components/common/loading'
+import Loading from '../components/common/loading';
 
 const RootContainer = props => {
   return (
@@ -16,4 +17,5 @@ const RootContainer = props => {
     </CookiesProvider>
   );
 };
+
 export default RootContainer;

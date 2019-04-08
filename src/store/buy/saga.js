@@ -2,7 +2,14 @@ import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { Info, Flow, FlowCash, Update, Contract, Approve } from '../../services/buy';
 import history from '../../utils/history';
-import { accountProfile, buyGetBook, buyGetContract, getToken } from '../selectors';
+import {
+  accountProfile,
+  buyGetBook,
+  buyGetContract,
+  getToken,
+  buyVolMax,
+  buyVolMin
+} from '../selectors';
 
 export function* buyFetchSaga() {
   yield takeEvery(actions.BUY_GET, function*(data) {
@@ -41,8 +48,20 @@ export function* buyFetchSaga() {
 
 export function* setBuySaga() {
   yield takeEvery(actions.SET_BUY, function*(data) {
-    yield put({ type: actions.BUY_BOOK, book: data.params });
-    yield history.push({ pathname: '/buy/order/' });
+    // Get Condition
+    const volMax = yield select(buyVolMax);
+    const volMin = yield select(buyVolMin);
+
+    // Check amount condition
+    if (data.params.amount !== 0 && data.params.amount > volMin && data.params.amount < volMax) {
+      yield put({ type: actions.BUY_BOOK, book: data.params });
+      yield history.push({ pathname: '/buy/order/' });
+    } else {
+      yield put({
+        type: actions.BUY_ERROR,
+        error: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`
+      });
+    }
   });
 }
 
