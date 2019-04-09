@@ -8,6 +8,10 @@ import Header2 from '../../components/common/header2';
 import Header3 from '../../components/common/header3';
 import Footer from '../../components/common/footer';
 import Popup from '../../components/common/popup';
+// actions
+import buyActions from '../../store/buy/actions';
+import sellActions from '../../store/sell/actions';
+import bondsActions from '../../store/bonds/actions';
 
 // components: First
 const header = props => {
@@ -38,8 +42,8 @@ header.propTypes = {
   onClick: PropTypes.func
 };
 
-const Alert = message => (
-  <Popup title="Thông tin trái phiếu">
+const Alert = (message, toggle) => (
+  <Popup title="Thông tin trái phiếu" showPopup={() => toggle()}>
     <p>{message}</p>
   </Popup>
 );
@@ -48,6 +52,7 @@ const Layout = props => {
   if (props.isLoggedIn) {
     return (
       <Fragment>
+        {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
         {header(props)}
         <div className="container-fluid min-vh-100">{props.children}</div>
         <Footer />
@@ -70,9 +75,10 @@ Layout.propTypes = {
   title: PropTypes.string,
   onClick: PropTypes.func,
   isLoggedIn: PropTypes.bool,
-  buyError: PropTypes.string,
-  sellError: PropTypes.string,
-  bondsError: PropTypes.string,
+  buyError: PropTypes.object,
+  buyClear: PropTypes.func,
+  sellError: PropTypes.object,
+  bondsError: PropTypes.object,
   children: PropTypes.node
 };
 
@@ -85,7 +91,11 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  buyClear: buyActions.clearError,
+  sellClear: sellActions.clearError,
+  bondsClear: bondsActions.clearError
+};
 
 export default connect(
   mapStateToProps,

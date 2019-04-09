@@ -6,7 +6,10 @@ const initialState = {
   info: {},
   date: [],
   loading: false,
-  error: ''
+  error: {
+    message: '',
+    status: false
+  }
 };
 
 const Sell = (state = initialState, action) => {

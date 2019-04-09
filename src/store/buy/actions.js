@@ -14,6 +14,7 @@ const actions = {
   BUY_APPROVE: 'BUY_APPROVE',
   BUY_LOADING: 'BUY_LOADING',
   BUY_ERROR: 'BUY_ERROR',
+  CLEAR_BUY_ERROR: 'CLEAR_BUY_ERROR',
   getBuy: params => ({
     type: actions.BUY_GET,
     params
@@ -38,6 +39,9 @@ const actions = {
   }),
   approve: () => ({
     type: actions.BUY_APPROVE
+  }),
+  clearError: () => ({
+    type: actions.CLEAR_BUY_ERROR
   })
 };
 export default actions;

@@ -4,7 +4,10 @@ const initialState = {
   list: [],
   detail: {},
   loading: false,
-  error: ''
+  error: {
+    message: '',
+    status: false
+  }
 };
 
 const Bonds = (state = initialState, action) => {

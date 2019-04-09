@@ -1,5 +1,5 @@
 import actions from './actions';
-import contract from '../../db/getContractBuyDetail'
+import contract from '../../db/getContractBuyDetail';
 const initialState = {
   flow: {},
   flowCash: {},
@@ -7,7 +7,10 @@ const initialState = {
   book: {},
   contract: contract,
   loading: false,
-  error: ''
+  error: {
+    message: '',
+    status: false
+  }
 };
 
 const Buy = (state = initialState, action) => {

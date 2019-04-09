@@ -1,6 +1,7 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { Info, Flow, FlowCash, Update, Contract, Approve } from '../../services/buy';
+import Error from '../../utils/error';
 import history from '../../utils/history';
 import {
   accountProfile,
@@ -31,12 +32,29 @@ export function* buyFetchSaga() {
       // handle request
       if (resFlow.data.result === 0) {
         yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: Error[resFlow.data.result], status: true }
+        });
       }
+
       if (resFlowCash.status === 200) {
         yield put({ type: actions.BUY_FLOW_CASH, flowCash: resFlowCash.data.data });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: Error[resFlowCash.data.result], status: true }
+        });
       }
+
       if (resFlow.data.result === 0) {
         yield put({ type: actions.BUY_INFO, info: resInfo.data.data });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: Error[resFlow.data.result], status: true }
+        });
       }
 
       yield put({ type: actions.BUY_LOADING, loading: false });
@@ -48,18 +66,23 @@ export function* buyFetchSaga() {
 
 export function* setBuySaga() {
   yield takeEvery(actions.SET_BUY, function*(data) {
+
     // Get Condition
     const volMax = yield select(buyVolMax);
     const volMin = yield select(buyVolMin);
+    console.log(data.params.amount, volMin, volMax)
 
     // Check amount condition
-    if (data.params.amount !== 0 && data.params.amount > volMin && data.params.amount < volMax) {
+    if (data.params.amount !== 0 && data.params.amount >= volMin && data.params.amount <= volMax) {
       yield put({ type: actions.BUY_BOOK, book: data.params });
       yield history.push({ pathname: '/buy/order/' });
     } else {
       yield put({
         type: actions.BUY_ERROR,
-        error: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`
+        error: {
+          message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
+          status: true
+        }
       });
     }
   });
@@ -85,10 +108,14 @@ export function* updateBuySaga() {
       // handle request
       if (res.data.result === 0) {
         yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
+        yield history.push({ pathname: '/buy/confirm/' });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
       }
-
       yield put({ type: actions.BUY_LOADING, loading: false });
-      yield history.push({ pathname: '/buy/confirm/' });
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
     }
@@ -115,9 +142,13 @@ export function* getContractSaga() {
       // handle request
       if (res.data.result === 0) {
         yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
+        yield put({ type: actions.BUY_LOADING, loading: false });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
       }
-
-      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
     }
@@ -153,12 +184,19 @@ export function* approveBuySaga() {
   });
 }
 
+export function* clearBuyErrorSaga() {
+  yield takeEvery(actions.CLEAR_BUY_ERROR, function*() {
+    yield put({ type: actions.BUY_ERROR, error: { message: '', status: false } });
+  });
+}
+
 export default function* rootSaga() {
   yield all([
     fork(buyFetchSaga),
     fork(setBuySaga),
     fork(updateBuySaga),
     fork(getContractSaga),
-    fork(approveBuySaga)
+    fork(approveBuySaga),
+    fork(clearBuyErrorSaga)
   ]);
 }
