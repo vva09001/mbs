@@ -19,7 +19,7 @@ const footer = () => {
         {t('Tài sản')}
       </Link>
       <Link to="/trade/">
-        <Icon name="mua-ban" height="35" />
+        <Icon name="giao-dich" height="35" />
         {t('Quản lý')}
       </Link>
     </div>
