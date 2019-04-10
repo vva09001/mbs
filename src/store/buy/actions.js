@@ -12,6 +12,8 @@ const actions = {
   SET_BUY: 'SET_BUY',
   BUY_UPDATE: 'BUY_UPDATE',
   BUY_APPROVE: 'BUY_APPROVE',
+  BUY_PAYMENT_LINK: 'BUY_PAYMENT_LINK',
+  BUY_VERIFY_RESULT: 'BUY_VERIFY_RESULT',
   BUY_LOADING: 'BUY_LOADING',
   BUY_ERROR: 'BUY_ERROR',
   CLEAR_BUY_ERROR: 'CLEAR_BUY_ERROR',
@@ -38,7 +40,11 @@ const actions = {
     type: actions.BUY_GET_CONTRACT
   }),
   approve: () => ({
-    type: actions.BUY_APPROVE
+    type: actions.BUY_PAYMENT_LINK_REQUEST
+  }),
+  verifyResult: params => ({
+    type: actions.BUY_VERIFY_RESULT,
+    params
   }),
   clearError: () => ({
     type: actions.CLEAR_BUY_ERROR

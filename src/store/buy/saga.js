@@ -1,6 +1,7 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
-import { Info, Flow, FlowCash, Update, Contract, Approve } from '../../services/buy';
+import { PaymentGateway, VerifyResult } from '../../services/auth';
+import { Info, Flow, FlowCash, Update, Contract } from '../../services/buy';
 import Error from '../../utils/error';
 import history from '../../utils/history';
 import {
@@ -66,11 +67,9 @@ export function* buyFetchSaga() {
 
 export function* setBuySaga() {
   yield takeEvery(actions.SET_BUY, function*(data) {
-
     // Get Condition
     const volMax = yield select(buyVolMax);
     const volMin = yield select(buyVolMin);
-    console.log(data.params.amount, volMin, volMax)
 
     // Check amount condition
     if (data.params.amount !== 0 && data.params.amount >= volMin && data.params.amount <= volMax) {
@@ -127,11 +126,11 @@ export function* getContractSaga() {
     try {
       yield put({ type: actions.BUY_LOADING, loading: true });
 
-      // Get request
+      // Select state
       const token = yield select(getToken);
       const account = yield select(accountProfile);
       const contract = yield select(buyGetContract);
-
+      // Get request
       const params = {
         userId: account.userId,
         channel: account.channel,
@@ -148,6 +147,28 @@ export function* getContractSaga() {
           type: actions.BUY_ERROR,
           error: { message: Error[res.data.result], status: true }
         });
+        yield history.push({ pathname: '/' });
+      }
+
+      // Payment link params - request
+      const paramsPayment = {
+        command: 'PAYMENT',
+        contractCode: contract.contractCode,
+        return_url: process.env.REACT_APP_URL + '/',
+        trans_amount: contract.buyVol,
+        version: '2.0'
+      };
+      const resPayment = yield PaymentGateway(paramsPayment, token);
+
+      // handle request
+      if (resPayment.data.result === 0) {
+        yield put({ type: actions.BUY_PAYMENT_LINK, link: res.data.data });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: Error[resPayment.data.result], status: true }
+        });
+        yield history.push({ pathname: '/' });
       }
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
@@ -155,27 +176,25 @@ export function* getContractSaga() {
   });
 }
 
-export function* approveBuySaga() {
-  yield takeEvery(actions.BUY_APPROVE, function*() {
+export function* verifyBuySaga() {
+  yield takeEvery(actions.BUY_APPROVE, function*(data) {
     try {
       yield put({ type: actions.BUY_LOADING, loading: true });
 
-      // // select book and contract code
-      // const book = yield select(buyGetBook);
-      // const contract = yield select(buyGetContract);
-      //
-      // // Get request
-      // const params = {
-      //   userId: book.userId,
-      //   channel: book.channel,
-      //   contractCode: contract.contractCode
-      // };
-      // const res = yield Approve(params);
-      //
-      // // handle request
-      // if (res.data.result === 0) {
-      //   yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
-      // }
+      // Get request
+      const res = yield VerifyResult(data.params);
+      // handle request
+      if (res.data.result === 0) {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: 'Success', status: true }
+        });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: 'Failed', status: true }
+        });
+      }
 
       yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
@@ -196,7 +215,7 @@ export default function* rootSaga() {
     fork(setBuySaga),
     fork(updateBuySaga),
     fork(getContractSaga),
-    fork(approveBuySaga),
+    fork(verifyBuySaga),
     fork(clearBuyErrorSaga)
   ]);
 }

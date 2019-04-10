@@ -7,6 +7,7 @@ const initialState = {
   book: {},
   contract: contract,
   loading: false,
+  payment_link: '',
   error: {
     message: '',
     status: false
@@ -25,6 +26,8 @@ const Buy = (state = initialState, action) => {
       return { ...state, book: action.book };
     case actions.BUY_CONTRACT:
       return { ...state, contract: action.contract };
+    case actions.BUY_PAYMENT_LINK:
+      return { ...state, link: action.link };
     case actions.BUY_LOADING:
       return { ...state, loading: action.loading };
     case actions.BUY_ERROR:

@@ -235,13 +235,12 @@ class Confirm extends Component {
           </div>
           <div className="row justify-content-center">
             <div className="col-9">
-              <button
-                type="button"
-                onClick={() => this.showPopup('success')}
+              <a
+                onClick={() => {console.log(this.props.payment_link)}}
                 className="btn btn-danger border-0 btn-lg btn-block mt-3"
               >
                 XÁC NHẬN
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -254,13 +253,15 @@ Confirm.propTypes = {
   contract: PropTypes.object,
   getContract: PropTypes.func,
   approve: PropTypes.func,
+  payment_link: PropTypes.string,
   buyLoading: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
     contract: state.Buy.contract,
-    buyLoading: state.Buy.loading
+    buyLoading: state.Buy.loading,
+    payment_link: state.Buy.payment_link
   };
 };
 

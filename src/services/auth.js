@@ -6,16 +6,24 @@ const Authentication = params => {
     method: 'get'
   });
 };
-const PaymentGateway = params => {
+const PaymentGateway = (params, token) => {
   return request({
-    url: '/api/viettelpay/paymentGateway' + params,
-    method: 'get'
+    url: '/api/viettelpay/paymentGateway',
+    method: 'get',
+    headers: {
+      Authorization: token
+    },
+    params: params
   });
 };
-const VerifyResult = params => {
+const VerifyResult = (params, token) => {
   return request({
-    url: '/api/viettelpay/verifyResult' + params,
-    method: 'get'
+    url: '/api/viettelpay/verifyResult',
+    method: 'get',
+    headers: {
+      Authorization: token
+    },
+    params: params
   });
 };
 export { Authentication, PaymentGateway, VerifyResult };
