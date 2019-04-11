@@ -1,72 +1,72 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
+import { withTranslation } from 'react-i18next';
+import { currency } from '../../utils/currency';
 import Layout from '../layout/layout';
-import history from '../../utils/history';
-import bondsActions from '../../store/bonds/actions';
 import buyActions from '../../store/buy/actions';
-import Popup from '../../components/common/popup';
-import { Section1, Section3, Section4 } from '../../components/detail/section';
-import Section2 from '../../components/detail/section2';
 
 const Flow = props => {
-  const path = '/buy/' + props.bond.bondCode;
-
+  const { t } = props;
   return (
     <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
       <div className="buy-wrapper">
-        <h2 className="text-center color-1 mb-4">Dòng tiền nhận được khi mua trái phiếu</h2>
+        <h4 className="text-center color-1 mb-4 text-uppercase">{t('Dòng tiền nhận được khi mua trái phiếu')}</h4>
         <div className="row">
           <div className="col-12">
             <p className="mb-0">
-              Từ ngày:
+              {t('Từ ngày')}:
               <span className="text-info">
-                <strong> 23/01/2019</strong>
+                <strong> {props.flowCash.couponDate}</strong>
               </span>
             </p>
             <p>
-              Đến ngày:
+              {t('Đến ngày')}:
               <span className="text-info">
-                <strong> 23/01/2020</strong>
+                <strong> {props.flowCash.payCouponDate}</strong>
               </span>
             </p>
-            <p>Quý khách sẽ nhận được dòng tiền dự kiến như sau:</p>
+            <p>{t('Quý khách sẽ nhận được dòng tiền dự kiến như sau')}:</p>
           </div>
         </div>
         <div className="row">
           <div className="col-12">
             <div className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center">
-              <span>Dòng tiền - chưa bao gồm tái đầu tư coupon:</span>
+              <span>{t('Dòng tiền - chưa bao gồm tái đầu tư coupon')}:</span>
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                Lãi suất đầu tư: <span className="text-danger">7.20</span>%/năm
+                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.flowCash.interestRef)}</span>
+                %/{t('năm')}
               </strong>
             </p>
             <table className="table table-bordered white-bg text-center">
               <thead>
                 <tr className="text-primary">
-                  <th>STT</th>
-                  <th>Nội dung</th>
-                  <th>Ngày thanh toán</th>
-                  <th>Sô tiền thực nhận dự kiến (VND)</th>
+                  <th>{t('STT')}</th>
+                  <th>{t('Nội dung')}</th>
+                  <th>{t('Ngày thanh toán')}</th>
+                  <th>{t('Sô tiền thực nhận dự kiến (VND)')}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Coupon Trái phiếu</td>
-                  <td>14/08/2017</td>
-                  <td>5.087.840</td>
-                </tr>
+                {_.map(props.flow.flowNonInvest, (item, index) => (
+                  <tr>
+                    <td>{index}</td>
+                    <td>{t(item.content)}</td>
+                    <td>{item.payCouponDate}</td>
+                    <td>{currency(item.cashNonInvest)}</td>
+                  </tr>
+                ))}
               </tbody>
               <tfoot>
                 <tr>
                   <td colSpan="3" className="text-primary">
-                    <strong>Tổng dòng tiền từ Trái phiếu</strong>
+                    <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
-                    <h5 className="text-info">102.862.000</h5>
+                    <h5 className="text-info">{currency(props.flowCash.cashFolowSource)}</h5>
                   </td>
                 </tr>
               </tfoot>
@@ -76,41 +76,44 @@ const Flow = props => {
         <div className="row">
           <div className="col-12">
             <div className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center">
-              <span>Dòng tiền - đã bao gồm tái đầu tư coupon:</span>
+              <span>{t('Dòng tiền - đã bao gồm tái đầu tư coupon')}:</span>
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                Lãi suất đầu tư: <span className="text-danger">7.20</span>%/năm
+                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.flowCash.interestCouponPercent)}</span>
+                %/{t('năm')}
               </strong>
             </p>
             <table className="table table-bordered white-bg text-center">
               <thead>
                 <tr className="text-primary">
-                  <th>STT</th>
-                  <th>Số tiền coupon tái đầu từ (VND)</th>
-                  <th>Ngày đầu tư</th>
-                  <th>Ngày kết thúc</th>
-                  <th>Lãi suất tái đầu tư</th>
-                  <th>Lãi tái đầu tư nhận được (VND)</th>
+                  <th>{t('STT')}</th>
+                  <th>{t('Số tiền coupon tái đầu từ (VND)')}</th>
+                  <th>{t('Ngày đầu tư')}</th>
+                  <th>{t('Ngày kết thúc')}</th>
+                  <th>{t('Lãi suất tái đầu tư')}</th>
+                  <th>{t('Lãi tái đầu tư nhận được (VND)')}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>5.086.840</td>
-                  <td>14/08/2017</td>
-                  <td>14/08/2017</td>
-                  <td>7.20%/năm</td>
-                  <td>7.20%/năm</td>
-                </tr>
+                {_.map(props.flow.flowInvest, (item, index) => (
+                  <tr>
+                    <td>{item.index + 1}</td>
+                    <td>{item.cashNonInvest}</td>
+                    <td>{item.payCouponDate}</td>
+                    <td>{item.lastPayCouponDate}</td>
+                    <td>{item.reinvestmentRate}</td>
+                    <td>{item.cashInvest}</td>
+                  </tr>
+                ))}
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan="3" className="text-primary">
-                    <strong>Tổng dòng tiền từ Trái phiếu</strong>
+                  <td colSpan="5" className="text-primary">
+                    <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
-                    <h5 className="text-info">102.862.000</h5>
+                    <h5 className="text-info">{currency(props.flowCash.cashFolowCoupon)}</h5>
                   </td>
                 </tr>
               </tfoot>
@@ -123,21 +126,19 @@ const Flow = props => {
 };
 
 Flow.propTypes = {
-  bond: PropTypes.object
+  flow: PropTypes.array
 };
 
 const mapStateToProps = state => {
   return {
-    bond: state.Bonds.detail
+    flow: state.Buy.flow,
+    flowCash: state.Buy.flowCash
   };
 };
 
-const mapDispatchToProps = {
-  bondsDetail: bondsActions.detail,
-  buyFetch: buyActions.getBuy
-};
+const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Flow);
+)(withTranslation()(Flow));
