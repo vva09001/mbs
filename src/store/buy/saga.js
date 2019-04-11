@@ -180,10 +180,13 @@ export function* verifyBuySaga() {
   yield takeEvery(actions.BUY_VERIFY_RESULT, function*(data) {
     try {
       yield put({ type: actions.BUY_LOADING, loading: true });
-      console.log(data)
       if (data.params.error_code === '00') {
         // Get request
-        const res = yield VerifyResult(data.params);
+        const params = {
+          ...data.params,
+          merchant_code: 'Viettel'
+        };
+        const res = yield VerifyResult(params);
         // handle request
         if (res.data.result === 0) {
           yield put({

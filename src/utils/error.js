@@ -82,7 +82,7 @@ export default {
   '-1080': 'Đã hết room Khách hàng có thể bán. Hãy thử 1 ngày Bán khác.',
   '-1081': 'Không được nhập số âm (<0)',
   '-1082': '',
-  '-1083': '',
+  '-1083': 'Đang ngoài giờ giao dịch trái phiếu.',
   '-1084': '',
   '-1085': '',
   '-1086': '',

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import qs from 'query-string';
 import Layout from '../layout/layout-noAuth';
-import authActions from '../../store/buy/actions';
-import buyActions from '../../store/auth/actions';
+import buyActions from '../../store/buy/actions';
+import authActions from '../../store/auth/actions';
 
 class HomePage extends Component {
   constructor(props) {
@@ -13,13 +13,13 @@ class HomePage extends Component {
   }
   componentDidMount() {
     console.log(this.props);
-    // const query = qs.parse(this.props.location.search);
-    // if (query.error_code) {
-    //   this.props.verifyResult(query);
-    // }
-    // if (query.merchant_code) {
+    const query = qs.parse(this.props.location.search);
+    if (query.error_code) {
+      this.props.verifyResult(query);
+    }
+    if (query.merchant_code) {
       this.props.checkAuth(this.props.location.search);
-    // }
+    }
   }
   render() {
     return (
