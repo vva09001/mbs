@@ -12,6 +12,7 @@ import Popup from '../../components/common/popup';
 import buyActions from '../../store/buy/actions';
 import sellActions from '../../store/sell/actions';
 import bondsActions from '../../store/bonds/actions';
+import authActions from '../../store/bonds/actions';
 
 // components: First
 const header = props => {
@@ -52,6 +53,7 @@ const Layout = props => {
   if (props.isLoggedIn) {
     return (
       <Fragment>
+        {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
         {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
         {header(props)}
         <div className="container-fluid min-vh-100">{props.children}</div>
@@ -94,7 +96,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   buyClear: buyActions.clearError,
   sellClear: sellActions.clearError,
-  bondsClear: bondsActions.clearError
+  bondsClear: bondsActions.clearError,
+  authClear: authActions.clearError
 };
 
 export default connect(

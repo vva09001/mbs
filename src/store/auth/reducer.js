@@ -2,7 +2,10 @@ import actions from './actions';
 
 const initialState = {
   token: null,
-  error: ''
+  error: {
+    message: '',
+    status: false
+  }
 };
 
 const Auth = (state = initialState, action) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import Icon from './icon';
@@ -22,21 +22,12 @@ const header = ({ title, toggle, onToggle, onClick }) => {
             >
               <button
                 onClick={() => {
-                  onClick({ num: 40, page: 1 });
-                  onToggle();
-                }}
-                className="dropdown-item"
-              >
-                {t('SL TP đang còn')}
-              </button>
-              <button
-                onClick={() => {
                   onClick({ num: 40, page: 1, order: 0 });
                   onToggle();
                 }}
                 className="dropdown-item"
               >
-                {t('Lãi suất')}
+                {t('Lãi suất giảm dần')}
               </button>
               <button
                 onClick={() => {
@@ -45,7 +36,16 @@ const header = ({ title, toggle, onToggle, onClick }) => {
                 }}
                 className="dropdown-item"
               >
-                {t('Ngày đáo hạn')}
+                {t('Ngày đáo hạn tăng dần')}
+              </button>
+              <button
+                onClick={() => {
+                  onClick({ num: 40, page: 1, order: 2 });
+                  onToggle();
+                }}
+                className="dropdown-item"
+              >
+                {t('Số lượng trái phiếu giảm dần')}
               </button>
             </div>
           )}

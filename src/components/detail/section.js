@@ -6,7 +6,6 @@ import history from '../../utils/history';
 import Loading from '../common/loading';
 import Icon from '../common/icon';
 
-
 const Section1 = props => {
   const { t } = useTranslation();
   if (props.loading) {

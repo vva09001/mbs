@@ -12,13 +12,15 @@ const card = props => {
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
           <button
-            className="btn-transparent"
+            className="btn-transparent text-truncate"
             onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}
           >
             {props.item.bondCode}
           </button>
           <span className="link">
-            <button onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}>
+            <button
+              onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}
+            >
               <Icon name="arrow" width="18" height="24" />
             </button>
           </span>

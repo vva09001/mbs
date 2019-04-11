@@ -118,7 +118,7 @@ class Detail extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Layout type={1} path="/" title="CHI  TIẾT SẢN PHẨM">
+      <Layout type={1} path="/" title="GIAO DỊCH MUA TRÁI PHIẾU">
         {this.state.toggle.popup && (
           <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('popup')}>
             <p>

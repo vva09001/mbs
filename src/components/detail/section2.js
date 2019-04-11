@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { FormatTime } from '../../utils/moment';
 import Loading from '../common/loading';
+import { currency } from '../../utils/currency';
 
 class Section2 extends Component {
   constructor(props) {
@@ -68,7 +69,7 @@ class Section2 extends Component {
                 type="text"
                 className="form-control text-primary"
                 disabled
-                value={this.props.info.buyPrice}
+                value={currency(this.props.info.buyPrice)}
               />
               <div className="input-group-append">
                 <div className="input-group-text text-primary">{t('VND')}</div>
