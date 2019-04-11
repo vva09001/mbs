@@ -43,8 +43,8 @@ const AppRouter = props => {
           <Route exact path="/buy/:code" component={BondsBuyDetail} />
 
           <Route exact path="/sell/" component={BondsSaleList} />
-          <Route path="/sell/order/:code" component={BondsSaleOrder} />
           <Route path="/sell/confirm/" component={BondsSaleConfirm} />
+          <Route exact path="/sell/order/:code" component={BondsSaleOrder} />
 
           <Route exact path="/trade/" component={BondsTradeList} />
 

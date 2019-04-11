@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import history from '../../utils/history';
 import Icon from '../common/icon';
+import { currency } from '../../utils/currency';
 
 const { t } = useTranslation();
 
@@ -11,18 +13,13 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          <button
-            className="btn-transparent text-truncate"
-            onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}
-          >
+          <Link to={'/sell/order/' + props.item.bondCode} className="btn-transparent text-truncate">
             {props.item.bondCode}
-          </button>
+          </Link>
           <span className="link">
-            <button
-              onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}
-            >
+            <Link to={'/sell/order/' + props.item.bondCode}>
               <Icon name="arrow" width="18" height="24" />
-            </button>
+            </Link>
           </span>
         </li>
         <li className="list-group-item">
@@ -36,19 +33,19 @@ const card = props => {
         <li className="list-group-item">
           {t('Số lượng TP sở hữu')}
           <p className="float-right">
-            <span className="quatity">{props.item.buyVol}</span> {t('TP')}
+            <span className="quatity">{currency(props.item.buyVol)}</span> {t('TP')}
           </p>
         </li>
         <li className="list-group-item">
           {t('Giá trị đầu tư')}
           <p className="float-right">
-            <span className="quatity">{props.item.buyValue}</span> {t('VND')}
+            <span className="quatity">{currency(props.item.buyValue)}</span> {t('VND')}
           </p>
         </li>
         <li className="list-group-item">
           {t('Lãi suất')}
           <p className="float-right">
-            <span className="quatity quatity-text">{props.item.termRate}</span>
+            <span className="quatity quatity-text">{currency(props.item.termRate)}</span>
             %/
             {t('năm')}
           </p>

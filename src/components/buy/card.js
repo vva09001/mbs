@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import history from '../../utils/history';
+import { Link } from 'react-router-dom';
 import Icon from '../common/icon';
 import { currency } from '../../utils/currency';
 
@@ -11,19 +11,16 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          <button
-            className="btn-transparent text-truncate"
-            onClick={() => history.push({ pathname: '/buy/' + props.item.bondCode })}
-          >
+          <Link to={'/buy/' + props.item.bondCode} className="btn-transparent text-truncate">
             {props.item.bondCode}
-          </button>
+          </Link>
           <span className="link">
             <span className="badge badge-danger">
               {currency(props.item.termRate)}%/{t('năm')}
             </span>
-            <button onClick={() => history.push({ pathname: '/buy/' + props.item.bondCode })}>
+            <Link to={'/buy/' + props.item.bondCode}>
               <Icon name="arrow" width="18" height="24" />
-            </button>
+            </Link>
           </span>
         </li>
         <li className="list-group-item">
