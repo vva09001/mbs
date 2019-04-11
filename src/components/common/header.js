@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import Icon from './icon';
@@ -57,6 +57,7 @@ const header = ({ title, toggle, onToggle, onClick }) => {
 header.propTypes = {
   title: PropTypes.string,
   toggle: PropTypes.bool,
+  onClick: PropTypes.func,
   onToggle: PropTypes.func
 };
 export default header;

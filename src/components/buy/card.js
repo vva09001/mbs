@@ -19,7 +19,7 @@ const card = props => {
           </button>
           <span className="link">
             <span className="badge badge-danger">
-              {props.item.termRate}%/{t('năm')}
+              {currency(props.item.termRate)}%/{t('năm')}
             </span>
             <button onClick={() => history.push({ pathname: '/buy/' + props.item.bondCode })}>
               <Icon name="arrow" width="18" height="24" />

@@ -19,11 +19,8 @@ class Detail extends Component {
         table2: true
       },
       params: {
-        date: new Date(),
         amount: 0,
         sum: 0,
-        userId: '',
-        channel: '',
         code: ''
       }
     };
@@ -59,13 +56,13 @@ class Detail extends Component {
         ...this.state,
         params: {
           ...this.state.params,
-          userId: this.props.profile.id,
-          channel: 'VT',
+          date: this.props.info.buyDate,
           code: this.props.match.params.code
         }
       },
       () => {
-        this.props.setBuy(this.state.params);
+        console.log(this.state.params);
+        // this.props.setBuy(this.state.params);
       }
     );
   };

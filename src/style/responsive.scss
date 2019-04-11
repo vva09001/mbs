@@ -1,0 +1,14 @@
+@media(max-width: 360px){
+  body {
+    .btn-light {
+      width: 100%;
+    }
+    .input-group {
+      input {
+        &.number {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

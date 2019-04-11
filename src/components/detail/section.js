@@ -5,6 +5,7 @@ import _ from 'lodash';
 import history from '../../utils/history';
 import Loading from '../common/loading';
 import Icon from '../common/icon';
+import { currency } from '../../utils/currency';
 
 const Section1 = props => {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ const Section1 = props => {
             <div className="col-6 text-right">
               <h4 className="mb-2">{t('Đang còn')}</h4>
               <p className="mb-0 text-primary">
-                <span>{props.item.roomBalance}</span> {t('Trái phiếu')}
+                <span>{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
               </p>
             </div>
           </div>
@@ -61,7 +62,7 @@ const Section3 = props => {
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right col-form-label">
-          <span>{props.item.termRate}</span>
+          <span>{currency(props.item.termRate)}</span>
           <small>%/{t('năm')}</small>
         </div>
       </div>
@@ -84,7 +85,7 @@ const Section3 = props => {
           />
         </label>
         <div className="col-6 text-right col-form-label">
-          <span>{props.item.reinvestmentRate}</span>
+          <span>{currency(props.item.reinvestmentRate)}</span>
           <small>%/{t('năm')}</small>
         </div>
       </div>

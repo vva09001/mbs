@@ -8,13 +8,14 @@ import { currency } from '../../utils/currency';
 class Section2 extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      date: new Date()
-    };
+    this.state = {};
+  }
+  componentDidMount() {
+    this.props.params.amount = this.props.info.buyVolMin;
   }
   handleMount(type) {
     if (type) {
-      if (this.props.params.amount < this.props.bond.roomBalance) {
+      if (this.props.params.amount <= this.props.bond.roomBalance) {
         this.props.handleParam('params', {
           ...this.props.params,
           amount: this.props.params.amount + 1,
@@ -33,7 +34,7 @@ class Section2 extends Component {
   }
   _onChangeAmount(event) {
     const number = parseInt(event.target.value);
-    if (number < this.props.info.buyVol && number > this.props.info.buyVolMin) {
+    if (number <= this.props.info.roomBalance && number > this.props.info.buyVolMin) {
       this.props.handleParam('params', {
         ...this.props.params,
         amount: number,
@@ -56,7 +57,7 @@ class Section2 extends Component {
                 type="text"
                 className="form-control text-primary date-field"
                 disabled
-                value={FormatTime(this.state.date)}
+                value={this.props.info.buyDate}
               />
             </div>
           </div>
@@ -105,7 +106,7 @@ class Section2 extends Component {
                 type="text"
                 className="form-control text-primary"
                 disabled
-                value={this.props.params.sum}
+                value={this.props.params.amount * this.props.info.buyPrice}
               />
               <div className="input-group-append">
                 <div className="input-group-text text-primary">{t('VND')}</div>
