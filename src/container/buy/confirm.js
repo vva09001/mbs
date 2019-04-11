@@ -236,7 +236,7 @@ class Confirm extends Component {
           <div className="row justify-content-center">
             <div className="col-9">
               <a
-                onClick={() => {console.log(this.props.payment_link)}}
+                href={this.props.payment_link}
                 className="btn btn-danger border-0 btn-lg btn-block mt-3"
               >
                 XÁC NHẬN

@@ -162,7 +162,7 @@ export function* getContractSaga() {
 
       // handle request
       if (resPayment.data.result === 0) {
-        yield put({ type: actions.BUY_PAYMENT_LINK, link: res.data.data });
+        yield put({ type: actions.BUY_PAYMENT_LINK, link: resPayment.data.data.url });
       } else {
         yield put({
           type: actions.BUY_ERROR,
@@ -177,18 +177,25 @@ export function* getContractSaga() {
 }
 
 export function* verifyBuySaga() {
-  yield takeEvery(actions.BUY_APPROVE, function*(data) {
+  yield takeEvery(actions.BUY_VERIFY_RESULT, function*(data) {
     try {
       yield put({ type: actions.BUY_LOADING, loading: true });
-
-      // Get request
-      const res = yield VerifyResult(data.params);
-      // handle request
-      if (res.data.result === 0) {
-        yield put({
-          type: actions.BUY_ERROR,
-          error: { message: 'Success', status: true }
-        });
+      console.log(data)
+      if (data.params.error_code === '00') {
+        // Get request
+        const res = yield VerifyResult(data.params);
+        // handle request
+        if (res.data.result === 0) {
+          yield put({
+            type: actions.BUY_ERROR,
+            error: { message: 'Success', status: true }
+          });
+        } else {
+          yield put({
+            type: actions.BUY_ERROR,
+            error: { message: 'Failed', status: true }
+          });
+        }
       } else {
         yield put({
           type: actions.BUY_ERROR,

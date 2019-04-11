@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import qs from 'query-string';
 import Layout from '../layout/layout-noAuth';
-import authActions from '../../store/auth/actions';
+import authActions from '../../store/buy/actions';
+import buyActions from '../../store/auth/actions';
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    this.props.checkAuth(this.props.location.search);
+    console.log(this.props);
+    // const query = qs.parse(this.props.location.search);
+    // if (query.error_code) {
+    //   this.props.verifyResult(query);
+    // }
+    // if (query.merchant_code) {
+      this.props.checkAuth(this.props.location.search);
+    // }
   }
   render() {
     return (
@@ -68,6 +77,7 @@ class HomePage extends Component {
 
 HomePage.propTypes = {
   checkAuth: PropTypes.func,
+  verifyResult: PropTypes.func,
   auth: PropTypes.bool,
   match: PropTypes.object,
   location: PropTypes.object
@@ -78,7 +88,8 @@ const mapStateToProps = () => {
 };
 
 const mapDispatchToProps = {
-  checkAuth: authActions.auth
+  checkAuth: authActions.auth,
+  verifyResult: buyActions.verifyResult
 };
 
 export default connect(

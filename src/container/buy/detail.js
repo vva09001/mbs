@@ -61,8 +61,7 @@ class Detail extends Component {
         }
       },
       () => {
-        console.log(this.state.params);
-        // this.props.setBuy(this.state.params);
+        this.props.setBuy(this.state.params);
       }
     );
   };
@@ -115,7 +114,7 @@ class Detail extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Layout type={1} path="/" title="GIAO DỊCH MUA TRÁI PHIẾU">
+      <Layout type={1} path="/" title="ĐĂNG KÝ MUA">
         {this.state.toggle.popup && (
           <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('popup')}>
             <p>
