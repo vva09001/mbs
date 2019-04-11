@@ -20,7 +20,7 @@ class Actions extends Component {
   }
   render() {
     return (
-      <Layout type={2} title="Bán Trái Phiếu">
+      <Layout type={2} title="Bán Trái phiếu">
         <div className="bond-detail">
           <div className="section">
             <div className="row">
@@ -67,7 +67,7 @@ class Actions extends Component {
           </div>
           <div className="pb-2">
             <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">II. Đề nghị giao dịch bán trái phiếu</label>
+              <label className="col-12 col-form-label">II. Đề nghị giao dịch bán Trái phiếu</label>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày đề nghị bán:</label>

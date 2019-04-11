@@ -44,7 +44,7 @@ header.propTypes = {
 };
 
 const Alert = (message, toggle) => (
-  <Popup title="Thông tin trái phiếu" showPopup={() => toggle()}>
+  <Popup title="Thông tin Trái phiếu" showPopup={() => toggle()}>
     <p>{message}</p>
   </Popup>
 );

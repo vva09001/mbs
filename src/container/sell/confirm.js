@@ -14,8 +14,8 @@ class Confirm extends Component {
     return (
       <Layout type={1} title="Xác nhận giao dịch bán">
         <div className="bond-buy-comfirm">
-          <h2 className="text-center color-1"><strong>Đề nghị chuyển nhượng trái phiếu công ty...</strong></h2>
-          <h2 className="text-center color-1"><strong>Mã Trái Phiếu: NVL012020</strong></h2>
+          <h2 className="text-center color-1"><strong>Đề nghị chuyển nhượng Trái phiếu công ty...</strong></h2>
+          <h2 className="text-center color-1"><strong>Mã Trái phiếu: NVL012020</strong></h2>
           <p><b>I. Bên chuyển nhượng</b></p>
           <div className="row">
             <div className="col-4">
@@ -112,7 +112,7 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-4">
-              Số trái phiếu sổ hữu
+              Số Trái phiếu sổ hữu
             </div>
             <div className="col-8">
               :
@@ -224,7 +224,7 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-4">
-              Số trái phiếu sổ hữu
+              Số Trái phiếu sổ hữu
             </div>
             <div className="col-8">
               :
@@ -241,7 +241,7 @@ class Confirm extends Component {
           <p><b>III. Nội dung chuyển nhượng</b></p>
           <div className="row">
             <div className="col-4">
-              Số trái phiếu chuyển nhượng
+              Số Trái phiếu chuyển nhượng
             </div>
             <div className="col-8">
               : 100 Trái phiếu
@@ -249,7 +249,7 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-4">
-              Mệnh giá mỗi trái phiếu
+              Mệnh giá mỗi Trái phiếu
             </div>
             <div className="col-8">
               : 100,000 VNĐ/Trái phiếu
@@ -290,8 +290,8 @@ class Confirm extends Component {
           <p><i>(Thuế TNCN tạm khấu trừ = Tổng giá trị chuyển nhượng x 0.10%)</i></p>
           <div className="confirm-content">
             <p>Tổ chức (Ông/Bà): <b>Lê Văn Bộ</b></p>
-            <p>được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB...ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về thử tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc thanh toán giữa hai bên.</p>
-            <p>Hai bên thừa nhận, trong mọi trường hợp, Q là đơn vị chịu trách nhiệm về tính đầy đủ, hợp pháp, của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái Phiếu.</p>
+            <p>được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số Trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB...ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về thử tục và việc đăng ký quyền sở hữu Trái phiếu, không xác nhận việc thanh toán giữa hai bên.</p>
+            <p>Hai bên thừa nhận, trong mọi trường hợp, Q là đơn vị chịu trách nhiệm về tính đầy đủ, hợp pháp, của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái phiếu.</p>
           </div>
           <button
             type="button"

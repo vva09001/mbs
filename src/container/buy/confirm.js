@@ -38,25 +38,25 @@ class Confirm extends Component {
     return (
       <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
         {this.state.toggle.success && (
-          <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('success')}>
+          <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('success')}>
             <span>
-              <i>Quý khách đã đăng ký mua trái phiếu thành công</i>
+              <i>Quý khách đã đăng ký mua Trái phiếu thành công</i>
             </span>
           </Popup>
         )}
         {this.state.toggle.error && (
-          <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('error')}>
+          <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('error')}>
             <span className="text-danger">
-              <i>Quý khách đăng ký mua trái phiếu không thành công</i>
+              <i>Quý khách đăng ký mua Trái phiếu không thành công</i>
             </span>
           </Popup>
         )}
         <div className="bond-buy-comfirm">
           <h2 className="text-center color-1 mb-2">
-            <strong>ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY ...</strong>
+            <strong>ĐỀ NGHỊ CHUYỂN NHƯỢNG Trái phiếu CÔNG TY ...</strong>
           </h2>
           <h3 className="text-center color-1 mb-4">
-            <strong>Mã Trái Phiếu: {contract.bondCode}</strong>
+            <strong>Mã Trái phiếu: {contract.bondCode}</strong>
           </h3>
           <p>
             <b>I. Bên chuyển nhượng</b>
@@ -115,7 +115,7 @@ class Confirm extends Component {
             <div className="col-4">Ngày: 30/03/2018</div>
           </div>
           <div className="row">
-            <div className="col-4">Số trái phiếu sổ hữu</div>
+            <div className="col-4">Số Trái phiếu sổ hữu</div>
             <div className="col-8">:</div>
           </div>
           <div className="row">
@@ -179,7 +179,7 @@ class Confirm extends Component {
             <div className="col-4">Ngày:</div>
           </div>
           <div className="row">
-            <div className="col-4">Số trái phiếu sổ hữu</div>
+            <div className="col-4">Số Trái phiếu sổ hữu</div>
             <div className="col-8">:</div>
           </div>
           <div className="row">
@@ -190,11 +190,11 @@ class Confirm extends Component {
             <b>III. Nội dung chuyển nhượng</b>
           </p>
           <div className="row">
-            <div className="col-4">Số trái phiếu chuyển nhượng</div>
+            <div className="col-4">Số Trái phiếu chuyển nhượng</div>
             <div className="col-8">: {contract.buyVol} Trái phiếu</div>
           </div>
           <div className="row">
-            <div className="col-4">Mệnh giá mỗi trái phiếu</div>
+            <div className="col-4">Mệnh giá mỗi Trái phiếu</div>
             <div className="col-8">: {contract.buyPrice} VNĐ/Trái phiếu</div>
           </div>
           <div className="row">
@@ -221,16 +221,16 @@ class Confirm extends Component {
               Tổ chức (Ông/Bà): <b>Lê Văn Bộ</b>
             </p>
             <p>
-              được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng
+              được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số Trái phiếu chuyển nhượng
               nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán
               MB...ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo
               yêu cầu của các Nhà Đầu Tư. Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về
-              thử tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc thanh toán giữa
+              thử tục và việc đăng ký quyền sở hữu Trái phiếu, không xác nhận việc thanh toán giữa
               hai bên.
             </p>
             <p>
               Hai bên thừa nhận, trong mọi trường hợp, Q là đơn vị chịu trách nhiệm về tính đầy đủ,
-              hợp pháp, của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái Phiếu.
+              hợp pháp, của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái phiếu.
             </p>
           </div>
           <div className="row justify-content-center">

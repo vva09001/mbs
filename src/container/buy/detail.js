@@ -122,7 +122,7 @@ class Detail extends Component {
     return (
       <Layout type={1} path="/" title="ĐĂNG KÝ MUA">
         {this.state.toggle.popup && (
-          <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('popup')}>
+          <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('popup')}>
             <p>
               <strong>{t('Coupon')}:</strong> {this.props.bond.couponPayment}
             </p>

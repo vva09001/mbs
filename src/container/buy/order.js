@@ -50,13 +50,13 @@ class Order extends Component {
               <tr>
                 <td>{t('Số lượng Trái phiếu đăng ký mua')}:</td>
                 <td>
-                  {currency(book.amount)} {t('Trái Phiếu')}
+                  {currency(book.amount)} {t('Trái phiếu')}
                 </td>
               </tr>
               <tr>
                 <td>{t('Đơn giá mua')}:</td>
                 <td>
-                  {currency(info.buyPrice)} {t('VND')}/ {t('Trái Phiếu')}
+                  {currency(info.buyPrice)} {t('VND')}/ {t('Trái phiếu')}
                 </td>
               </tr>
               <tr>

@@ -6,11 +6,11 @@ import { currency } from '../../utils/currency';
 
 const Info = ({ detail }) => {
   return (
-    <Layout type={1} title="Thông tin trái phiếu">
+    <Layout type={1} title="Thông tin Trái phiếu">
       <div className="bond-detail">
         <h4 className="text-center color-1 mb-4 text-uppercase">
           <img alt="popup-click" src="/img/popup-icon.png" className=" mr-2 " />
-          Thông tin về trái phiếu đăng ký mua
+          Thông tin về Trái phiếu đăng ký mua
         </h4>
         <table className="table table-bordered bg-white">
           <tbody>
@@ -22,15 +22,15 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>Mã Trái Phiếu</b>
+                <b>Mã Trái phiếu</b>
               </td>
               <td>{detail.bondCode}</td>
             </tr>
             <tr>
               <td>
-                <b>Mệnh giá Trái Phiếu</b>
+                <b>Mệnh giá Trái phiếu</b>
               </td>
-              <td>{currency(detail.parValue)} VNĐ/ Trái Phiếu</td>
+              <td>{currency(detail.parValue)} VNĐ/ Trái phiếu</td>
             </tr>
             <tr>
               <td>
@@ -40,7 +40,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>Kỳ hạn Trái Phiếu</b>
+                <b>Kỳ hạn Trái phiếu</b>
               </td>
               <td>{detail.termBond}</td>
             </tr>
@@ -58,13 +58,13 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>Lãi suất Trái Phiếu</b>
+                <b>Lãi suất Trái phiếu</b>
               </td>
               <td>
-                Lãi suất áp dụng cho {detail.termFixCount} kỳ tính lãi đầu tiên của Trái Phiếu là{' '}
+                Lãi suất áp dụng cho {detail.termFixCount} kỳ tính lãi đầu tiên của Trái phiếu là{' '}
                 {currency(detail.interestFixRate)} %/năm.
                 {detail.interestFloatRange !== 0
-                  ? `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái Phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ ${detail.interestFloatRange} %năm`
+                  ? `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ ${detail.interestFloatRange} %năm`
                   : ''}
               </td>
             </tr>
@@ -82,7 +82,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>Quyền liên quan đến Trái Phiếu</b>
+                <b>Quyền liên quan đến Trái phiếu</b>
               </td>
               <td>{detail.rightBuyDesc}</td>
             </tr>
