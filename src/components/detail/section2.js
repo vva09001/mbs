@@ -21,6 +21,10 @@ class Section2 extends Component {
           amount: this.props.params.amount + 1,
           sum: this.props.info.buyPrice * (this.props.params.amount + 1)
         });
+        this.props.onFetchFlow({
+          code: this.props.info.bondCode,
+          volume: this.props.params.amount + 1
+        });
       }
     } else {
       if (this.props.params.amount > this.props.info.buyVolMin) {
@@ -28,6 +32,10 @@ class Section2 extends Component {
           ...this.props.params,
           amount: this.props.params.amount - 1,
           sum: this.props.info.buyPrice * (this.props.params.amount - 1)
+        });
+        this.props.onFetchFlow({
+          code: this.props.info.bondCode,
+          volume: this.props.params.amount - 1
         });
       }
     }
@@ -40,12 +48,20 @@ class Section2 extends Component {
         amount: number,
         sum: number * this.props.info.buyPrice
       });
+      this.props.onFetchFlow({
+        code: this.props.info.bondCode,
+        volume: number
+      });
     }
     if (isNaN(number)) {
       this.props.handleParam('params', {
         ...this.props.params,
         amount: 0,
         sum: 0 * this.props.info.buyPrice
+      });
+      this.props.onFetchFlow({
+        code: this.props.info.bondCode,
+        volume: 0
       });
     }
   }
@@ -109,13 +125,10 @@ class Section2 extends Component {
           </label>
           <div className="col-6">
             <div className="input-group">
-              <input
-                type="text"
-                className="form-control text-primary"
-                disabled
-                value={this.props.params.amount * this.props.info.buyPrice}
-              />
-              <div className="input-group-append">
+              <span className="form-control text-primary">
+                <b>{currency(this.props.params.amount * this.props.info.buyPrice)}</b>
+              </span>
+              <div className="flex-shrink-1 input-group-append">
                 <div className="input-group-text text-primary">{t('VND')}</div>
               </div>
             </div>
@@ -131,6 +144,7 @@ Section2.propTypes = {
   loading: PropTypes.bool,
   params: PropTypes.object,
   handleParam: PropTypes.func,
+  onFetchFlow: PropTypes.func,
   t: PropTypes.func
 };
 

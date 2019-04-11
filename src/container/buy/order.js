@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { currency } from '../../utils/currency';
 import buyActions from '../../store/buy/actions';
 import { FormatTime } from '../../utils/moment';
 import Layout from '../layout/layout';
@@ -48,27 +49,22 @@ class Order extends Component {
               </tr>
               <tr>
                 <td>Số lượng trái phiếu đăng ký mua:</td>
-                <td>{book.amount} Trái Phiếu</td>
+                <td>{currency(book.amount)} Trái Phiếu</td>
               </tr>
               <tr>
                 <td>Đơn giá mua:</td>
-                <td>{info.buyPrice} VND/ Trái Phiếu</td>
+                <td>{currency(info.buyPrice)} VND/ Trái Phiếu</td>
               </tr>
               <tr>
                 <td>Phí giao dịch:</td>
-                <td>{info.buyFee} VND</td>
+                <td>{currency(info.buyFee)} VND</td>
               </tr>
               <tr>
                 <td>
                   <b>Tổng tiền đầu tư:</b>
                 </td>
                 <td>
-                  <b>{book.sum} VND</b>
-                  <br />
-                  <i>
-                    (bằng chữ hai trăm mười triệu hai trăm tám mươi bốn ngàn chín trăm năm mươi lăm
-                    đồng Việt Nam)
-                  </i>
+                  <b>{currency(book.sum)} VND</b>
                 </td>
               </tr>
               <tr>

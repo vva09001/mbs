@@ -13,12 +13,12 @@ import {
   buyVolMin
 } from '../selectors';
 
-export function* buyFetchSaga() {
-  yield takeEvery(actions.BUY_GET, function*(data) {
+// Get flow saga
+export function* getBuyFlowSaga() {
+  yield takeEvery(actions.BUY_FLOW_GET, function*(data) {
     try {
-      yield put({ type: actions.BUY_LOADING, loading: true });
-
-      // Get request
+      yield put({ type: actions.BUY_FLOW_LOADING, loading: true });
+      // Handle request flow
       const token = yield select(getToken);
       const profile = yield select(accountProfile);
       const params = {
@@ -27,10 +27,6 @@ export function* buyFetchSaga() {
         channel: profile.channel
       };
       const resFlow = yield Flow(params, token);
-      const resFlowCash = yield FlowCash(params, token);
-      const resInfo = yield Info(params, token);
-
-      // handle request
       if (resFlow.data.result === 0) {
         yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data });
       } else {
@@ -40,6 +36,46 @@ export function* buyFetchSaga() {
         });
       }
 
+      yield put({ type: actions.BUY_FLOW_LOADING, loading: false });
+    } catch (error) {
+      yield put({ type: actions.BUY_ERROR, error: error.message });
+    }
+  });
+}
+
+// Get detail, info
+export function* buyFetchSaga() {
+  yield takeEvery(actions.BUY_GET, function*(data) {
+    try {
+      yield put({ type: actions.BUY_LOADING, loading: true });
+
+      // Setup params
+      const token = yield select(getToken);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userId: profile.userId,
+        channel: profile.channel
+      };
+
+      // handle request info
+      const resInfo = yield Info(params, token);
+      if (resInfo.data.result === 0) {
+        yield put({ type: actions.BUY_INFO, info: resInfo.data.data });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: Error[resInfo.data.result], status: true }
+        });
+      }
+      // Call 'flow saga'
+      yield put({
+        type: actions.BUY_FLOW_GET,
+        params: { ...data.params, volume: resInfo.data.data.buyVolMin }
+      });
+
+      // Handle request flowCash
+      const resFlowCash = yield FlowCash(params, token);
       if (resFlowCash.status === 200) {
         yield put({ type: actions.BUY_FLOW_CASH, flowCash: resFlowCash.data.data });
       } else {
@@ -48,22 +84,14 @@ export function* buyFetchSaga() {
           error: { message: Error[resFlowCash.data.result], status: true }
         });
       }
-
-      if (resFlow.data.result === 0) {
-        yield put({ type: actions.BUY_INFO, info: resInfo.data.data });
-      } else {
-        yield put({
-          type: actions.BUY_ERROR,
-          error: { message: Error[resFlow.data.result], status: true }
-        });
-      }
-
       yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
     }
   });
 }
+
+
 
 export function* setBuySaga() {
   yield takeEvery(actions.SET_BUY, function*(data) {
@@ -222,6 +250,7 @@ export function* clearBuyErrorSaga() {
 export default function* rootSaga() {
   yield all([
     fork(buyFetchSaga),
+    fork(getBuyFlowSaga),
     fork(setBuySaga),
     fork(updateBuySaga),
     fork(getContractSaga),

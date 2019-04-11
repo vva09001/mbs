@@ -15,8 +15,8 @@ class Detail extends Component {
     this.state = {
       toggle: {
         popup: false,
-        table1: true,
-        table2: true
+        table1: false,
+        table2: false
       },
       params: {
         amount: 0,
@@ -50,6 +50,7 @@ class Detail extends Component {
       [key]: value
     });
   };
+
   _setBuy = () => {
     this.setState(
       {
@@ -65,6 +66,11 @@ class Detail extends Component {
       }
     );
   };
+
+  _onFetchFlow = params => {
+    this.props.buyFlowFetch(params);
+  };
+
   nonInvertRender() {
     const label = ['Nội dung', 'Ngày thanh toán', 'Tiền nhận (VND)'];
     const content = ['content', 'payCouponDate', 'cashNonInvest'];
@@ -74,7 +80,7 @@ class Detail extends Component {
         status={this.state.toggle.table1}
         refs="table1"
         onClick={this.showPopup}
-        loading={this.props.buyLoading}
+        loading={this.props.buyFlowLoading}
         items={this.props.flow.flowNonInvest}
         label={label}
         content={content}
@@ -96,7 +102,7 @@ class Detail extends Component {
         status={this.state.toggle.table2}
         refs="table2"
         onClick={this.showPopup}
-        loading={this.props.buyLoading}
+        loading={this.props.buyFlowLoading}
         items={this.props.flow.flowInvest}
         label={label}
         content={content}
@@ -134,6 +140,7 @@ class Detail extends Component {
             <Section2
               info={this.props.info}
               bond={this.props.bond}
+              onFetchFlow={this._onFetchFlow}
               loading={this.props.buyLoading}
               params={this.state.params}
               handleParam={this.handleParam}
@@ -172,12 +179,14 @@ Detail.propTypes = {
   bond: PropTypes.object,
   bondLoading: PropTypes.bool,
   buyLoading: PropTypes.bool,
+  buyFlowLoading: PropTypes.bool,
   bondsDetail: PropTypes.func,
   info: PropTypes.object,
   flow: PropTypes.object,
   flowCash: PropTypes.object,
   buyFetch: PropTypes.func,
   setBuy: PropTypes.func,
+  buyFlowFetch: PropTypes.func,
   match: PropTypes.object,
   profile: PropTypes.object,
   t: PropTypes.func
@@ -191,6 +200,7 @@ const mapStateToProps = state => {
     flowCash: state.Buy.flowCash,
     bondLoading: state.Bonds.loading,
     buyLoading: state.Buy.loading,
+    buyFlowLoading: state.Buy.loading_flow,
     profile: state.Account.profile
   };
 };
@@ -198,6 +208,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   bondsDetail: bondsActions.detail,
   buyFetch: buyActions.getBuy,
+  buyFlowFetch: buyActions.getFlow,
   setBuy: buyActions.set
 };
 

@@ -7,6 +7,7 @@ const initialState = {
   book: {},
   contract: contract,
   loading: false,
+  loading_flow: false,
   payment_link: '',
   error: {
     message: '',
@@ -30,6 +31,8 @@ const Buy = (state = initialState, action) => {
       return { ...state, payment_link: action.link };
     case actions.BUY_LOADING:
       return { ...state, loading: action.loading };
+    case actions.BUY_FLOW_LOADING:
+      return { ...state, loading_flow: action.loading };
     case actions.BUY_ERROR:
       return { ...state, error: action.error };
     default:

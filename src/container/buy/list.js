@@ -29,10 +29,10 @@ class List extends Component {
       toggle: !this.state.toggle
     });
   };
+  _showList = () => {
+    return _.map(this.props.bonds, item => <Card item={item} key={item.bondCode} />);
+  };
   render() {
-    if (this.props.loading) {
-      return <Loading />;
-    }
     return (
       <Layout
         toggle={this.state.toggle}
@@ -40,9 +40,7 @@ class List extends Component {
         onToggle={this._toggle}
         title="Sản phẩm"
       >
-        {_.map(this.props.bonds, item => (
-          <Card item={item} key={item.bondCode} />
-        ))}
+        {this.props.loading ? <Loading /> : this._showList()}
       </Layout>
     );
   }

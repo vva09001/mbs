@@ -115,7 +115,7 @@ const Section4 = props => {
             <span>
               {title}
               <strong>
-                {sum} {t('VND')}
+                {' ' + currency(sum)} {t('VND')}
               </strong>
             </span>
             <span onClick={() => onClick(refs)} className="float-right collapse-custom">

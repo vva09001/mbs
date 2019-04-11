@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Layout from '../layout/layout';
+import { currency } from '../../utils/currency';
 
 const Info = ({ detail }) => {
   return (
@@ -29,19 +30,19 @@ const Info = ({ detail }) => {
               <td>
                 <b>Mệnh giá Trái Phiếu</b>
               </td>
-              <td>{detail.parValue} VNĐ/ Trái Phiếu</td>
+              <td>{currency(detail.parValue)} VNĐ/ Trái Phiếu</td>
             </tr>
             <tr>
               <td>
                 <b>Giá phát hành</b>
               </td>
-              <td>{detail.issuePrice}% mệnh giá</td>
+              <td>{currency(detail.issuePrice)}% mệnh giá</td>
             </tr>
             <tr>
               <td>
                 <b>Kỳ hạn Trái Phiếu</b>
               </td>
-              <td>{detail.termBond} năm</td>
+              <td>{detail.termBond}</td>
             </tr>
             <tr>
               <td>
@@ -59,16 +60,19 @@ const Info = ({ detail }) => {
               <td>
                 <b>Lãi suất Trái Phiếu</b>
               </td>
-              <td>Lãi suất áp dụng cho 2 kỳ tính lãi đầu tiên của Trái Phiếu là 10.8%/năm</td>
+              <td>
+                Lãi suất áp dụng cho {detail.termFixCount} kỳ tính lãi đầu tiên của Trái Phiếu là{' '}
+                {currency(detail.interestFixRate)} %/năm.
+                {detail.interestFloatRange !== 0
+                  ? `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái Phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ ${detail.interestFloatRange} %năm`
+                  : ''}
+              </td>
             </tr>
             <tr>
               <td>
                 <b>Ngày thanh toán Lãi</b>
               </td>
-              <td>
-                Tiền lãi Trái Phiếu được trả sau, đình kỳ mỗi 6 tháng một lần vào ngày cuối cùng của
-                mỗi Kỳ Tính Lãi
-              </td>
+              <td>{detail.couponPayment} tháng/lần</td>
             </tr>
             <tr>
               <td>
@@ -86,7 +90,7 @@ const Info = ({ detail }) => {
               <td>
                 <b>Đại lý đăng ký và thanh toán</b>
               </td>
-              <td>{detail.depositAgents}</td>
+              <td>{detail.paymentAgents}</td>
             </tr>
           </tbody>
         </table>

@@ -1,14 +1,22 @@
-@media(max-width: 360px){
+@media(max-width: 410px){
   body {
     .btn-light {
-      width: 100%;
     }
     .input-group {
       input {
         &.number {
-          width: 100%;
+          width: 20px;
+          flex: 20px;
+          -webkit-flex: 20px;
         }
+      }
+      &.number-field {
+        padding-left: 10px;
+        padding-right: 10px;
       }
     }
   }
+}
+@media(max-width: 375px){
+  
 }
