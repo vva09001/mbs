@@ -13,7 +13,7 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          <Link to={'/sell/order/' + props.item.bondCode} className="btn-transparent text-truncate">
+          <Link to={'/sell/order/' + props.item.bondCode} className="btn-transparent text-truncate">
             {props.item.bondCode}
           </Link>
           <span className="link">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import history from '../../utils/history';
 import Icon from '../common/icon';
 
@@ -13,9 +14,9 @@ const card = props => {
         <li className="list-group-item title">
           {t(props.item.title)}
           <span className="link">
-            <button onClick={() => history.push({ pathname: '/bonds/' + props.item.id })}>
+            <Link onClick={() => history.push({ pathname: '/bonds/' + props.item.id })}>
               <Icon name="arrow" width="18" height="24" />
-            </button>
+            </Link>
           </span>
         </li>
         <li className="list-group-item">
