@@ -12,7 +12,6 @@ class HomePage extends Component {
     super(props);
   }
   componentDidMount() {
-    console.log(this.props);
     const query = qs.parse(this.props.location.search);
     if (query.error_code) {
       this.props.verifyResult(query);

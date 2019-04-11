@@ -39,6 +39,7 @@ const card = props => {
   );
 };
 card.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
+  children: PropTypes.node
 };
 export default card;

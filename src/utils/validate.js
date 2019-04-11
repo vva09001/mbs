@@ -1,0 +1,2 @@
+const validate = () => {};
+export { validate };

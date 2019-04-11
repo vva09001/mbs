@@ -41,6 +41,13 @@ class Section2 extends Component {
         sum: number * this.props.info.buyPrice
       });
     }
+    if (isNaN(number)) {
+      this.props.handleParam('params', {
+        ...this.props.params,
+        amount: 0,
+        sum: 0 * this.props.info.buyPrice
+      });
+    }
   }
   render() {
     const { t } = this.props;

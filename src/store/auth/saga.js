@@ -7,7 +7,6 @@ export function* authSaga() {
     try {
       // Get response
       const res = yield Authentication(data.data);
-      console.log(res);
       if (res.status === 200) {
         yield put({ type: actions.AUTH, auth: res.data });
       } else {
