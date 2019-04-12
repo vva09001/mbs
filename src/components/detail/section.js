@@ -62,8 +62,8 @@ const Section3 = props => {
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right col-form-label">
-          <span className="mspot">{currency(props.item.termRate)}</span>
-          <small>%/{t('năm')}</small>
+          <span className="mspot">{currency(props.item.termRate)}%</span>
+          <small className="mspot">/{t('năm')}</small>
         </div>
       </div>
       <div className="form-group row align-items-center">
@@ -84,8 +84,8 @@ const Section3 = props => {
           />
         </label>
         <div className="col-6 text-right col-form-label">
-          <span>{currency(props.item.reinvestmentRate)}</span>
-          <small>%/{t('năm')}</small>
+          <span className="mspot">{currency(props.item.reinvestmentRate)}%</span>
+          <small className="mspot">/{t('năm')}</small>
         </div>
       </div>
     </Fragment>

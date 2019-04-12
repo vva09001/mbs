@@ -45,7 +45,7 @@ const header = ({ title, toggle, onToggle, onClick }) => {
                 }}
                 className="dropdown-item"
               >
-                {t('Số lượng Trái phiếu giảm dần')}
+                {t('Số lượng trái phiếu giảm dần')}
               </button>
             </div>
           )}

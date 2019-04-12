@@ -15,22 +15,25 @@ const card = props => {
             {props.item.bondCode}
           </Link>
           <span className="link">
-            <span className="badge badge-danger">
-              {currency(props.item.termRate)}%/{t('năm')}
-            </span>
             <Link to={'/buy/' + props.item.bondCode}>
               <Icon name="arrow" width="18" height="24" />
             </Link>
           </span>
         </li>
         <li className="list-group-item">
-          {t('Ngày đáo hạn')}
+          <span className="mlabel">{t('Ngày đáo hạn')}</span>
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Đang còn')}
+          <span className="mlabel">{t('Đang còn')}</span>
           <p className="float-right">
             <span className="quatity">{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
+          </p>
+        </li>
+        <li className="list-group-item">
+          <span className="mlabel">{t('Lãi suất')}</span>
+          <p className="float-right">
+            <span className="quatity ls">{currency(props.item.termRate)}%</span><span className="mspot">/{t('năm')}</span>
           </p>
         </li>
         {props.children}

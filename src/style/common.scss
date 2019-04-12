@@ -6,11 +6,14 @@
   padding-right: 5px;
   padding-left: 5px;
 }
+.mlabel,.card li span.mlabel {font-size: 14px; font-weight: normal}
 .form-group {
   margin-bottom: 10px;
 }
 .tar {text-align: right}
-.mspot { color: #c4261d;}
+.mspot { color: #ff3b30;
+  }
+.ls {font-size: 25px}
 body {
   .btn-transparent {
     display: inline-block;
@@ -75,7 +78,7 @@ body {
 
   .container-fluid {
     max-width: 750px;
-    padding-top: 5px;
+    padding-top: 75px;
     padding-bottom: 85px;
   }
 
@@ -306,10 +309,6 @@ body {
   //box-shadow: 0 9px 16px 6px #ccc;
   color: #fff;
   min-height: 55px;
-  &.row {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
   & > div {
     padding: 0;
   }
@@ -480,7 +479,7 @@ body {
 
   li {
     padding: 10px 10px 10px 25px;
-    font-size: 19px;
+    font-size: 16px;
     align-items: center;
     display: flex;
     width: 100%;
