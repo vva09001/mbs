@@ -54,7 +54,7 @@ const Layout = props => {
     return (
       <Fragment>
         {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
-        {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
+        {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
         {header(props)}
         <div className="container-fluid min-vh-100">{props.children}</div>
         <Footer />
@@ -80,6 +80,7 @@ Layout.propTypes = {
   buyError: PropTypes.object,
   buyClear: PropTypes.func,
   sellError: PropTypes.object,
+  sellClear: PropTypes.func,
   bondsError: PropTypes.object,
   children: PropTypes.node
 };

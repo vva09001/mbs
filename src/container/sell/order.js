@@ -1,27 +1,61 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import history from '../../utils/history';
+import { Link } from 'react-router-dom';
+import _ from 'lodash';
+import { withTranslation } from 'react-i18next';
+import { currency } from '../../utils/currency';
 import Layout from '../layout/layout';
 import sellActions from '../../store/sell/actions';
 
 class Order extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      toggle: {
+        checkbox: false
+      },
+      params: {}
+    };
   }
+
   componentDidMount() {
-    this.props.getInfo({
-      code: this.props.match.params.code
+    this.setState({
+      params: {
+        ...this.state.params,
+        date: this.props.sellDate[0].termDate,
+        contractCode: this.props.info.contractCode
+      }
     });
   }
+  _onCheckBox = () => {
+    this.setState({
+      toggle: {
+        checkbox: !this.state.toggle.checkbox
+      }
+    });
+  };
+  _onChange = e => {
+    const value = e.target.value;
+    this.setState({
+      params: {
+        ...this.state.params,
+        sellDate: value
+      }
+    });
+  };
+  _onBook = () => {
+    this.props.book(this.state.params);
+  };
   render() {
+    const { info, sellDate, t } = this.props;
     return (
-      <Layout type={2} title="Bán Trái phiếu">
+      <Layout type={2} title="ĐĂNG KÝ BÁN">
         <div className="bond-detail">
           <div className="section">
             <div className="row">
               <div className="col-12">
-                <h3>NVL1235860</h3>
+                <h3>{info.bondCode}</h3>
               </div>
             </div>
           </div>
@@ -31,23 +65,25 @@ class Order extends Component {
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày giao dịch:</label>
-              <div className="col-6" />
+              <div className="col-6">{info.buyDate}</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày đáo hạn TP:</label>
-              <div className="col-6" />
+              <div className="col-6">{info.maturityDate}</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Số lượng TP sở hữu:</label>
-              <div className="col-6" />
+              <div className="col-6">
+                {currency(info.buyVol)} {t('TP')}
+              </div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Đơn giá mua:</label>
-              <div className="col-6" />
+              <div className="col-6">{currency(info.buyPrice)} VND</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Giá trị đầu tư:</label>
-              <div className="col-6" />
+              <div className="col-6">{currency(info.buyValue)} VND</div>
             </div>
           </div>
           <div className="pb-2">
@@ -60,28 +96,40 @@ class Order extends Component {
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày giao dịch bán:</label>
-              <div className="col-6">01/04/2019</div>
+              <div className="col-6">
+                <div className="form-group">
+                  <select className="form-control" onChange={this._onChange.bind(this)}>
+                    {_.map(sellDate, (item, index) => {
+                      return (
+                        <option key={index} value={item.termDate}>
+                          {item.termDate}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              </div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Đơn giá bán:</label>
               <div className="col-6">
-                <strong>104,985 VND</strong>
+                <strong>{currency(info.sellPrice)} VND</strong>
               </div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Số lượng TP:</label>
-              <div className="col-6">2,000</div>
+              <div className="col-6">{currency(info.sellVol)}</div>
             </div>
             <div className="form-group sum-field row">
-              <label className="col-6 col-form-label">Tổng giá trị bán</label>
-              <label className="col-6 col-form-label">210,284,955 VND</label>
+              <label className="col-6 col-form-label">TỔNG GIÁ TRỊ BÁN</label>
+              <label className="col-6 col-form-label">{currency(info.sellValue)} VND</label>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">
                 <i>Tỷ lệ thuế TNCN (%)</i>
               </label>
               <div className="col-6">
-                <i>Tỷ lệ thuế TNCN (%)</i>
+                <i>{currency(info.taxPit)}</i>
               </div>
             </div>
             <div className="form-group row">
@@ -89,16 +137,36 @@ class Order extends Component {
                 <i>Giá trị thuế TNCN</i>
               </label>
               <div className="col-6">
-                <i>210,285 VND</i>
+                <i>{currency(info.taxValue)} VND</i>
               </div>
             </div>
-            <button
-              type="button"
-              onClick={() => history.push({ pathname: '/bonds/buy/order' })}
-              className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
-            >
-              ĐẶT LỆNH BÁN
-            </button>
+            <div className="term-condition">
+              <Link to="/sell/term">{t('Điều khoản và điều kiện đăng ký bán')}</Link>
+            </div>
+            <label className="form-check-label">
+              <strong>
+                <i>
+                  {t(
+                    'Tôi xác nhận rằng tôi đã đọc và đống ý với các điều khoản và điều kiện của đăng ký'
+                  )}
+                  {t('Trái phiếu được nêu trên đây.')}
+                </i>
+              </strong>
+              <input type="checkbox" onChange={() => this._onCheckBox()} />
+              <span className="checkmark" />
+            </label>
+            <div className="row justify-content-center">
+              <div className="col-9">
+                <button
+                  onClick={() => this._onBook()}
+                  type="button"
+                  className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
+                  disabled={!this.state.toggle.checkbox}
+                >
+                  ĐẶT LỆNH BÁN
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </Layout>
@@ -108,21 +176,26 @@ class Order extends Component {
 
 Order.propTypes = {
   info: PropTypes.object,
-  match: PropTypes.object,
-  getInfo: PropTypes.func
+  bond: PropTypes.object,
+  sellDate: PropTypes.array,
+  book: PropTypes.func,
+  t: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
-    info: state.Sell.info
+    bond: state.Bonds.detail,
+    info: state.Sell.info,
+    sellDate: state.Sell.date
   };
 };
 
 const mapDispatchToProps = {
-  getInfo: sellActions.getInfo
+  getInfo: sellActions.getInfo,
+  book: sellActions.book
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Order);
+)(withTranslation()(Order));

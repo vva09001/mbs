@@ -2,10 +2,10 @@ import actions from './actions';
 
 const initialState = {
   list: [],
-  flow: [],
   info: {},
   date: [],
   contract: {},
+  book: {},
   loading: false,
   error: {
     message: '',
@@ -21,8 +21,10 @@ const Sell = (state = initialState, action) => {
       return { ...state, flow: action.flow };
     case actions.SELL_INFO:
       return { ...state, info: action.info };
-    case actions.SELL_CONTRACT:
-      return { ...state, contract: action.contract };
+    case actions.SELL_DATE:
+      return { ...state, date: action.date };
+    case actions.SELL_BOOK:
+      return { ...state, book: action.book };
     case actions.SELL_LOADING:
       return { ...state, loading: action.loading };
     case actions.SELL_ERROR:

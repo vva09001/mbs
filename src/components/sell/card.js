@@ -1,8 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import history from '../../utils/history';
 import Icon from '../common/icon';
 import { currency } from '../../utils/currency';
 
@@ -13,16 +11,23 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          <Link
-            to={'/sell/order/' + props.item.contractCode}
+          <button
+            onClick={() => props.onClick({ contractCode: props.item.contractCode })}
             className="btn-transparent text-truncate"
           >
             {props.item.bondCode}
-          </Link>
+          </button>
           <span className="link">
-            <Link to={'/sell/order/' + props.item.contractCode}>
+            <button
+              onClick={() =>
+                props.onClick({
+                  bondCode: props.item.bondCode,
+                  contractCode: props.item.contractCode
+                })
+              }
+            >
               <Icon name="arrow" width="18" height="24" />
-            </Link>
+            </button>
           </span>
         </li>
         <li className="list-group-item">
@@ -56,7 +61,7 @@ const card = props => {
         <li className="list-group-item justify-content-center">
           <div className="col-9">
             <button
-              onClick={() => history.push({ pathname: '/sell/order/' + props.item.contractCode })}
+              onClick={() => props.onClick({ contractCode: props.item.contractCode })}
               className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
             >
               BÁN
@@ -70,6 +75,7 @@ const card = props => {
 card.propTypes = {
   item: PropTypes.object,
   t: PropTypes.func,
+  onClick: PropTypes.func,
   children: PropTypes.node
 };
 export default card;

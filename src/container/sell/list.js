@@ -19,6 +19,9 @@ class List extends Component {
       page: 1
     });
   }
+  _getContract = params => {
+    this.props.getContract(params);
+  };
 
   render() {
     if (this.props.loading) {
@@ -27,8 +30,8 @@ class List extends Component {
     return (
       <Layout type={2} title="Danh mục TP có thể bán">
         <h3 className="text-right mt-3 mb-3">Tổng giá trị: 10,000,000 VNĐ</h3>
-        {_.map(this.props.bonds, item => (
-          <Card item={item} key={item.id} />
+        {_.map(this.props.bonds, (item, index) => (
+          <Card item={item} key={index} onClick={this._getContract} />
         ))}
       </Layout>
     );
@@ -38,7 +41,8 @@ class List extends Component {
 List.propTypes = {
   bonds: PropTypes.array,
   getList: PropTypes.func,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  getContract: PropTypes.func
 };
 
 const mapStateToProps = state => {
@@ -48,7 +52,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getList: sellActions.get
+  getList: sellActions.get,
+  getContract: sellActions.getContract
 };
 
 export default connect(

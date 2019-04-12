@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -8,24 +8,22 @@ import history from '../utils/history';
 import RootContainer from './rootContainer';
 import HomePage from './homepage';
 
-import BondsBuyList from './buy/list';
-import BondsBuyDetail from './buy/detail';
-import BondsBuyOrder from './buy/order';
-import BondsBuyTerm from './buy/term';
-import BondsBuyFlow from './buy/flow';
-import BondsBuyConfirm from './buy/confirm';
-import BondsBuyInfo from './buy/info';
+import BuyList from './buy/list';
+import BuyDetail from './buy/detail';
+import BuyOrder from './buy/order';
+import BuyTerm from './buy/term';
+import BuyFlow from './buy/flow';
+import BuyConfirm from './buy/confirm';
+import BuyInfo from './buy/info';
 
-import BondsSaleOrder from './sell/order';
-import BondsSaleConfirm from './sell/confirm';
-import BondsSaleList from './sell/list';
+import SellOrder from './sell/order';
+import SellTerm from './sell/term';
+import SellConfirm from './sell/confirm';
+import SellList from './sell/list';
 
-import BondsTradeList from './trade/list';
-import BondsSaleActions from './trade/actions';
+import TradeList from './trade/list';
 
-import BondsUserList from './user/list';
-
-const AppRouter = props => {
+const AppRouter = () => {
   return (
     <Router history={history}>
       <RootContainer>
@@ -33,21 +31,20 @@ const AppRouter = props => {
           <Route path="/:merchant_code/:msisdn/:time" component={HomePage} />
           <Route exact path="/" component={HomePage} />
 
-          <Route exact path="/buy/" component={BondsBuyList} />
-          <Route path="/buy/info/" component={BondsBuyInfo} />
-          <Route path="/buy/order/" component={BondsBuyOrder} />
-          <Route path="/buy/term/" component={BondsBuyTerm} />
-          <Route path="/buy/flow/" component={BondsBuyFlow} />
-          <Route path="/buy/confirm/" component={BondsBuyConfirm} />
-          <Route exact path="/buy/:code" component={BondsBuyDetail} />
+          <Route exact path="/buy/" component={BuyList} />
+          <Route path="/buy/info/" component={BuyInfo} />
+          <Route path="/buy/order/" component={BuyOrder} />
+          <Route path="/buy/term/" component={BuyTerm} />
+          <Route path="/buy/flow/" component={BuyFlow} />
+          <Route path="/buy/confirm/" component={BuyConfirm} />
+          <Route exact path="/buy/:code" component={BuyDetail} />
 
-          <Route exact path="/sell/" component={BondsSaleList} />
-          <Route path="/sell/confirm/" component={BondsSaleConfirm} />
-          <Route path="/sell/order/" component={BondsSaleOrder} />
+          <Route exact path="/sell/" component={SellList} />
+          <Route path="/sell/confirm/" component={SellConfirm} />
+          <Route path="/sell/term/" component={SellTerm} />
+          <Route path="/sell/order/" component={SellOrder} />
 
-          <Route exact path="/trade/" component={BondsTradeList} />
-
-          <Route exact path="/user/bonds/" component={BondsUserList} />
+          <Route exact path="/trade/" component={TradeList} />
         </Switch>
       </RootContainer>
     </Router>

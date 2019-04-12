@@ -95,7 +95,7 @@ class Detail extends Component {
       'Ngày kết thúc đầu tư',
       'Lãi tái đầu tư nhận được (VND)'
     ];
-    const content = ['cashInvest', 'payCouponDate', 'lastPayCouponDate', 'reinvestmentRate'];
+    const content = ['cashNonInvest', 'payCouponDate', 'lastPayCouponDate', 'cashInvest'];
     return (
       <Section4
         title="Đã bao gồm tái đầu tư coupon:"
