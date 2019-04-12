@@ -111,16 +111,17 @@ const Section4 = props => {
     <Fragment>
       <div className="row">
         <div className="col-12">
-          <div className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center">
+          <div
+            onClick={() => onClick(refs)}
+            className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center popup-click"
+          >
             <span>
               {title}
               <strong>
                 {' ' + currency(sum)} {t('VND')}
               </strong>
             </span>
-            <span onClick={() => onClick(refs)} className="float-right collapse-custom">
-              {status ? '-' : '+'}
-            </span>
+            <span className="float-right collapse-custom">{status ? '-' : '+'}</span>
           </div>
         </div>
       </div>
