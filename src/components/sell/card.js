@@ -13,11 +13,11 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          <Link to={'/sell/order/' + props.item.bondCode} className="btn-transparent text-truncate">
+          <Link to={'/sell/' + props.item.contractCode} className="btn-transparent text-truncate">
             {props.item.bondCode}
           </Link>
           <span className="link">
-            <Link to={'/sell/order/' + props.item.bondCode}>
+            <Link to={'/sell/' + props.item.contractCode}>
               <Icon name="arrow" width="18" height="24" />
             </Link>
           </span>
@@ -53,7 +53,7 @@ const card = props => {
         <li className="list-group-item justify-content-center">
           <div className="col-9">
             <button
-              onClick={() => history.push({ pathname: '/sell/order/' + props.item.bondCode })}
+              onClick={() => history.push({ pathname: '/sell/' + props.item.contractCode })}
               className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
             >
               BÁN

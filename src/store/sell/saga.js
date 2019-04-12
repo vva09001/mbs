@@ -1,5 +1,6 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
+import Error from '../../utils/error';
 import { List, Info, Flow } from '../../services/sell';
 import { accountProfile, getToken } from '../selectors';
 
@@ -58,11 +59,22 @@ export function* sellInfoSaga() {
 
       // get request
       const token = yield select(getToken);
-      const res = yield Info(data.params, token);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userId: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield Info(params, token);
 
       // handle request
-      if (res.status === 200) {
-        yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
+      if (res.data.result === 0) {
+        yield put({ type: actions.SELL_INFO, list: res.data.data });
+      } else {
+        yield put({
+          type: actions.SELL_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
       }
 
       yield put({ type: actions.BONDS_LOADING });
@@ -72,6 +84,43 @@ export function* sellInfoSaga() {
   });
 }
 
+export function* sellGetContractSaga() {
+  yield takeEvery(actions.SELL_CONTRACT_REQUEST, function*(data) {
+    try {
+      yield put({ type: actions.SELL_LOADING, loading: true });
+
+      // Get request
+      const token = yield select(getToken);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userId: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield Info(params, token);
+
+      // handle request
+      if (res.data.result === 0) {
+        yield put({ type: actions.SELL_CONTRACT, list: res.data.data });
+      } else {
+        yield put({
+          type: actions.SELL_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
+      }
+
+      yield put({ type: actions.SELL_LOADING, loading: false });
+    } catch (error) {
+      yield put({ type: actions.SELL_ERROR, error: error.message });
+    }
+  });
+}
+
 export default function* rootSaga() {
-  yield all([fork(sellListSaga), fork(sellFlowSaga), fork(sellInfoSaga)]);
+  yield all([
+    fork(sellListSaga),
+    fork(sellFlowSaga),
+    fork(sellInfoSaga),
+    fork(sellGetContractSaga)
+  ]);
 }

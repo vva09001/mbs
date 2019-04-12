@@ -5,6 +5,7 @@ const initialState = {
   flow: [],
   info: {},
   date: [],
+  contract: {},
   loading: false,
   error: {
     message: '',
@@ -20,6 +21,8 @@ const Sell = (state = initialState, action) => {
       return { ...state, flow: action.flow };
     case actions.SELL_INFO:
       return { ...state, info: action.info };
+    case actions.SELL_CONTRACT:
+      return { ...state, contract: action.contract };
     case actions.SELL_LOADING:
       return { ...state, loading: action.loading };
     case actions.SELL_ERROR:

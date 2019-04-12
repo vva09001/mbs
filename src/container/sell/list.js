@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import Layout from '../layout/layout';
-import Card from '../../components/sale/card';
+import Card from '../../components/sell/card';
 import Loading from '../../components/common/loading';
 import sellActions from '../../store/sell/actions';
 

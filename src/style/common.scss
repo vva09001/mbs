@@ -297,7 +297,10 @@ body {
   box-shadow: 0 9px 16px 6px #ccc;
   color: #fff;
   min-height: 55px;
-
+  &.row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   & > div {
     padding: 0;
   }

@@ -41,7 +41,7 @@ const Flow = props => {
                 %/{t('năm')}
               </strong>
             </p>
-            <table className="table table-bordered white-bg text-center">
+            <table className="table table-bordered white-bg text-center table-responsive">
               <thead>
                 <tr className="text-primary">
                   <th>{t('STT')}</th>
@@ -84,7 +84,7 @@ const Flow = props => {
                 %/{t('năm')}
               </strong>
             </p>
-            <table className="table table-bordered white-bg text-center">
+            <table className="table table-bordered white-bg text-center table-responsive">
               <thead>
                 <tr className="text-primary">
                   <th>{t('STT')}</th>
@@ -98,7 +98,7 @@ const Flow = props => {
               <tbody>
                 {_.map(props.flow.flowInvest, (item, index) => (
                   <tr>
-                    <td>{item.index + 1}</td>
+                    <td>{index + 1}</td>
                     <td>{item.cashNonInvest}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{item.lastPayCouponDate}</td>

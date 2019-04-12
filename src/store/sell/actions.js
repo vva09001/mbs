@@ -5,6 +5,8 @@ const actions = {
   SELL_FLOW_GET: 'SELL_FLOW_GET',
   SELL_INFO: 'SELL_INFO',
   SELL_INFO_GET: 'SELL_FLOW_GET',
+  SELL_CONTRACT: 'SELL_CONTRACT',
+  SELL_CONTRACT_REQUEST: 'SELL_CONTRACT_REQUEST',
   SELL_LOADING: 'SELL_LOADING',
   SELL_ERROR: 'SELL_ERROR',
   get: params => ({
@@ -17,6 +19,10 @@ const actions = {
   }),
   getInfo: params => ({
     type: actions.SELL_INFO_GET,
+    params
+  }),
+  getContract: params => ({
+    type: actions.SELL_CONTRACT_REQUEST,
     params
   })
 };
