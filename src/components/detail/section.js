@@ -30,13 +30,13 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-6">
-              <h4 className="mb-2">{t('Ngày đáo hạn')}</h4>
+              <h5 className="mb-2">{t('Ngày đáo hạn')}</h5>
               <p className="mb-0 text-primary">{props.item.maturityDate}</p>
             </div>
             <div className="col-6 text-right">
-              <h4 className="mb-2">{t('Đang còn')}</h4>
+              <h5 className="mb-2">{t('Đang còn')}</h5>
               <p className="mb-0 text-primary">
-                <span>{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
+                <span className="mspot">{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
               </p>
             </div>
           </div>
@@ -62,15 +62,14 @@ const Section3 = props => {
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right col-form-label">
-          <span>{currency(props.item.termRate)}</span>
-          <small>%/{t('năm')}</small>
+          <span className="mspot">{currency(props.item.termRate)}%</span>
+          <small className="mspot">/{t('năm')}</small>
         </div>
       </div>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Thời gian nắm giữ')}</label>
         <div className="col-6 text-right col-form-label">
-          <small>
-            {props.item.numInvestDate} {t('ngày')}
+          <small>{currency(props.item.numInvestDate)} {t('ngày')}
           </small>
         </div>
       </div>
@@ -85,8 +84,8 @@ const Section3 = props => {
           />
         </label>
         <div className="col-6 text-right col-form-label">
-          <span>{currency(props.item.reinvestmentRate)}</span>
-          <small>%/{t('năm')}</small>
+          <span className="mspot">{currency(props.item.reinvestmentRate)}%</span>
+          <small className="mspot">/{t('năm')}</small>
         </div>
       </div>
     </Fragment>
@@ -113,8 +112,7 @@ const Section4 = props => {
         <div className="col-12">
           <div
             onClick={() => onClick(refs)}
-            className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center popup-click"
-          >
+            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click">
             <span>
               {title}
               <strong>

@@ -1,7 +1,19 @@
 *, input:focus, textarea:focus, select:focus {
   outline: none !important;
 }
-
+.bg999 {background: #999}
+.container-fluid {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.mlabel,.card li span.mlabel {font-size: 14px; font-weight: normal}
+.form-group {
+  margin-bottom: 10px;
+}
+.tar {text-align: right}
+.mspot { color: #ff3b30;
+  }
+.ls {font-size: 25px}
 body {
   .btn-transparent {
     display: inline-block;
@@ -9,7 +21,7 @@ body {
     border: 0px;
     background: transparent;
   }
-  background-color: #e7e7e7;
+  background-color: #eee;
   font-family: Arial;
   .list-group-item {
     border-color: #dcdde0;
@@ -176,7 +188,7 @@ body {
 
     &.number-field {
       display: inline-flex;
-      width: auto;
+      width: 100%;
       padding-right: 20px;
       border: 1px solid #c9cdd4;
     }
@@ -207,8 +219,8 @@ body {
         flex: 55px;
         -webkit-flex: 55px;
         display: block;
-        max-width: 55px;
         text-align: center;
+        width: 100%;
       }
 
       &.date-field {
@@ -216,7 +228,7 @@ body {
     }
 
     .input-group-text {
-      padding: 0 10px;
+      padding: 0 0 0 10px;
       height: auto;
       font-size: 16px;
       font-weight: bold;
@@ -294,13 +306,9 @@ body {
 .header-wrapper {
   padding: 10px 15px 9px;
   background: linear-gradient(to right, #17adb0, #007edc);
-  box-shadow: 0 9px 16px 6px #ccc;
+  //box-shadow: 0 9px 16px 6px #ccc;
   color: #fff;
   min-height: 55px;
-  &.row {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
   & > div {
     padding: 0;
   }
@@ -471,7 +479,7 @@ body {
 
   li {
     padding: 10px 10px 10px 25px;
-    font-size: 19px;
+    font-size: 16px;
     align-items: center;
     display: flex;
     width: 100%;
