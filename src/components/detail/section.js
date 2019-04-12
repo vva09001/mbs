@@ -36,7 +36,7 @@ const Section1 = props => {
             <div className="col-6 text-right">
               <h4 className="mb-2">{t('Đang còn')}</h4>
               <p className="mb-0 text-primary">
-                <span>{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
+                <span className="mspot">{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
               </p>
             </div>
           </div>
@@ -62,15 +62,14 @@ const Section3 = props => {
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right col-form-label">
-          <span>{currency(props.item.termRate)}</span>
+          <span className="mspot">{currency(props.item.termRate)}</span>
           <small>%/{t('năm')}</small>
         </div>
       </div>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Thời gian nắm giữ')}</label>
         <div className="col-6 text-right col-form-label">
-          <small>
-            {props.item.numInvestDate} {t('ngày')}
+          <small>{currency(props.item.numInvestDate)} {t('ngày')}
           </small>
         </div>
       </div>

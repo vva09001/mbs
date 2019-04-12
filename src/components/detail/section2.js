@@ -73,12 +73,12 @@ class Section2 extends Component {
     return (
       <div className="section-2">
         <div className="form-group row">
-          <label className="col-6 col-form-label">{t('Ngày giao dịch')}</label>
-          <div className="col-6">
+          <label className="col-5 col-form-label">{t('Ngày giao dịch')}</label>
+          <div className="col-7">
             <div className="input-group">
               <input
                 type="text"
-                className="form-control text-primary date-field"
+                className="form-control text-primary date-field tar"
                 disabled
                 value={this.props.info.buyDate}
               />
@@ -86,12 +86,12 @@ class Section2 extends Component {
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-6 col-form-label">{t('Giá đơn mua')}</label>
-          <div className="col-6">
+          <label className="col-5 col-form-label">{t('Giá đơn mua')}</label>
+          <div className="col-7">
             <div className="input-group">
               <input
                 type="text"
-                className="form-control text-primary"
+                className="form-control text-primary tar"
                 disabled
                 value={currency(this.props.info.buyPrice)}
               />
@@ -102,8 +102,8 @@ class Section2 extends Component {
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-6 col-form-label">{t('Số lượng TP mua')}</label>
-          <div className="col-6">
+          <label className="col-5 col-form-label">{t('Số lượng TP mua')}</label>
+          <div className="col-7">
             <div className="input-group number-field">
               <a className="btn btn-light text-primary" onClick={() => this.handleMount(false)}>
                 -
@@ -120,10 +120,10 @@ class Section2 extends Component {
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-6 col-form-label text-primary">
+          <label className="col-5 col-form-label text-primary">
             <strong>{t('GIÁ TRỊ ĐẦU TƯ')}</strong>
           </label>
-          <div className="col-6">
+          <div className="col-7">
             <div className="input-group">
               <span className="form-control text-primary">
                 <b>{currency(this.props.params.amount * this.props.info.buyPrice)}</b>

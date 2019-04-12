@@ -1,7 +1,15 @@
 *, input:focus, textarea:focus, select:focus {
   outline: none !important;
 }
-
+.container-fluid {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.form-group {
+  margin-bottom: 10px;
+}
+.tar {text-align: right}
+.mspot { color: #c4261d;}
 body {
   .btn-transparent {
     display: inline-block;
@@ -176,7 +184,7 @@ body {
 
     &.number-field {
       display: inline-flex;
-      width: auto;
+      width: 100%;
       padding-right: 20px;
       border: 1px solid #c9cdd4;
     }
@@ -207,8 +215,8 @@ body {
         flex: 55px;
         -webkit-flex: 55px;
         display: block;
-        max-width: 55px;
         text-align: center;
+        width: 100%;
       }
 
       &.date-field {
@@ -216,7 +224,7 @@ body {
     }
 
     .input-group-text {
-      padding: 0 10px;
+      padding: 0 0 0 10px;
       height: auto;
       font-size: 16px;
       font-weight: bold;
