@@ -30,11 +30,11 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-6">
-              <h4 className="mb-2">{t('Ngày đáo hạn')}</h4>
+              <h5 className="mb-2">{t('Ngày đáo hạn')}</h5>
               <p className="mb-0 text-primary">{props.item.maturityDate}</p>
             </div>
             <div className="col-6 text-right">
-              <h4 className="mb-2">{t('Đang còn')}</h4>
+              <h5 className="mb-2">{t('Đang còn')}</h5>
               <p className="mb-0 text-primary">
                 <span className="mspot">{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
               </p>
@@ -110,7 +110,7 @@ const Section4 = props => {
     <Fragment>
       <div className="row">
         <div className="col-12">
-          <div className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center">
+          <div className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center">
             <span>
               {title}
               <strong>

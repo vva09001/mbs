@@ -126,7 +126,7 @@ class Section2 extends Component {
           <div className="col-7">
             <div className="input-group">
               <span className="form-control text-primary">
-                <b>{currency(this.props.params.amount * this.props.info.buyPrice)}</b>
+                <b className="mspot">{currency(this.props.params.amount * this.props.info.buyPrice)}</b>
               </span>
               <div className="flex-shrink-1 input-group-append">
                 <div className="input-group-text text-primary">{t('VND')}</div>
