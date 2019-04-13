@@ -25,6 +25,9 @@ import SellList from './sell/list';
 import TradeList from './trade/list';
 import TradeActions from './trade/actions';
 
+import AccountList from './account/list';
+import AccountConnect from './account/connect';
+
 const AppRouter = () => {
   return (
     <Router history={history}>
@@ -49,6 +52,9 @@ const AppRouter = () => {
 
           <Route exact path="/trade/" component={TradeList} />
           <Route exact path="/trade/:type" component={TradeActions} />
+
+          <Route exact path="/user/" component={AccountList} />
+          <Route path="/user/connect" component={AccountConnect} />
         </Switch>
       </RootContainer>
     </Router>

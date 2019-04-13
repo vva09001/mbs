@@ -1,7 +1,46 @@
 import actions from './actions';
-import { all, fork, put, takeEvery } from 'redux-saga/effects';
-import { Authentication } from '../../services/auth';
+import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
+import { CheckLink, Link } from '../../services/account';
+import { accountProfile, getToken } from '../selectors';
+
+export function* accountCheckLinkSaga() {
+  yield takeEvery(actions.CHECK_LINK_REQUEST, function*(data) {
+    try {
+      yield put({ type: actions.ACCOUNT_LOADING, loading: true });
+
+      // Get request
+      const token = yield select(getToken);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userId: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield CheckLink(params, token);
+
+      // handle request
+      if (res.data.result === 0) {
+        yield put({ type: actions.SELL_LIST, list: res.data.data.data });
+      } else {
+        yield put({
+          type: actions.SELL_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
+      }
+
+      yield put({ type: actions.ACCOUNT_LOADING, loading: false });
+    } catch (error) {
+      yield put({ type: actions.ACCOUNT_ERROR, error: error.message });
+    }
+  });
+}
+
+export function* clearAccountErrorSaga() {
+  yield takeEvery(actions.CLEAR_ACCOUNT_ERROR, function*() {
+    yield put({ type: actions.ACCOUNT_ERROR, error: { message: '', status: false } });
+  });
+}
 
 export default function* rootSaga() {
-  yield all([]);
+  yield all([fork(accountCheckLinkSaga), fork(clearAccountErrorSaga)]);
 }

@@ -15,8 +15,7 @@ class List extends Component {
     return (
       <Layout type={2} title="Quản lý giao dịch">
         {_.map(this.props.bonds, item => (
-          <Card item={item} key={item.id}>
-          </Card>
+          <Card item={item} key={item.id} />
         ))}
       </Layout>
     );

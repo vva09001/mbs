@@ -1,11 +1,5 @@
 import request from '../utils/request';
 
-const Authentication = params => {
-  return request({
-    url: '/auth/viettelpay/authorize' + params,
-    method: 'get'
-  });
-};
 const Check = params => {
   return request({
     url: '/api/account/checkStatus',
@@ -34,4 +28,4 @@ const Link = params => {
     params: params
   });
 };
-export { Authentication, Check, Register, CheckLink, Link };
+export { Check, Register, CheckLink, Link };
