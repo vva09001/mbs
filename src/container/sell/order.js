@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
+import { FormatTime } from '../../utils/moment';
 import { currency } from '../../utils/currency';
 import Layout from '../layout/layout';
 import sellActions from '../../store/sell/actions';
@@ -12,6 +13,7 @@ class Order extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      date: new Date(),
       toggle: {
         checkbox: false
       },
@@ -47,8 +49,21 @@ class Order extends Component {
   _onBook = () => {
     this.props.book(this.state.params);
   };
+  _sellDate = () => {
+    return (
+      <select className="form-control" onChange={this._onChange.bind(this)}>
+        {_.map(this.props.sellDate, (item, index) => {
+          return (
+            <option key={index} value={item.termDate}>
+              {item.termDate}
+            </option>
+          );
+        })}
+      </select>
+    );
+  };
   render() {
-    const { info, sellDate, t } = this.props;
+    const { info, t } = this.props;
     return (
       <Layout type={2} title="ĐĂNG KÝ BÁN">
         <div className="bond-detail">
@@ -92,22 +107,12 @@ class Order extends Component {
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày đề nghị bán:</label>
-              <div className="col-6">Thứ sáu 03/11/2019</div>
+              <div className="col-6">{FormatTime(this.state.date)}</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày giao dịch bán:</label>
               <div className="col-6">
-                <div className="form-group">
-                  <select className="form-control" onChange={this._onChange.bind(this)}>
-                    {_.map(sellDate, (item, index) => {
-                      return (
-                        <option key={index} value={item.termDate}>
-                          {item.termDate}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
+                <div className="form-group">{this._sellDate()}</div>
               </div>
             </div>
             <div className="form-group row">

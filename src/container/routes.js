@@ -23,6 +23,7 @@ import SellConfirm from './sell/confirm';
 import SellList from './sell/list';
 
 import TradeList from './trade/list';
+import TradeActions from './trade/actions';
 
 const AppRouter = () => {
   return (
@@ -47,6 +48,7 @@ const AppRouter = () => {
           <Route path="/sell/order/" component={SellOrder} />
 
           <Route exact path="/trade/" component={TradeList} />
+          <Route exact path="/trade/:type" component={TradeActions} />
         </Switch>
       </RootContainer>
     </Router>

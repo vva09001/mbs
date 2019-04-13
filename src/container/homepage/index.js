@@ -13,9 +13,6 @@ class HomePage extends Component {
   }
   componentDidMount() {
     const query = qs.parse(this.props.location.search);
-    if (query.error_code) {
-      this.props.verifyResult(query);
-    }
     if (query.merchant_code) {
       this.props.checkAuth(this.props.location.search);
     }

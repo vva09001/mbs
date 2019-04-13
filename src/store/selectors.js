@@ -8,3 +8,5 @@ export const buyVolMax = state => state.Bonds.detail.roomBalance;
 
 export const sellDate = state => state.Sell.date;
 export const sellBook = state => state.Sell.book;
+
+export const tradeCode = state => state.Trade.detail.sellContractCode;

@@ -7,13 +7,15 @@ import Auth from './auth/reducer';
 import Bonds from './bonds/reducer';
 import Buy from './buy/reducer';
 import Sell from './sell/reducer';
+import Trade from './trade/reducer';
 
 const reducers = combineReducers({
   Account,
   Auth,
   Bonds,
   Buy,
-  Sell
+  Sell,
+  Trade
 });
 const persistConfig = {
   key: 'root',

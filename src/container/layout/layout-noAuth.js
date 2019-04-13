@@ -13,6 +13,8 @@ import buyActions from '../../store/buy/actions';
 import sellActions from '../../store/sell/actions';
 import bondsActions from '../../store/bonds/actions';
 import authActions from '../../store/bonds/actions';
+import tradeActions from '../../store/trade/actions';
+
 // components: First
 const header = props => {
   switch (props.type) {
@@ -40,6 +42,7 @@ const Layout = props => (
   <Fragment>
     {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
     {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
+    {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
     {header(props)}
     <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>
     <Footer />
@@ -54,6 +57,8 @@ Layout.propTypes = {
   buyClear: PropTypes.func,
   sellError: PropTypes.object,
   sellClear: PropTypes.func,
+  tradeError: PropTypes.object,
+  tradeClear: PropTypes.func,
   bondsError: PropTypes.object
 };
 
@@ -61,7 +66,8 @@ const mapStateToProps = state => {
   return {
     buyError: state.Buy.error,
     sellError: state.Sell.error,
-    bondsError: state.Bonds.error
+    bondsError: state.Bonds.error,
+    tradeError: state.Trade.error
   };
 };
 
@@ -69,7 +75,8 @@ const mapDispatchToProps = {
   buyClear: buyActions.clearError,
   sellClear: sellActions.clearError,
   bondsClear: bondsActions.clearError,
-  authClear: authActions.clearError
+  authClear: authActions.clearError,
+  tradeClear: tradeActions.clearError
 };
 
 export default connect(

@@ -2,32 +2,62 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import DatePicker from 'react-datepicker';
-import history from '../../utils/history';
+import { FormatTime } from '../../utils/moment';
 import Layout from '../layout/layout';
+import { currency } from '../../utils/currency';
+import tradeActions from '../../store/trade/actions';
 
 class Actions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: 'cancel'
-    }
+      type: 'cancel',
+      date: new Date(),
+      params: {}
+    };
   }
   componentDidMount() {
     this.setState({
       type: this.props.match.params.type
-    })
+    });
   }
-  render() {
+  _onChange = e => {
+    const value = e.target.value;
+    this.setState({
+      params: {
+        sellDate: value
+      }
+    });
+  };
+  _sellDate = () => {
     return (
-      <Layout type={2} title="Bán Trái phiếu">
+      <select className="form-control" onChange={this._onChange.bind(this)}>
+        {_.map(this.props.sellDate, (item, index) => {
+          return (
+            <option key={index} value={item.termDate}>
+              {item.termDate}
+            </option>
+          );
+        })}
+      </select>
+    );
+  };
+  _onClick = () => {
+    if (this.state.type === 'edit') {
+      this.props.change(this.state.params);
+    } else {
+      this.props.delete();
+    }
+  };
+  render() {
+    const { detail } = this.props;
+    return (
+      <Layout type={2} title={this.state.type === 'edit' ? 'Sửa giao dịch bán' : 'Bán Trái phiếu'}>
         <div className="bond-detail">
           <div className="section">
             <div className="row">
               <div className="col-12">
-                <h3>
-                  NVL1235860
-                </h3>
+                <h3>{detail.bondCode}</h3>
               </div>
             </div>
           </div>
@@ -37,32 +67,23 @@ class Actions extends Component {
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày giao dịch:</label>
-              <div className="col-6">
-
-              </div>
+              <div className="col-6">{detail.buyDate}</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày đáo hạn TP:</label>
-              <div className="col-6">
-
-              </div>
+              <div className="col-6">{detail.maturityDate}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Số lượng TP sở hữu:</label>
-              <div className="col-6">
-
-              </div>
+              <label className="col-6 col-form-label">Số lượng Trái phiếu sở hữu:</label>
+              <div className="col-6">{currency(detail.buyVol)} Trái phiếu</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Đơn giá mua:</label>
-              <div className="col-6">
-
-              </div>
+              <div className="col-6">{currency(detail.buyPrice)} VNĐ</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Giá trị đầu tư:</label>
-              <div className="col-6">
-              </div>
+              <div className="col-6">{currency(detail.buyValue)} VNĐ</div>
             </div>
           </div>
           <div className="pb-2">
@@ -71,52 +92,55 @@ class Actions extends Component {
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày đề nghị bán:</label>
-              <div className="col-6">
-                Thứ sáu 03/11/2019
-              </div>
+              <div className="col-6">{FormatTime(this.state.date)}</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày giao dịch bán:</label>
               <div className="col-6">
-                {this.state.type === "edit"?<DatePicker />: '03/11/2019'}
-
+                {this.state.type === 'edit' ? this._sellDate() : detail.sellDate}
               </div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Đơn giá bán:</label>
               <div className="col-6">
-                <strong>104,985 VND</strong>
+                <strong>{currency(detail.sellPrice)} VNĐ</strong>
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Số lượng TP:</label>
-              <div className="col-6">
-                2,000
-              </div>
+              <label className="col-6 col-form-label">Số lượng Trái phiếu:</label>
+              <div className="col-6">{currency(detail.sellVol)} Trái phiếu</div>
             </div>
             <div className="form-group sum-field row">
               <label className="col-6 col-form-label">Tổng giá trị bán</label>
-              <label className="col-6 col-form-label">210,284,955 VND</label>
+              <label className="col-6 col-form-label">{currency(detail.sellValue)} VNĐ</label>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label"><i>Tỷ lệ thuế TNCN (%)</i></label>
+              <label className="col-6 col-form-label">
+                <i>Tỷ lệ thuế TNCN (%)</i>
+              </label>
               <div className="col-6">
-              <i>Tỷ lệ thuế TNCN (%)</i>
+                <i>{currency(detail.taxPit)}%</i>
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label"><i>Giá trị thuế TNCN</i></label>
+              <label className="col-6 col-form-label">
+                <i>Giá trị thuế TNCN</i>
+              </label>
               <div className="col-6">
-              <i>210,285 VND</i>
+                <i>{currency(detail.taxValue)} VNĐ</i>
               </div>
             </div>
-            <button
-              type="button"
-              onClick={() => history.push({ pathname: '/bonds/buy/order' })}
-              className="btn btn-primary btn-lg btn-block"
-            >
-              {this.state.type === "edit"?"Sửa bán": 'Hủy bán'}
-            </button>
+            <div className="row justify-content-center">
+              <div className="col-9">
+                <button
+                  type="button"
+                  onClick={() => this._onClick()}
+                  className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
+                >
+                  {this.state.type === 'edit' ? 'SỬA BÁN' : 'HUỶ BÁN'}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </Layout>
@@ -125,16 +149,25 @@ class Actions extends Component {
 }
 
 Actions.propTypes = {
-  bonds: PropTypes.array
+  match: PropTypes.object,
+  detail: PropTypes.object,
+  sellDate: PropTypes.array,
+  change: PropTypes.func,
+  delete: PropTypes.func,
+  t: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
-    bonds: state.Bonds.list
+    detail: state.Trade.detail,
+    sellDate: state.Trade.date
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  change: tradeActions.change,
+  delete: tradeActions.delete
+};
 
 export default connect(
   mapStateToProps,
