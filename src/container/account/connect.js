@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import qs from 'query-string';
-import Layout from '../layout/layout';
-import accountActions from '../../store/account/actions';
+import Layout from 'container/layout/layout';
+import accountActions from 'store/account/actions';
 
 class Connect extends Component {
   constructor(props) {

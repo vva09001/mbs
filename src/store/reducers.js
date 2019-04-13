@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import Account from './account/reducer';
-import Auth from './auth/reducer';
-import Bonds from './bonds/reducer';
-import Buy from './buy/reducer';
-import Sell from './sell/reducer';
-import Trade from './trade/reducer';
+import Account from 'store/account/reducer';
+import Auth from 'store/auth/reducer';
+import Bonds from 'store/bonds/reducer';
+import Buy from 'store/buy/reducer';
+import Sell from 'store/sell/reducer';
+import Trade from 'store/trade/reducer';
 
 const reducers = combineReducers({
   Account,

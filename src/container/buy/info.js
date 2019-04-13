@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Layout from '../layout/layout';
-import { currency } from '../../utils/currency';
+import Layout from 'container/layout/layout';
+import { currency } from 'utils/currency';
 
 const Info = ({ detail }) => {
   return (

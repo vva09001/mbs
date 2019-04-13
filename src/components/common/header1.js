@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import history from '../../utils/history';
+import history from 'utils/history';
 const header = ({ title }) => {
   const { t } = useTranslation();
   return (

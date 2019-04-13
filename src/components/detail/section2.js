@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { FormatTime } from '../../utils/moment';
-import Loading from '../common/loading';
-import { currency } from '../../utils/currency';
+import Loading from 'components/common/loading';
+import { currency } from 'utils/currency';
 
 class Section2 extends Component {
   constructor(props) {

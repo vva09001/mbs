@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import Layout from '../layout/layout';
-import bondsActions from '../../store/bonds/actions';
-import buyActions from '../../store/buy/actions';
-import Popup from '../../components/common/popup';
-import { Section1, Section3, Section4 } from '../../components/detail/section';
-import Section2 from '../../components/detail/section2';
+import Layout from 'container/layout/layout';
+import bondsActions from 'store/bonds/actions';
+import buyActions from 'store/buy/actions';
+import Popup from 'components/common/popup';
+import { Section1, Section3, Section4 } from 'components/detail/section';
+import Section2 from 'components/detail/section2';
 
 class Detail extends Component {
   constructor(props) {

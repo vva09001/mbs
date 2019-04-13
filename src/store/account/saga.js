@@ -1,7 +1,7 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
-import { CheckLink, Link } from '../../services/account';
-import { accountProfile, getToken } from '../selectors';
+import { CheckLink, Link } from 'services/account';
+import { accountProfile, getToken } from 'store/selectors';
 
 export function* accountCheckLinkSaga() {
   yield takeEvery(actions.CHECK_LINK_REQUEST, function*(data) {

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { FormatTime } from '../../utils/moment';
-import Layout from '../layout/layout';
-import { currency } from '../../utils/currency';
-import tradeActions from '../../store/trade/actions';
+import { FormatTime } from 'utils/moment';
+import Layout from 'container/layout/layout';
+import { currency } from 'utils/currency';
+import tradeActions from 'store/trade/actions';
 
 class Actions extends Component {
   constructor(props) {

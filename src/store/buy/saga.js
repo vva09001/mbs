@@ -1,9 +1,9 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
-import { PaymentGateway, VerifyResult } from '../../services/auth';
-import { Info, Flow, FlowCash, Update, Contract } from '../../services/buy';
-import Error from '../../utils/error';
-import history from '../../utils/history';
+import { PaymentGateway, VerifyResult } from 'services/auth';
+import { Info, Flow, FlowCash, Update, Contract } from 'services/buy';
+import Error from 'utils/error';
+import history from 'utils/history';
 import {
   accountProfile,
   buyGetBook,
@@ -11,7 +11,7 @@ import {
   getToken,
   buyVolMax,
   buyVolMin
-} from '../selectors';
+} from 'store/selectors';
 
 // Get flow saga
 export function* getBuyFlowSaga() {

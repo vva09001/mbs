@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { currency } from '../../utils/currency';
-import Layout from '../layout/layout';
-import sellActions from '../../store/sell/actions';
+import { currency } from 'utils/currency';
+import Layout from 'container/layout/layout';
+import sellActions from 'store/sell/actions';
 
 class Confirm extends Component {
   constructor(props) {

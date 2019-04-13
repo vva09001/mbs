@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Icon from '../common/icon';
-import { currency } from '../../utils/currency';
+import Icon from 'components/common/icon';
+import { currency } from 'utils/currency';
 
 const card = props => {
   const { t } = useTranslation();

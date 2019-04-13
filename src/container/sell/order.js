@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
-import { FormatTime } from '../../utils/moment';
-import { currency } from '../../utils/currency';
-import Layout from '../layout/layout';
-import sellActions from '../../store/sell/actions';
+import { FormatTime } from 'utils/moment';
+import { currency } from 'utils/currency';
+import Layout from 'container/layout/layout';
+import sellActions from 'store/sell/actions';
 
 class Order extends Component {
   constructor(props) {

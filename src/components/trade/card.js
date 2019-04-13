@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
-import { currency } from '../../utils/currency';
+import { currency } from 'utils/currency';
 
-import Icon from '../common/icon';
+import Icon from 'components/common/icon';
 
 const { t } = useTranslation();
 

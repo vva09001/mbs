@@ -4,29 +4,29 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import component
-import history from '../utils/history';
-import RootContainer from './rootContainer';
-import HomePage from './homepage';
+import history from 'utils/history';
+import RootContainer from 'container/rootContainer';
+import HomePage from 'container/homepage';
 
-import BuyList from './buy/list';
-import BuyDetail from './buy/detail';
-import BuyOrder from './buy/order';
-import BuyTerm from './buy/term';
-import BuyFlow from './buy/flow';
-import BuyConfirm from './buy/confirm';
-import BuyVerify from './buy/verify';
-import BuyInfo from './buy/info';
+import BuyList from 'container/buy/list';
+import BuyDetail from 'container/buy/detail';
+import BuyOrder from 'container/buy/order';
+import BuyTerm from 'container/buy/term';
+import BuyFlow from 'container/buy/flow';
+import BuyConfirm from 'container/buy/confirm';
+import BuyVerify from 'container/buy/verify';
+import BuyInfo from 'container/buy/info';
 
-import SellOrder from './sell/order';
-import SellTerm from './sell/term';
-import SellConfirm from './sell/confirm';
-import SellList from './sell/list';
+import SellOrder from 'container/sell/order';
+import SellTerm from 'container/sell/term';
+import SellConfirm from 'container/sell/confirm';
+import SellList from 'container/sell/list';
 
-import TradeList from './trade/list';
-import TradeActions from './trade/actions';
+import TradeList from 'container/trade/list';
+import TradeActions from 'container/trade/actions';
 
-import AccountList from './account/list';
-import AccountConnect from './account/connect';
+import AccountList from 'container/account/list';
+import AccountConnect from 'container/account/connect';
 
 const AppRouter = () => {
   return (

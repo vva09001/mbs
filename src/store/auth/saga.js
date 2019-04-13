@@ -1,6 +1,6 @@
 import actions from './actions';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
-import { Authentication } from '../../services/auth';
+import { Authentication } from 'services/auth';
 
 export function* authSaga() {
   yield takeEvery(actions.AUTH_REQUEST, function*(data) {

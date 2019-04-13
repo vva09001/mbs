@@ -2,18 +2,18 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // components: header
-import Header from '../../components/common/header';
-import Header1 from '../../components/common/header1';
-import Header2 from '../../components/common/header2';
-import Header3 from '../../components/common/header3';
-import Footer from '../../components/common/footer';
-import Popup from '../../components/common/popup';
+import Header from 'components/common/header';
+import Header1 from 'components/common/header1';
+import Header2 from 'components/common/header2';
+import Header3 from 'components/common/header3';
+import Footer from 'components/common/footer';
+import Popup from 'components/common/popup';
 // actions
-import buyActions from '../../store/buy/actions';
-import sellActions from '../../store/sell/actions';
-import bondsActions from '../../store/bonds/actions';
-import authActions from '../../store/bonds/actions';
-import tradeActions from '../../store/trade/actions';
+import buyActions from 'store/buy/actions';
+import sellActions from 'store/sell/actions';
+import bondsActions from 'store/bonds/actions';
+import authActions from 'store/bonds/actions';
+import tradeActions from 'store/trade/actions';
 
 // components: First
 const header = props => {

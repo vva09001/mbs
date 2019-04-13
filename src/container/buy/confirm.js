@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Layout from '../layout/layout';
-import { currency } from '../../utils/currency';
-import buyActions from '../../store/buy/actions';
-import Popup from '../../components/common/popup';
-import Loading from '../../components/common/loading';
+import Layout from 'container/layout/layout';
+import { currency } from 'utils/currency';
+import buyActions from 'store/buy/actions';
+import Popup from 'components/common/popup';
+import Loading from 'components/common/loading';
 
 class Confirm extends Component {
   constructor(props) {

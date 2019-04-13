@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
-import { currency } from '../../utils/currency';
-import buyActions from '../../store/buy/actions';
-import Layout from '../layout/layout';
+import { currency } from 'utils/currency';
+import buyActions from 'store/buy/actions';
+import Layout from 'container/layout/layout';
 
 class Order extends Component {
   constructor(props) {

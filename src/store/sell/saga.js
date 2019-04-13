@@ -1,10 +1,10 @@
 import actions from './actions';
 import bondsActions from '../bonds/actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
-import Error from '../../utils/error';
-import { List, Info, Date, Update } from '../../services/sell';
-import history from '../../utils/history';
-import { accountProfile, sellDate, sellBook, getToken } from '../selectors';
+import Error from 'utils/error';
+import { List, Info, Date, Update } from 'services/sell';
+import history from 'utils/history';
+import { accountProfile, sellDate, sellBook, getToken } from 'store/selectors';
 
 export function* sellListSaga() {
   yield takeEvery(actions.SELL_LIST_GET, function*(data) {

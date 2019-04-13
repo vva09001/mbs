@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import Layout from '../layout/layout';
-import Card from '../../components/trade/card';
+import Layout from 'container/layout/layout';
+import Card from 'components/trade/card';
 
 class List extends Component {
   constructor(props) {

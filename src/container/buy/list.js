@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import Layout from '../layout/layout';
-import Card from '../../components/buy/card';
-import Loading from '../../components/common/loading';
-import bondsActions from '../../store/bonds/actions';
+import Layout from 'container/layout/layout';
+import Card from 'components/buy/card';
+import Loading from 'components/common/loading';
+import bondsActions from 'store/bonds/actions';
 
 class List extends Component {
   constructor(props) {

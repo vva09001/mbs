@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import qs from 'query-string';
-import Layout from '../layout/layout-noAuth';
-import buyActions from '../../store/buy/actions';
-import authActions from '../../store/auth/actions';
+import Layout from 'container/layout/layout-noAuth';
+import buyActions from 'store/buy/actions';
+import authActions from 'store/auth/actions';
 
 class HomePage extends Component {
   constructor(props) {

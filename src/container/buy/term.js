@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Layout from '../layout/layout';
+import Layout from 'container/layout/layout';
 
 class Term extends Component {
   constructor(props) {

@@ -1,10 +1,10 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
-import Error from '../../utils/error';
-import { List, Detail, Change, Delete } from '../../services/trade';
-import { Date } from '../../services/sell';
-import history from '../../utils/history';
-import { accountProfile, getToken, tradeCode } from '../selectors';
+import Error from 'utils/error';
+import { List, Detail, Change, Delete } from 'services/trade';
+import { Date } from 'services/sell';
+import history from 'utils/history';
+import { accountProfile, getToken, tradeCode } from 'store/selectors';
 
 export function* tradeListSaga() {
   yield takeEvery(actions.TRADE_LIST_REQUEST, function*(data) {

@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import _ from 'lodash';
-import history from '../../utils/history';
-import Loading from '../common/loading';
-import Icon from '../common/icon';
-import { currency } from '../../utils/currency';
+import history from 'utils/history';
+import Loading from 'components/common/loading';
+import Icon from 'components/common/icon';
+import { currency } from 'utils/currency';
 
 const Section1 = props => {
   const { t } = useTranslation();

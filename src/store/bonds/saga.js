@@ -1,7 +1,7 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
-import { list, detail } from '../../services/bonds';
-import { accountProfile, getToken } from '../selectors';
+import { list, detail } from 'services/bonds';
+import { accountProfile, getToken } from 'store/selectors';
 
 export function* bondsList() {
   yield takeEvery(actions.BONDS_LIST, function*(data) {
