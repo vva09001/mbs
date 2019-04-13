@@ -208,6 +208,7 @@ export function* verifyBuySaga() {
       yield put({ type: actions.BUY_LOADING, loading: true });
       if (data.params.error_code === '00') {
         // Get request
+        const token = yield select(getToken);
         const params = {
           merchant_code: data.params.merchant_code,
           billcode: data.params.billcode,
@@ -216,9 +217,10 @@ export function* verifyBuySaga() {
           payment_status: data.params.payment_status,
           trans_amount: data.params.trans_amount,
           vt_transaction_id: data.params.vt_transaction_id,
+          service: 'BOND',
           check_sum: data.params.check_sum
         };
-        const res = yield VerifyResult(params);
+        const res = yield VerifyResult(params, token);
         // handle request
         if (res.data.result === 0) {
           yield put({
