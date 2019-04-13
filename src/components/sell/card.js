@@ -12,7 +12,12 @@ const card = props => {
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
           <button
-            onClick={() => props.onClick({ contractCode: props.item.contractCode })}
+            onClick={() =>
+              props.onClick({
+                bondCode: props.item.bondCode,
+                contractCode: props.item.contractCode
+              })
+            }
             className="btn-transparent text-truncate"
           >
             {props.item.bondCode}
@@ -61,7 +66,12 @@ const card = props => {
         <li className="list-group-item justify-content-center">
           <div className="col-9">
             <button
-              onClick={() => props.onClick({ contractCode: props.item.contractCode })}
+              onClick={() =>
+                props.onClick({
+                  bondCode: props.item.bondCode,
+                  contractCode: props.item.contractCode
+                })
+              }
               className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
             >
               BÁN

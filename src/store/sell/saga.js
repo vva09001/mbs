@@ -145,12 +145,17 @@ export function* sellUpdateSaga() {
 
       // handle request
       if (res.data.result === 0) {
-        yield put({ type: actions.SELL_DATE, date: res.data.data });
+        yield put({
+          type: actions.SELL_ERROR,
+          error: { message: 'Success', status: true }
+        });
+        yield history.push({ pathname: '/' });
       } else {
         yield put({
           type: actions.SELL_ERROR,
           error: { message: Error[res.data.result], status: true }
         });
+        yield history.push({ pathname: '/' });
       }
     } catch (error) {
       yield put({ type: actions.SELL_ERROR, error: error.message });

@@ -24,7 +24,7 @@ class Order extends Component {
       params: {
         ...this.state.params,
         sellDate: this.props.sellDate[0].termDate,
-        contractCode: this.props.info.contractCode
+        contractCode: this.props.info.buyContractCode
       }
     });
   }

@@ -79,9 +79,9 @@ Layout.propTypes = {
   isLoggedIn: PropTypes.bool,
   buyError: PropTypes.object,
   buyClear: PropTypes.func,
-  sellError: PropTypes.string,
+  sellError: PropTypes.object,
   sellClear: PropTypes.func,
-  bondsError: PropTypes.string,
+  bondsError: PropTypes.object,
   children: PropTypes.node
 };
 
