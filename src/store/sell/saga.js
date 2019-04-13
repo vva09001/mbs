@@ -41,7 +41,7 @@ export function* sellListSaga() {
 export function* sellInfoSaga() {
   yield takeEvery(actions.SELL_INFO_GET, function*(data) {
     try {
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.SELL_LOADING });
 
       // get request
       const token = yield select(getToken);
@@ -63,7 +63,7 @@ export function* sellInfoSaga() {
         });
       }
 
-      yield put({ type: actions.BONDS_LOADING });
+      yield put({ type: actions.SELL_LOADING });
     } catch (error) {
       yield put({ type: actions.SELL_ERROR, error: error.message });
     }

@@ -14,6 +14,7 @@ import BuyOrder from './buy/order';
 import BuyTerm from './buy/term';
 import BuyFlow from './buy/flow';
 import BuyConfirm from './buy/confirm';
+import BuyVerify from './buy/verify';
 import BuyInfo from './buy/info';
 
 import SellOrder from './sell/order';
@@ -37,6 +38,7 @@ const AppRouter = () => {
           <Route path="/buy/term/" component={BuyTerm} />
           <Route path="/buy/flow/" component={BuyFlow} />
           <Route path="/buy/confirm/" component={BuyConfirm} />
+          <Route path="/buy/verify/" component={BuyVerify} />
           <Route exact path="/buy/:code" component={BuyDetail} />
 
           <Route exact path="/sell/" component={SellList} />

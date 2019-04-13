@@ -91,8 +91,6 @@ export function* buyFetchSaga() {
   });
 }
 
-
-
 export function* setBuySaga() {
   yield takeEvery(actions.SET_BUY, function*(data) {
     // Get Condition
@@ -182,7 +180,7 @@ export function* getContractSaga() {
       const paramsPayment = {
         command: 'PAYMENT',
         contractCode: contract.contractCode,
-        return_url: process.env.REACT_APP_URL + '/',
+        return_url: process.env.REACT_APP_URL + '/buy/verify/',
         trans_amount: contract.buyVol,
         version: '2.0'
       };
@@ -211,8 +209,14 @@ export function* verifyBuySaga() {
       if (data.params.error_code === '00') {
         // Get request
         const params = {
-          ...data.params,
-          merchant_code: 'Viettel'
+          merchant_code: data.params.merchant_code,
+          billcode: data.params.billcode,
+          error_code: data.params.error_code,
+          order_id: data.params.order_id,
+          payment_status: data.params.payment_status,
+          trans_amount: data.params.trans_amount,
+          vt_transaction_id: data.params.vt_transaction_id,
+          check_sum: data.params.check_sum
         };
         const res = yield VerifyResult(params);
         // handle request
@@ -221,11 +225,13 @@ export function* verifyBuySaga() {
             type: actions.BUY_ERROR,
             error: { message: 'Success', status: true }
           });
+          yield history.push({ pathname: '/' });
         } else {
           yield put({
             type: actions.BUY_ERROR,
-            error: { message: 'Failed', status: true }
+            error: { message: Error[res.data.result], status: true }
           });
+          yield history.push({ pathname: '/' });
         }
       } else {
         yield put({

@@ -23,7 +23,7 @@ class Order extends Component {
     this.setState({
       params: {
         ...this.state.params,
-        date: this.props.sellDate[0].termDate,
+        sellDate: this.props.sellDate[0].termDate,
         contractCode: this.props.info.contractCode
       }
     });
