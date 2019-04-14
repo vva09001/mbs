@@ -13,7 +13,7 @@ class List extends Component {
   componentDidMount() {}
   render() {
     return (
-      <Layout type={2} title="Quản lý giao dịch">
+      <Layout type={2} title="DANH MỤC TRÁI PHIẾU NẮM GIỮ">
         {_.map(this.props.bonds, item => (
           <Card item={item} key={item.id} />
         ))}
