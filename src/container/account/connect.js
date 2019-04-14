@@ -46,14 +46,6 @@ class Connect extends Component {
               />
             </div>
             <div className="form-group col-12">
-              <label>Số điện thoại di động</label>
-              <input
-                onChange={e => this._onChange(e, 'mobile')}
-                type="text"
-                className="form-control"
-              />
-            </div>
-            <div className="form-group col-12">
               <label>Mật khẩu</label>
               <input
                 onChange={e => this._onChange(e, 'password')}

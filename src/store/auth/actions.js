@@ -6,17 +6,21 @@ const actions = {
   VERIFY_RESULT: 'VERIFY_RESULT',
   VERIFY_RESULT_REQUEST: 'VERIFY_RESULT_REQUEST',
   AUTH_ERROR: 'AUTH_ERROR',
-  auth: data => ({
+  CLEAR_AUTH_ERROR: 'CLEAR_AUTH_ERROR',
+  auth: params => ({
     type: actions.AUTH_REQUEST,
-    data
+    params
   }),
-  paymentGateway: data => ({
+  paymentGateway: params => ({
     type: actions.PAYMENT_GATEWAY_REQUEST,
-    data
+    params
   }),
-  verifyResult: data => ({
+  verifyResult: params => ({
     type: actions.VERIFY_RESULT_REQUEST,
-    data
+    params
+  }),
+  clearError: () => ({
+    type: actions.CLEAR_AUTH_ERROR
   })
 };
 export default actions;

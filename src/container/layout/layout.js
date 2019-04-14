@@ -58,6 +58,7 @@ const Layout = props => {
       <Fragment>
         {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
         {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
+        {props.authError.status && Alert(props.authError.message, props.authClear)}
         {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
         {header(props)}
         <div className="container-fluid min-vh-100">{props.children}</div>
@@ -88,6 +89,8 @@ Layout.propTypes = {
   tradeError: PropTypes.object,
   tradeClear: PropTypes.func,
   bondsError: PropTypes.object,
+  authError: PropTypes.object,
+  authClear: PropTypes.func,
   children: PropTypes.node
 };
 
@@ -97,6 +100,7 @@ const mapStateToProps = state => {
     buyError: state.Buy.error,
     sellError: state.Sell.error,
     bondsError: state.Bonds.error,
+    authError: state.Bonds.error,
     tradeError: state.Trade.error
   };
 };

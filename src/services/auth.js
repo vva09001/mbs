@@ -2,8 +2,9 @@ import request from 'utils/request';
 
 const Authentication = params => {
   return request({
-    url: '/auth/viettelpay/authorize' + params,
-    method: 'get'
+    url: '/auth/viettelpay/authorize',
+    method: 'get',
+    params: params
   });
 };
 const PaymentGateway = (params, token) => {

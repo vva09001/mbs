@@ -4,7 +4,7 @@ const initialState = {
   token: null,
   profile: {
     userId: 123456789,
-    channel: 'VT'
+    channel: 'VTP'
   },
   loading: false,
   error: {
@@ -15,8 +15,8 @@ const initialState = {
 
 const Account = (state = initialState, action) => {
   switch (action.type) {
-    case actions.AUTH:
-      return { ...state, token: action.auth.token };
+    case actions.PRORFILE:
+      return { ...state, profile: { ...state.profile, ...action.profile } };
     case actions.ACCOUNT_LOADING:
       return { ...state, loading: action.loading };
     case actions.ACCOUNT_ERROR:
