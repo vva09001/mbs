@@ -12,17 +12,26 @@ class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggle: false
+      toggle: false,
+      picked: 0
     };
   }
   componentDidMount() {
     this.props.bondsFetch({
+      order: 0,
       num: 40,
       page: 1
     });
   }
   _bondsFetch = params => {
-    this.props.bondsFetch(params);
+    this.setState(
+      {
+        picked: params.order
+      },
+      () => {
+        this.props.bondsFetch(params);
+      }
+    );
   };
   _toggle = () => {
     this.setState({
@@ -38,6 +47,7 @@ class List extends Component {
         toggle={this.state.toggle}
         onClick={this._bondsFetch}
         onToggle={this._toggle}
+        filterPicked={this.state.picked}
         title="Sản phẩm"
       >
         {this.props.loading ? <Loading /> : this._showList()}

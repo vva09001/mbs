@@ -31,6 +31,7 @@ const header = props => {
           toggle={props.toggle}
           onToggle={props.onToggle}
           onClick={props.onClick}
+          filterPicked={props.filterPicked}
         />
       );
   }
@@ -38,6 +39,7 @@ const header = props => {
 
 header.propTypes = {
   type: PropTypes.number,
+  filterPicked: PropTypes.number,
   title: PropTypes.string,
   toggle: PropTypes.bool,
   onToggle: PropTypes.func,

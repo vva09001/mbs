@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import Icon from './icon';
-const header = ({ title, toggle, onToggle, onClick }) => {
+const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
   const { t } = useTranslation();
   return (
     <div className="header-wrapper fixed-top row align-items-center justify-content-end">
@@ -24,8 +24,9 @@ const header = ({ title, toggle, onToggle, onClick }) => {
                 onClick={() => {
                   onClick({ num: 40, page: 1, order: 0 });
                   onToggle();
+
                 }}
-                className="dropdown-item"
+                className={filterPicked === 0 ? 'dropdown-item active' : 'dropdown-item'}
               >
                 {t('Lãi suất giảm dần')}
               </button>
@@ -33,8 +34,9 @@ const header = ({ title, toggle, onToggle, onClick }) => {
                 onClick={() => {
                   onClick({ num: 40, page: 1, order: 1 });
                   onToggle();
+                  filterPicked = 1;
                 }}
-                className="dropdown-item"
+                className={filterPicked === 1 ? 'dropdown-item active' : 'dropdown-item'}
               >
                 {t('Ngày đáo hạn tăng dần')}
               </button>
@@ -42,8 +44,9 @@ const header = ({ title, toggle, onToggle, onClick }) => {
                 onClick={() => {
                   onClick({ num: 40, page: 1, order: 2 });
                   onToggle();
+                  filterPicked = 2;
                 }}
-                className="dropdown-item"
+                className={filterPicked === 2 ? 'dropdown-item active' : 'dropdown-item'}
               >
                 {t('Số lượng trái phiếu giảm dần')}
               </button>
@@ -56,6 +59,7 @@ const header = ({ title, toggle, onToggle, onClick }) => {
 };
 header.propTypes = {
   title: PropTypes.string,
+  filterPicked: PropTypes.number,
   toggle: PropTypes.bool,
   onClick: PropTypes.func,
   onToggle: PropTypes.func
