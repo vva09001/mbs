@@ -18,7 +18,10 @@ class Actions extends Component {
   }
   componentDidMount() {
     this.setState({
-      type: this.props.match.params.type
+      type: this.props.match.params.type,
+      params: {
+        sellDate: this.props.detail.sellDate
+      }
     });
   }
   _onChange = e => {

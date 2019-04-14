@@ -162,7 +162,7 @@ export function* tradeUpdateSaga() {
           type: actions.TRADE_ERROR,
           error: { message: 'Sửa thành công', status: true }
         });
-        yield history.push({ pathname: '/' });
+        yield history.push({ pathname: '/trade/' });
       } else {
         yield put({
           type: actions.TRADE_ERROR,
