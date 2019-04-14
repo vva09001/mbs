@@ -53,9 +53,9 @@ class Confirm extends Component {
           </Popup>
         )}
         <div className="bond-buy-comfirm">
-          <h2 className="text-center color-1 mb-2">
+          <h3 className="text-center color-1 mb-2">
             <strong>ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY {bond.issuerBond}</strong>
-          </h2>
+          </h3>
           <h3 className="text-center color-1 mb-4">
             <strong>Mã Trái phiếu: {contract.bondCode}</strong>
           </h3>
@@ -85,7 +85,7 @@ class Confirm extends Component {
               : Ông <b>Trần Hải Hà</b>
             </div>
             <div className="col-4">
-              Chức vụ: <b>Tổng Giám Đốc</b>
+              Chức vụ: <b>Tổng Giám đốc.</b>
             </div>
           </div>
 
@@ -100,9 +100,11 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-4">Số CMND/HC/ĐKKD</div>
-            <div className="col-8">
-              : {contract.customerId} Cấp ngày: {contract.customerIddate}
-            </div>
+            <div className="col-8">: {contract.customerId}</div>
+          </div>
+          <div className="row">
+            <div className="col-4">Ngày cấp</div>
+            <div className="col-8">: {contract.customerIddate}</div>
           </div>
           <div className="row">
             <div className="col-4">Nơi cấp</div>
@@ -137,20 +139,22 @@ class Confirm extends Component {
           </div>
           <p>
             <i>
-              (Thuế TNCN tạm khấu trừ = Tổng giá trị chuyển nhượng x {currency(contract.taxPit)}%)
+              (Thuế TNCN tạm khấu trừ = Tổng giá trị chuyển nhượng x {currency(contract.taxPit)}
+              %)
             </i>
           </p>
           <div className="confirm-content">
             <p>
               Tổ chức (Ông/Bà): <b>{contract.customerName}</b>
-            </p>
-            <p>
               được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng
               nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán
-              MB {bond.issuerBond} ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký
-              chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. Công ty Cổ phần Chứng khoán MB chỉ xác
-              nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận
-              việc thanh toán giữa hai bên.
+              MB.
+            </p>
+            <p>
+              {bond.issuerBond} ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển
+              nhượng theo yêu cầu của các Nhà Đầu Tư. Công ty Cổ phần Chứng khoán MB chỉ xác nhận
+              tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc
+              thanh toán giữa hai bên.
             </p>
             <p>
               Hai bên thừa nhận, trong mọi trường hợp, {bond.issuerBond} là đơn vị chịu trách nhiệm
@@ -162,7 +166,7 @@ class Confirm extends Component {
             <div className="col-9">
               <a
                 href={this.props.payment_link}
-                className="btn btn-danger border-0 btn-lg btn-block mt-3"
+                className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
               >
                 XÁC NHẬN
               </a>

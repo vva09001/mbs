@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import bondsActions from 'store/bonds/actions';
 import buyActions from 'store/buy/actions';
@@ -124,13 +125,13 @@ class Detail extends Component {
         {this.state.toggle.popup && (
           <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('popup')}>
             <p>
-              <strong>{t('Coupon')}:</strong> {this.props.bond.couponPayment}
+              <strong>{t('Coupon')}:</strong> {currency(this.props.bond.couponPayment)}
             </p>
             <p>
-              <strong>{t('Tái đầu tư coupon')}:</strong> {this.props.info.sumCashInvest}
+              <strong>{t('Tái đầu tư coupon')}:</strong> {currency(this.props.info.sumCashInvest)}
             </p>
             <p>
-              <strong>{t('Lãi suất đầu tư')}:</strong> {this.props.info.reinvestmentRate}
+              <strong>{t('Lãi suất đầu tư')}:</strong> {currency(this.props.info.reinvestmentRate)}
             </p>
           </Popup>
         )}

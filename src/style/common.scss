@@ -261,7 +261,9 @@ body {
     justify-content: center;
     border-radius: 0;
   }
-
+  a.btn-primary {
+    line-height: 40px;
+  }
   .btn-primary {
     color: #fff;
     background-color: #005197;

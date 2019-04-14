@@ -18,12 +18,12 @@ class Confirm extends Component {
     return (
       <Layout type={1} title="Xác nhận giao dịch bán">
         <div className="bond-buy-comfirm">
-          <h2 className="text-center color-1">
-            <strong>ĐỀ NGHỊ CHUYỂN N TRÁI PHIẾU CÔNG TY {bond.issuerBond}</strong>
-          </h2>
-          <h2 className="text-center color-1">
+          <h3 className="text-center color-1">
+            <strong>ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY {bond.issuerBond}</strong>
+          </h3>
+          <h3 className="text-center color-1">
             <strong>Mã Trái phiếu: {info.bondCode}</strong>
-          </h2>
+          </h3>
           <p>
             <b>I. Bên chuyển nhượng</b>
           </p>
@@ -37,8 +37,20 @@ class Confirm extends Component {
             <div className="col-4">Số CMND/CCCD</div>
             <div className="col-8">
               <b>
-                : {info.customerId} do {info.customerIdPlace} cấp ngày {info.customerIdDate}
+                : {info.customerId} cấp ngày {info.customerIdDate}
               </b>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4">Nơi cấp</div>
+            <div className="col-8">
+              <b>: {info.customerIdPlace}</b>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4">Ngày cấp</div>
+            <div className="col-8">
+              <b>: {info.customerIdDate}</b>
             </div>
           </div>
           <p>

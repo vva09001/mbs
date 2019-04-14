@@ -49,7 +49,7 @@ class HomePage extends Component {
         <div className="row white-bg h-100 ">
           <div className="col-12 text-center">
             <Link to="/buy/">
-              <span className="m-5 buy-button btn btn-transparent h6 text-primary">
+              <span className="mt-5 mr-5 buy-button btn btn-transparent h6 text-primary">
                 <span className="mt-2">
                   <img src="/img/buy.png" alg="buy" />
                 </span>
@@ -57,7 +57,7 @@ class HomePage extends Component {
               </span>
             </Link>
             <Link to="/sell/">
-              <span className="m-5 buy-button btn btn-transparent h6 text-primary">
+              <span className="mt-5 ml-5 buy-button btn btn-transparent h6 text-primary">
                 <span className="mt-2">
                   <img src="/img/sell.png" alg="buy" />
                 </span>
