@@ -26,7 +26,7 @@ class Connect extends Component {
   };
   render() {
     return (
-      <Layout type={2} title="Yêu cầu liên kết tài khoản">
+      <Layout disabledValidated={true} type={2} title="Yêu cầu liên kết tài khoản">
         <div className="bond-detail">
           <form className="row justify-content-center">
             <div className="form-group col-12">

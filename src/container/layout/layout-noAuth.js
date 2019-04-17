@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
+
 // components: header
 import Header from 'components/common/header';
 import Header1 from 'components/common/header1';
 import Header2 from 'components/common/header2';
 import Header3 from 'components/common/header3';
-import Footer from 'components/common/footer';
 import Popup from 'components/common/popup';
 // actions
 import buyActions from 'store/buy/actions';
@@ -38,18 +39,24 @@ const Alert = (message, toggle) => (
     <p>{message}</p>
   </Popup>
 );
-const Layout = props => (
-  <Fragment>
-    {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
-    {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
-    {props.authError.status && Alert(props.authError.message, props.authClear)}
-    {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
-    {header(props)}
-    <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>z
-  </Fragment>
-);
+const Layout = props => {
+  if (!props.isLinked) {
+    return <Redirect to="/user/connect" />;
+  }
+  return (
+    <Fragment>
+      {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
+      {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
+      {props.authError.status && Alert(props.authError.message, props.authClear)}
+      {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
+      {header(props)}
+      <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>z
+    </Fragment>
+  );
+};
 
 Layout.propTypes = {
+  isLinked: PropTypes.bool,
   type: PropTypes.number,
   title: PropTypes.string,
   children: PropTypes.node,
@@ -66,6 +73,7 @@ Layout.propTypes = {
 
 const mapStateToProps = state => {
   return {
+    isLinked: state.Account.isExist === 1 ? true : false,
     buyError: state.Buy.error,
     sellError: state.Sell.error,
     bondsError: state.Bonds.error,
