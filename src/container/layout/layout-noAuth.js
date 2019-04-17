@@ -40,9 +40,6 @@ const Alert = (message, toggle) => (
   </Popup>
 );
 const Layout = props => {
-  if (!props.isLinked) {
-    return <Redirect to="/user/connect" />;
-  }
   return (
     <Fragment>
       {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
