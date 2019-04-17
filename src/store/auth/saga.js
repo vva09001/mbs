@@ -2,6 +2,7 @@ import actions from './actions';
 import accountActions from 'store/account/actions';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import { Authentication } from 'services/auth';
+import Error from 'utils/error';
 
 export function* authSaga() {
   yield takeEvery(actions.AUTH_REQUEST, function*(data) {

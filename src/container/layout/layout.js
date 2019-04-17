@@ -15,6 +15,7 @@ import sellActions from 'store/sell/actions';
 import bondsActions from 'store/bonds/actions';
 import authActions from 'store/bonds/actions';
 import tradeActions from 'store/trade/actions';
+import accountActions from 'store/account/actions';
 
 // components: First
 const header = props => {
@@ -75,6 +76,7 @@ const Layout = props => {
       {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
       {props.authError.status && Alert(props.authError.message, props.authClear)}
       {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
+      {props.accountError.status && Alert(props.accountError.message, props.accountClear)}
       {header(props)}
       <div className="container-fluid min-vh-100">{props.children}</div>
     </Fragment>
@@ -97,6 +99,8 @@ Layout.propTypes = {
   bondsError: PropTypes.object,
   authError: PropTypes.object,
   authClear: PropTypes.func,
+  accountError: PropTypes.object,
+  accountClear: PropTypes.func,
   children: PropTypes.node
 };
 
@@ -108,7 +112,8 @@ const mapStateToProps = state => {
     sellError: state.Sell.error,
     bondsError: state.Bonds.error,
     authError: state.Bonds.error,
-    tradeError: state.Trade.error
+    tradeError: state.Trade.error,
+    accountError: state.Account.error
   };
 };
 
@@ -117,7 +122,8 @@ const mapDispatchToProps = {
   sellClear: sellActions.clearError,
   bondsClear: bondsActions.clearError,
   authClear: authActions.clearError,
-  tradeClear: tradeActions.clearError
+  tradeClear: tradeActions.clearError,
+  accountClear: accountActions.clearError
 };
 
 export default connect(

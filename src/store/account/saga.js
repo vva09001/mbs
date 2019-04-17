@@ -2,6 +2,7 @@ import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { CheckLink, Link, List } from 'services/account';
 import { accountProfile, getToken } from 'store/selectors';
+import Error from 'utils/error';
 
 export function* accountCheckLinkSaga() {
   yield takeEvery(actions.CHECK_LINK_REQUEST, function*(data) {
@@ -11,12 +12,13 @@ export function* accountCheckLinkSaga() {
       // Get request
       const token = yield select(getToken);
       const profile = yield select(accountProfile);
-      console.log(token)
       const params = {
         ...data.params,
         mobile: profile.msisdn,
         userId: profile.userId,
-        channel: profile.channel
+        channel: profile.channel,
+        customerType: 'INDIVIDUAL',
+        type: 0
       };
       const res = yield CheckLink(params, token);
 
