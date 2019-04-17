@@ -14,18 +14,34 @@ const Register = params => {
     params: params
   });
 };
-const CheckLink = params => {
+const CheckLink = (params, token) => {
   return request({
     url: '/api/account/checkAccountToLink',
     method: 'get',
+    headers: {
+      Authorization: token
+    },
     params: params
   });
 };
-const Link = params => {
+const Link = (params, token) => {
   return request({
     url: '/api/account/link',
     method: 'get',
+    headers: {
+      Authorization: token
+    },
     params: params
   });
 };
-export { Check, Register, CheckLink, Link };
+const List = (params, token) => {
+  return request({
+    url: '/api/bond/getReportAsset',
+    method: 'get',
+    headers: {
+      Authorization: token
+    },
+    params: params
+  });
+};
+export { Check, Register, CheckLink, Link, List };

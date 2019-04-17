@@ -6,7 +6,7 @@ import Header from 'components/common/header';
 import Header1 from 'components/common/header1';
 import Header2 from 'components/common/header2';
 import Header3 from 'components/common/header3';
-import Footer from 'components/common/footer';
+
 import Popup from 'components/common/popup';
 // actions
 import buyActions from 'store/buy/actions';
@@ -62,7 +62,6 @@ const Layout = props => {
         {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
         {header(props)}
         <div className="container-fluid min-vh-100">{props.children}</div>
-        <Footer />
       </Fragment>
     );
   }
@@ -72,7 +71,6 @@ const Layout = props => {
       <div className="container-fluid min-vh-100 text-center">
         <h1>No Auth</h1>
       </div>
-      <Footer />
     </Fragment>
   );
 };

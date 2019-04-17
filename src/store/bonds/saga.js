@@ -2,6 +2,7 @@ import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { list, detail } from 'services/bonds';
 import { accountProfile, getToken } from 'store/selectors';
+import Error from 'utils/error';
 
 export function* bondsList() {
   yield takeEvery(actions.BONDS_LIST, function*(data) {
@@ -17,10 +18,14 @@ export function* bondsList() {
         channel: profile.channel
       };
       const res = yield list(params, token);
-
       // handle request
       if (res.data.result === 0) {
         yield put({ type: actions.BONDS, list: res.data.data.data });
+      } else {
+        yield put({
+          type: actions.BONDS_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
       }
 
       yield put({ type: actions.BONDS_LOADING, loading: false });
@@ -56,7 +61,11 @@ export function* bondsGet() {
     }
   });
 }
-
+export function* clearBondsErrorSaga() {
+  yield takeEvery(actions.CLEAR_BONDS_ERROR, function*() {
+    yield put({ type: actions.BONDS_ERROR, error: { message: '', status: false } });
+  });
+}
 export default function* rootSaga() {
-  yield all([fork(bondsList), fork(bondsGet)]);
+  yield all([fork(bondsList), fork(bondsGet), fork(clearBondsErrorSaga)]);
 }

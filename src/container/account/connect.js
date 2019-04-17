@@ -28,13 +28,14 @@ class Connect extends Component {
     return (
       <Layout type={2} title="Yêu cầu liên kết tài khoản">
         <div className="bond-detail">
-          <div className="row justify-content-center">
+          <form className="row justify-content-center">
             <div className="form-group col-12">
               <label>Số CMTND</label>
               <input
                 onChange={e => this._onChange(e, 'customerId')}
                 type="text"
                 className="form-control"
+                required
               />
             </div>
             <div className="form-group col-12">
@@ -43,6 +44,7 @@ class Connect extends Component {
                 onChange={e => this._onChange(e, 'accountCode')}
                 type="text"
                 className="form-control"
+                required
               />
             </div>
             <div className="form-group col-12">
@@ -51,6 +53,7 @@ class Connect extends Component {
                 onChange={e => this._onChange(e, 'password')}
                 type="password"
                 className="form-control"
+                required
               />
               <small className="form-text text-muted">
                 (Mật khẩu là mật khẩu giao dịch tại MBS)
@@ -65,7 +68,7 @@ class Connect extends Component {
                 LIÊN KẾT TÀI KHOẢN
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </Layout>
     );

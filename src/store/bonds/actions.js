@@ -5,6 +5,7 @@ const actions = {
   BONDS_GET: 'BONDS_GET',
   BONDS_LOADING: 'BONDS_LOADING',
   BONDS_ERROR: 'BONDS_ERROR',
+  CLEAR_BONDS_ERROR: 'CLEAR_BONDS_ERROR',
   list: params => ({
     type: actions.BONDS_LIST,
     params
@@ -12,6 +13,9 @@ const actions = {
   detail: params => ({
     type: actions.BONDS_GET,
     params
+  }),
+  clearError: () => ({
+    type: actions.CLEAR_BONDS_ERROR
   })
 };
 export default actions;

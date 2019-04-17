@@ -5,17 +5,24 @@ import _ from 'lodash';
 
 import Layout from 'container/layout/layout';
 import Card from 'components/trade/card';
+import accountActions from 'store/account/actions';
 
 class List extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getList({
+      num: 40,
+      page: 1,
+      order: 0
+    });
+  }
   render() {
     return (
       <Layout type={2} title="DANH MỤC TRÁI PHIẾU NẮM GIỮ">
-        {_.map(this.props.bonds, item => (
-          <Card item={item} key={item.id} />
+        {_.map(this.props.bonds, (item, index) => (
+          <Card item={item} key={index} />
         ))}
       </Layout>
     );
@@ -23,16 +30,19 @@ class List extends Component {
 }
 
 List.propTypes = {
+  getList: PropTypes.func,
   bonds: PropTypes.array
 };
 
 const mapStateToProps = state => {
   return {
-    bonds: state.Bonds.list
+    bonds: state.Account.list
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  getList: accountActions.list
+};
 
 export default connect(
   mapStateToProps,

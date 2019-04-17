@@ -45,8 +45,7 @@ const Layout = props => (
     {props.authError.status && Alert(props.authError.message, props.authClear)}
     {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
     {header(props)}
-    <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>
-    <Footer />
+    <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>z
   </Fragment>
 );
 

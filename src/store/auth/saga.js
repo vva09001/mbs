@@ -8,6 +8,7 @@ export function* authSaga() {
     try {
       // Get response
       const params = {
+        customerId: data.params.customerId,
         check_sum: data.params.check_sum,
         merchant_code: data.params.merchant_code,
         msisdn: data.params.msisdn,
