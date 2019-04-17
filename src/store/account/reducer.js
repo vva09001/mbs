@@ -4,7 +4,7 @@ const initialState = {
   token: null,
   profile: {
     userId: 123456789,
-    channel: 'VTP',
+    channel: 'VT',
     isExist: 0
   },
   list: [],

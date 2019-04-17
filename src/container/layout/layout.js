@@ -66,9 +66,9 @@ const Layout = props => {
         </Fragment>
       );
     }
-    if (!props.isLinked) {
-      return <Redirect to="/user/connect" />;
-    }
+    // if (!props.isLinked) {
+    //   return <Redirect to="/user/connect" />;
+    // }
   }
   return (
     <Fragment>

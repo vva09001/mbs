@@ -18,7 +18,7 @@ export function* authSaga() {
       const res = yield Authentication(params);
       if (res.status === 200) {
         yield put({ type: actions.AUTH, auth: res.data });
-        yield put({ type: accountActions.PRORFILE, profile: res.data.data });
+        yield put({ type: accountActions.PRORFILE, profile: { ...res.data.data, channel: 'VT' } });
       } else {
         yield put({
           type: actions.AUTH_ERROR,
