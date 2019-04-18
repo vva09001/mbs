@@ -115,7 +115,7 @@ body {
   }
 
   .white-bg {
-    background-color: #fff;
+    background-color: rgba(192, 192, 192, 0.644);
   }
   h2 {
     margin: 10px 0 13px;
@@ -292,6 +292,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 0;
+    font-size: x-large;
   }
   a.btn-primary {
     line-height: 40px;
@@ -340,9 +341,8 @@ body {
 .header-wrapper {
   padding: 10px 15px 9px;
   background: linear-gradient(to right, #17adb0, #007edc);
-  //box-shadow: 0 9px 16px 6px #ccc;
   color: #fff;
-  min-height: 55px;
+  min-height: 60px;
   & > div {
     padding: 0;
   }
@@ -385,15 +385,12 @@ body {
   }
 
   h3 {
-    font-weight: bold;
     font-size: 18px;
     margin: 0;
-
   }
 
   .filter {
-    font-size: 19px;
-    font-weight: bold;
+    font-size: 20px;
     color: #fff;
     svg {
       margin-right: 12px;
@@ -463,9 +460,9 @@ body {
 }
 
 .footer-wrapper {
-  background: #fff;
-  box-shadow: 0 -9px 10px 0 #ccc;
+  background: linear-gradient(to right, #17adb0, #007edc);
   display: flex;
+  max-height: 60px;
 
   a {
     display: flex;
@@ -473,22 +470,21 @@ body {
     justify-content: center;
     flex-direction: column;
     padding: 7px 0 6px;
-    color: #999999;
-    font-weight: bold;
-    font-size: 15px;
+    color: #fff;
+    font-size: 12px;
     width: 100%;
 
     svg {
       margin-bottom: 5px;
-      fill: #999999;
+      fill: #fff;
     }
   }
 
   a:hover {
-    color: #005197;
+    color: #ccff33;
 
     svg {
-      fill: #005197;
+      fill: #ccff33;
     }
   }
 }
@@ -576,9 +572,19 @@ body {
     justify-content: center;
     width: 65px;
     height: 65px;
-    background-color: #17adb0;
+    background-color: #0052cc;
     border-radius: 50%;
-
+  }
+}
+.sell-button {
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    background-color: #e60000;
+    border-radius: 50%;
   }
 }
 .dropdown-menu {
@@ -586,8 +592,8 @@ body {
   padding-bottom: 0px;
   overflow: hidden;
   .dropdown-item {
-    font-size: 19px;
-    padding: 11px 15px;
+    font-size: 14px;
+    padding: 8px;
     border-bottom: 1px solid #e7e7e7;
     &.active {
       background: #e7e7e7;
