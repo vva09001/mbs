@@ -10,9 +10,20 @@
 .form-group {
   margin-bottom: 10px;
 }
+.mb-4, .clb {    color: #007ddd;}
+.mheading {color:#263d60}
 .tar {text-align: right}
 .mspot { color: #ff3b30;
   }
+thead td {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+.mb-2col {    font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+}
 .ls {font-size: 25px}
 body {
   .btn-transparent {
@@ -119,7 +130,7 @@ body {
 
 
   .text-primary {
-      color: #263d60 !important;
+      color: #000 !important;
   }
   .text-info {
     color: #007ddd !important;

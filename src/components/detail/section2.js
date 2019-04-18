@@ -74,13 +74,8 @@ class Section2 extends Component {
         <div className="form-group row">
           <label className="col-5 col-form-label">{t('Ngày giao dịch')}</label>
           <div className="col-7">
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control text-primary date-field tar"
-                disabled
-                value={this.props.info.buyDate}
-              />
+            <div className="tar">
+                {this.props.info.buyDate}
             </div>
           </div>
         </div>
@@ -119,16 +114,16 @@ class Section2 extends Component {
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-5 col-form-label text-primary">
+          <label className="col-5 col-form-label clb">
             <strong>{t('GIÁ TRỊ ĐẦU TƯ')}</strong>
           </label>
           <div className="col-7">
             <div className="input-group">
               <span className="form-control text-primary">
-                <b className="mspot">{currency(this.props.params.amount * this.props.info.buyPrice)}</b>
+                <b className="clb">{currency(this.props.params.amount * this.props.info.buyPrice)}</b>
               </span>
               <div className="flex-shrink-1 input-group-append">
-                <div className="input-group-text text-primary">{t('VND')}</div>
+                <div className="input-group-text clb">{t('VND')}</div>
               </div>
             </div>
           </div>
