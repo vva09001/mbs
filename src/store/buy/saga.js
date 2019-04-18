@@ -20,6 +20,7 @@ export function* getBuyFlowSaga() {
         userId: profile.userId,
         channel: profile.channel
       };
+      // Set condition
       if (profile.isExist === 0) {
         params.userId = null;
       }
@@ -54,6 +55,7 @@ export function* buyFetchSaga() {
         userId: profile.userId,
         channel: profile.channel
       };
+      // Set condition
       if (profile.isExist === 0) {
         params.userId = null;
       }

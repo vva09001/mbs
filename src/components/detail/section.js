@@ -69,7 +69,8 @@ const Section3 = props => {
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Thời gian nắm giữ')}</label>
         <div className="col-6 text-right col-form-label">
-          <small>{currency(props.item.numInvestDate)} {t('ngày')}
+          <small>
+            {currency(props.item.numInvestDate)} {t('ngày')}
           </small>
         </div>
       </div>
@@ -97,9 +98,22 @@ Section3.propTypes = {
   loading: PropTypes.bool,
   showPopup: PropTypes.func
 };
-const showContent = (items, content, t) =>
-  _.map(content, (item, index) => <td key={index}>{t(items[item])}</td>);
 
+// section 4
+const showContent = (items, content, t) => {
+  return _.map(content, (item, index) => {
+    if (item === 'content') {
+      return <td key={index}>{t(items[item])}</td>;
+    } else if (item === 'cashNonInvest' || item === 'reinvestmentRate' || item === 'cashInvest') {
+      return (
+        <td className="tar" key={index}>
+          {currency(items[item])}
+        </td>
+      );
+    }
+    return <td key={index}>{items[item]}</td>;
+  });
+};
 const Section4 = props => {
   const { t } = useTranslation();
   const { title, sum, label, items, content, onClick, status, refs } = props;
@@ -112,11 +126,12 @@ const Section4 = props => {
         <div className="col-12">
           <div
             onClick={() => onClick(refs)}
-            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click">
-            <span>
-              {title}
-              <strong>
-                {' ' + currency(sum)} {t('VND')}
+            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click"
+          >
+            <span className="d-flex w-100 justify-content-between">
+              <span className="w-100">{title}</span>
+              <strong className="flex-shrink-1">
+                {currency(sum) + t('VND')}
               </strong>
             </span>
             <span className="float-right collapse-custom">{status ? '-' : '+'}</span>
