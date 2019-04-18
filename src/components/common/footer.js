@@ -7,19 +7,19 @@ const footer = () => {
   return (
     <div className="footer-wrapper fixed-bottom">
       <Link to="/">
-        <Icon name="mua-ban" height="35" />
+        <Icon name="ic_buy_sale" height="35" />
         {t('Mua bán')}
       </Link>
       <Link to="/buy/">
-        <Icon name="san-pham" height="35" />
+        <Icon name="ic_product" height="35" />
         {t('Sản phẩm')}
       </Link>
       <Link to="/user/">
-        <Icon name="danh-muc" height="35" />
+        <Icon name="mua" height="35" />
         {t('Tài sản')}
       </Link>
       <Link to="/trade/">
-        <Icon name="giao-dich" height="35" />
+        <Icon name="ic_tradingM" height="35" />
         {t('Quản lý GD')}
       </Link>
     </div>

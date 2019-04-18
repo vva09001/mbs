@@ -39,7 +39,7 @@ class List extends Component {
                   }
                   className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
                 >
-                  HUỶ GIAO DỊCH
+                  HUỶ
                 </button>
                 <button
                   onClick={() =>
@@ -50,7 +50,7 @@ class List extends Component {
                   }
                   className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block ml-1"
                 >
-                  SỬA GIAO DỊCH
+                  SỬA
                 </button>
               </li>
             </Card>
