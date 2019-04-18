@@ -154,18 +154,7 @@ export function* updateBuySaga() {
       const profile = yield select(accountProfile);
       const token = yield select(getToken);
       // Check link condition
-      if (profile.isExist === 0) {
-        yield put({
-          type: accountActions.ACCOUNT_ERROR,
-          error: {
-            message: `Tài khoản chưa liên kết`,
-            status: true
-          }
-        });
-        yield put({ type: accountActions.LINK_STEP, step: 1 });
-        yield history.push({ pathname: '/user/connect' });
-        // Check amount condition
-      } else if (params.volume === 0 || params.volume <= volMin || params.volume >= volMax) {
+      if (params.volume === 0 || params.volume <= volMin || params.volume >= volMax) {
         yield put({
           type: actions.BUY_ERROR,
           error: {
@@ -188,6 +177,9 @@ export function* updateBuySaga() {
           yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
           yield history.push({ pathname: '/buy/order/' });
         } else {
+          if (res.data.result === -1010) {
+            yield history.push({ pathname: '/user/connect/' });
+          }
           yield put({
             type: actions.BUY_ERROR,
             error: { message: Error[res.data.result], status: true }

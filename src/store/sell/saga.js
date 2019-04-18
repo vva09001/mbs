@@ -20,13 +20,15 @@ export function* sellListSaga() {
         channel: profile.channel
       };
       // Set condition
-
       const res = yield List(params, token);
 
       // handle request
       if (res.data.result === 0) {
         yield put({ type: actions.SELL_LIST, list: res.data.data.data });
       } else {
+        if (res.data.result === -1010) {
+          yield history.push({ pathname: '/user/connect/' });
+        }
         yield put({
           type: actions.SELL_ERROR,
           error: { message: Error[res.data.result], status: true }

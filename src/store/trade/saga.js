@@ -25,6 +25,9 @@ export function* tradeListSaga() {
       if (res.data.result === 0) {
         yield put({ type: actions.TRADE_LIST, list: res.data.data.data });
       } else {
+        if (res.data.result === -1010) {
+          yield history.push({ pathname: '/user/connect/' });
+        }
         yield put({
           type: actions.TRADE_ERROR,
           error: { message: Error[res.data.result], status: true }

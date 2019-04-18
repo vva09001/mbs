@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-
+import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
-import Card from 'components/trade/card';
+import Card from 'components/account/card';
 import accountActions from 'store/account/actions';
 
 class List extends Component {
@@ -21,6 +21,9 @@ class List extends Component {
   render() {
     return (
       <Layout type={2} title="TRÁI PHIẾU NẮM GIỮ">
+        <h3 className="text-right mt-3 mb-3">
+          Tổng giá trị đầu tư: {currency(this.props.total)} VNĐ
+        </h3>
         {_.map(this.props.bonds, (item, index) => (
           <Card item={item} key={index} />
         ))}
@@ -37,17 +40,21 @@ class List extends Component {
 
 List.propTypes = {
   getList: PropTypes.func,
-  bonds: PropTypes.array
+  bonds: PropTypes.array,
+  getTotal: PropTypes.func,
+  total: PropTypes.number
 };
 
 const mapStateToProps = state => {
   return {
-    bonds: state.Account.list
+    bonds: state.Account.list,
+    total: state.Account.total
   };
 };
 
 const mapDispatchToProps = {
-  getList: accountActions.list
+  getList: accountActions.list,
+  getTotal: accountActions.info
 };
 
 export default connect(
