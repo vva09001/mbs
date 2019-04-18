@@ -30,12 +30,12 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-6">
-              <h5 className="mb-2">{t('Ngày đáo hạn')}</h5>
-              <p className="mb-0 text-primary">{props.item.maturityDate}</p>
+              <h6 className="mb-2col">{t('Ngày đáo hạn')}</h6>
+              <p className="mb-0">{props.item.maturityDate}</p>
             </div>
             <div className="col-6 text-right">
-              <h5 className="mb-2">{t('Đang còn')}</h5>
-              <p className="mb-0 text-primary">
+              <h5 className="mb-2col">{t('Đang còn')}</h5>
+              <p className="mb-0">
                 <span className="mspot">{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
               </p>
             </div>
@@ -61,17 +61,17 @@ const Section3 = props => {
     <Fragment>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
-        <div className="col-6 text-right col-form-label">
+        <div className="col-6 text-right">
+          <b>
           <span className="mspot">{currency(props.item.termRate)}%</span>
-          <small className="mspot">/{t('năm')}</small>
+          <span className="mspot">/{t('năm')}</span>
+          </b>
         </div>
       </div>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Thời gian nắm giữ')}</label>
         <div className="col-6 text-right col-form-label">
-          <small>
-            {currency(props.item.numInvestDate)} {t('ngày')}
-          </small>
+          {currency(props.item.numInvestDate)} {t('ngày')}
         </div>
       </div>
       <div className="form-group row align-items-center">
@@ -84,9 +84,11 @@ const Section3 = props => {
             className="align-top ml-2 popup-click"
           />
         </label>
-        <div className="col-6 text-right col-form-label">
+        <div className="col-6 text-right">
+          <b>
           <span className="mspot">{currency(props.item.reinvestmentRate)}%</span>
-          <small className="mspot">/{t('năm')}</small>
+          <span className="mspot">/{t('năm')}</span>
+          </b>
         </div>
       </div>
     </Fragment>

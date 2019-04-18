@@ -12,7 +12,7 @@ const Flow = props => {
   return (
     <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
       <div className="buy-wrapper">
-        <h4 className="text-center color-1 mb-4 text-uppercase">{t('Dòng tiền nhận được khi mua Trái phiếu')}</h4>
+        <h4 className="text-center mtitle text-uppercase">{t('Dòng tiền nhận được khi mua Trái phiếu')}</h4>
         <div className="row">
           <div className="col-12">
             <p className="mb-0">

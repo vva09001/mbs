@@ -153,7 +153,7 @@ class Detail extends Component {
             />
           </form>
           <div className="row mb-1">
-            <label className="col-12 col-form-label text-primary">
+            <label className="col-12 col-form-label clb">
               <strong>{t('TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)')}</strong>
             </label>
           </div>

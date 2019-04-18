@@ -11,7 +11,7 @@ class Term extends Component {
     return (
       <Layout type={1} title="XÁC THỰC GIAO DỊCH BÁN">
         <div className="bond-detail">
-          <h4 className="text-center color-1 mb-4 text-uppercase">
+          <h4 className="text-center mtitle text-uppercase">
             CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN KHI GIAO DỊCH BÁN TRÁI PHIẾU.
           </h4>
           <div className="bg-white p-4 mt-3 rounded border border-secondary">
