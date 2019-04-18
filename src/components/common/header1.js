@@ -5,9 +5,9 @@ import history from 'utils/history';
 const header = ({ title }) => {
   const { t } = useTranslation();
   return (
-    <div className="header-wrapper fixed-top row align-items-center">
-      <div className="col-1">
-        <button className="navbar-toggler filter" type="button" onClick={() => history.goBack()}>
+    <div className="header-wrapper fixed-top row align-items-center justify-content-end">
+      <div className="col-2 col-sm-1 text-center">
+        <button className="navbar-toggler filter" type="button">
           <img src="/img/chevron-left.png" height="20" alt="back" />
         </button>
       </div>

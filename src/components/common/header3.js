@@ -11,10 +11,7 @@ const header = () => {
         </button>
       </div>
       <div className="col-10 col-sm-11 text-center">
-        <div className="header-search">
-          <i className="fa fa-search" />
-          <input type="text" placeholder={t('Tìm kiếm ứng dụng')} />
-        </div>
+        <h3 className="text-uppercase">{t('Mua bán trái phiếu')}</h3>
       </div>
     </div>
   );

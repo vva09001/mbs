@@ -17,7 +17,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
       <div className="col-2 text-right">
         <div className="dropdown">
           <button onClick={() => onToggle()} className="navbar-toggler filter" type="button">
-            <Icon name="filter" width="20" height="20" />
+            <Icon name="ic_filter" width="20" height="20" />
           </button>
           {toggle && (
             <div
