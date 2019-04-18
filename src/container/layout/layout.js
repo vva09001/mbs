@@ -49,7 +49,7 @@ header.propTypes = {
 };
 
 const Alert = (message, toggle) => (
-  <Popup title="Thông tin Trái phiếu" showPopup={() => toggle()}>
+  <Popup showPopup={() => toggle()}>
     <p>{message}</p>
   </Popup>
 );
@@ -66,10 +66,10 @@ const Layout = props => {
         </Fragment>
       );
     }
-    // if (!props.isLinked) {
-    //   return <Redirect to="/user/connect" />;
-    // }
   }
+  // if (!props.isLinked) {
+  //   return <Redirect to="/user/connect" />;
+  // }
   return (
     <Fragment>
       {props.buyError.status && Alert(props.buyError.message, props.buyClear)}

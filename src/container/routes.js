@@ -33,7 +33,6 @@ const AppRouter = () => {
     <Router history={history}>
       <RootContainer>
         <Switch>
-          <Route path="/:merchant_code/:msisdn/:time" component={HomePage} />
           <Route exact path="/" component={HomePage} />
 
           <Route exact path="/buy/" component={BuyList} />

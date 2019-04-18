@@ -1,5 +1,6 @@
 export default {
   '-11': 'Khách hàng không tồn tại',
+  '-12': 'Tài khoản không tồn tại',
   '-1000': 'Hệ thống đang bị khóa.',
   '-1001': 'Không tìm thấy thông tin Trái phiếu',
   '-1002': 'Không tìm thấy Lãi suất theo kỳ hạn',

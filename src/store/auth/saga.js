@@ -18,12 +18,12 @@ export function* authSaga() {
       const res = yield Authentication(params);
       if (res.status === 200) {
         yield put({ type: actions.AUTH, auth: res.data });
-        yield put({ type: accountActions.PRORFILE, profile: { ...res.data.data, channel: 'VT' } });
+        yield put({ type: accountActions.PRORFILE, profile: res.data.data });
       } else {
         yield put({
           type: actions.AUTH_ERROR,
           error: {
-            message: `Đăng nhập thất bại`,
+            message: Error[res.data.result],
             status: true
           }
         });

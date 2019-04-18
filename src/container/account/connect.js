@@ -1,93 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Check from 'container/account/check';
+import Otp from 'container/account/otp';
 import Layout from 'container/layout/layout';
-import accountActions from 'store/account/actions';
 
-class Connect extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      params: {}
-    };
-  }
-  componentDidMount() {}
-  _onChange = (e, param) => {
-    const value = e.target.value;
-    this.setState({
-      params: {
-        ...this.state.params,
-        [param]: value
-      }
-    });
-  };
-  _onClick = () => {
-    this.props.checkLink(this.state.params);
-  };
-  render() {
-    return (
-      <Layout disabledValidated={true} type={2} title="Yêu cầu liên kết tài khoản">
-        <div className="bond-detail">
-          <form className="row justify-content-center">
-            <div className="form-group col-12">
-              <label>Số CMTND</label>
-              <input
-                onChange={e => this._onChange(e, 'customerId')}
-                type="text"
-                className="form-control"
-                required
-              />
-            </div>
-            <div className="form-group col-12">
-              <label>Số TKCK</label>
-              <input
-                onChange={e => this._onChange(e, 'accountCode')}
-                type="text"
-                className="form-control"
-                required
-              />
-            </div>
-            <div className="form-group col-12">
-              <label>Mật khẩu</label>
-              <input
-                onChange={e => this._onChange(e, 'password')}
-                type="password"
-                className="form-control"
-                required
-              />
-              <small className="form-text text-muted">
-                (Mật khẩu là mật khẩu giao dịch tại MBS)
-              </small>
-            </div>
-            <div className="col-9">
-              <button
-                type="button"
-                onClick={() => this._onClick()}
-                className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
-              >
-                LIÊN KẾT TÀI KHOẢN
-              </button>
-            </div>
-          </form>
-        </div>
-      </Layout>
-    );
-  }
-}
+const Connect = props => {
+  return (
+    <Layout disabledValidated={true} type={2} title="Yêu cầu liên kết tài khoản">
+      <div className="bond-detail pt-3">
+        {props.step === 1 && <Check />}
+        {props.step === 2 && <Otp />}
+      </div>
+    </Layout>
+  );
+};
 
 Connect.propTypes = {
-  location: PropTypes.object,
-  checkLink: PropTypes.func,
-  t: PropTypes.func
+  step: PropTypes.number
 };
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = state => {
+  return {
+    step: state.Account.step
+  };
 };
 
-const mapDispatchToProps = {
-  checkLink: accountActions.checkLink
-};
+const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,
