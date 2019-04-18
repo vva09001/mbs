@@ -111,8 +111,9 @@ export function* accountBondsSaga() {
     }
   });
 }
-export function* accountTotalSaga() {
-  yield takeEvery(actions.ACCOUNT_TOTAL_REQUEST, function*() {
+export function* accountInfoSaga() {
+  yield takeEvery(actions.ACCOUNT_INFO_REQUEST, function*() {
+    console.log(1)
     try {
       yield put({ type: actions.ACCOUNT_LOADING, loading: true });
 
@@ -127,7 +128,7 @@ export function* accountTotalSaga() {
 
       // handle request
       if (res.data.result === 0) {
-        yield put({ type: actions.ACCOUNT_TOTAL, total: res.data.data });
+        yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalCastInvest });
       } else {
         yield put({
           type: actions.ACCOUNT_ERROR,
@@ -152,6 +153,7 @@ export default function* rootSaga() {
   yield all([
     fork(accountCheckLinkSaga),
     fork(accountLinkSaga),
+    fork(accountInfoSaga),
     fork(clearAccountErrorSaga),
     fork(accountBondsSaga)
   ]);

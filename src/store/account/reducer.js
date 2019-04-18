@@ -28,7 +28,7 @@ const Account = (state = initialState, action) => {
       return { ...state, stepData: action.data };
     case actions.ACCOUNT_LIST:
       return { ...state, list: action.list };
-    case actions.ACCOUNT_TOTAL:
+    case actions.ACCOUNT_INFO:
       return { ...state, total: action.total };
     case actions.ACCOUNT_LOADING:
       return { ...state, loading: action.loading };
