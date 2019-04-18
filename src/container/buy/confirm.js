@@ -145,7 +145,7 @@ class Confirm extends Component {
           </p>
           <div className="confirm-content">
             <p>
-              Tổ chức (Ông/Bà): <b>{contract.customerName}</b>
+              Tổ chức (Ông/Bà): <b>{contract.customerName} </b>
               được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng
               nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán
               MB.

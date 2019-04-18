@@ -17,6 +17,7 @@ export function* bondsList() {
         userId: profile.userId,
         channel: profile.channel
       };
+      // Set condition
       if (profile.isExist === 0) {
         params.userId = null;
       }
@@ -51,6 +52,7 @@ export function* bondsGet() {
         userId: profile.userId,
         channel: profile.channel
       };
+      // Set condition
       if (profile.isExist === 0) {
         params.userId = null;
       }
