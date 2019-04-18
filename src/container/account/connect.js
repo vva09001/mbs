@@ -7,7 +7,7 @@ import Layout from 'container/layout/layout';
 
 const Connect = props => {
   return (
-    <Layout disabledValidated={true} type={2} title="Yêu cầu liên kết tài khoản">
+    <Layout disabledValidated={true} type={1} title="Yêu cầu liên kết tài khoản">
       <div className="bond-detail pt-3">
         {props.step === 1 && <Check />}
         {props.step === 2 && <Otp />}

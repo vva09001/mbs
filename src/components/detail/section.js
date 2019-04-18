@@ -63,8 +63,8 @@ const Section3 = props => {
         <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right">
           <b>
-          <span className="mspot">{currency(props.item.termRate)}%</span>
-          <span className="mspot">/{t('năm')}</span>
+            <span className="mspot">{currency(props.item.termRate)}%</span>
+            <span className="mspot">/{t('năm')}</span>
           </b>
         </div>
       </div>
@@ -86,8 +86,8 @@ const Section3 = props => {
         </label>
         <div className="col-6 text-right">
           <b>
-          <span className="mspot">{currency(props.item.reinvestmentRate)}%</span>
-          <span className="mspot">/{t('năm')}</span>
+            <span className="mspot">{currency(props.item.reinvestmentRate)}%</span>
+            <span className="mspot">/{t('năm')}</span>
           </b>
         </div>
       </div>
@@ -132,9 +132,7 @@ const Section4 = props => {
           >
             <span className="d-flex w-100 justify-content-between">
               <span className="w-100">{title}</span>
-              <strong className="flex-shrink-1">
-                {currency(sum) + t('VND')}
-              </strong>
+              <strong className="flex-shrink-1">{currency(sum) + t('VND')}</strong>
             </span>
             <span className="float-right collapse-custom">{status ? '-' : '+'}</span>
           </div>
