@@ -1,8 +1,8 @@
 import actions from './actions';
-
+import detail from 'db/getdetail';
 const initialState = {
   list: [],
-  detail: {},
+  detail: detail,
   loading: false,
   error: {
     message: '',

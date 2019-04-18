@@ -120,7 +120,6 @@ export function* sellGetContractSaga() {
       };
       yield put({ type: actions.SELL_INFO_GET, params: infoParams });
       yield history.push({ pathname: '/sell/order/' });
-
     } catch (error) {
       yield put({ type: actions.SELL_ERROR, error: error.message });
     }
