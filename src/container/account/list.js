@@ -20,7 +20,7 @@ class List extends Component {
   }
   render() {
     return (
-      <Layout type={2} title="DANH MỤC TRÁI PHIẾU NẮM GIỮ">
+      <Layout type={2} title="TRÁI PHIẾU NẮM GIỮ">
         {_.map(this.props.bonds, (item, index) => (
           <Card item={item} key={index} />
         ))}
