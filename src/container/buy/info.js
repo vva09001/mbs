@@ -8,7 +8,7 @@ const Info = ({ detail }) => {
   return (
     <Layout type={1} title="Thông tin Trái phiếu">
       <div className="bond-detail">
-        <h4 className="text-center color-1 mb-4 text-uppercase">
+        <h4 className="text-center mtitle text-uppercase">
           <img alt="popup-click" src="/img/popup-icon.png" className=" mr-2 " />
           Thông tin về Trái phiếu đăng ký mua
         </h4>
