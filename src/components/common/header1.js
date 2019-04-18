@@ -11,11 +11,7 @@ const header = ({ title }) => {
           <img src="/img/chevron-left.png" height="20" alt="back" />
         </button>
       </div>
-<<<<<<< HEAD
-      <div className="col-10 text-center">
-=======
       <div className="col-10 text-center p-0">
->>>>>>> master
         <h3 className="text-uppercase">{t(title)}</h3>
       </div>
     </div>
