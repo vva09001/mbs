@@ -20,9 +20,6 @@ export function* sellListSaga() {
         channel: profile.channel
       };
       // Set condition
-      if (profile.isExist === 0) {
-        params.userId = null;
-      }
 
       const res = yield List(params, token);
 

@@ -6,6 +6,8 @@ const actions = {
   LINK_REQUEST: 'LINK_REQUEST',
   ACCOUNT_LIST: 'ACCOUNT_LIST',
   ACCOUNT_LIST_REQUEST: 'ACCOUNT_LIST_REQUEST',
+  ACCOUNT_TOTAL: 'ACCOUNT_TOTAL',
+  ACCOUNT_TOTAL_REQUEST: 'ACCOUNT_TOTAL_REQUEST',
   ACCOUNT_LOADING: 'ACCOUNT_LOADING',
   ACCOUNT_ERROR: 'ACCOUNT_ERROR',
   CLEAR_ACCOUNT_ERROR: 'CLEAR_ACCOUNT_ERROR',
@@ -20,6 +22,9 @@ const actions = {
   list: params => ({
     type: actions.ACCOUNT_LIST_REQUEST,
     params
+  }),
+  total: () => ({
+    type: actions.ACCOUNT_TOTAL_REQUEST
   }),
   clearError: () => ({
     type: actions.CLEAR_ACCOUNT_ERROR
