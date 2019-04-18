@@ -6,14 +6,18 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
   const { t } = useTranslation();
   return (
     <div className="header-wrapper fixed-top row align-items-center justify-content-end">
-      <div className="col-6 text-center">
+      <div className="col-2 col-sm-1 text-center">
+        <button className="navbar-toggler filter" type="button">
+          <img src="/img/chevron-left.png" height="20" alt="back" />
+        </button>
+      </div>
+      <div className="col-8 text-center">
         <h3 className="text-uppercase">{t(title)}</h3>
       </div>
-      <div className="col-3 text-right">
+      <div className="col-2 text-right">
         <div className="dropdown">
           <button onClick={() => onToggle()} className="navbar-toggler filter" type="button">
             <Icon name="filter" width="20" height="20" />
-            {t('Lọc')}
           </button>
           {toggle && (
             <div

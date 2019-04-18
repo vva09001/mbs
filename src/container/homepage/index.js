@@ -21,19 +21,6 @@ class HomePage extends Component {
     return (
       <Layout type={3}>
         <div className="row">
-          <div className="col-12">
-            <h6 className="text-primary mt-3 mb-3">Tất cả</h6>
-          </div>
-        </div>
-        <div className="row">
-          <div className="nav nav-tabs horizontal-scroll">
-            <button className="nav-item nav-link">Viễn thông</button>
-            <button className="nav-item nav-link">Hóa đơn</button>
-            <button className="nav-item nav-link active">Tài chính, bảo hiểm</button>
-            <button className="nav-item nav-link">Mua sắm, du lịch</button>
-          </div>
-        </div>
-        <div className="row">
           <div className="col-12 text-center">
             <h6 className="text-primary mt-3 mb-3">
               <img
@@ -53,15 +40,15 @@ class HomePage extends Component {
                 <span className="mt-2">
                   <img src="/img/buy.png" alg="buy" />
                 </span>
-                Mua
+                MUA
               </span>
             </Link>
             <Link to="/sell/">
-              <span className="mt-5 ml-5 buy-button btn btn-transparent h6 text-primary">
+              <span className="mt-5 ml-5 sell-button btn btn-transparent h6 text-primary">
                 <span className="mt-2">
                   <img src="/img/sell.png" alg="buy" />
                 </span>
-                Bán
+                BÁN
               </span>
             </Link>
           </div>
