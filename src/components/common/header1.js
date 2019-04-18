@@ -11,7 +11,7 @@ const header = ({ title }) => {
           <img src="/img/chevron-left.png" height="20" alt="back" />
         </button>
       </div>
-      <div className="col-8 text-center">
+      <div className="col-10 text-center">
         <h3 className="text-uppercase">{t(title)}</h3>
       </div>
     </div>

@@ -26,7 +26,7 @@ class HomePage extends Component {
               <img
                 alt="logo"
                 src="/img/logo.png"
-                srcSet="/img/logo@3x.png 3x, /img/logo.png 2x, /img/logo.png 1x"
+                srcSet="/img/logo.png 2x, /img/logo.png 1x"
                 className="mr-2"
               />
               CTCP Chứng khoán MB
@@ -36,20 +36,18 @@ class HomePage extends Component {
         <div className="row white-bg h-100 ">
           <div className="col-12 text-center">
             <Link to="/buy/">
-              <span className="mt-5 mr-5 buy-button btn btn-transparent h6 text-primary">
-                <span className="mt-2">
-                  <img src="/img/buy.png" alg="buy" />
-                </span>
-                MUA
-              </span>
+              <div className="col-12 mt-5 mr-5 btn btn-transparent h6 text-primary">
+                <div className="mt-2">
+                  <img src="/img/btnBUY.svg" alg="buy" />
+                </div>
+              </div>
             </Link>
             <Link to="/sell/">
-              <span className="mt-5 ml-5 sell-button btn btn-transparent h6 text-primary">
-                <span className="mt-2">
-                  <img src="/img/sell.png" alg="buy" />
-                </span>
-                BÁN
-              </span>
+              <div className="col-12 mt-5 mr-5 btn btn-transparent h6 text-primary">
+                <div className="mt-2">
+                  <img src="/img/btnSELL.svg" alg="buy" />
+                </div>
+              </div>
             </Link>
           </div>
         </div>
