@@ -7,63 +7,67 @@ import { currency } from 'utils/currency';
 class Section2 extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      params: {}
+    };
   }
-  componentDidMount() {
-    this.props.params.amount = this.props.info.buyVolMin;
+  componentDidUpdate() {
+    // this.setState({
+    //   params:
+    // })
   }
   handleMount(type) {
     if (type) {
-      if (this.props.params.amount <= this.props.bond.roomBalance) {
-        this.props.handleParam('params', {
+      if (this.props.params.volume <= this.props.volMax) {
+        this.props.handleParam({
           ...this.props.params,
-          amount: this.props.params.amount + 1,
-          sum: this.props.info.buyPrice * (this.props.params.amount + 1)
+          volume: this.props.params.volume + 1,
+          sum: this.props.price * (this.props.params.volume + 1)
         });
         this.props.onFetchFlow({
-          code: this.props.info.bondCode,
-          volume: this.props.params.amount + 1
+          code: this.props.code,
+          volume: this.props.params.volume + 1
         });
       }
     } else {
-      if (this.props.params.amount > this.props.info.buyVolMin) {
-        this.props.handleParam('params', {
+      if (this.props.params.volume > this.props.volMin) {
+        this.props.handleParam({
           ...this.props.params,
-          amount: this.props.params.amount - 1,
-          sum: this.props.info.buyPrice * (this.props.params.amount - 1)
+          volume: this.props.params.volume - 1,
+          sum: this.props.price * (this.props.params.volume - 1)
         });
         this.props.onFetchFlow({
-          code: this.props.info.bondCode,
-          volume: this.props.params.amount - 1
+          code: this.props.code,
+          volume: this.props.params.volume - 1
         });
       }
     }
   }
-  _onChangeAmount(event) {
+  _onChangeAmount = event => {
     const number = parseInt(event.target.value);
-    if (number <= this.props.info.roomBalance && number > this.props.info.buyVolMin) {
-      this.props.handleParam('params', {
+    if (number <= this.props.volMax && number > this.props.volMin) {
+      this.props.handleParam({
         ...this.props.params,
-        amount: number,
-        sum: number * this.props.info.buyPrice
+        volume: number,
+        sum: number * this.props.price
       });
       this.props.onFetchFlow({
-        code: this.props.info.bondCode,
+        code: this.props.code,
         volume: number
       });
     }
     if (isNaN(number)) {
-      this.props.handleParam('params', {
+      this.props.handleParam({
         ...this.props.params,
-        amount: 0,
-        sum: 0 * this.props.info.buyPrice
+        volume: 0,
+        sum: 0 * this.props.price
       });
       this.props.onFetchFlow({
-        code: this.props.info.bondCode,
+        code: this.props.code,
         volume: 0
       });
     }
-  }
+  };
   render() {
     const { t } = this.props;
     if (this.props.loading) {
@@ -74,9 +78,7 @@ class Section2 extends Component {
         <div className="form-group row">
           <label className="col-5 col-form-label">{t('Ngày giao dịch')}</label>
           <div className="col-7">
-            <div className="tar">
-                {this.props.info.buyDate}
-            </div>
+            <div className="tar">{this.props.date}</div>
           </div>
         </div>
         <div className="form-group row">
@@ -87,7 +89,7 @@ class Section2 extends Component {
                 type="text"
                 className="form-control text-primary tar"
                 disabled
-                value={currency(this.props.info.buyPrice)}
+                value={currency(this.props.price)}
               />
               <div className="input-group-append">
                 <div className="input-group-text text-primary">{t('VND')}</div>
@@ -104,8 +106,8 @@ class Section2 extends Component {
               </a>
               <input
                 className="number form-control text-primary"
-                value={this.props.params.amount}
-                onChange={this._onChangeAmount.bind(this)}
+                value={this.props.params.volume}
+                onChange={e => this._onChangeAmount(e)}
               />
               <a className="btn btn-light text-primary" onClick={() => this.handleMount(true)}>
                 +
@@ -120,7 +122,7 @@ class Section2 extends Component {
           <div className="col-7">
             <div className="input-group">
               <span className="form-control text-primary">
-                <b className="clb">{currency(this.props.params.amount * this.props.info.buyPrice)}</b>
+                <b className="clb">{currency(this.props.params.volume * this.props.price)}</b>
               </span>
               <div className="flex-shrink-1 input-group-append">
                 <div className="input-group-text clb">{t('VND')}</div>
@@ -133,8 +135,11 @@ class Section2 extends Component {
   }
 }
 Section2.propTypes = {
-  info: PropTypes.object,
-  bond: PropTypes.object,
+  date: PropTypes.string,
+  code: PropTypes.string,
+  volMax: PropTypes.number,
+  volMin: PropTypes.number,
+  price: PropTypes.number,
   loading: PropTypes.bool,
   params: PropTypes.object,
   handleParam: PropTypes.func,

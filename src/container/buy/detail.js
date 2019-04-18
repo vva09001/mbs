@@ -18,11 +18,6 @@ class Detail extends Component {
         popup: false,
         table1: false,
         table2: false
-      },
-      params: {
-        amount: 0,
-        sum: 0,
-        code: ''
       }
     };
   }
@@ -45,27 +40,8 @@ class Detail extends Component {
     });
   };
 
-  handleParam = (key, value) => {
-    this.setState({
-      ...this.state,
-      [key]: value
-    });
-  };
-
   _setBuy = () => {
-    this.setState(
-      {
-        ...this.state,
-        params: {
-          ...this.state.params,
-          date: this.props.info.buyDate,
-          code: this.props.match.params.code
-        }
-      },
-      () => {
-        this.props.update(this.state.params);
-      }
-    );
+    this.props.update();
   };
 
   _onFetchFlow = params => {
@@ -112,13 +88,6 @@ class Detail extends Component {
       />
     );
   }
-  test() {
-    this.handleParam('params', {
-      date: new Date(),
-      amount: 10,
-      sum: 10
-    });
-  }
   render() {
     const { t } = this.props;
     return (
@@ -140,12 +109,15 @@ class Detail extends Component {
           <Section1 item={this.props.bond} loading={this.props.bondLoading} />
           <form>
             <Section2
-              info={this.props.info}
-              bond={this.props.bond}
+              volMin={this.props.info.buyVolMin}
+              volMax={this.props.bond.roomBalance}
+              price={this.props.info.buyPrice}
+              date={this.props.info.buyDate}
+              code={this.props.info.bondCode}
               onFetchFlow={this._onFetchFlow}
               loading={this.props.buyLoading}
-              params={this.state.params}
-              handleParam={this.handleParam}
+              params={this.props.params}
+              handleParam={this.props.updateParams}
             />
             <Section3
               showPopup={this.showPopup}
@@ -192,6 +164,8 @@ Detail.propTypes = {
   update: PropTypes.func,
   match: PropTypes.object,
   profile: PropTypes.object,
+  params: PropTypes.object,
+  updateParams: PropTypes.func,
   t: PropTypes.func
 };
 
@@ -204,7 +178,8 @@ const mapStateToProps = state => {
     bondLoading: state.Bonds.loading,
     buyLoading: state.Buy.loading,
     buyFlowLoading: state.Buy.loading_flow,
-    profile: state.Account.profile
+    profile: state.Account.profile,
+    params: state.Buy.params
   };
 };
 
@@ -212,7 +187,8 @@ const mapDispatchToProps = {
   bondsDetail: bondsActions.detail,
   buyFetch: buyActions.getBuy,
   buyFlowFetch: buyActions.getFlow,
-  update: buyActions.update
+  update: buyActions.update,
+  updateParams: buyActions.updateParams
 };
 
 export default connect(

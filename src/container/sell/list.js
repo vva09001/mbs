@@ -35,6 +35,12 @@ class List extends Component {
         {_.map(this.props.bonds, (item, index) => (
           <Card item={item} key={index} onClick={this._getContract} />
         ))}
+        {this.props.bonds === null ||
+          (this.props.bonds.length === 0 && (
+            <div className="text-center">
+              <h1>Không có Trái phiếu nào</h1>
+            </div>
+          ))}
       </Layout>
     );
   }

@@ -56,6 +56,12 @@ class List extends Component {
             </Card>
           ))
         )}
+        {this.props.bonds === null ||
+          (this.props.bonds.length === 0 && (
+            <div className="text-center">
+              <h1>Không có Trái phiếu nào</h1>
+            </div>
+          ))}
       </Layout>
     );
   }

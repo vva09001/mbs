@@ -4,10 +4,14 @@ const initialState = {
   flow: {},
   flowCash: {},
   info: {},
-  book: {},
+  params: {
+    volume: 0,
+    sum: 0
+  },
   contract: contract,
   loading: false,
   loading_flow: false,
+  loading_buy: false,
   payment_link: '',
   error: {
     message: '',
@@ -19,12 +23,12 @@ const Buy = (state = initialState, action) => {
   switch (action.type) {
     case actions.BUY_FLOW:
       return { ...state, flow: action.flow };
+    case actions.BUY_PARAMS:
+      return { ...state, params: action.params };
     case actions.BUY_FLOW_CASH:
       return { ...state, flowCash: action.flowCash };
     case actions.BUY_INFO:
       return { ...state, info: action.info };
-    case actions.BUY_BOOK:
-      return { ...state, book: action.book };
     case actions.BUY_CONTRACT:
       return { ...state, contract: action.contract };
     case actions.BUY_PAYMENT_LINK:
@@ -33,6 +37,8 @@ const Buy = (state = initialState, action) => {
       return { ...state, loading: action.loading };
     case actions.BUY_FLOW_LOADING:
       return { ...state, loading_flow: action.loading };
+    case actions.BUY_INFO_LOADING:
+      return { ...state, loading_buy: action.loading };
     case actions.BUY_ERROR:
       return { ...state, error: action.error };
     default:

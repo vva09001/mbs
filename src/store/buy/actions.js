@@ -1,6 +1,8 @@
 const actions = {
   BUY: 'BUY',
   BUY_GET: 'BUY_GET',
+  BUY_PARAMS: 'BUY_PARAMS',
+  BUY_PARAMS_REQUEST: 'BUY_PARAMS_REQUEST',
   BUY_CONTRACT: 'BUY_CONTRACT',
   BUY_GET_CONTRACT: 'BUY_GET_CONTRACT',
   BUY_FLOW: 'BUY_FLOW',
@@ -8,7 +10,7 @@ const actions = {
   BUY_FLOW_GET: 'BUY_FLOW_GET',
   BUY_INFO: 'BUY_INFO',
   BUY_INFO_GET: 'BUY_INFO_GET',
-  BUY_BOOK: 'BUY_BOOK',
+  BUY_INFO_LOADING: 'BUY_INFO_LOADING',
   BUY_UPDATE: 'BUY_UPDATE',
   BUY_APPROVE: 'BUY_APPROVE',
   BUY_PAYMENT_LINK: 'BUY_PAYMENT_LINK',
@@ -21,6 +23,10 @@ const actions = {
     type: actions.BUY_GET,
     params
   }),
+  updateParams: params => ({
+    type: actions.BUY_PARAMS_REQUEST,
+    params
+  }),
   getFlow: params => ({
     type: actions.BUY_FLOW_GET,
     params
@@ -29,9 +35,8 @@ const actions = {
     type: actions.BUY_INFO_GET,
     params
   }),
-  update: params => ({
-    type: actions.BUY_UPDATE,
-    params
+  update: () => ({
+    type: actions.BUY_UPDATE
   }),
   getContract: () => ({
     type: actions.BUY_GET_CONTRACT

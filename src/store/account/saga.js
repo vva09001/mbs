@@ -113,7 +113,6 @@ export function* accountBondsSaga() {
 }
 export function* accountInfoSaga() {
   yield takeEvery(actions.ACCOUNT_INFO_REQUEST, function*() {
-    console.log(1)
     try {
       yield put({ type: actions.ACCOUNT_LOADING, loading: true });
 

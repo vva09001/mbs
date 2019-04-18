@@ -4,6 +4,7 @@ export const getToken = state => state.Auth.token;
 
 export const bondsDetail = state => state.Bonds.detail;
 
+export const buyGetParams = state => state.Buy.params;
 export const buyGetBook = state => state.Buy.book;
 export const buyGetContract = state => state.Buy.contract;
 export const buyVolMin = state => state.Buy.info.buyVolMin;

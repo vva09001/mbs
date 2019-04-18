@@ -5,8 +5,22 @@ import { PaymentGateway, VerifyResult } from 'services/auth';
 import { Info, Flow, FlowCash, Update, Contract } from 'services/buy';
 import Error from 'utils/error';
 import history from 'utils/history';
-import { accountProfile, buyGetContract, getToken, buyVolMax, buyVolMin } from 'store/selectors';
+import {
+  accountProfile,
+  buyGetContract,
+  getToken,
+  buyVolMax,
+  buyVolMin,
+  buyGetParams,
+  bondsDetail
+} from 'store/selectors';
 
+// update params
+export function* updateBuyParamsSaga() {
+  yield takeEvery(actions.BUY_PARAMS_REQUEST, function*(data) {
+    yield put({ type: actions.BUY_PARAMS, params: data.params });
+  });
+}
 // Get flow saga
 export function* getBuyInfoSaga() {
   yield takeEvery(actions.BUY_INFO_GET, function*(data) {
@@ -25,6 +39,7 @@ export function* getBuyInfoSaga() {
         params.userId = null;
       }
       const res = yield Info(params, token);
+
       if (res.data.result === 0) {
         yield put({ type: actions.BUY_INFO, info: res.data.data });
       } else {
@@ -106,6 +121,12 @@ export function* buyFetchSaga() {
         params: { ...data.params, volume: resInfo.data.data.buyVolMin }
       });
 
+      // set params
+      yield put({
+        type: actions.BUY_PARAMS_REQUEST,
+        params: { volume: resInfo.data.data.buyVolMin }
+      });
+
       // Handle request flowCash
       const resFlowCash = yield FlowCash(params, token);
       if (resFlowCash.status === 200) {
@@ -124,10 +145,12 @@ export function* buyFetchSaga() {
 }
 
 export function* updateBuySaga() {
-  yield takeEvery(actions.BUY_UPDATE, function*(data) {
+  yield takeEvery(actions.BUY_UPDATE, function*() {
     try {
       const volMax = yield select(buyVolMax);
       const volMin = yield select(buyVolMin);
+      const params = yield select(buyGetParams);
+      const bond = yield select(bondsDetail);
       const profile = yield select(accountProfile);
       const token = yield select(getToken);
       // Check link condition
@@ -142,11 +165,7 @@ export function* updateBuySaga() {
         yield put({ type: accountActions.LINK_STEP, step: 1 });
         yield history.push({ pathname: '/user/connect' });
         // Check amount condition
-      } else if (
-        data.params.amount === 0 ||
-        data.params.amount <= volMin ||
-        data.params.amount >= volMax
-      ) {
+      } else if (params.volume === 0 || params.volume <= volMin || params.volume >= volMax) {
         yield put({
           type: actions.BUY_ERROR,
           error: {
@@ -157,13 +176,13 @@ export function* updateBuySaga() {
       } else {
         yield put({ type: actions.BUY_LOADING, loading: true });
         // Get request
-        const params = {
+        const param = {
           userId: profile.userId,
           channel: profile.channel,
-          code: data.params.code,
-          volume: data.params.amount
+          code: bond.bondCode,
+          volume: params.volume
         };
-        const res = yield Update(params, token);
+        const res = yield Update(param, token);
         // handle request
         if (res.data.result === 0) {
           yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
@@ -294,6 +313,8 @@ export function* clearBuyErrorSaga() {
 export default function* rootSaga() {
   yield all([
     fork(buyFetchSaga),
+    fork(updateBuyParamsSaga),
+    fork(getBuyInfoSaga),
     fork(getBuyFlowSaga),
     fork(updateBuySaga),
     fork(getContractSaga),
