@@ -17,6 +17,9 @@ export function* bondsList() {
         userId: profile.userId,
         channel: profile.channel
       };
+      if (profile.isExist === 0) {
+        params.userId = null;
+      }
       const res = yield list(params, token);
       // handle request
       if (res.data.result === 0) {
@@ -48,11 +51,19 @@ export function* bondsGet() {
         userId: profile.userId,
         channel: profile.channel
       };
+      if (profile.isExist === 0) {
+        params.userId = null;
+      }
       const res = yield detail(params, token);
 
       // handle request
       if (res.data.result === 0) {
         yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
+      } else {
+        yield put({
+          type: actions.BONDS_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
       }
 
       yield put({ type: actions.BONDS_LOADING, loading: false });

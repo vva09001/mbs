@@ -135,7 +135,7 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-4">Thuế TNCN tạm khấu trừ</div>
-            <div className="col-8">: {currency(contract.taxValue)} VNĐ</div>
+            <div className="col-8">: </div>
           </div>
           <p>
             <i>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import { currency } from 'utils/currency';
-import buyActions from 'store/buy/actions';
+import history from 'utils/history';
 import Layout from 'container/layout/layout';
 
 class Order extends Component {
@@ -24,11 +24,8 @@ class Order extends Component {
       }
     });
   };
-  _updateBuy = () => {
-    this.props.update();
-  };
   render() {
-    const { bond, info, book, flowCash, t } = this.props;
+    const { bond, info, contract, flowCash, t } = this.props;
     return (
       <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
         <div className="bond-detail">
@@ -50,7 +47,7 @@ class Order extends Component {
               <tr>
                 <td>{t('Số lượng Trái phiếu đăng ký mua')}:</td>
                 <td>
-                  {currency(book.amount)} {t('Trái phiếu')}
+                  {currency(contract.buyVol)} {t('Trái phiếu')}
                 </td>
               </tr>
               <tr>
@@ -65,7 +62,7 @@ class Order extends Component {
                 </td>
                 <td>
                   <b>
-                    {currency(book.sum)} {t('VND')}
+                    {currency(contract.buyValue)} {t('VND')}
                   </b>
                 </td>
               </tr>
@@ -126,7 +123,7 @@ class Order extends Component {
             <div className="col-9">
               <button
                 type="button"
-                onClick={() => this._updateBuy()}
+                onClick={() => history.push({ pathname: '/buy/confirm/' })}
                 className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
                 disabled={!this.state.toggle.checkbox}
               >
@@ -143,9 +140,8 @@ class Order extends Component {
 Order.propTypes = {
   bond: PropTypes.object,
   info: PropTypes.object,
-  book: PropTypes.object,
+  contract: PropTypes.object,
   flowCash: PropTypes.object,
-  update: PropTypes.func,
   t: PropTypes.func
 };
 
@@ -153,14 +149,12 @@ const mapStateToProps = state => {
   return {
     bond: state.Bonds.detail,
     info: state.Buy.info,
-    book: state.Buy.book,
+    contract: state.Buy.contract,
     flowCash: state.Buy.flowCash
   };
 };
 
-const mapDispatchToProps = {
-  update: buyActions.update
-};
+const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,

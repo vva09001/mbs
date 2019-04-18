@@ -63,7 +63,7 @@ class Detail extends Component {
         }
       },
       () => {
-        this.props.setBuy(this.state.params);
+        this.props.update(this.state.params);
       }
     );
   };
@@ -188,6 +188,7 @@ Detail.propTypes = {
   buyFetch: PropTypes.func,
   setBuy: PropTypes.func,
   buyFlowFetch: PropTypes.func,
+  update: PropTypes.func,
   match: PropTypes.object,
   profile: PropTypes.object,
   t: PropTypes.func
@@ -210,7 +211,7 @@ const mapDispatchToProps = {
   bondsDetail: bondsActions.detail,
   buyFetch: buyActions.getBuy,
   buyFlowFetch: buyActions.getFlow,
-  setBuy: buyActions.set
+  update: buyActions.update
 };
 
 export default connect(

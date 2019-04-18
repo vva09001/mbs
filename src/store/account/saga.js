@@ -1,8 +1,9 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { CheckLink, Link, List } from 'services/account';
-import { accountProfile, getToken } from 'store/selectors';
+import { accountProfile, getToken, accountStep, bondsDetail } from 'store/selectors';
 import Error from 'utils/error';
+import history from 'utils/history';
 
 export function* accountCheckLinkSaga() {
   yield takeEvery(actions.CHECK_LINK_REQUEST, function*(data) {
@@ -14,7 +15,7 @@ export function* accountCheckLinkSaga() {
       const profile = yield select(accountProfile);
       const params = {
         ...data.params,
-        mobile: profile.msisdn,
+        mobile: profile.userId,
         userId: profile.userId,
         channel: profile.channel,
         customerType: 'INDIVIDUAL',
@@ -24,7 +25,8 @@ export function* accountCheckLinkSaga() {
 
       // handle request
       if (res.data.result === 0) {
-        // yield put({ type: actions.SELL_LIST, list: res.data.data.data });
+        yield put({ type: actions.LINK_STEP_DATA, data: params });
+        yield put({ type: actions.LINK_STEP, step: 2 });
       } else {
         yield put({
           type: actions.ACCOUNT_ERROR,
@@ -39,23 +41,31 @@ export function* accountCheckLinkSaga() {
   });
 }
 export function* accountLinkSaga() {
-  yield takeEvery(actions.CHECK_LINK_REQUEST, function*(data) {
+  yield takeEvery(actions.LINK_REQUEST, function*(data) {
     try {
       yield put({ type: actions.ACCOUNT_LOADING, loading: true });
 
       // Get request
       const token = yield select(getToken);
       const profile = yield select(accountProfile);
+      const accoun_step = yield select(accountStep);
+      const bonds = yield select(bondsDetail);
+
       const params = {
-        ...data.params,
+        accountCode: accoun_step.accountCode,
+        otp: data.params.otp,
+        mobile: profile.userId,
         userId: profile.userId,
+        partnerCode: 'VIETTEL',
         channel: profile.channel
       };
       const res = yield Link(params, token);
 
       // handle request
       if (res.data.result === 0) {
-        // yield put({ type: actions.SELL_LIST, list: res.data.data.data });
+        yield put({ type: actions.LINK_STEP, step: 3 });
+        yield put({ type: actions.PRORFILE, profile: { ...profile, isExist: 1 } });
+        yield history.push({ pathname: '/buy/' + bonds.bondCode });
       } else {
         yield put({
           type: actions.ACCOUNT_ERROR,
@@ -109,5 +119,10 @@ export function* clearAccountErrorSaga() {
 }
 
 export default function* rootSaga() {
-  yield all([fork(accountCheckLinkSaga), fork(clearAccountErrorSaga), fork(accountBondsSaga)]);
+  yield all([
+    fork(accountCheckLinkSaga),
+    fork(accountLinkSaga),
+    fork(clearAccountErrorSaga),
+    fork(accountBondsSaga)
+  ]);
 }

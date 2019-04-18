@@ -1,17 +1,11 @@
 import actions from './actions';
+import accountActions from 'store/account/actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { PaymentGateway, VerifyResult } from 'services/auth';
 import { Info, Flow, FlowCash, Update, Contract } from 'services/buy';
 import Error from 'utils/error';
 import history from 'utils/history';
-import {
-  accountProfile,
-  buyGetBook,
-  buyGetContract,
-  getToken,
-  buyVolMax,
-  buyVolMin
-} from 'store/selectors';
+import { accountProfile, buyGetContract, getToken, buyVolMax, buyVolMin } from 'store/selectors';
 
 // Get flow saga
 export function* getBuyFlowSaga() {
@@ -26,6 +20,9 @@ export function* getBuyFlowSaga() {
         userId: profile.userId,
         channel: profile.channel
       };
+      if (profile.isExist === 0) {
+        params.userId = null;
+      }
       const resFlow = yield Flow(params, token);
       if (resFlow.data.result === 0) {
         yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data });
@@ -57,7 +54,9 @@ export function* buyFetchSaga() {
         userId: profile.userId,
         channel: profile.channel
       };
-
+      if (profile.isExist === 0) {
+        params.userId = null;
+      }
       // handle request info
       const resInfo = yield Info(params, token);
       if (resInfo.data.result === 0) {
@@ -91,56 +90,59 @@ export function* buyFetchSaga() {
   });
 }
 
-export function* setBuySaga() {
-  yield takeEvery(actions.SET_BUY, function*(data) {
-    // Get Condition
-    const volMax = yield select(buyVolMax);
-    const volMin = yield select(buyVolMin);
-
-    // Check amount condition
-    if (data.params.amount !== 0 && data.params.amount >= volMin && data.params.amount <= volMax) {
-      yield put({ type: actions.BUY_BOOK, book: data.params });
-      yield history.push({ pathname: '/buy/order/' });
-    } else {
-      yield put({
-        type: actions.BUY_ERROR,
-        error: {
-          message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
-          status: true
-        }
-      });
-    }
-  });
-}
-
 export function* updateBuySaga() {
-  yield takeEvery(actions.BUY_UPDATE, function*() {
+  yield takeEvery(actions.BUY_UPDATE, function*(data) {
     try {
-      yield put({ type: actions.BUY_LOADING, loading: true });
-
-      // Get request
-      const token = yield select(getToken);
+      const volMax = yield select(buyVolMax);
+      const volMin = yield select(buyVolMin);
       const profile = yield select(accountProfile);
-      const book = yield select(buyGetBook);
-      const params = {
-        userId: profile.userId,
-        channel: profile.channel,
-        code: book.code,
-        volume: book.amount
-      };
-      const res = yield Update(params, token);
-
-      // handle request
-      if (res.data.result === 0) {
-        yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
-        yield history.push({ pathname: '/buy/confirm/' });
-      } else {
+      const token = yield select(getToken);
+      // Check link condition
+      if (profile.isExist === 0) {
+        yield put({
+          type: accountActions.ACCOUNT_ERROR,
+          error: {
+            message: `Tài khoản chưa liên kết`,
+            status: true
+          }
+        });
+        yield put({ type: accountActions.LINK_STEP, step: 1 });
+        yield history.push({ pathname: '/user/connect' });
+        // Check amount condition
+      } else if (
+        data.params.amount === 0 ||
+        data.params.amount <= volMin ||
+        data.params.amount >= volMax
+      ) {
         yield put({
           type: actions.BUY_ERROR,
-          error: { message: Error[res.data.result], status: true }
+          error: {
+            message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
+            status: true
+          }
         });
+      } else {
+        yield put({ type: actions.BUY_LOADING, loading: true });
+        // Get request
+        const params = {
+          userId: profile.userId,
+          channel: profile.channel,
+          code: data.params.code,
+          volume: data.params.amount
+        };
+        const res = yield Update(params, token);
+        // handle request
+        if (res.data.result === 0) {
+          yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
+          yield history.push({ pathname: '/buy/order/' });
+        } else {
+          yield put({
+            type: actions.BUY_ERROR,
+            error: { message: Error[res.data.result], status: true }
+          });
+        }
+        yield put({ type: actions.BUY_LOADING, loading: false });
       }
-      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: actions.BUY_ERROR, error: error.message });
     }
@@ -240,6 +242,7 @@ export function* verifyBuySaga() {
           type: actions.BUY_ERROR,
           error: { message: 'Failed', status: true }
         });
+        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.BUY_LOADING, loading: false });
@@ -259,7 +262,6 @@ export default function* rootSaga() {
   yield all([
     fork(buyFetchSaga),
     fork(getBuyFlowSaga),
-    fork(setBuySaga),
     fork(updateBuySaga),
     fork(getContractSaga),
     fork(verifyBuySaga),

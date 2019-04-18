@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router';
 
 // components: header
 import Header from 'components/common/header';
@@ -15,6 +14,7 @@ import sellActions from 'store/sell/actions';
 import bondsActions from 'store/bonds/actions';
 import authActions from 'store/bonds/actions';
 import tradeActions from 'store/trade/actions';
+import accountActions from 'store/account/actions';
 
 // components: First
 const header = props => {
@@ -35,7 +35,7 @@ header.propTypes = {
   title: PropTypes.string
 };
 const Alert = (message, toggle) => (
-  <Popup title="Thông tin Trái phiếu" showPopup={() => toggle()}>
+  <Popup showPopup={() => toggle()}>
     <p>{message}</p>
   </Popup>
 );
@@ -46,6 +46,7 @@ const Layout = props => {
       {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
       {props.authError.status && Alert(props.authError.message, props.authClear)}
       {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
+      {props.accountError.status && Alert(props.accountError.message, props.accountClear)}
       {header(props)}
       <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>z
     </Fragment>
@@ -53,7 +54,6 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-  isLinked: PropTypes.bool,
   type: PropTypes.number,
   title: PropTypes.string,
   children: PropTypes.node,
@@ -65,17 +65,19 @@ Layout.propTypes = {
   tradeClear: PropTypes.func,
   authError: PropTypes.object,
   authClear: PropTypes.func,
+  accountError: PropTypes.object,
+  accountClear: PropTypes.func,
   bondsError: PropTypes.object
 };
 
 const mapStateToProps = state => {
   return {
-    isLinked: state.Account.isExist === 1 ? true : false,
     buyError: state.Buy.error,
     sellError: state.Sell.error,
     bondsError: state.Bonds.error,
     authError: state.Bonds.error,
-    tradeError: state.Trade.error
+    tradeError: state.Trade.error,
+    accountError: state.Account.error
   };
 };
 
@@ -84,7 +86,8 @@ const mapDispatchToProps = {
   sellClear: sellActions.clearError,
   bondsClear: bondsActions.clearError,
   authClear: authActions.clearError,
-  tradeClear: tradeActions.clearError
+  tradeClear: tradeActions.clearError,
+  accountClear: accountActions.clearError
 };
 
 export default connect(
