@@ -18,6 +18,10 @@ const card = props => {
           </span>
         </li>
         <li className="list-group-item">
+          {t('Ngày giao dịch')}
+          <span className="float-right">{props.item.buyDate}</span>
+        </li>
+        <li className="list-group-item">
           {t('Ngày đáo hạn')}
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
