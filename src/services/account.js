@@ -44,4 +44,14 @@ const List = (params, token) => {
     params: params
   });
 };
-export { Check, Register, CheckLink, Link, List };
+const Info = (params, token) => {
+  return request({
+    url: '/api/bond/getCustomerInfo',
+    method: 'get',
+    headers: {
+      Authorization: token
+    },
+    params: params
+  });
+};
+export { Check, Register, CheckLink, Link, List, Info };

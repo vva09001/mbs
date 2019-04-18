@@ -1,6 +1,6 @@
 import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
-import { CheckLink, Link, List } from 'services/account';
+import { CheckLink, Link, List, Info } from 'services/account';
 import { accountProfile, getToken, accountStep, bondsDetail } from 'store/selectors';
 import Error from 'utils/error';
 import history from 'utils/history';
@@ -98,6 +98,36 @@ export function* accountBondsSaga() {
       // handle request
       if (res.data.result === 0) {
         yield put({ type: actions.ACCOUNT_LIST, list: res.data.data.data });
+      } else {
+        yield put({
+          type: actions.ACCOUNT_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
+      }
+
+      yield put({ type: actions.ACCOUNT_LOADING, loading: false });
+    } catch (error) {
+      yield put({ type: actions.ACCOUNT_ERROR, error: error.message });
+    }
+  });
+}
+export function* accountTotalSaga() {
+  yield takeEvery(actions.ACCOUNT_TOTAL_REQUEST, function*() {
+    try {
+      yield put({ type: actions.ACCOUNT_LOADING, loading: true });
+
+      // Get request
+      const token = yield select(getToken);
+      const profile = yield select(accountProfile);
+      const params = {
+        userId: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield Info(params, token);
+
+      // handle request
+      if (res.data.result === 0) {
+        yield put({ type: actions.ACCOUNT_TOTAL, total: res.data.data });
       } else {
         yield put({
           type: actions.ACCOUNT_ERROR,
