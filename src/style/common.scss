@@ -10,9 +10,41 @@
 .form-group {
   margin-bottom: 10px;
 }
+.mb-4, .clb {    color: #007ddd;}
+.mheading {color:#263d60}
 .tar {text-align: right}
 .mspot { color: #ff3b30;
   }
+.bond-buy-comfirm {background: #fff;padding: 0 10px;}
+.mtitle {font-weight: bold;
+  padding:10px;}
+.table td, .table th {    font-size: 14px;
+  padding: .5rem;}
+.bgg {background: grey;    background: #ddd;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.mclose {
+  background: none;
+  color: #005197;
+  border: 1px solid #ddd;
+  height: auto;
+  line-height: 30px;
+  border-radius: 3px;
+  padding: 5px 20px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
+thead td {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+.mb-2col {    font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+}
 .ls {font-size: 25px}
 body {
   .btn-transparent {
@@ -119,7 +151,7 @@ body {
 
 
   .text-primary {
-      color: #263d60 !important;
+      color: #000 !important;
   }
   .text-info {
     color: #007ddd !important;
@@ -354,7 +386,6 @@ body {
   h3 {
     font-size: 14px;
     margin: 0;
-
   }
 
   .filter {

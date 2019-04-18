@@ -8,6 +8,40 @@ import history from 'utils/history';
 import { accountProfile, buyGetContract, getToken, buyVolMax, buyVolMin } from 'store/selectors';
 
 // Get flow saga
+export function* getBuyInfoSaga() {
+  yield takeEvery(actions.BUY_INFO_GET, function*(data) {
+    try {
+      yield put({ type: actions.BUY_INFO_LOADING, loading: true });
+      // Handle request flow
+      const token = yield select(getToken);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userId: profile.userId,
+        channel: profile.channel
+      };
+      // Set condition
+      if (profile.isExist === 0) {
+        params.userId = null;
+      }
+      const res = yield Info(params, token);
+      if (res.data.result === 0) {
+        yield put({ type: actions.BUY_INFO, info: res.data.data });
+      } else {
+        yield put({
+          type: actions.BUY_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
+      }
+
+      yield put({ type: actions.BUY_FLOW_LOADING, loading: false });
+    } catch (error) {
+      yield put({ type: actions.BUY_ERROR, error: error.message });
+    }
+  });
+}
+
+// Get flow saga
 export function* getBuyFlowSaga() {
   yield takeEvery(actions.BUY_FLOW_GET, function*(data) {
     try {
@@ -20,6 +54,7 @@ export function* getBuyFlowSaga() {
         userId: profile.userId,
         channel: profile.channel
       };
+      // Set condition
       if (profile.isExist === 0) {
         params.userId = null;
       }
@@ -54,19 +89,17 @@ export function* buyFetchSaga() {
         userId: profile.userId,
         channel: profile.channel
       };
+      // Set condition
       if (profile.isExist === 0) {
         params.userId = null;
       }
-      // handle request info
+      // Call 'info saga'
       const resInfo = yield Info(params, token);
-      if (resInfo.data.result === 0) {
-        yield put({ type: actions.BUY_INFO, info: resInfo.data.data });
-      } else {
-        yield put({
-          type: actions.BUY_ERROR,
-          error: { message: Error[resInfo.data.result], status: true }
-        });
-      }
+      yield put({
+        type: actions.BUY_INFO_GET,
+        params: data.params
+      });
+
       // Call 'flow saga'
       yield put({
         type: actions.BUY_FLOW_GET,

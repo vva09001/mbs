@@ -18,11 +18,11 @@ class Confirm extends Component {
     return (
       <Layout type={1} title="Xác nhận giao dịch bán">
         <div className="bond-buy-comfirm">
-          <h3 className="text-center color-1">
-            <strong>ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY {bond.issuerBond}</strong>
+          <h3 className="text-center mtitle">
+            ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY {bond.issuerBond}
           </h3>
-          <h3 className="text-center color-1">
-            <strong>Mã Trái phiếu: {info.bondCode}</strong>
+          <h3 className="text-center mtitle">
+            Mã Trái phiếu: {info.bondCode}
           </h3>
           <p>
             <b>I. Bên chuyển nhượng</b>

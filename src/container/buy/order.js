@@ -29,10 +29,10 @@ class Order extends Component {
     return (
       <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
         <div className="bond-detail">
-          <h4 className="text-center color-1 mb-4 text-uppercase">{t('THÔNG TIN VỀ GIAO DỊCH')}</h4>
+          <h4 className="text-center text-uppercase mtitle">{t('THÔNG TIN VỀ GIAO DỊCH')}</h4>
           <table className="table table-bordered bg-white">
             <tbody>
-              <tr>
+              <tr className="bgg">
                 <td width="50%">{t('Mã Trái phiếu')}:</td>
                 <td width="50%">{bond.bondCode}</td>
               </tr>
@@ -56,14 +56,11 @@ class Order extends Component {
                   {currency(info.buyPrice)} {t('VND')}/ {t('Trái phiếu')}
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <b>{t('Tổng tiền đầu tư')}:</b>
+              <tr className="bgg">
+                <td>{t('Tổng tiền đầu tư')}:
                 </td>
                 <td>
-                  <b>
                     {currency(contract.buyValue)} {t('VND')}
-                  </b>
                 </td>
               </tr>
               <tr>
@@ -108,14 +105,12 @@ class Order extends Component {
             <Link to="/buy/flow">{t('Chi tiết dòng tiền')}</Link>
           </div>
           <label className="form-check-label">
-            <strong>
               <i>
                 {t(
-                  'Tôi xác nhận rằng tôi đã đọc và đồng ý với các điều khoản và điều kiện của đăng ký'
+                  'Tôi xác nhận rằng tôi đã đọc và đồng ý với các điều khoản và điều kiện của đăng ký mua Trái phiếu. '
                 )}
                 {t('Trái phiếu được nêu trên đây.')}
               </i>
-            </strong>
             <input type="checkbox" onChange={() => this.onCheckBox()} />
             <span className="checkmark" />
           </label>

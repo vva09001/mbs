@@ -53,11 +53,11 @@ class Confirm extends Component {
           </Popup>
         )}
         <div className="bond-buy-comfirm">
-          <h3 className="text-center color-1 mb-2">
-            <strong>ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY {bond.issuerBond}</strong>
+          <h3 className="text-center mtitle">
+            ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY {bond.issuerBond}
           </h3>
-          <h3 className="text-center color-1 mb-4">
-            <strong>Mã Trái phiếu: {contract.bondCode}</strong>
+          <h3 className="text-center mtitle">
+            Mã Trái phiếu: {contract.bondCode}
           </h3>
           <p>
             <b>I. Bên chuyển nhượng</b>
@@ -145,7 +145,7 @@ class Confirm extends Component {
           </p>
           <div className="confirm-content">
             <p>
-              Tổ chức (Ông/Bà): <b>{contract.customerName}</b>
+              Tổ chức (Ông/Bà): <b>{contract.customerName} </b>
               được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng
               nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán
               MB.

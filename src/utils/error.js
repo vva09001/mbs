@@ -1,6 +1,19 @@
 export default {
+  '-1': 'Hệ thống đã bị khóa',
+  '-2': 'Loại KH không hợp lệ',
+  '-3': 'Khách hàng đã tồn tại',
+  '-4': 'Tài khoản đã tồn tại',
+  '-5': 'Tài khoản không hợp lệ',
+  '-6': 'Dải số tài khoản được cấp đã hết',
+  '-7': 'Tài khoản không thể cập nhật',
+  '-8': 'Lỗi cập nhật dữ liệu',
+  '-9': 'Số TK đã được sử dụng',
+  '-10': 'Người dùng không thể thực hiện cập nhật',
   '-11': 'Khách hàng không tồn tại',
   '-12': 'Tài khoản không tồn tại',
+  '-13': 'Tài khoản hoặc số điện thoại đã tồn tại liên kết',
+  '-14': 'Mật khẩu đăng nhập không đúng',
+  '-15': 'Liên kết tài khoản đã bị hủy hoặc không tồn tại liên kết',
   '-1000': 'Hệ thống đang bị khóa.',
   '-1001': 'Không tìm thấy thông tin Trái phiếu',
   '-1002': 'Không tìm thấy Lãi suất theo kỳ hạn',
@@ -103,5 +116,6 @@ export default {
   '-1099': '',
   '-1100': 'Xác thực OTP chưa chính xác',
   '-1101': 'Chưa thiết lập OTP',
-  '-1102': ''
+  '-1102': '',
+  '-9999': 'Lỗi ngoại lệ, lỗi khác'
 };

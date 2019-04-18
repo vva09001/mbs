@@ -30,12 +30,12 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-6">
-              <h5 className="mb-2">{t('Ngày đáo hạn')}</h5>
-              <p className="mb-0 text-primary">{props.item.maturityDate}</p>
+              <h6 className="mb-2col">{t('Ngày đáo hạn')}</h6>
+              <p className="mb-0">{props.item.maturityDate}</p>
             </div>
             <div className="col-6 text-right">
-              <h5 className="mb-2">{t('Đang còn')}</h5>
-              <p className="mb-0 text-primary">
+              <h5 className="mb-2col">{t('Đang còn')}</h5>
+              <p className="mb-0">
                 <span className="mspot">{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
               </p>
             </div>
@@ -61,16 +61,17 @@ const Section3 = props => {
     <Fragment>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
-        <div className="col-6 text-right col-form-label">
-          <span className="mspot">{currency(props.item.termRate)}%</span>
-          <small className="mspot">/{t('năm')}</small>
+        <div className="col-6 text-right">
+          <b>
+            <span className="mspot">{currency(props.item.termRate)}%</span>
+            <span className="mspot">/{t('năm')}</span>
+          </b>
         </div>
       </div>
       <div className="form-group row align-items-center">
         <label className="col-6 col-form-label">{t('Thời gian nắm giữ')}</label>
         <div className="col-6 text-right col-form-label">
-          <small>{currency(props.item.numInvestDate)} {t('ngày')}
-          </small>
+          {currency(props.item.numInvestDate)} {t('ngày')}
         </div>
       </div>
       <div className="form-group row align-items-center">
@@ -83,9 +84,11 @@ const Section3 = props => {
             className="align-top ml-2 popup-click"
           />
         </label>
-        <div className="col-6 text-right col-form-label">
-          <span className="mspot">{currency(props.item.reinvestmentRate)}%</span>
-          <small className="mspot">/{t('năm')}</small>
+        <div className="col-6 text-right">
+          <b>
+            <span className="mspot">{currency(props.item.reinvestmentRate)}%</span>
+            <span className="mspot">/{t('năm')}</span>
+          </b>
         </div>
       </div>
     </Fragment>
@@ -97,9 +100,22 @@ Section3.propTypes = {
   loading: PropTypes.bool,
   showPopup: PropTypes.func
 };
-const showContent = (items, content, t) =>
-  _.map(content, (item, index) => <td key={index}>{t(items[item])}</td>);
 
+// section 4
+const showContent = (items, content, t) => {
+  return _.map(content, (item, index) => {
+    if (item === 'content') {
+      return <td key={index}>{t(items[item])}</td>;
+    } else if (item === 'cashNonInvest' || item === 'reinvestmentRate' || item === 'cashInvest') {
+      return (
+        <td className="tar" key={index}>
+          {currency(items[item])}
+        </td>
+      );
+    }
+    return <td key={index}>{items[item]}</td>;
+  });
+};
 const Section4 = props => {
   const { t } = useTranslation();
   const { title, sum, label, items, content, onClick, status, refs } = props;
@@ -112,12 +128,11 @@ const Section4 = props => {
         <div className="col-12">
           <div
             onClick={() => onClick(refs)}
-            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click">
-            <span>
-              {title}
-              <strong>
-                {' ' + currency(sum)} {t('VND')}
-              </strong>
+            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click"
+          >
+            <span className="d-flex w-100 justify-content-between">
+              <span className="w-100">{title}</span>
+              <strong className="flex-shrink-1">{currency(sum) + t('VND')}</strong>
             </span>
             <span className="float-right collapse-custom">{status ? '-' : '+'}</span>
           </div>

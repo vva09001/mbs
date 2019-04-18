@@ -70,6 +70,7 @@ class Detail extends Component {
 
   _onFetchFlow = params => {
     this.props.buyFlowFetch(params);
+    this.props.buyFlowFetch(params);
   };
 
   nonInvertRender() {
@@ -85,7 +86,7 @@ class Detail extends Component {
         items={this.props.flow.flowNonInvest}
         label={label}
         content={content}
-        sum={this.props.flowCash.cashFolowSource}
+        sum={this.props.info.sumCashNoninvest}
       />
     );
   }
@@ -107,7 +108,7 @@ class Detail extends Component {
         items={this.props.flow.flowInvest}
         label={label}
         content={content}
-        sum={this.props.flowCash.cashFolowCoupon}
+        sum={this.props.info.sumCashInvest}
       />
     );
   }
@@ -153,7 +154,7 @@ class Detail extends Component {
             />
           </form>
           <div className="row mb-1">
-            <label className="col-12 col-form-label text-primary">
+            <label className="col-12 col-form-label clb">
               <strong>{t('TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)')}</strong>
             </label>
           </div>
