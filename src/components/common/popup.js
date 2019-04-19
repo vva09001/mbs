@@ -9,7 +9,7 @@ const popup = props => {
         <div className="popup-header mb-2 text-center">
           <img src="/img/popup-title.png" alt="popup-title" />
         </div>
-        <div className="popup-body mb-2 p-4">{props.children}</div>
+        <div className="popup-body mb-2">{props.children}</div>
         <div className="popup-footer text-center">
           <button
             type="button"

@@ -12,7 +12,7 @@ const header = () => {
         </button>
       </div>
       <div className="col-10 col-sm-11 text-center">
-        <h3 className="text-uppercase">{t('Mua bán trái phiếu')}</h3>
+        <h3>{t('Mua bán trái phiếu')}</h3>
       </div>
     </div>
   );

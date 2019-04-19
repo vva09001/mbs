@@ -31,7 +31,7 @@ class List extends Component {
     }
     return (
       <Layout type={2} title="Danh mục TP có thể bán">
-        <h3 className="text-right mt-3 mb-3">
+        <h3 className="text-center mt-3 mb-3">
           Tổng giá trị đầu tư: {currency(this.props.total)} VNĐ
         </h3>
         {_.map(this.props.bonds, (item, index) => (
