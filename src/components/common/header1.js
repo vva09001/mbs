@@ -11,8 +11,10 @@ const header = ({ title }) => {
           <img src="/img/ic_back.svg" height="20" alt="back" />
         </button>
       </div>
-      <div className="col-10 text-center p-0">
-        <h3>{t(title)}</h3>
+      <div className="col-8 text-center p-0">
+        <h3 className="text-uppercase">{t(title)}</h3>
+      </div>
+      <div className="col-2">
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const footer = () => {
   return (
     <div className="footer-wrapper fixed-bottom">
       <Link to="/">
-        <Icon name="ic_buy_sale" height="35" />
+        <Icon name="ic_buySale" height="35" />
         {t('Mua bán')}
       </Link>
       <Link to="/buy/">
@@ -15,7 +15,7 @@ const footer = () => {
         {t('Sản phẩm')}
       </Link>
       <Link to="/user/">
-        <Icon name="mua" height="35" />
+        <Icon name="ic_assets" height="35" />
         {t('Tài sản')}
       </Link>
       <Link to="/trade/">

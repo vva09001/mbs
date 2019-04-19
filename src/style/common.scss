@@ -302,13 +302,12 @@ body {
   }
   .btn-primary {
     color: #fff;
-    background-color: #005197;
-    border-color: #005197;
-    height: 55px;
+    background: linear-gradient(to right, #0092c8, #005496);
+    height: 48px;
     font-size: 18px;
   }
   .btn-danger {
-    background-color: #d71920;
+    background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
     font-size: 18px;
   }
@@ -321,9 +320,6 @@ body {
     justify-content: center;
     cursor: pointer;
     line-height: 15px;
-  }
-  .bg-gradient-primary {
-    background: #0052cc;
   }
   .border-secondary {
       border-color: #b6b6b6 !important;
@@ -388,7 +384,7 @@ body {
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 20px;
     margin: 0;
     font-weight: normal;
   }
@@ -400,6 +396,10 @@ body {
       margin-right: 12px;
       fill: #fff;
     }
+  }
+  .icon-black {
+    position: absolute;
+    bottom: 13px;
   }
 }
 
@@ -475,10 +475,12 @@ body {
     flex-direction: column;
     padding: 7px 0 6px;
     color: #fff;
-    font-size: 8px;
+    font-size: 10px;
     width: 100%;
     font-weight: normal;
     svg {
+      height: 28px;
+      margin-bottom: 5px;
       fill: #fff;
     }
   }
