@@ -24,7 +24,7 @@ export function* sellListSaga() {
 
       // handle request
       if (res.data.result === 0) {
-        yield put({ type: actions.SELL_LIST, list: res.data.data.data });
+        yield put({ type: actions.SELL_LIST, list: res.data.data });
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
