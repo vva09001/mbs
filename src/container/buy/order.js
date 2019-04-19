@@ -57,10 +57,9 @@ class Order extends Component {
                 </td>
               </tr>
               <tr className="bgg">
-                <td>{t('Tổng tiền đầu tư')}:
-                </td>
+                <td>{t('Tổng tiền đầu tư')}:</td>
                 <td>
-                    {currency(contract.buyValue)} {t('VND')}
+                  {currency(contract.buyValue)} {t('VND')}
                 </td>
               </tr>
               <tr>
@@ -73,7 +72,7 @@ class Order extends Component {
                 <td>{t('Lãi suất đầu tư (chưa bao gồm tái đầu tư coupon)')}:</td>
                 <td>
                   <b>
-                    {currency(flowCash.interestRef)}
+                    {currency(info.termNoninvest)}
                     %/
                     {t('năm')}
                   </b>
@@ -83,7 +82,7 @@ class Order extends Component {
                 <td>{t('Lãi suất đầu tư (đã bao gồm tái đầu tư coupon)')}:</td>
                 <td>
                   <b>
-                    {currency(flowCash.interestCouponPercent)}
+                    {currency(info.termInvest)}
                     %/
                     {t('năm')}
                   </b>
@@ -92,7 +91,8 @@ class Order extends Component {
               <tr>
                 <td>{t('Ngày thanh toán lãi')}:</td>
                 <td>
-                  {info.couponPayment} {t('tháng')}/{t('lần')}
+                  Tiền lãi Trái phiếu được trả sau, định kỳ mỗi {info.couponPayment} tháng một lần
+                  vào ngày cuối cùng của mỗi Kỳ Tính Lãi
                 </td>
               </tr>
             </tbody>
@@ -105,12 +105,12 @@ class Order extends Component {
             <Link to="/buy/flow">{t('Chi tiết dòng tiền')}</Link>
           </div>
           <label className="form-check-label">
-              <i>
-                {t(
-                  'Tôi xác nhận rằng tôi đã đọc và đồng ý với các điều khoản và điều kiện của đăng ký mua Trái phiếu. '
-                )}
-                {t('Trái phiếu được nêu trên đây.')}
-              </i>
+            <i>
+              {t(
+                'Tôi xác nhận rằng tôi đã đọc và đồng ý với các điều khoản và điều kiện của đăng ký mua Trái phiếu. '
+              )}
+              {t('Trái phiếu được nêu trên đây.')}
+            </i>
             <input type="checkbox" onChange={() => this.onCheckBox()} />
             <span className="checkmark" />
           </label>
