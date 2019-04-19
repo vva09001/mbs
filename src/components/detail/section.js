@@ -130,9 +130,7 @@ const Section4 = props => {
             onClick={() => onClick(refs)}
             className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click"
           >
-            <div className="d-flex w-50 justify-content-between">
-              {title}
-            </div>
+            <div className="d-flex w-50 justify-content-between">{title}</div>
             <div className="w-50">
               <div className="text-right mr-2">{currency(sum)}</div>
               <div className="text-right mr-2">{'VND'}</div>
@@ -144,7 +142,7 @@ const Section4 = props => {
       {status && (
         <div className="row">
           <div className="col-12">
-            <table className="table table-striped">
+            <table className="table table-responsive table-striped">
               <thead>
                 <tr>
                   {_.map(label, (item, index) => (
