@@ -23,7 +23,11 @@ export function* tradeListSaga() {
 
       // handle request
       if (res.data.result === 0) {
-        yield put({ type: actions.TRADE_LIST, list: res.data.data.data });
+        if (res.data.data.length === 0) {
+          yield put({ type: actions.TRADE_LIST, list: res.data.data });
+        } else {
+          yield put({ type: actions.TRADE_LIST, list: res.data.data.data });
+        }
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
