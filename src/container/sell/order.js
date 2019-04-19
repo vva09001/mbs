@@ -152,9 +152,8 @@ class Order extends Component {
               <strong>
                 <i>
                   {t(
-                    'Tôi xác nhận rằng tôi đã đọc và đồng ý với các điều khoản và điều kiện của đăng ký'
+                    'Tôi xác nhận và đồng ý với các điều khoản và điều kiện bán Trái phiếu đã nêu trên.'
                   )}
-                  {t('Trái phiếu được nêu trên đây.')}
                 </i>
               </strong>
               <input type="checkbox" onChange={() => this._onCheckBox()} />

@@ -21,9 +21,7 @@ class Confirm extends Component {
           <h3 className="text-center mtitle">
             ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY {bond.issuerBond}
           </h3>
-          <h3 className="text-center mtitle">
-            Mã Trái phiếu: {info.bondCode}
-          </h3>
+          <h3 className="text-center mtitle">Mã Trái phiếu: {info.bondCode}</h3>
           <p>
             <b>I. Bên chuyển nhượng</b>
           </p>
@@ -36,21 +34,19 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">Số CMND/CCCD</div>
             <div className="col-8">
-              <b>
-                : {info.customerId} cấp ngày {info.customerIdDate}
-              </b>
+              <b>: {info.customerId}</b>
             </div>
           </div>
           <div className="row">
             <div className="col-4">Nơi cấp</div>
             <div className="col-8">
-              <b>: {info.customerIdPlace}</b>
+              <b>: {info.customerIdplace}</b>
             </div>
           </div>
           <div className="row">
             <div className="col-4">Ngày cấp</div>
             <div className="col-8">
-              <b>: {info.customerIdDate}</b>
+              <b>: {info.customerIddate}</b>
             </div>
           </div>
           <p>

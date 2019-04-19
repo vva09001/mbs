@@ -107,9 +107,8 @@ class Order extends Component {
           <label className="form-check-label">
             <i>
               {t(
-                'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên'
+                'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên.'
               )}
-              {t('Trái phiếu được nêu trên đây.')}
             </i>
             <input type="checkbox" onChange={() => this.onCheckBox()} />
             <span className="checkmark" />
