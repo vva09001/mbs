@@ -25,7 +25,6 @@ export function* updateBuyParamsSaga() {
 // Get flow saga
 export function* getBuyInfoSaga() {
   yield takeEvery(actions.BUY_INFO_GET, function*(data) {
-    console.log(data.params)
     try {
       yield put({ type: actions.BUY_INFO_LOADING, loading: true });
       // Handle request flow
@@ -156,7 +155,7 @@ export function* updateBuySaga() {
       const profile = yield select(accountProfile);
       const token = yield select(getToken);
       // Check link condition
-      if (params.volume === 0 || params.volume <= volMin || params.volume >= volMax) {
+      if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
         yield put({
           type: actions.BUY_ERROR,
           error: {

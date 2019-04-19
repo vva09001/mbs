@@ -18,7 +18,7 @@ class Section2 extends Component {
   }
   handleMount(type) {
     if (type) {
-      if (this.props.params.volume <= this.props.volMax) {
+      if (this.props.params.volume < this.props.volMax) {
         this.props.handleParam({
           ...this.props.params,
           volume: this.props.params.volume + 1,
@@ -45,7 +45,7 @@ class Section2 extends Component {
   }
   _onChangeAmount = event => {
     const number = parseInt(event.target.value);
-    if (number <= this.props.volMax && number > this.props.volMin) {
+    if (number <= this.props.volMax && number >= this.props.volMin) {
       this.props.handleParam({
         ...this.props.params,
         volume: number,
@@ -59,12 +59,12 @@ class Section2 extends Component {
     if (isNaN(number)) {
       this.props.handleParam({
         ...this.props.params,
-        volume: 0,
-        sum: 0 * this.props.price
+        volume: this.props.volMin,
+        sum: this.props.volMin * this.props.price
       });
       this.props.onFetch({
         code: this.props.code,
-        volume: 0
+        volume: this.props.volMin
       });
     }
   };
