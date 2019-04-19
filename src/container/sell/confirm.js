@@ -44,13 +44,13 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">Nơi cấp</div>
             <div className="col-8">
-              <b>: {info.customerIdPlace}</b>
+              <b>: {info.customerIdplace}</b>
             </div>
           </div>
           <div className="row">
             <div className="col-4">Ngày cấp</div>
             <div className="col-8">
-              <b>: {info.customerIdDate}</b>
+              <b>: {info.customerIddate}</b>
             </div>
           </div>
           <p>
