@@ -10,7 +10,7 @@ import buyActions from 'store/buy/actions';
 const Flow = props => {
   const { t } = props;
   return (
-    <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
+    <Layout type={1} title="Xác thực giao dịch mua">
       <div className="buy-wrapper">
         <h4 className="text-center mtitle text-uppercase">{t('Dòng tiền nhận được khi mua Trái phiếu')}</h4>
         <div className="row">

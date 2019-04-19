@@ -9,7 +9,7 @@ class Term extends Component {
   }
   render() {
     return (
-      <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
+      <Layout type={1} title="Xác thực giao dịch mua">
         <div className="bond-detail">
           <h4 className="text-center mtitle text-uppercase">
             CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN KHI GIAO DỊCH MUA Trái phiếu
