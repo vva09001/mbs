@@ -44,11 +44,10 @@ class Detail extends Component {
     this.props.update();
   };
 
-  _onFetchFlow = params => {
+  _onFetch = params => {
     this.props.buyFlowFetch(params);
-    this.props.buyFlowFetch(params);
+    this.props.buyInfoFetch(params);
   };
-
   nonInvertRender() {
     const label = ['Nội dung', 'Ngày thanh toán', 'Tiền nhận (VND)'];
     const content = ['content', 'payCouponDate', 'cashNonInvest'];
@@ -114,7 +113,7 @@ class Detail extends Component {
               price={this.props.info.buyPrice}
               date={this.props.info.buyDate}
               code={this.props.info.bondCode}
-              onFetchFlow={this._onFetchFlow}
+              onFetch={this._onFetch}
               loading={this.props.buyLoading}
               params={this.props.params}
               handleParam={this.props.updateParams}
@@ -161,6 +160,7 @@ Detail.propTypes = {
   buyFetch: PropTypes.func,
   setBuy: PropTypes.func,
   buyFlowFetch: PropTypes.func,
+  buyInfoFetch: PropTypes.func,
   update: PropTypes.func,
   match: PropTypes.object,
   profile: PropTypes.object,
@@ -187,6 +187,7 @@ const mapDispatchToProps = {
   bondsDetail: bondsActions.detail,
   buyFetch: buyActions.getBuy,
   buyFlowFetch: buyActions.getFlow,
+  buyInfoFetch: buyActions.getInfo,
   update: buyActions.update,
   updateParams: buyActions.updateParams
 };

@@ -24,7 +24,7 @@ const Flow = props => {
             <p>
               {t('Đến ngày')}:
               <span className="text-info">
-                <strong> {props.flowCash.payCouponDate}</strong>
+                <strong> {props.info.maturityDate}</strong>
               </span>
             </p>
             <p>{t('Quý khách sẽ nhận được dòng tiền dự kiến như sau')}:</p>
@@ -37,7 +37,7 @@ const Flow = props => {
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.flowCash.interestRef)}</span>
+                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termNoninvest)}</span>
                 %/{t('năm')}
               </strong>
             </p>
@@ -66,7 +66,7 @@ const Flow = props => {
                     <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
-                    <h5 className="text-info">{currency(props.flowCash.cashFolowSource)}</h5>
+                    <h5 className="text-info">{currency(props.info.sumCashNoninvest)}</h5>
                   </td>
                 </tr>
               </tfoot>
@@ -80,7 +80,7 @@ const Flow = props => {
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.flowCash.interestCouponPercent)}</span>
+                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termInvest)}</span>
                 %/{t('năm')}
               </strong>
             </p>
@@ -99,11 +99,11 @@ const Flow = props => {
                 {_.map(props.flow.flowInvest, (item, index) => (
                   <tr>
                     <td>{index + 1}</td>
-                    <td>{item.cashNonInvest}</td>
+                    <td>{currency(item.cashNonInvest)}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{item.lastPayCouponDate}</td>
-                    <td>{item.reinvestmentRate}</td>
-                    <td>{item.cashInvest}</td>
+                    <td>{currency(item.reinvestmentRate)}</td>
+                    <td>{currency(item.cashInvest)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -113,7 +113,7 @@ const Flow = props => {
                     <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
-                    <h5 className="text-info">{currency(props.flowCash.cashFolowCoupon)}</h5>
+                    <h5 className="text-info">{currency(props.info.sumCashInvest)}</h5>
                   </td>
                 </tr>
               </tfoot>
@@ -132,6 +132,7 @@ Flow.propTypes = {
 const mapStateToProps = state => {
   return {
     flow: state.Buy.flow,
+    info: state.Buy.info,
     flowCash: state.Buy.flowCash
   };
 };

@@ -4,6 +4,7 @@ import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { PaymentGateway, VerifyResult } from 'services/auth';
 import { Info, Flow, FlowCash, Update, Contract } from 'services/buy';
 import Error from 'utils/error';
+import VT_error from 'utils/viettel_error';
 import history from 'utils/history';
 import {
   accountProfile,
@@ -154,7 +155,7 @@ export function* updateBuySaga() {
       const profile = yield select(accountProfile);
       const token = yield select(getToken);
       // Check link condition
-      if (params.volume === 0 || params.volume <= volMin || params.volume >= volMax) {
+      if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
         yield put({
           type: actions.BUY_ERROR,
           error: {
@@ -226,6 +227,7 @@ export function* getContractSaga() {
       const paramsPayment = {
         command: 'PAYMENT',
         contractCode: contract.contractCode,
+        cancel_url: process.env.REACT_APP_URL + '/buy/verify/',
         return_url: process.env.REACT_APP_URL + '/buy/verify/',
         trans_amount: contract.buyVol,
         version: '2.0'
@@ -284,7 +286,7 @@ export function* verifyBuySaga() {
       } else {
         yield put({
           type: actions.BUY_ERROR,
-          error: { message: 'Failed', status: true }
+          error: { message: VT_error.trade[data.params.error_code], status: true }
         });
         yield history.push({ pathname: '/' });
       }
@@ -295,7 +297,15 @@ export function* verifyBuySaga() {
     }
   });
 }
-
+// export function* cancelBuySaga() {
+//   yield takeEvery(actions.BUY_CANCEL_RESULT, function*(data) {
+//     yield put({
+//       type: actions.BUY_ERROR,
+//       error: { message: VT_error.cancel[data.params.error_code], status: true }
+//     });
+//     // yield history.push({ pathname: '/' });
+//   });
+// }
 export function* clearBuyErrorSaga() {
   yield takeEvery(actions.CLEAR_BUY_ERROR, function*() {
     yield put({ type: actions.BUY_ERROR, error: { message: '', status: false } });
@@ -311,6 +321,7 @@ export default function* rootSaga() {
     fork(updateBuySaga),
     fork(getContractSaga),
     fork(verifyBuySaga),
+    // fork(cancelBuySaga),
     fork(clearBuyErrorSaga)
   ]);
 }

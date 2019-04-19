@@ -12,10 +12,18 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          <button className="btn-transparent text-truncate">{props.item.bondCode}</button>
-          <span className="link">
+          <button
+            onClick={() => props.onDetail(props.item.bondCode)}
+            className="btn-transparent text-truncate"
+          >
+            {props.item.bondCode}
+          </button>
+          <button
+            onClick={() => props.onDetail(props.item.bondCode)}
+            className="link btn-transparent"
+          >
             <Icon name="arrow" width="18" height="24" />
-          </span>
+          </button>
         </li>
         <li className="list-group-item">
           {t('Ngày giao dịch')}
@@ -54,6 +62,7 @@ const card = props => {
 };
 card.propTypes = {
   item: PropTypes.object,
+  onDetail: PropTypes.func,
   t: PropTypes.func,
   children: PropTypes.node
 };
