@@ -98,11 +98,17 @@ class Order extends Component {
             </tbody>
           </table>
           <div className="term-condition">
-            <Link to="/buy/info"><i>{t('Thông tin Trái phiếu')}</i></Link>
+            <Link to="/buy/info">
+              <i>{t('Thông tin Trái phiếu')}</i>
+            </Link>
             <br />
-            <Link to="/buy/term"><i>{t('Điều khoản và điều kiện đăng ký mua')}</i></Link>
+            <Link to="/buy/term">
+              <i>{t('Điều khoản và điều kiện đăng ký mua')}</i>
+            </Link>
             <br />
-            <Link to="/buy/flow"><i>{t('Chi tiết dòng tiền')}</i></Link>
+            <Link to="/buy/flow">
+              <i>{t('Chi tiết dòng tiền')}</i>
+            </Link>
           </div>
           <label className="form-check-label">
             <i>

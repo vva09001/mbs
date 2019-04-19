@@ -227,7 +227,7 @@ export function* getContractSaga() {
         contractCode: contract.contractCode,
         cancel_url: process.env.REACT_APP_URL + '/buy/verify/',
         return_url: process.env.REACT_APP_URL + '/buy/verify/',
-        trans_amount: contract.buyVol,
+        trans_amount: contract.buyValue,
         version: '2.0'
       };
       const resPayment = yield PaymentGateway(paramsPayment, token);
