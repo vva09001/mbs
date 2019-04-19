@@ -6,7 +6,7 @@ import { currency } from 'utils/currency';
 
 const Info = ({ detail }) => {
   return (
-    <Layout type={1} title="Thông tin Trái phiếu">
+    <Layout type={1} title="Thông tin trái phiếu">
       <div className="bond-detail">
         <h4 className="text-center mtitle text-uppercase">
           <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" />

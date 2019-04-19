@@ -90,9 +90,9 @@ class Detail extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Layout type={1} path="/" title="ĐĂNG KÝ MUA">
+      <Layout type={1} path="/" title="Đăng ký mua">
         {this.state.toggle.popup && (
-          <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('popup')}>
+          <Popup title="Thông tin trái phiếu" showPopup={() => this.showPopup('popup')}>
             <p>
               <strong>{t('Coupon')}:</strong> {currency(this.props.bond.couponPayment)}
             </p>

@@ -65,7 +65,7 @@ class Order extends Component {
   render() {
     const { info, bond, t } = this.props;
     return (
-      <Layout type={2} title="ĐĂNG KÝ BÁN">
+      <Layout type={2} title="ĐĂNG ký bán">
         <div className="bond-detail">
           <div className="section">
             <div className="row">

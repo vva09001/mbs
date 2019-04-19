@@ -9,7 +9,7 @@ const footer = ({active}) => {
     {
       link: '/',
       text: 'Mua bán',
-      icon: 'ic_buy_sale'
+      icon: 'ic_buySale'
     },
     {
       link: '/buy/',
@@ -19,7 +19,7 @@ const footer = ({active}) => {
     {
       link: '/user/',
       text: 'Tài sản',
-      icon: 'mua'
+      icon: 'ic_assets'
     },
     {
       link: '/trade/',
