@@ -1,5 +1,4 @@
 import actions from './actions';
-import accountActions from 'store/account/actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { PaymentGateway, VerifyResult } from 'services/auth';
 import { Info, Flow, FlowCash, Update, Contract } from 'services/buy';
@@ -40,13 +39,8 @@ export function* getBuyInfoSaga() {
         params.userId = null;
       }
       const res = yield Info(params, token);
-
       if (res.data.result === 0) {
-        if (res.data.data.length === 0) {
-          yield put({ type: actions.BUY_INFO, info: res.data.data });
-        } else {
-          yield put({ type: actions.BUY_INFO, info: res.data.data.data });
-        }
+        yield put({ type: actions.BUY_INFO, info: res.data.data });
       } else {
         yield put({
           type: actions.BUY_ERROR,
