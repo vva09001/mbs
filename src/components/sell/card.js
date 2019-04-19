@@ -12,25 +12,13 @@ const card = props => {
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
           <button
-            onClick={() =>
-              props.onClick({
-                bondCode: props.item.bondCode,
-                contractCode: props.item.contractCode
-              })
-            }
+            onClick={() => props.onDetail(props.item.bondCode)}
             className="btn-transparent text-truncate"
           >
             {props.item.bondCode}
           </button>
           <span className="link">
-            <button
-              onClick={() =>
-                props.onClick({
-                  bondCode: props.item.bondCode,
-                  contractCode: props.item.contractCode
-                })
-              }
-            >
+            <button onClick={() => props.onDetail(props.item.bondCode)}>
               <Icon name="arrow" width="18" height="24" />
             </button>
           </span>
@@ -84,6 +72,7 @@ const card = props => {
 };
 card.propTypes = {
   item: PropTypes.object,
+  onDetail: PropTypes.func,
   t: PropTypes.func,
   onClick: PropTypes.func,
   children: PropTypes.node

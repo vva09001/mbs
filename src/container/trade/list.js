@@ -31,7 +31,7 @@ class List extends Component {
   };
   render() {
     return (
-      <Layout type={2} title="Quản lý giao dịch">
+      <Layout type={2} title="Quản lý giao dịch" active="/trade/">
         {this.props.loading ? (
           <Loading />
         ) : (

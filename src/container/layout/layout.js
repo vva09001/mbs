@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router';
 
 // components: header
 import Header from 'components/common/header';
@@ -9,6 +8,7 @@ import Header1 from 'components/common/header1';
 import Header2 from 'components/common/header2';
 import Header3 from 'components/common/header3';
 import Popup from 'components/common/popup';
+import Footer from 'components/common/footer';
 // actions
 import buyActions from 'store/buy/actions';
 import sellActions from 'store/sell/actions';
@@ -63,13 +63,11 @@ const Layout = props => {
           <div className="container-fluid min-vh-100 text-center">
             <h1>No Auth</h1>
           </div>
+          <Footer active={props.active} />
         </Fragment>
       );
     }
   }
-  // if (!props.isLinked) {
-  //   return <Redirect to="/user/connect" />;
-  // }
   return (
     <Fragment>
       {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
@@ -79,6 +77,7 @@ const Layout = props => {
       {props.accountError.status && Alert(props.accountError.message, props.accountClear)}
       {header(props)}
       <div className="container-fluid min-vh-100">{props.children}</div>
+      <Footer active={props.active} />
     </Fragment>
   );
 };
@@ -86,6 +85,7 @@ const Layout = props => {
 Layout.propTypes = {
   type: PropTypes.number,
   title: PropTypes.string,
+  active: PropTypes.string,
   onClick: PropTypes.func,
   isLoggedIn: PropTypes.bool,
   isLinked: PropTypes.bool,

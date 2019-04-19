@@ -8,6 +8,8 @@ import Card from 'components/sell/card';
 import Loading from 'components/common/loading';
 import sellActions from 'store/sell/actions';
 import accountActions from 'store/account/actions';
+import bondsActions from 'store/bonds/actions';
+import history from 'utils/history';
 
 class List extends Component {
   constructor(props) {
@@ -24,7 +26,12 @@ class List extends Component {
   _getContract = params => {
     this.props.getContract(params);
   };
-
+  _onDetail = code => {
+    this.props.bondsDetail({
+      code: code
+    });
+    history.push({ pathname: '/buy/info/' });
+  };
   render() {
     if (this.props.loading) {
       return <Loading />;
@@ -35,7 +42,7 @@ class List extends Component {
           Tổng giá trị đầu tư: {currency(this.props.total)} VNĐ
         </h3>
         {_.map(this.props.bonds, (item, index) => (
-          <Card item={item} key={index} onClick={this._getContract} />
+          <Card onDetail={this._onDetail} item={item} key={index} onClick={this._getContract} />
         ))}
         {this.props.bonds === null ||
           (this.props.bonds.length === 0 && (
@@ -52,6 +59,7 @@ List.propTypes = {
   bonds: PropTypes.array,
   getList: PropTypes.func,
   getTotal: PropTypes.func,
+  bondsDetail: PropTypes.func,
   total: PropTypes.number,
   loading: PropTypes.bool,
   getContract: PropTypes.func
@@ -67,7 +75,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   getList: sellActions.get,
   getContract: sellActions.getContract,
-  getTotal: accountActions.info
+  getTotal: accountActions.info,
+  bondsDetail: bondsActions.detail
 };
 
 export default connect(

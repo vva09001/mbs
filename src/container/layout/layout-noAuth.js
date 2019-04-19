@@ -8,6 +8,7 @@ import Header1 from 'components/common/header1';
 import Header2 from 'components/common/header2';
 import Header3 from 'components/common/header3';
 import Popup from 'components/common/popup';
+import Footer from 'components/common/footer';
 // actions
 import buyActions from 'store/buy/actions';
 import sellActions from 'store/sell/actions';
@@ -49,6 +50,7 @@ const Layout = props => {
       {props.accountError.status && Alert(props.accountError.message, props.accountClear)}
       {header(props)}
       <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>z
+      <Footer active={props.active} />
     </Fragment>
   );
 };
@@ -56,6 +58,7 @@ const Layout = props => {
 Layout.propTypes = {
   type: PropTypes.number,
   title: PropTypes.string,
+  active: PropTypes.string,
   children: PropTypes.node,
   buyError: PropTypes.object,
   buyClear: PropTypes.func,

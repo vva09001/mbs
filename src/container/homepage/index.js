@@ -19,7 +19,7 @@ class HomePage extends Component {
   }
   render() {
     return (
-      <Layout type={3}>
+      <Layout type={3} active="/">
         <div className="row">
           <div className="col-12 text-center">
             <h6 className="text-primary mt-3 mb-3">

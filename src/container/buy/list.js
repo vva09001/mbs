@@ -49,6 +49,7 @@ class List extends Component {
         onToggle={this._toggle}
         filterPicked={this.state.picked}
         title="Sản phẩm"
+        active="/buy/"
       >
         {this.props.loading ? <Loading /> : this._showList()}
       </Layout>
