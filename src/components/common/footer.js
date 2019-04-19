@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Icon from './icon';
 const footer = ({active}) => {
   const { t } = useTranslation();
@@ -9,7 +10,7 @@ const footer = ({active}) => {
     {
       link: '/',
       text: 'Mua bán',
-      icon: 'ic_buy_sale'
+      icon: 'ic_buySale'
     },
     {
       link: '/buy/',
@@ -19,7 +20,7 @@ const footer = ({active}) => {
     {
       link: '/user/',
       text: 'Tài sản',
-      icon: 'mua'
+      icon: 'ic_assets'
     },
     {
       link: '/trade/',
@@ -38,5 +39,7 @@ const footer = ({active}) => {
     </div>
   );
 };
-footer.propTypes = {};
+footer.propTypes = {
+  active: PropTypes.string
+};
 export default footer;
