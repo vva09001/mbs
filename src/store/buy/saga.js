@@ -39,7 +39,7 @@ export function* getBuyInfoSaga() {
         params.userId = null;
       }
       const res = yield Info(params, token);
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.BUY_INFO, info: res.data.data });
       } else {
         yield put({
@@ -172,7 +172,7 @@ export function* updateBuySaga() {
         };
         const res = yield Update(param, token);
         // handle request
-        if (res.data.result === 0) {
+        if (res.data.result === 0 && res.data.data !== null) {
           yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
           yield history.push({ pathname: '/buy/order/' });
         } else {
@@ -210,7 +210,7 @@ export function* getContractSaga() {
       const res = yield Contract(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
         yield put({ type: actions.BUY_LOADING, loading: false });
       } else {
@@ -268,7 +268,7 @@ export function* verifyBuySaga() {
         };
         const res = yield VerifyResult(params, token);
         // handle request
-        if (res.data.result === 0) {
+        if (res.data.result === 0 && res.data.data !== null) {
           yield put({
             type: actions.BUY_ERROR,
             error: { message: 'Success', status: true }

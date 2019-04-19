@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 
 class Term extends Component {
@@ -8,14 +9,17 @@ class Term extends Component {
     super(props);
   }
   render() {
+    const { t } = this.props;
     return (
       <Layout type={1} title="Xác thực giao dịch bán">
         <div className="bond-detail">
           <h4 className="text-center mtitle text-uppercase">
-            CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN KHI GIAO DỊCH BÁN TRÁI PHIẾU.
+            {t('CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN KHI GIAO DỊCH BÁN TRÁI PHIẾU.')}
           </h4>
           <div className="bg-white p-4 mt-3 rounded border border-secondary">
-            Nội dung trong bảng dưới đây, các thông tin trong ký hiệu […] là do MBS trả thông tin sang
+            {t(
+              'Nội dung trong bảng dưới đây, các thông tin trong ký hiệu […] là do MBS trả thông tin sang'
+            )}
           </div>
         </div>
       </Layout>
@@ -24,7 +28,8 @@ class Term extends Component {
 }
 
 Term.propTypes = {
-  bond: PropTypes.object
+  bond: PropTypes.object,
+  t: PropTypes.func
 };
 
 const mapStateToProps = state => {
@@ -38,4 +43,4 @@ const mapDispatchToProps = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Term);
+)(withTranslation()(Term));

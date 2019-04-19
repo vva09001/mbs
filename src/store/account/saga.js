@@ -24,7 +24,7 @@ export function* accountCheckLinkSaga() {
       const res = yield CheckLink(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.LINK_STEP_DATA, data: params });
         yield put({ type: actions.LINK_STEP, step: 2 });
       } else {
@@ -61,7 +61,7 @@ export function* accountLinkSaga() {
       const res = yield Link(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.LINK_STEP, step: 1 });
         yield put({ type: actions.PRORFILE, profile: { ...profile, isExist: 1 } });
         yield history.goBack();
@@ -95,12 +95,8 @@ export function* accountBondsSaga() {
       const res = yield List(params, token);
 
       // handle request
-      if (res.data.result === 0) {
-        if (res.data.data.length === 0) {
-          yield put({ type: actions.ACCOUNT_LIST, list: res.data.data });
-        } else {
-          yield put({ type: actions.ACCOUNT_LIST, list: res.data.data.data });
-        }
+      if (res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.ACCOUNT_LIST, list: res.data.data.data });
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
@@ -136,7 +132,7 @@ export function* accountInfoSaga() {
       const res = yield Info(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalCastInvest });
       } else {
         yield put({

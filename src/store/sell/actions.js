@@ -1,4 +1,5 @@
 const actions = {
+  SELL_TOTAL: 'SELL_TOTAL',
   SELL_LIST: 'SELL_LIST',
   SELL_LIST_GET: 'SELL_LIST_GET',
   SELL_INFO: 'SELL_INFO',

@@ -25,7 +25,7 @@ class Order extends Component {
     });
   };
   render() {
-    const { bond, info, contract, flowCash, t } = this.props;
+    const { bond, info, contract, t } = this.props;
     return (
       <Layout type={1} title="Xác thực giao dịch mua">
         <div className="bond-detail">
@@ -73,8 +73,7 @@ class Order extends Component {
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
-                    %/
-                    {t('năm')}
+                    {t('%/năm')}
                   </b>
                 </td>
               </tr>
@@ -83,16 +82,15 @@ class Order extends Component {
                 <td>
                   <b>
                     {currency(info.termInvest)}
-                    %/
-                    {t('năm')}
+                    {t('%/năm')}
                   </b>
                 </td>
               </tr>
               <tr>
                 <td>{t('Ngày thanh toán lãi')}:</td>
                 <td>
-                  Tiền lãi Trái phiếu được trả sau, định kỳ mỗi {info.couponPayment} tháng một lần
-                  vào ngày cuối cùng của mỗi Kỳ Tính Lãi
+                  {t('Tiền lãi Trái phiếu được trả sau, định kỳ mỗi')} {info.couponPayment}{' '}
+                  {t('tháng một lần vào ngày cuối cùng của mỗi Kỳ Tính Lãi')}
                 </td>
               </tr>
             </tbody>

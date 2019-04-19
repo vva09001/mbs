@@ -11,11 +11,7 @@ const popup = props => {
         </div>
         <div className="popup-body mb-2">{props.children}</div>
         <div className="popup-footer text-center">
-          <button
-            type="button"
-            onClick={props.showPopup}
-            className="mclose"
-          >
+          <button type="button" onClick={props.showPopup} className="mclose">
             {t('ĐÓNG')}
           </button>
         </div>
@@ -24,6 +20,7 @@ const popup = props => {
   );
 };
 popup.propTypes = {
-  showPopup: PropTypes.func
+  showPopup: PropTypes.func,
+  children: PropTypes.node
 };
 export default popup;

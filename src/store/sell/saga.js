@@ -23,12 +23,9 @@ export function* sellListSaga() {
       const res = yield List(params, token);
 
       // handle request
-      if (res.data.result === 0) {
-        if (res.data.data.length === 0) {
-          yield put({ type: actions.SELL_LIST, list: res.data.data });
-        } else {
-          yield put({ type: actions.SELL_LIST, list: res.data.data.data });
-        }
+      if (res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.SELL_TOTAL, total: res.data.data.totalValue });
+        yield put({ type: actions.SELL_LIST, list: res.data.data.data });
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
@@ -61,7 +58,7 @@ export function* sellInfoSaga() {
       };
       const res = yield Info(params, token);
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.SELL_INFO, info: res.data.data });
       } else {
         yield put({
@@ -90,7 +87,7 @@ export function* sellGetDateSaga() {
       const res = yield Date(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.SELL_DATE, date: res.data.data });
       } else {
         yield put({
@@ -152,7 +149,7 @@ export function* sellUpdateSaga() {
       const res = yield Update(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({
           type: actions.SELL_ERROR,
           error: { message: 'Success', status: true }

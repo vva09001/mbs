@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import accountActions from 'store/account/actions';
 
@@ -24,10 +25,11 @@ class Check extends Component {
     this.props.checkLink(this.state.params);
   };
   render() {
+    const { t } = this.props;
     return (
       <form className="row justify-content-center">
         <div className="form-group col-12">
-          <label>Số CMTND</label>
+          <label>{t('Số CMTND')}</label>
           <input
             onChange={e => this._onChange(e, 'customerId')}
             type="text"
@@ -36,7 +38,7 @@ class Check extends Component {
           />
         </div>
         <div className="form-group col-12">
-          <label>Số TKCK</label>
+          <label>{t('Số TKCK')}</label>
           <input
             onChange={e => this._onChange(e, 'accountCode')}
             type="text"
@@ -45,14 +47,16 @@ class Check extends Component {
           />
         </div>
         <div className="form-group col-12">
-          <label>Mật khẩu</label>
+          <label>{t('Mật khẩu')}</label>
           <input
             onChange={e => this._onChange(e, 'password')}
             type="password"
             className="form-control"
             required
           />
-          <small className="form-text text-muted">(Mật khẩu là mật khẩu giao dịch tại MBS)</small>
+          <small className="form-text text-muted">
+            ({t('Mật khẩu là mật khẩu giao dịch tại MBS')})
+          </small>
         </div>
         <div className="col-9">
           <button
@@ -60,7 +64,7 @@ class Check extends Component {
             onClick={() => this._onClick()}
             className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
           >
-            LIÊN KẾT TÀI KHOẢN
+            {t('LIÊN KẾT TÀI KHOẢN')}
           </button>
         </div>
       </form>
@@ -85,4 +89,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Check);
+)(withTranslation()(Check));

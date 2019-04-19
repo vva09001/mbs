@@ -76,62 +76,72 @@ class Order extends Component {
           </div>
           <div className="pt-2">
             <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">I. Thông tin Trái phiếu sở hữu</label>
+              <label className="col-12 col-form-label">I. {t('Thông tin Trái phiếu sở hữu')}</label>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Ngày giao dịch:</label>
+              <label className="col-6 col-form-label">{t('Ngày giao dịch')}:</label>
               <div className="col-6">{info.buyDate}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Ngày đáo hạn TP:</label>
+              <label className="col-6 col-form-label">{t('Ngày đáo hạn TP')}:</label>
               <div className="col-6">{bond.maturityDate}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Số lượng TP sở hữu:</label>
+              <label className="col-6 col-form-label">{t('Số lượng TP sở hữu')}:</label>
               <div className="col-6">
                 {currency(info.buyVol)} {t('TP')}
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Đơn giá mua:</label>
-              <div className="col-6">{currency(info.buyPrice)} VND</div>
+              <label className="col-6 col-form-label">{t('Đơn giá mua')}:</label>
+              <div className="col-6">
+                {currency(info.buyPrice)} {t('VND')}
+              </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Giá trị đầu tư:</label>
-              <div className="col-6">{currency(info.buyValue)} VND</div>
+              <label className="col-6 col-form-label">{t('Giá trị đầu tư')}:</label>
+              <div className="col-6">
+                {currency(info.buyValue)} {t('VND')}
+              </div>
             </div>
           </div>
           <div className="pb-2">
             <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">II. Đề nghị giao dịch bán Trái phiếu</label>
+              <label className="col-12 col-form-label">
+                II. {t('Đề nghị giao dịch bán Trái phiếu')}
+              </label>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Ngày đề nghị bán:</label>
+              <label className="col-6 col-form-label">{t('Ngày đề nghị bán')}:</label>
               <div className="col-6">{FormatTime(this.state.date)}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Ngày giao dịch bán:</label>
+              <label className="col-6 col-form-label">{t('Ngày giao dịch bán')}:</label>
               <div className="col-6">
                 <div className="form-group">{this._sellDate()}</div>
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Đơn giá bán:</label>
+              <label className="col-6 col-form-label">{t('Đơn giá bán')}:</label>
               <div className="col-6">
-                <strong>{currency(info.sellPrice)} VND</strong>
+                <strong>
+                  {currency(info.sellPrice)} {t('VND')}
+                </strong>
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">Số lượng TP:</label>
+              <label className="col-6 col-form-label">{t('Số lượng TP')}:</label>
               <div className="col-6">{currency(info.sellVol)}</div>
             </div>
             <div className="form-group sum-field row">
-              <label className="col-6 col-form-label">TỔNG GIÁ TRỊ BÁN</label>
-              <label className="col-6 col-form-label">{currency(info.sellValue)} VND</label>
+              <label className="col-6 col-form-label">{t('TỔNG GIÁ TRỊ BÁN')}</label>
+              <label className="col-6 col-form-label">
+                {currency(info.sellValue)} {t('VND')}
+              </label>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">
-                <i>Tỷ lệ thuế TNCN (%)</i>
+                <i>{t('Tỷ lệ thuế TNCN (%)')}</i>
               </label>
               <div className="col-6">
                 <i>{currency(info.taxPit)}</i>
@@ -139,10 +149,12 @@ class Order extends Component {
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">
-                <i>Giá trị thuế TNCN</i>
+                <i>{t('Giá trị thuế TNCN')}</i>
               </label>
               <div className="col-6">
-                <i>{currency(info.taxValue)} VND</i>
+                <i>
+                  {currency(info.taxValue)} {t('VND')}
+                </i>
               </div>
             </div>
             <div className="term-condition">
@@ -167,7 +179,7 @@ class Order extends Component {
                   className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
                   disabled={!this.state.toggle.checkbox}
                 >
-                  ĐẶT LỆNH BÁN
+                  {t('ĐẶT LỆNH BÁN')}
                 </button>
               </div>
             </div>

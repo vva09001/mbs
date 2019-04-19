@@ -47,7 +47,7 @@ const Flow = props => {
                   <th>{t('STT')}</th>
                   <th>{t('Nội dung')}</th>
                   <th>{t('Ngày thanh toán')}</th>
-                  <th>{t('Sô tiền thực nhận dự kiến (VND)')}</th>
+                  <th>{t('Số tiền thực nhận dự kiến (VND)')}</th>
                 </tr>
               </thead>
               <tbody>

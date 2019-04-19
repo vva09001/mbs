@@ -22,12 +22,8 @@ export function* tradeListSaga() {
       const res = yield List(params, token);
 
       // handle request
-      if (res.data.result === 0) {
-        if (res.data.data.length === 0) {
-          yield put({ type: actions.TRADE_LIST, list: res.data.data });
-        } else {
-          yield put({ type: actions.TRADE_LIST, list: res.data.data.data });
-        }
+      if (res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.TRADE_LIST, list: res.data.data.data });
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
@@ -59,7 +55,7 @@ export function* tradeDetailSaga() {
       };
       const res = yield Detail(params, token);
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.TRADE_DETAIL, detail: res.data.data });
 
         // get date by contract code Buy
@@ -98,7 +94,7 @@ export function* sellGetDateSaga() {
       const res = yield Date(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.TRADE_DATE, date: res.data.data });
       } else {
         yield put({
@@ -128,7 +124,7 @@ export function* tradeDeleteSaga() {
       const res = yield Delete(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({
           type: actions.TRADE_ERROR,
           error: { message: 'Xoá thành công', status: true }
@@ -164,7 +160,7 @@ export function* tradeUpdateSaga() {
       const res = yield Change(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({
           type: actions.TRADE_ERROR,
           error: { message: 'Sửa thành công', status: true }

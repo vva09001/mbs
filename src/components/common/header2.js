@@ -14,8 +14,7 @@ const header = ({ title }) => {
       <div className="col-8 text-center">
         <h3>{t(title)}</h3>
       </div>
-      <div className="col-2">
-      </div>
+      <div className="col-2" />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-
+import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 import Card from 'components/trade/card';
 import Loading from 'components/common/loading';
@@ -30,6 +30,7 @@ class List extends Component {
     history.push({ pathname: '/buy/info/' });
   };
   render() {
+    const { t } = this.props;
     return (
       <Layout type={2} title="Quản lý giao dịch" active="/trade/">
         {this.props.loading ? (
@@ -47,7 +48,7 @@ class List extends Component {
                   }
                   className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
                 >
-                  HUỶ
+                  {t('HUỶ')}
                 </button>
                 <button
                   onClick={() =>
@@ -58,7 +59,7 @@ class List extends Component {
                   }
                   className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block ml-1"
                 >
-                  SỬA
+                  {t('SỬA')}
                 </button>
               </li>
             </Card>
@@ -80,6 +81,7 @@ List.propTypes = {
   getList: PropTypes.func,
   getDetail: PropTypes.func,
   bondsDetail: PropTypes.func,
+  t: PropTypes.func,
   loading: PropTypes.bool
 };
 
@@ -99,4 +101,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(List);
+)(withTranslation()(List));

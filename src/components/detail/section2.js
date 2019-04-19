@@ -11,11 +11,7 @@ class Section2 extends Component {
       params: {}
     };
   }
-  componentDidUpdate() {
-    // this.setState({
-    //   params:
-    // })
-  }
+  componentDidUpdate() {}
   handleMount(type) {
     if (type) {
       if (this.props.params.volume < this.props.volMax) {
