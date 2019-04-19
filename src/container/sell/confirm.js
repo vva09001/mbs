@@ -37,7 +37,7 @@ class Confirm extends Component {
             <div className="col-4">Số CMND/CCCD</div>
             <div className="col-8">
               <b>
-                : {info.customerId} cấp ngày {info.customerIdDate}
+                : {info.customerId}
               </b>
             </div>
           </div>
