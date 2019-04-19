@@ -24,7 +24,7 @@ class Section2 extends Component {
           volume: this.props.params.volume + 1,
           sum: this.props.price * (this.props.params.volume + 1)
         });
-        this.props.onFetchFlow({
+        this.props.onFetch({
           code: this.props.code,
           volume: this.props.params.volume + 1
         });
@@ -36,7 +36,7 @@ class Section2 extends Component {
           volume: this.props.params.volume - 1,
           sum: this.props.price * (this.props.params.volume - 1)
         });
-        this.props.onFetchFlow({
+        this.props.onFetch({
           code: this.props.code,
           volume: this.props.params.volume - 1
         });
@@ -51,7 +51,7 @@ class Section2 extends Component {
         volume: number,
         sum: number * this.props.price
       });
-      this.props.onFetchFlow({
+      this.props.onFetch({
         code: this.props.code,
         volume: number
       });
@@ -62,7 +62,7 @@ class Section2 extends Component {
         volume: 0,
         sum: 0 * this.props.price
       });
-      this.props.onFetchFlow({
+      this.props.onFetch({
         code: this.props.code,
         volume: 0
       });
@@ -143,7 +143,7 @@ Section2.propTypes = {
   loading: PropTypes.bool,
   params: PropTypes.object,
   handleParam: PropTypes.func,
-  onFetchFlow: PropTypes.func,
+  onFetch: PropTypes.func,
   t: PropTypes.func
 };
 

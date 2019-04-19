@@ -25,6 +25,7 @@ export function* updateBuyParamsSaga() {
 // Get flow saga
 export function* getBuyInfoSaga() {
   yield takeEvery(actions.BUY_INFO_GET, function*(data) {
+    console.log(data.params)
     try {
       yield put({ type: actions.BUY_INFO_LOADING, loading: true });
       // Handle request flow
