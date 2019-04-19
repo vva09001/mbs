@@ -37,7 +37,7 @@ class Confirm extends Component {
       return <Loading />;
     }
     return (
-      <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
+      <Layout type={1} title="Xác thực giao dịch mua">
         {this.state.toggle.success && (
           <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('success')}>
             <span>

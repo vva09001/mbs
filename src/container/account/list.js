@@ -28,9 +28,9 @@ class List extends Component {
   };
   render() {
     return (
-      <Layout type={2} title="TRÁI PHIẾU NẮM GIỮ">
-        <h3 className="text-right mt-3 mb-3">
-          Tổng giá trị đầu tư: {currency(this.props.total)} VNĐ
+      <Layout type={2} title="Trái phiếu nắm giữ">
+        <h3 className="text-center mt-3 mb-3">
+          Tổng giá trị đầu tư: <span class="mspot">{currency(this.props.total)} VNĐ</span>
         </h3>
         {_.map(this.props.bonds, (item, index) => (
           <Card onDetail={this._onDetail} item={item} key={index} />

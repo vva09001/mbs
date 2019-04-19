@@ -27,7 +27,7 @@ class Order extends Component {
   render() {
     const { bond, info, contract, flowCash, t } = this.props;
     return (
-      <Layout type={1} title="XÁC THỰC GIAO DỊCH MUA">
+      <Layout type={1} title="Xác thực giao dịch mua">
         <div className="bond-detail">
           <h4 className="text-center text-uppercase mtitle">{t('THÔNG TIN VỀ GIAO DỊCH')}</h4>
           <table className="table table-bordered bg-white">
@@ -98,11 +98,11 @@ class Order extends Component {
             </tbody>
           </table>
           <div className="term-condition">
-            <Link to="/buy/info">{t('Thông tin Trái phiếu')}</Link>
+            <Link to="/buy/info"><i>{t('Thông tin Trái phiếu')}</i></Link>
             <br />
-            <Link to="/buy/term">{t('Điều khoản và điều kiện đăng ký mua')}</Link>
+            <Link to="/buy/term"><i>{t('Điều khoản và điều kiện đăng ký mua')}</i></Link>
             <br />
-            <Link to="/buy/flow">{t('Chi tiết dòng tiền')}</Link>
+            <Link to="/buy/flow"><i>{t('Chi tiết dòng tiền')}</i></Link>
           </div>
           <label className="form-check-label">
             <i>
