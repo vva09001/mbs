@@ -35,20 +35,20 @@ class HomePage extends Component {
         </div>
         <div className="row white-bg h-100 ">
           <div className="col-12 text-center">
-            <Link to="/buy/">
-              <div className="col-12 btn btn-transparent h6 text-primary">
-                <div className="button-buy">
+            <div className="col-12 btn btn-transparent h6 text-primary">
+              <div className="button-buy">
+                <Link to="/buy/">
                   <img src="/img/btnBUY.svg" alg="buy" />
-                </div>
+                </Link>
               </div>
-            </Link>
-            <Link to="/sell/">
-              <div className="col-12 btn btn-transparent h6 text-primary">
-                <div className="button-sell">
+            </div>
+            <div className="col-12 btn btn-transparent h6 text-primary">
+              <div className="button-sell">
+                <Link to="/sell/">
                   <img src="/img/btnSELL.svg" alg="buy" />
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </Layout>
