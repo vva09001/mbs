@@ -36,15 +36,15 @@ class HomePage extends Component {
         <div className="row white-bg h-100 ">
           <div className="col-12 text-center">
             <Link to="/buy/">
-              <div className="col-12 mt-5 mr-5 btn btn-transparent h6 text-primary">
-                <div className="mt-2">
+              <div className="col-12 btn btn-transparent h6 text-primary">
+                <div className="button-buy">
                   <img src="/img/btnBUY.svg" alg="buy" />
                 </div>
               </div>
             </Link>
             <Link to="/sell/">
-              <div className="col-12 mt-5 mr-5 btn btn-transparent h6 text-primary">
-                <div className="mt-2">
+              <div className="col-12 btn btn-transparent h6 text-primary">
+                <div className="button-sell">
                   <img src="/img/btnSELL.svg" alg="buy" />
                 </div>
               </div>

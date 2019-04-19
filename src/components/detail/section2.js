@@ -99,7 +99,7 @@ class Section2 extends Component {
         </div>
         <div className="form-group row">
           <label className="col-5 col-form-label">{t('Số lượng TP mua')}</label>
-          <div className="col-7">
+          <div className="col-7 no-pading-right">
             <div className="input-group number-field">
               <a className="btn btn-light text-primary" onClick={() => this.handleMount(false)}>
                 -

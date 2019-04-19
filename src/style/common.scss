@@ -24,17 +24,20 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+.no-pading-right {
+  padding-right: 0;
+}
+.no-pading-left {
+  padding-left: 0;
+}
 .mclose {
   background: none;
   color: #005197;
-  border: 1px solid #ddd;
+  border: none;
   height: auto;
   line-height: 30px;
-  border-radius: 3px;
   padding: 5px 20px;
-  margin-bottom: 15px;
   font-size: 15px;
-  font-weight: bold;
 }
 thead td {
   text-align: center;
@@ -110,12 +113,12 @@ body {
 
   .container-fluid {
     max-width: 750px;
-    padding-top: 75px;
-    padding-bottom: 85px;
+    padding-top: 65px;
+    padding-bottom: 59px;
   }
 
   .white-bg {
-    background-color: rgba(192, 192, 192, 0.644);
+    background-color: #e2e2e2;
   }
   h2 {
     margin: 10px 0 13px;
@@ -222,7 +225,6 @@ body {
       display: inline-flex;
       width: 100%;
       padding-right: 20px;
-      border: 1px solid #c9cdd4;
     }
     span.form-control {
       font-size: 16px;
@@ -251,6 +253,7 @@ body {
         flex: 55px;
         -webkit-flex: 55px;
         display: block;
+        border: 1px solid #c9cdd4;
         text-align: center;
         width: 100%;
       }
@@ -305,8 +308,8 @@ body {
     font-size: 18px;
   }
   .btn-danger {
-    background-color: #ff3b30;
-    height: 55px;
+    background-color: #d71920;
+    height: 48px;
     font-size: 18px;
   }
   .collapse-custom {
@@ -320,7 +323,7 @@ body {
     line-height: 15px;
   }
   .bg-gradient-primary {
-    background: linear-gradient(to right, #17adb0, #007edc);
+    background: #0098c8;
   }
   .border-secondary {
       border-color: #b6b6b6 !important;
@@ -342,7 +345,7 @@ body {
   padding: 10px 15px 9px;
   background: linear-gradient(to right, #17adb0, #007edc);
   color: #fff;
-  min-height: 60px;
+  min-height: 56px;
   & > div {
     padding: 0;
   }
@@ -387,6 +390,7 @@ body {
   h3 {
     font-size: 18px;
     margin: 0;
+    font-weight: normal;
   }
 
   .filter {
@@ -462,7 +466,7 @@ body {
 .footer-wrapper {
   background: linear-gradient(to right, #17adb0, #007edc);
   display: flex;
-  max-height: 60px;
+  max-height: 56px;
 
   a {
     display: flex;
@@ -471,11 +475,10 @@ body {
     flex-direction: column;
     padding: 7px 0 6px;
     color: #fff;
-    font-size: 12px;
+    font-size: 8px;
     width: 100%;
-
+    font-weight: normal;
     svg {
-      margin-bottom: 5px;
       fill: #fff;
     }
   }
@@ -505,11 +508,11 @@ body {
   }
 }
 .card {
-  margin-bottom: 18px;
+  margin-bottom: 5px;
 
   li {
     padding: 10px 10px 10px 25px;
-    font-size: 16px;
+    font-size: 15px;
     align-items: center;
     display: flex;
     width: 100%;
@@ -536,7 +539,7 @@ body {
   .title {
     a, button {
       color: #007ddd;
-      font-size: 21px;
+      font-size: 18px;
       font-weight: bold;
     }
 
@@ -565,27 +568,11 @@ body {
     margin: 0px;
   }
 }
-.buy-button {
-  span{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 65px;
-    height: 65px;
-    background-color: #0052cc;
-    border-radius: 50%;
-  }
+.button-buy {
+  margin-top: 25% !important;
 }
-.sell-button {
-  span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 65px;
-    height: 65px;
-    background-color: #e60000;
-    border-radius: 50%;
-  }
+.button-sell {
+  margin-top: 10% !important;
 }
 .dropdown-menu {
   padding-top: 0px;
@@ -606,4 +593,7 @@ body {
       border-bottom: 0px;
     }
   }
+}
+.w-50 {
+  width: 50%;
 }

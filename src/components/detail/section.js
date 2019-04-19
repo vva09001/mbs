@@ -29,11 +29,11 @@ const Section1 = props => {
             </span>
           </h3>
           <div className="row">
-            <div className="col-6">
+            <div className="col-5 no-pading-right">
               <h6 className="mb-2col">{t('Ngày đáo hạn')}</h6>
               <p className="mb-0">{props.item.maturityDate}</p>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-7 text-right no-pading-left">
               <h5 className="mb-2col">{t('Đang còn')}</h5>
               <p className="mb-0">
                 <span className="mspot">{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
@@ -130,10 +130,13 @@ const Section4 = props => {
             onClick={() => onClick(refs)}
             className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click"
           >
-            <span className="d-flex w-100 justify-content-between">
-              <span className="w-100">{title}</span>
-              <strong className="flex-shrink-1">{currency(sum) + t('VND')}</strong>
-            </span>
+            <div className="d-flex w-50 justify-content-between">
+              {title}
+            </div>
+            <div className="w-50">
+              <div className="text-right mr-2">{currency(sum)}</div>
+              <div className="text-right mr-2">{'VND'}</div>
+            </div>
             <span className="float-right collapse-custom">{status ? '-' : '+'}</span>
           </div>
         </div>
