@@ -7,6 +7,8 @@ import Layout from 'container/layout/layout';
 import Card from 'components/trade/card';
 import Loading from 'components/common/loading';
 import tradeActions from 'store/trade/actions';
+import bondsActions from 'store/bonds/actions';
+import history from 'utils/history';
 
 class List extends Component {
   constructor(props) {
@@ -21,6 +23,12 @@ class List extends Component {
   _onClick = params => {
     this.props.getDetail(params);
   };
+  _onDetail = code => {
+    this.props.bondsDetail({
+      code: code
+    });
+    history.push({ pathname: '/buy/info/' });
+  };
   render() {
     return (
       <Layout type={2} title="Quản lý giao dịch">
@@ -28,7 +36,7 @@ class List extends Component {
           <Loading />
         ) : (
           _.map(this.props.bonds, (item, index) => (
-            <Card item={item} key={index}>
+            <Card onDetail={this._onDetail} item={item} key={index}>
               <li className="list-group-item justify-content-center">
                 <button
                   onClick={() =>
@@ -71,6 +79,7 @@ List.propTypes = {
   bonds: PropTypes.array,
   getList: PropTypes.func,
   getDetail: PropTypes.func,
+  bondsDetail: PropTypes.func,
   loading: PropTypes.bool
 };
 
@@ -82,6 +91,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
+  bondsDetail: bondsActions.detail,
   getList: tradeActions.list,
   getDetail: tradeActions.detail
 };

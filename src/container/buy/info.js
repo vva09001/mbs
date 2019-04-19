@@ -9,7 +9,7 @@ const Info = ({ detail }) => {
     <Layout type={1} title="Thông tin Trái phiếu">
       <div className="bond-detail">
         <h4 className="text-center mtitle text-uppercase">
-          <img alt="popup-click" src="/img/popup-icon.png" className=" mr-2 " />
+          <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" />
           Thông tin về Trái phiếu đăng ký mua
         </h4>
         <table className="table table-bordered bg-white">
@@ -64,7 +64,9 @@ const Info = ({ detail }) => {
                 Lãi suất áp dụng cho {detail.termFixCount} kỳ tính lãi đầu tiên của Trái phiếu là{' '}
                 {currency(detail.interestFixRate)} %/năm.
                 {detail.interestFloatRange !== 0
-                  ? `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ ${detail.interestFloatRange} %năm`
+                  ? `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ ${
+                      detail.interestFloatRange
+                    } %năm`
                   : ''}
               </td>
             </tr>
@@ -105,7 +107,6 @@ Info.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    info: state.Buy.info,
     detail: state.Bonds.detail
   };
 };

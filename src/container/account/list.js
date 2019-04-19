@@ -6,6 +6,8 @@ import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import Card from 'components/account/card';
 import accountActions from 'store/account/actions';
+import bondsActions from 'store/bonds/actions';
+import history from 'utils/history';
 
 class List extends Component {
   constructor(props) {
@@ -18,6 +20,12 @@ class List extends Component {
       order: 0
     });
   }
+  _onDetail = code => {
+    this.props.bondsDetail({
+      code: code
+    });
+    history.push({ pathname: '/buy/info/' });
+  };
   render() {
     return (
       <Layout type={2} title="TRÁI PHIẾU NẮM GIỮ">
@@ -25,7 +33,7 @@ class List extends Component {
           Tổng giá trị đầu tư: {currency(this.props.total)} VNĐ
         </h3>
         {_.map(this.props.bonds, (item, index) => (
-          <Card item={item} key={index} />
+          <Card onDetail={this._onDetail} item={item} key={index} />
         ))}
         {this.props.bonds === null ||
           (this.props.bonds.length === 0 && (
@@ -42,6 +50,7 @@ List.propTypes = {
   getList: PropTypes.func,
   bonds: PropTypes.array,
   getTotal: PropTypes.func,
+  bondsDetail: PropTypes.func,
   total: PropTypes.number
 };
 
@@ -53,6 +62,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
+  bondsDetail: bondsActions.detail,
   getList: accountActions.list,
   getTotal: accountActions.info
 };
