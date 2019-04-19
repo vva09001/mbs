@@ -92,7 +92,7 @@ const Info = ({ detail }) => {
               <td>
                 <b>Đại lý đăng ký và thanh toán</b>
               </td>
-              <td>{detail.paymentAgents}</td>
+              <td>Công ty cổ phần chứng khoán MB</td>
             </tr>
           </tbody>
         </table>

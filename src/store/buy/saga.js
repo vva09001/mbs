@@ -42,7 +42,11 @@ export function* getBuyInfoSaga() {
       const res = yield Info(params, token);
 
       if (res.data.result === 0) {
-        yield put({ type: actions.BUY_INFO, info: res.data.data });
+        if (res.data.data.length === 0) {
+          yield put({ type: actions.BUY_INFO, info: res.data.data });
+        } else {
+          yield put({ type: actions.BUY_INFO, info: res.data.data.data });
+        }
       } else {
         yield put({
           type: actions.BUY_ERROR,

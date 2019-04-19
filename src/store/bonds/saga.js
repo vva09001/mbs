@@ -24,7 +24,11 @@ export function* bondsList() {
       const res = yield list(params, token);
       // handle request
       if (res.data.result === 0) {
-        yield put({ type: actions.BONDS, list: res.data.data.data });
+        if (res.data.data.length === 0) {
+          yield put({ type: actions.BONDS, list: res.data.data });
+        } else {
+          yield put({ type: actions.BONDS, list: res.data.data.data });
+        }
       } else {
         yield put({
           type: actions.BONDS_ERROR,

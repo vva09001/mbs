@@ -63,7 +63,7 @@ class Order extends Component {
     );
   };
   render() {
-    const { info, t } = this.props;
+    const { info, bond, t } = this.props;
     return (
       <Layout type={2} title="ĐĂNG KÝ BÁN">
         <div className="bond-detail">
@@ -84,7 +84,7 @@ class Order extends Component {
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Ngày đáo hạn TP:</label>
-              <div className="col-6">{info.maturityDate}</div>
+              <div className="col-6">{bond.maturityDate}</div>
             </div>
             <div className="form-group row">
               <label className="col-6 col-form-label">Số lượng TP sở hữu:</label>

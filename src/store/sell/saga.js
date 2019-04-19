@@ -1,6 +1,6 @@
 import actions from './actions';
 import bondsActions from '../bonds/actions';
-import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
+import { all, fork, put, takeEvery, take, select } from 'redux-saga/effects';
 import Error from 'utils/error';
 import { List, Info, Date, Update } from 'services/sell';
 import history from 'utils/history';
@@ -24,7 +24,11 @@ export function* sellListSaga() {
 
       // handle request
       if (res.data.result === 0) {
-        yield put({ type: actions.SELL_LIST, list: res.data.data });
+        if (res.data.data.length === 0) {
+          yield put({ type: actions.SELL_LIST, list: res.data.data });
+        } else {
+          yield put({ type: actions.SELL_LIST, list: res.data.data.data });
+        }
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
@@ -113,7 +117,7 @@ export function* sellGetContractSaga() {
         contractCode: data.params.contractCode
       };
       yield put({ type: actions.SELL_DATE_REQUEST, params: dateParams });
-
+      yield take(actions.SELL_DATE);
       // Get Info first time
       const sell_Date = yield select(sellDate);
       const infoParams = {
