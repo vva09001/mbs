@@ -9,9 +9,6 @@ import buyActions from 'store/buy/actions';
 import authActions from 'store/auth/actions';
 
 class HomePage extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     const query = qs.parse(this.props.location.search);
     if (query.merchant_code) {
@@ -40,14 +37,14 @@ class HomePage extends Component {
             <div className="col-12 btn btn-transparent h6 text-primary">
               <div className="button-buy">
                 <Link to="/buy/">
-                  <img src="/img/btnBUY.svg" alg="buy" />
+                  <img src="/img/btnBUY.svg" alt="buy" />
                 </Link>
               </div>
             </div>
             <div className="col-12 btn btn-transparent h6 text-primary">
               <div className="button-sell">
                 <Link to="/sell/">
-                  <img src="/img/btnSELL.svg" alg="buy" />
+                  <img src="/img/btnSELL.svg" alt="sell" />
                 </Link>
               </div>
             </div>

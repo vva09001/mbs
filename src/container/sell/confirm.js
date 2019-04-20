@@ -7,9 +7,6 @@ import Layout from 'container/layout/layout';
 import sellActions from 'store/sell/actions';
 
 class Confirm extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {}
   _onUpdate() {
     this.props.update();

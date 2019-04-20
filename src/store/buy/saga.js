@@ -272,7 +272,7 @@ export function* verifyBuySaga() {
         if (data.params.error_code === '00') {
           yield put({
             type: actions.BUY_ERROR,
-            error: { message: 'Success', status: true }
+            error: { message: 'Thành công', status: true }
           });
         } else {
           yield put({

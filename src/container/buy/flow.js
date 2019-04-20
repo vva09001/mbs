@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
 import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
-import buyActions from 'store/buy/actions';
 
 const Flow = props => {
   const { t } = props;

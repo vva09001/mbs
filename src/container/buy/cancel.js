@@ -6,9 +6,6 @@ import buyActions from 'store/buy/actions';
 import Layout from 'container/layout/layout';
 
 class Cancel extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     const query = qs.parse(this.props.location.search);
     if (query.error_code) {

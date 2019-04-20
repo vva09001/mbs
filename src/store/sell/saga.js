@@ -152,7 +152,7 @@ export function* sellUpdateSaga() {
       if (res.data.result === 0 && res.data.data !== null) {
         yield put({
           type: actions.SELL_ERROR,
-          error: { message: 'Success', status: true }
+          error: { message: 'Thành công', status: true }
         });
         yield history.push({ pathname: '/' });
       } else {

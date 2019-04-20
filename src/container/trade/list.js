@@ -11,9 +11,6 @@ import bondsActions from 'store/bonds/actions';
 import history from 'utils/history';
 
 class List extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     this.props.getList({
       num: 40,

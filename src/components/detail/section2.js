@@ -97,17 +97,23 @@ class Section2 extends Component {
           <label className="col-5 col-form-label">{t('Số lượng TP mua')}</label>
           <div className="col-7 no-pading-right">
             <div className="input-group number-field">
-              <a className="btn btn-light text-primary" onClick={() => this.handleMount(false)}>
+              <span
+                className="btn btn-light text-primary popup-click"
+                onClick={() => this.handleMount(false)}
+              >
                 -
-              </a>
+              </span>
               <input
                 className="number form-control text-primary"
                 value={this.props.params.volume}
                 onChange={e => this._onChangeAmount(e)}
               />
-              <a className="btn btn-light text-primary" onClick={() => this.handleMount(true)}>
+              <span
+                className="btn btn-light text-primary popup-click"
+                onClick={() => this.handleMount(true)}
+              >
                 +
-              </a>
+              </span>
             </div>
           </div>
         </div>
