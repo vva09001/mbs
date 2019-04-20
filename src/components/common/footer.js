@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Icon from './icon';
-const footer = ({active}) => {
+const footer = ({ active }) => {
   const { t } = useTranslation();
   const datas = [
     {
@@ -31,7 +31,7 @@ const footer = ({active}) => {
   return (
     <div className="footer-wrapper fixed-bottom">
       {_.map(datas, (item, index) => (
-        <Link key={index} to={item.link} className={active === item.link && 'active'}>
+        <Link key={index} to={item.link} className={active === item.link ? 'active' : ''}>
           <Icon name={item.icon} height="35" />
           {t(item.text)}
         </Link>

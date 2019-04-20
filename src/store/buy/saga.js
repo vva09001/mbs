@@ -286,15 +286,7 @@ export function* verifyBuySaga() {
     }
   });
 }
-// export function* cancelBuySaga() {
-//   yield takeEvery(actions.BUY_CANCEL_RESULT, function*(data) {
-//     yield put({
-//       type: actions.BUY_ERROR,
-//       error: { message: VT_error.cancel[data.params.error_code], status: true }
-//     });
-//     // yield history.push({ pathname: '/' });
-//   });
-// }
+
 export function* clearBuyErrorSaga() {
   yield takeEvery(actions.CLEAR_BUY_ERROR, function*() {
     yield put({ type: actions.BUY_ERROR, error: { message: '', status: false } });
@@ -310,7 +302,6 @@ export default function* rootSaga() {
     fork(updateBuySaga),
     fork(getContractSaga),
     fork(verifyBuySaga),
-    // fork(cancelBuySaga),
     fork(clearBuyErrorSaga)
   ]);
 }
