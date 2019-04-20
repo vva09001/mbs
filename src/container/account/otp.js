@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import accountActions from 'store/account/actions';
 
 class Otp extends Component {
@@ -24,10 +25,11 @@ class Otp extends Component {
     this.props.link(this.state.params);
   };
   render() {
+    const { t } = this.props;
     return (
       <form className="row justify-content-center">
         <div className="form-group col-12">
-          <label>Mã OTP</label>
+          <label>{t('Mã OTP')}</label>
           <input
             onChange={e => this._onChange(e, 'otp')}
             type="text"
@@ -41,7 +43,7 @@ class Otp extends Component {
             onClick={() => this._onClick()}
             className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
           >
-            XÁC NHẬN
+            {t('XÁC NHẬN')}
           </button>
         </div>
       </form>
@@ -65,4 +67,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Otp);
+)(withTranslation()(Otp));

@@ -18,14 +18,13 @@ const Section1 = props => {
         <div className="col-12">
           <h3 className="mb-4">
             {props.item.bondCode}
-            <span className="link">
-              <a
-                onClick={() => {
-                  history.push({ pathname: '/buy/info/' });
-                }}
-              >
-                <Icon name="arrow" width="18" height="24" />
-              </a>
+            <span
+              className="link popup-click"
+              onClick={() => {
+                history.push({ pathname: '/buy/info/' });
+              }}
+            >
+              <Icon name="arrow" width="18" height="24" />
             </span>
           </h3>
           <div className="row">

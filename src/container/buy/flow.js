@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
 import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
-import buyActions from 'store/buy/actions';
 
 const Flow = props => {
   const { t } = props;
@@ -47,7 +46,7 @@ const Flow = props => {
                   <th>{t('STT')}</th>
                   <th>{t('Nội dung')}</th>
                   <th>{t('Ngày thanh toán')}</th>
-                  <th>{t('Sô tiền thực nhận dự kiến (VND)')}</th>
+                  <th>{t('Số tiền thực nhận dự kiến (VND)')}</th>
                 </tr>
               </thead>
               <tbody>

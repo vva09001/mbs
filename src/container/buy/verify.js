@@ -1,14 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import qs from 'query-string';
 import buyActions from 'store/buy/actions';
-import Layout from 'container/layout/layout';
+import Loading from 'components/common/loading';
 
 class Verify extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     const query = qs.parse(this.props.location.search);
     if (query.error_code) {
@@ -17,9 +14,9 @@ class Verify extends Component {
   }
   render() {
     return (
-      <Layout>
-        <Fragment />
-      </Layout>
+      <div className="text-center">
+        <Loading />
+      </div>
     );
   }
 }
