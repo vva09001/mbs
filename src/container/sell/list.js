@@ -8,7 +8,6 @@ import Layout from 'container/layout/layout';
 import Card from 'components/sell/card';
 import Loading from 'components/common/loading';
 import sellActions from 'store/sell/actions';
-import accountActions from 'store/account/actions';
 import bondsActions from 'store/bonds/actions';
 import history from 'utils/history';
 
@@ -22,7 +21,6 @@ class List extends Component {
       num: 40,
       page: 1
     });
-    this.props.getTotal();
   }
   _getContract = params => {
     this.props.getContract(params);
@@ -60,7 +58,6 @@ class List extends Component {
 List.propTypes = {
   bonds: PropTypes.array,
   getList: PropTypes.func,
-  getTotal: PropTypes.func,
   bondsDetail: PropTypes.func,
   total: PropTypes.number,
   loading: PropTypes.bool,
