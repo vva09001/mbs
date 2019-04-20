@@ -9,7 +9,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
     <div className="header-wrapper fixed-top row align-items-center justify-content-end">
       <div className="col-2 col-sm-1 text-center">
         <button className="navbar-toggler filter" type="button" onClick={() => history.goBack()}>
-            <img src="/img/ic_back.svg" height="20" alt="back" />
+          <img src="/img/ic_back.svg" height="20" alt="back" />
         </button>
       </div>
       <div className="col-8 text-center">
@@ -29,7 +29,6 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
                 onClick={() => {
                   onClick({ num: 40, page: 1, order: 0 });
                   onToggle();
-
                 }}
                 className={filterPicked === 0 ? 'dropdown-item active' : 'dropdown-item'}
               >

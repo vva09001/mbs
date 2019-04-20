@@ -12,10 +12,9 @@ const header = ({ title }) => {
         </button>
       </div>
       <div className="col-8 text-center p-0">
-        <h3 className="text-uppercase">{t(title)}</h3>
+        <h3>{t(title)}</h3>
       </div>
-      <div className="col-2">
-      </div>
+      <div className="col-2" />
     </div>
   );
 };

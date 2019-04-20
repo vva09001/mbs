@@ -55,7 +55,7 @@ class Actions extends Component {
   render() {
     const { detail } = this.props;
     return (
-      <Layout type={2} title={this.state.type === 'edit' ? 'Sửa giao dịch bán' : 'Bán Trái phiếu'}>
+      <Layout type={2} title={this.state.type === 'edit' ? 'Sửa giao dịch bán' : 'Bán trái phiếu'}>
         <div className="bond-detail">
           <div className="section">
             <div className="row">

@@ -1,26 +1,53 @@
-*, input:focus, textarea:focus, select:focus {
+*,
+input:focus,
+textarea:focus,
+select:focus {
   outline: none !important;
 }
-.bg999 {background: #999}
+.bg999 {
+  background: #999;
+}
 .container-fluid {
   padding-right: 5px;
   padding-left: 5px;
 }
-.mlabel,.card li span.mlabel {font-size: 14px; font-weight: normal}
+.mlabel,
+.card li span.mlabel {
+  font-size: 14px;
+  font-weight: normal;
+}
 .form-group {
   margin-bottom: 10px;
 }
-.mb-4, .clb {    color: #007ddd;}
-.mheading {color:#263d60}
-.tar {text-align: right}
-.mspot { color: #ff3b30;
-  }
-.bond-buy-comfirm {background: #fff;padding: 0 10px;}
-.mtitle {font-weight: bold;
-  padding:10px;}
-.table td, .table th {    font-size: 14px;
-  padding: .25rem;}
-.bgg {background: grey;    background: #ddd;
+.mb-4,
+.clb {
+  color: #007ddd;
+}
+.mheading {
+  color: #263d60;
+}
+.tar {
+  text-align: right;
+}
+.mspot {
+  color: #ff3b30;
+}
+.bond-buy-comfirm {
+  background: #fff;
+  padding: 0 10px;
+}
+.mtitle {
+  font-weight: bold;
+  padding: 10px;
+}
+.table td,
+.table th {
+  font-size: 14px;
+  padding: 0.25rem;
+}
+.bgg {
+  background: grey;
+  background: #ddd;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -44,11 +71,17 @@ thead td {
   font-weight: bold;
   font-size: 14px;
 }
-.mb-2col {    font-weight: bold;
+.mb-2col {
+  font-weight: bold;
   font-size: 15px;
   text-transform: uppercase;
 }
-.ls {font-size: 25px}
+.ls {
+  font-size: 25px;
+}
+.no-margin {
+  margin: 0 !important;
+}
 body {
   .btn-transparent {
     display: inline-block;
@@ -144,7 +177,8 @@ body {
     margin: 0;
   }
 
-  h6, .h6 {
+  h6,
+  .h6 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
@@ -155,14 +189,14 @@ body {
     color: #005197;
   }
 
-
   .text-primary {
-      color: #000 !important;
+    color: #000 !important;
   }
   .text-info {
     color: #007ddd !important;
   }
-  .color-1, .text-danger {
+  .color-1,
+  .text-danger {
     color: #ff3b30 !important;
   }
   .col-form-label {
@@ -179,13 +213,12 @@ body {
       font-weight: bold;
       line-height: normal;
     }
-
   }
 
   .react-datepicker-wrapper {
-    padding: calc(.375rem + 1px) 20px;
+    padding: calc(0.375rem + 1px) 20px;
     margin-bottom: 0;
-    background: #f4f4f4 url("/img/calendar.png") no-repeat center right 10px;
+    background: #f4f4f4 url('/img/calendar.png') no-repeat center right 10px;
     border-radius: 4px;
     width: 100%;
 
@@ -216,8 +249,8 @@ body {
     }
   }
   .input-group {
-    padding-top: calc(.375rem + 1px);
-    padding-bottom: calc(.375rem + 1px);
+    padding-top: calc(0.375rem + 1px);
+    padding-bottom: calc(0.375rem + 1px);
     padding-left: 20px;
     margin-bottom: 0;
     border-radius: 4px;
@@ -246,7 +279,7 @@ body {
       padding: 0;
       height: auto;
 
-      &[type="text"] {
+      &[type='text'] {
         border: 0;
         background: transparent;
       }
@@ -314,6 +347,12 @@ body {
     height: 48px;
     font-size: 18px;
   }
+  .button-trade {
+    color: #fff;
+    background: linear-gradient(to right, #0092c8, #005496);
+    height: 35px;
+    font-size: 15px;
+  }
   .collapse-custom {
     width: 15px;
     height: 15px;
@@ -325,7 +364,7 @@ body {
     line-height: 15px;
   }
   .border-secondary {
-      border-color: #b6b6b6 !important;
+    border-color: #b6b6b6 !important;
   }
   .horizontal-scroll {
     overflow-x: auto;
@@ -337,7 +376,6 @@ body {
       float: none;
     }
   }
-
 }
 
 .header-wrapper {
@@ -354,7 +392,7 @@ body {
   }
 
   &.no-shadow {
-      box-shadow: none;
+    box-shadow: none;
   }
 
   .header-search {
@@ -366,22 +404,22 @@ body {
       color: #fff;
       padding: 10px 10px;
     }
-    input[type="text"] {
+    input[type='text'] {
       background: transparent;
       color: #fff;
       border: 0;
       width: 100%;
       &::placeholder {
-        color:#fff;
+        color: #fff;
         opacity: 1;
       }
 
       &:-ms-input-placeholder {
-       color: #fff;
+        color: #fff;
       }
 
       &::-ms-input-placeholder {
-       color: #fff;
+        color: #fff;
       }
     }
   }
@@ -425,9 +463,9 @@ body {
     height: 0;
     width: 0;
     &:checked ~ .checkmark {
-      background-color: #2196F3;
+      background-color: #2196f3;
     }
-    &:checked ~ .checkmark:after{
+    &:checked ~ .checkmark:after {
       display: block;
     }
   }
@@ -442,7 +480,7 @@ body {
     border: 1px solid #c9cdd4;
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       display: none;
       left: 9px;
@@ -458,12 +496,10 @@ body {
   }
 
   &:hover {
-    .checkmark{
+    .checkmark {
       background-color: #ccc;
     }
   }
-
-
 }
 
 .footer-wrapper {
@@ -488,7 +524,8 @@ body {
     }
   }
 
-  a:hover, a.active {
+  a:hover,
+  a.active {
     color: #ccff33;
 
     svg {
@@ -506,7 +543,8 @@ body {
     font-size: 14px;
     border-radius: 0;
     background: transparent;
-    &:hover, &.active {
+    &:hover,
+    &.active {
       border-color: #4cd964;
       color: #263d60;
     }
@@ -542,7 +580,8 @@ body {
   }
 
   .title {
-    a, button {
+    a,
+    button {
       color: #007ddd;
       font-size: 18px;
       font-weight: bold;

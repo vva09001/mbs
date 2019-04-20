@@ -45,7 +45,7 @@ class List extends Component {
                       contractCode: item.sellContractCode
                     })
                   }
-                  className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
+                  className="button-trade rounded-pill border-0 btn-lg btn-block mr-2"
                 >
                   HUỶ
                 </button>
@@ -56,7 +56,7 @@ class List extends Component {
                       contractCode: item.sellContractCode
                     })
                   }
-                  className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block ml-1"
+                  className="button-trade rounded-pill border-0 btn-lg btn-block no-margin"
                 >
                   SỬA
                 </button>

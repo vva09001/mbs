@@ -8,14 +8,13 @@ const header = ({ title }) => {
     <div className="header-wrapper fixed-top row align-items-center justify-content-end">
       <div className="col-2 col-sm-1 text-center">
         <button className="navbar-toggler filter" type="button" onClick={() => history.goBack()}>
-        <img src="/img/ic_back.svg" height="20" alt="back" />
+          <img src="/img/ic_back.svg" height="20" alt="back" />
         </button>
       </div>
       <div className="col-8 text-center">
         <h3>{t(title)}</h3>
       </div>
-      <div className="col-2">
-      </div>
+      <div className="col-2" />
     </div>
   );
 };
