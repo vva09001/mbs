@@ -25,7 +25,7 @@ class Order extends Component {
     });
   };
   render() {
-    const { bond, info, contract, flowCash, t } = this.props;
+    const { bond, info, contract, t } = this.props;
     return (
       <Layout type={1} title="Xác thực giao dịch mua">
         <div className="bond-detail">
@@ -73,8 +73,7 @@ class Order extends Component {
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
-                    %/
-                    {t('năm')}
+                    {t('%/năm')}
                   </b>
                 </td>
               </tr>
@@ -83,26 +82,31 @@ class Order extends Component {
                 <td>
                   <b>
                     {currency(info.termInvest)}
-                    %/
-                    {t('năm')}
+                    {t('%/năm')}
                   </b>
                 </td>
               </tr>
               <tr>
                 <td>{t('Ngày thanh toán lãi')}:</td>
                 <td>
-                  Tiền lãi Trái phiếu được trả sau, định kỳ mỗi {info.couponPayment} tháng một lần
-                  vào ngày cuối cùng của mỗi Kỳ Tính Lãi
+                  {t('Tiền lãi Trái phiếu được trả sau, định kỳ mỗi')} {info.couponPayment}{' '}
+                  {t('tháng một lần vào ngày cuối cùng của mỗi Kỳ Tính Lãi')}
                 </td>
               </tr>
             </tbody>
           </table>
           <div className="term-condition">
-            <Link to="/buy/info"><i>{t('Thông tin Trái phiếu')}</i></Link>
+            <Link to="/buy/info">
+              <i>{t('Thông tin Trái phiếu')}</i>
+            </Link>
             <br />
-            <Link to="/buy/term"><i>{t('Điều khoản và điều kiện đăng ký mua')}</i></Link>
+            <Link to="/buy/term">
+              <i>{t('Điều khoản và điều kiện đăng ký mua')}</i>
+            </Link>
             <br />
-            <Link to="/buy/flow"><i>{t('Chi tiết dòng tiền')}</i></Link>
+            <Link to="/buy/flow">
+              <i>{t('Chi tiết dòng tiền')}</i>
+            </Link>
           </div>
           <label className="form-check-label">
             <i>

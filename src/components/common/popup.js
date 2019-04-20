@@ -20,6 +20,7 @@ const popup = props => {
   );
 };
 popup.propTypes = {
-  showPopup: PropTypes.func
+  showPopup: PropTypes.func,
+  children: PropTypes.node
 };
 export default popup;

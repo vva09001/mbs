@@ -62,7 +62,7 @@ const card = props => {
               }
               className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
             >
-              BÁN
+              {t('BÁN')}
             </button>
           </div>
         </li>

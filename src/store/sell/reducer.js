@@ -7,6 +7,7 @@ const initialState = {
   contract: {},
   book: {},
   loading: false,
+  total: 0,
   error: {
     message: '',
     status: false
@@ -15,6 +16,8 @@ const initialState = {
 
 const Sell = (state = initialState, action) => {
   switch (action.type) {
+    case actions.SELL_TOTAL:
+      return { ...state, total: action.total };
     case actions.SELL_LIST:
       return { ...state, list: action.list };
     case actions.SELL_FLOW:

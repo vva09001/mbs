@@ -23,12 +23,8 @@ export function* bondsList() {
       }
       const res = yield list(params, token);
       // handle request
-      if (res.data.result === 0) {
-        if (res.data.data.length === 0) {
-          yield put({ type: actions.BONDS, list: res.data.data });
-        } else {
-          yield put({ type: actions.BONDS, list: res.data.data.data });
-        }
+      if (res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.BONDS, list: res.data.data.data });
       } else {
         yield put({
           type: actions.BONDS_ERROR,
@@ -63,7 +59,7 @@ export function* bondsGet() {
       const res = yield detail(params, token);
 
       // handle request
-      if (res.data.result === 0) {
+      if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
       } else {
         yield put({
