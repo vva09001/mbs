@@ -124,7 +124,7 @@ export function* tradeDeleteSaga() {
       const res = yield Delete(params, token);
 
       // handle request
-      if (res.data.result === 0 && res.data.data !== null) {
+      if (res.data.result === 0) {
         yield put({
           type: actions.TRADE_ERROR,
           error: { message: 'Xoá thành công', status: true }

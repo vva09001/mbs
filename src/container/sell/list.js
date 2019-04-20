@@ -75,7 +75,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   getList: sellActions.get,
   getContract: sellActions.getContract,
-
   bondsDetail: bondsActions.detail
 };
 
