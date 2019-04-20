@@ -20,6 +20,7 @@ class List extends Component {
       page: 1,
       order: 0
     });
+    this.props.getTotal();
   }
   _onDetail = code => {
     this.props.bondsDetail({
