@@ -41,7 +41,7 @@ class List extends Component {
         {this.props.bonds === null ||
           (this.props.bonds.length === 0 && (
             <div className="text-center">
-              <h1>{t('Không có Trái phiếu nào')}</h1>
+              <p>{t('Không có Trái phiếu nào')}</p>
             </div>
           ))}
       </Layout>

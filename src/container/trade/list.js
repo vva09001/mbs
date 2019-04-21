@@ -43,7 +43,7 @@ class List extends Component {
                       contractCode: item.sellContractCode
                     })
                   }
-                  className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
+                  className="button-trade rounded-pill border-0 btn-lg btn-block mr-2"
                 >
                   {t('HUỶ')}
                 </button>
@@ -54,7 +54,7 @@ class List extends Component {
                       contractCode: item.sellContractCode
                     })
                   }
-                  className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block ml-1"
+                  className="button-trade rounded-pill border-0 btn-lg btn-block no-margin"
                 >
                   {t('SỬA')}
                 </button>
@@ -65,7 +65,7 @@ class List extends Component {
         {this.props.bonds === null ||
           (this.props.bonds.length === 0 && (
             <div className="text-center">
-              <h1>Không có Trái phiếu nào</h1>
+              <p>{t('Không có Trái phiếu nào')}</p>
             </div>
           ))}
       </Layout>
