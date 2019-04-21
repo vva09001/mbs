@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 // components: header
 import Header from 'components/common/header';
@@ -55,13 +56,19 @@ const Alert = (message, toggle) => (
 );
 
 const Layout = props => {
+  const { t } = useTranslation();
   if (!props.disabledValidated) {
     if (!props.isLoggedIn) {
       return (
         <Fragment>
           {header(props)}
           <div className="container-fluid min-vh-100 text-center">
-            <h1>No Auth</h1>
+            <div className="wapper">
+              {t('Không có Trái phiếu nào')}
+              <div className="icon-noProduct">
+                <img src="/img/surprised.png" alt="logo" />
+              </div>
+            </div>
           </div>
           <Footer active={props.active} />
         </Fragment>

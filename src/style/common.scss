@@ -641,3 +641,12 @@ body {
 .w-50 {
   width: 50%;
 }
+.wapper {
+  padding-top: 40%;
+  .icon-noProduct {
+   img {
+     width: 25%;
+     padding-top: 10%;
+   }
+  }
+}
