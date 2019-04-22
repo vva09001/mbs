@@ -29,7 +29,7 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-5 no-pading-right">
-              <span className="col-form-label">{t('Ngày đáo hạn TP')}</span>
+              <span className="c">{t('Ngày đáo hạn TP')}</span>
             </div>
             <div className="col-7 text-right no-pading-left">
               <p className="mb-0">{props.item.maturityDate}</p>
@@ -37,11 +37,11 @@ const Section1 = props => {
           </div>
           <div className="row">
             <div className="col-5 no-pading-right">
-              <span className="col-form-label">{t('Đang còn')}</span>
+              <span className="c">{t('Đang còn')}</span>
             </div>
             <div className="col-7 text-right no-pading-left">
-                <span className="xmbs col-form-label">{currency(props.item.roomBalance)}</span>
-              <span className="col-form-label"> {t('TP')}</span>
+                <span className="xmbs c">{currency(props.item.roomBalance)}</span>
+              <span className="c"> {t('TP')}</span>
             </div>
           </div>
         </div>
@@ -63,8 +63,8 @@ const Section3 = props => {
   }
   return (
     <Fragment>
-      <div className="form-group row align-items-center">
-        <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
+      <div className=" row align-items-center">
+        <label className="col-6 c">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right">
           <b>
             <span className="xmbs">{currency(props.item.termRate)}%</span>
@@ -72,14 +72,14 @@ const Section3 = props => {
           </b>
         </div>
       </div>
-      <div className="form-group row align-items-center">
-        <label className="col-6 col-form-label">{t('Thời gian nắm giữ')}</label>
-        <div className="col-6 text-right col-form-label">
+      <div className=" row align-items-center">
+        <label className="col-6 c">{t('Thời gian nắm giữ')}</label>
+        <div className="col-6 text-right c">
           {currency(props.item.numInvestDate)} {t('ngày')}
         </div>
       </div>
-      <div className="form-group row align-items-center">
-        <label className="col-6 col-form-label">
+      <div className=" row align-items-center">
+        <label className="col-6 c">
           {t('Lãi suất đầu tư')}
           <img
             onClick={() => props.showPopup('popup')}

@@ -72,7 +72,7 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Chức vụ')}</div>
             <div className="col-8">
-              : <b>{t('Tổng Giám đốc')}.</b>
+              : {t('Tổng Giám đốc')}
             </div>
           </div>
           <p>
@@ -82,7 +82,7 @@ class Confirm extends Component {
             <div className="row">
               <div className="col-4">{t('Tên cá nhân')}</div>
               <div className="col-8">
-                <b>: {contract.customerName}</b>
+                : {contract.customerName}
               </div>
             </div>
             <div className="row">
