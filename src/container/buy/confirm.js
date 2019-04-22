@@ -58,7 +58,7 @@ class Confirm extends Component {
             {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
           </h4>
           <h4 className="text-center mtitle mspot">
-            {t('Mã')}: {contract.bondCode}
+            {t('MÃ')}: {contract.bondCode}
           </h4>
           <p>
             <b>I. {t('Bên chuyển nhượng')}</b>
@@ -143,7 +143,8 @@ class Confirm extends Component {
             <div className="col-8">: 0 VNĐ</div>
           </div>
           <div className="row">
-            <div className="col-12">{t('Thuế TNCN tạm khấu trừ')}</div>
+            <div className="col-4">{t('Thuế TNCN')}</div>
+            <div className="col-8">:</div>
           </div>
           <div className="fw13">
             <i>

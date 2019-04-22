@@ -16,49 +16,48 @@ class Confirm extends Component {
     return (
       <Layout type={1} title="Xác nhận giao dịch bán">
         <div className="bond-buy-comfirm">
-          <h4 className="text-center mtitle">
+          <h4 className="text-center mtitle uppc">
             {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
           </h4>
-          <h3 className="text-center mtitle">
-            {t('Mã Trái phiếu')}: {info.bondCode}
-          </h3>
+          <h4 className="text-center mtitle mspot">
+            {t('MÃ')}: {info.bondCode}
+          </h4>
           <p>
             <b>I. {t('Bên chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên cá nhân')}</div>
             <div className="col-8">
-              <b>: {info.customerName}</b>
+              : {info.customerName}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Số CMND/CCCD')}</div>
+            <div className="col-4">{t('Số CMND/...')}</div>
             <div className="col-8">
-              <b>: {info.customerId}</b>
+              : {info.customerId}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Nơi cấp')}</div>
             <div className="col-8">
-              <b>: {info.customerIdplace}</b>
+              : {info.customerIdplace}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Ngày cấp')}</div>
             <div className="col-8">
-              <b>: {info.customerIddate}</b>
+              : {info.customerIddate}
             </div>
           </div>
           <p>
             <b>
-              II.
-              {t('Bên nhận chuyển nhượng')}
+              II. {t('Bên nhận chuyển nhượng')}
             </b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên tổ chức')}</div>
             <div className="col-8">
-              <b>: {t('CTCP chứng khoán MB')}</b>
+              : {t('CTCP chứng khoán MB')}
             </div>
           </div>
           <div className="row">
@@ -80,52 +79,52 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Chức vụ')}</div>
             <div className="col-8">
-              : <b>{t('Tổng Giám đốc')}.</b>
+              : {t('Tổng Giám đốc')}.
             </div>
           </div>
           <p>
             <b>III. {t('Nội dung chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-4">{t('Số Trái phiếu chuyển nhượng')}</div>
+            <div className="col-4">{t('Số lượng')}</div>
             <div className="col-8">
               : {currency(info.sellVol)} {t('Trái phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Mệnh giá mỗi trái phiếu')}</div>
+            <div className="col-4">{t('Mệnh giá')}</div>
             <div className="col-8">
               : {currency(bond.parValue)} {t('VNĐ/Trái phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Giá chuyển nhượng')}</div>
+            <div className="col-4">{t('Giá')}</div>
             <div className="col-8">
               : {currency(info.sellPrice)} {t('VNĐ/Trái phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Tổng giá trị chuyển nhượng')}</div>
+            <div className="col-4">{t('Tổng giá trị')}</div>
             <div className="col-8">
               : {currency(info.sellValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Phí chuyển nhượng')}</div>
-            <div className="col-8">: 0</div>
+            <div className="col-4">{t('Phí')}</div>
+            <div className="col-8">: 0 VNĐ</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Thuế TNCN tạm khấu trừ')}</div>
+            <div className="col-4">{t('Thuế TNCN')}</div>
             <div className="col-8">
               : {currency(info.taxValue)} {t('VNĐ')}
             </div>
           </div>
-          <p>
+          <div className="fw13">
             <i>
               ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x {currency(info.taxPit)}
               %)
             </i>
-          </p>
+          </div>
           <div className="confirm-content">
             <p>
               {t(

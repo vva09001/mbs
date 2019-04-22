@@ -69,7 +69,7 @@ class Order extends Component {
         <div className="bond-detail sellorder">
           <div className="section">
             <div className="row">
-              <div className="col-12 xmbs">
+              <div className="col-12 mspot">
                 <h3>{info.bondCode}</h3>
               </div>
             </div>

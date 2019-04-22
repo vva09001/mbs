@@ -7,10 +7,20 @@ select:focus {
 .bg999 {
   background: #999;
 }
+.sellterm li {font-size: 14px}
+.sellterm p {margin-bottom: 10px;}
+.bond-detail p.mst {
+  font-weight:bold;}
+.sellterm {padding-top: 10px}
+.tac {text-align:  center}
 .mstit {color: #212529}
 .xmbs {color: #005197}
 .sellorder {font-size: 14px}
-.sellorder select {color: #005197;font-weight: bold;font-size: 14px}
+.sellorder select {    color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #007edc;
+  background: #007edc;}
 .mdata {text-align: right}
 .term-condition a {
   font-size: 14px;
@@ -571,7 +581,7 @@ body {
   margin-bottom: 5px;
 
   li {
-    padding: 10px 10px 10px 25px;
+    padding: 10px;
     font-size: 15px;
     align-items: center;
     display: flex;
