@@ -153,17 +153,17 @@ class Actions extends Component {
                 </i>
               </div>
             </div>
-            <div className="row justify-content-center">
-              <div className="col-9">
-                <button
-                  type="button"
-                  onClick={() => this._onClick()}
-                  className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
-                >
-                  {this.state.type === 'edit' ? t('SỬA BÁN') : t('HUỶ BÁN')}
-                </button>
-              </div>
-            </div>
+          </div>
+        </div>
+        <div className="button-fixed">
+          <div className="wapper-button">
+            <button
+              type="button"
+              onClick={() => this._onClick()}
+              className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
+            >
+              {this.state.type === 'edit' ? t('SỬA BÁN') : t('HUỶ BÁN')}
+            </button>
           </div>
         </div>
       </Layout>

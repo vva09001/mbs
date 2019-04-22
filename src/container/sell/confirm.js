@@ -16,49 +16,48 @@ class Confirm extends Component {
     return (
       <Layout type={1} title="Xác nhận giao dịch bán">
         <div className="bond-buy-comfirm">
-          <h3 className="text-center mtitle">
-            {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY')} {bond.issuerBond}
-          </h3>
-          <h3 className="text-center mtitle">
-            {t('Mã Trái phiếu')}: {info.bondCode}
-          </h3>
+          <h4 className="text-center mtitle uppc">
+            {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
+          </h4>
+          <h4 className="text-center mtitle mspot">
+            {t('MÃ')}: {info.bondCode}
+          </h4>
           <p>
             <b>I. {t('Bên chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên cá nhân')}</div>
             <div className="col-8">
-              <b>: {info.customerName}</b>
+              : {info.customerName}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Số CMND/CCCD')}</div>
+            <div className="col-4">{t('Số CMND/...')}</div>
             <div className="col-8">
-              <b>: {info.customerId}</b>
+              : {info.customerId}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Nơi cấp')}</div>
             <div className="col-8">
-              <b>: {info.customerIdplace}</b>
+              : {info.customerIdplace}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Ngày cấp')}</div>
             <div className="col-8">
-              <b>: {info.customerIddate}</b>
+              : {info.customerIddate}
             </div>
           </div>
           <p>
             <b>
-              II.
-              {t('Bên nhận chuyển nhượng')}
+              II. {t('Bên nhận chuyển nhượng')}
             </b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên tổ chức')}</div>
             <div className="col-8">
-              <b>: {t('CTCP chứng khoán MB')}</b>
+              : {t('CTCP chứng khoán MB')}
             </div>
           </div>
           <div className="row">
@@ -72,66 +71,70 @@ class Confirm extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Người đại diện')}</div>
-            <div className="col-4">
-              <b>: {t('Ông Trần Hải Hà')}</b>
+            <div className="col-4">{t('Đại diện')}</div>
+            <div className="col-8">
+              : {t('Ông')} {t('Trần Hải Hà')}
             </div>
-            <div className="col-4">{t('Chức vụ: Tổng giám đốc')}</div>
+          </div>
+          <div className="row">
+            <div className="col-4">{t('Chức vụ')}</div>
+            <div className="col-8">
+              : {t('Tổng Giám đốc')}.
+            </div>
           </div>
           <p>
             <b>III. {t('Nội dung chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-4">{t('Số Trái phiếu chuyển nhượng')}</div>
+            <div className="col-4">{t('Số lượng')}</div>
             <div className="col-8">
               : {currency(info.sellVol)} {t('Trái phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Mệnh giá mỗi trái phiếu')}</div>
+            <div className="col-4">{t('Mệnh giá')}</div>
             <div className="col-8">
               : {currency(bond.parValue)} {t('VNĐ/Trái phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Giá chuyển nhượng')}</div>
+            <div className="col-4">{t('Giá')}</div>
             <div className="col-8">
               : {currency(info.sellPrice)} {t('VNĐ/Trái phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Tổng giá trị chuyển nhượng')}</div>
+            <div className="col-4">{t('Tổng giá trị')}</div>
             <div className="col-8">
               : {currency(info.sellValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Phí chuyển nhượng')}</div>
+            <div className="col-4">{t('Phí')}</div>
             <div className="col-8">: 0 {t('VNĐ')}</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Thuế TNCN tạm khấu trừ')}</div>
+            <div className="col-4">{t('Thuế TNCN')}</div>
             <div className="col-8">
               : {currency(info.taxValue)} {t('VNĐ')}
             </div>
           </div>
-          <p>
+          <div className="fw13">
             <i>
-              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị chuyển nhượng')} x{' '}
-              {currency(info.taxPit)}
+              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x {currency(info.taxPit)}
               %)
             </i>
-          </p>
+          </div>
           <div className="confirm-content">
             <p>
               {t(
-                'Công ty cổ phần chứng khoán MB được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số Trái Phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB.'
+                'CTCP chứng khoán MB được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số Trái Phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của CTCP Chứng khoán MB.'
               )}
             </p>
             <p>
               {bond.issuerBond}{' '}
               {t(
-                'ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu Trái Phiếu, không xác nhận việc thanh toán giữa hai bên.'
+                'ủy quyền cho CTCP Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. CTCP Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu Trái Phiếu, không xác nhận việc thanh toán giữa hai bên.'
               )}
             </p>
             <p>
@@ -141,16 +144,16 @@ class Confirm extends Component {
               )}
             </p>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-9">
-              <button
-                onClick={() => this._onUpdate()}
-                type="button"
-                className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
-              >
-                {t('XÁC NHẬN')}
-              </button>
-            </div>
+        </div>
+        <div className="button-fixed">
+          <div className="wapper-button button-comfirm">
+            <button
+              onClick={() => this._onUpdate()}
+              type="button"
+              className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
+            >
+              {t('XÁC NHẬN')}
+            </button>
           </div>
         </div>
       </Layout>

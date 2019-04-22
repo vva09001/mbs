@@ -40,8 +40,11 @@ class List extends Component {
         ))}
         {this.props.bonds === null ||
           (this.props.bonds.length === 0 && (
-            <div className="text-center">
-              <p>{t('Không có Trái phiếu nào')}</p>
+            <div className="text-center wapper">
+              {t('Không có Trái phiếu nào')}
+              <div className="icon-noProduct">
+                <img src="/img/surprised.png" alt="logo" />
+              </div>
             </div>
           ))}
       </Layout>

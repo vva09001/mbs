@@ -6,42 +6,39 @@ const Term = () => {
   const { t } = useTranslation();
   return (
     <Layout type={1} title="Xác thực giao dịch bán">
-      <div className="bond-detail">
-        <h4 className="text-center mtitle text-uppercase">
-          {t('CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN KHI GIAO DỊCH BÁN TRÁI PHIẾU.')}
-        </h4>
-        <div className="bg-white p-4 mt-3 rounded border border-secondary">
-          <h3 className="mb-3">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU</h3>
+      <div className="bond-detail sellterm">
+        <div className="">
+          <h3 className="mb-3 tac">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU</h3>
           <p>
-            Khách hàng (KH) và Công ty Cổ phần Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu
-            theo các quy định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC
-            ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU
+            Khách hàng (KH) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các quy
+            định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC ĐIỀU KHOẢN VÀ
+            ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU
           </p>
-          <h4 className="mb-2">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</h4>
-          <p>1.1 Trái Phiếu: Là trái phiếu được xác định tại Đăng Ký Bán Trái Phiếu.</p>
-          <p>1.2 Tổ Chức Phát Hành: Là doanh nghiệp phát hành Trái Phiếu.</p>
+          <p className="mst xmbs">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</p>
+          <p>1.1. Trái Phiếu: Là trái phiếu được xác định tại Đăng Ký Bán Trái Phiếu.</p>
+          <p>1.2. Tổ Chức Phát Hành: Là doanh nghiệp phát hành Trái Phiếu.</p>
           <p>
-            1.3 Tổ Chức Lưu Ký Trái Phiếu: là Trung tâm Lưu ký chứng khoán Việt Nam hoặc tổ chức là
+            1.3. Tổ Chức Lưu Ký Trái Phiếu: là Trung tâm Lưu ký chứng khoán Việt Nam hoặc tổ chức là
             thành viên của Trung tâm Lưu ký chứng khoán Việt Nam thực hiện dịch vụ lưu ký trái phiếu
             doanh nghiệp cho Tổ Chức Phát Hành.
           </p>
-          <p>1.4 Thông Tin Trái Phiếu Giao Dịch: Là bản tóm tắt thông tin về Trái Phiếu.</p>
+          <p>1.4. Thông Tin Trái Phiếu Giao Dịch: Là bản tóm tắt thông tin về Trái Phiếu.</p>
           <p>
-            1.5 Các Văn Kiện Trái Phiếu: Gồm Bản Công Bố Thông Tin doTổ Chức Phát Hành công bố và
+            1.5. Các Văn Kiện Trái Phiếu: Gồm Bản Công Bố Thông Tin doTổ Chức Phát Hành công bố và
             các tài liệu khác có liên quan (nếu có).
           </p>
           <p>
-            1.6 Bản Công Bố Thông Tin: Là bản công bố thông tin về Trái Phiếu do Tổ Chức Phát Hành
+            1.6. Bản Công Bố Thông Tin: Là bản công bố thông tin về Trái Phiếu do Tổ Chức Phát Hành
             ban hành.
           </p>
-          <p>1.7 Ngày Giao Dịch: Là ngày KH bán Trái Phiếu.</p>
+          <p>1.7. Ngày Giao Dịch: Là ngày KH bán Trái Phiếu.</p>
           <p>
-            1.8 Đơn Giá Giao Dịch: Là giá trị của 1 Trái Phiếu tại Ngày Giao Dịch. Đơn Giá Giao Dịch
+            1.8. Đơn Giá Giao Dịch: Là giá trị của 1 Trái Phiếu tại Ngày Giao Dịch. Đơn Giá Giao Dịch
             do MBS xác định theo chính sách của MBS từng thời kỳ.
           </p>
-          <p>1.9 Giá Trị Giao Dịch: Giá Trị Giao Dịch = Đơn Giá Giao Dịch x Số lượng giao dịch</p>
+          <p>1.9. Giá Trị Giao Dịch: Giá Trị Giao Dịch = Đơn Giá Giao Dịch x Số lượng giao dịch</p>
           <p>
-            1.10 Thuế, Phí Giao Dịch: Là thuế, phí KH phải trả khi thực hiện giao dịch mua, bán Trái
+            1.10. Thuế, Phí Giao Dịch: Là thuế, phí KH phải trả khi thực hiện giao dịch mua, bán Trái
             Phiếu, bao gồm:
           </p>
           <p>
@@ -61,30 +58,30 @@ const Term = () => {
           </p>
           <p>– Thuế chuyển nhượng Trái Phiếu theo quy định của pháp luật.</p>
           <p>
-            1.11 Tổng Giá Trị Giao Dịch: Tổng Giá Trị Giao Dịch = Giá Trị Giao Dịch – Thuế, Phí Giao
+            1.11. Tổng Giá Trị Giao Dịch: Tổng Giá Trị Giao Dịch = Giá Trị Giao Dịch – Thuế, Phí Giao
             Dịch (nếu có)
           </p>
           <p>
-            1.12 Coupon: Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu có)) do Tổ Chức Phát
+            1.12. Coupon: Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu có)) do Tổ Chức Phát
             Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ theo quy định của Tổ
             Chức Phát Hành đối với Trái Phiếu.
           </p>
           <p>
-            1.13 Giá trị tái đầu tư coupon: là lãi tái đầu tư coupon KH nhận được, tính từ ngày Tổ
+            1.13. Giá trị tái đầu tư coupon: là lãi tái đầu tư coupon KH nhận được, tính từ ngày Tổ
             Chức Phát Hành thanh toán coupon đến ngày Trái Phiếu đáo hạn (với giả định KH tiếp tục
             đầu tư khoản coupon nhận được trong thời gian nắm giữ Trái Phiếu).
           </p>
           <p>
-            1.14 Giá trị KH nhận được cuối kỳ: Là giá trị KH bán Trái Phiếu cho bên nhận chuyển
+            1.14. Giá trị KH nhận được cuối kỳ: Là giá trị KH bán Trái Phiếu cho bên nhận chuyển
             nhượng, hoặc giá trị Tổ Chức Phát Hành Trái Phiếu thanh toán gốc Trái Phiếu tại ngày đáo
             hạn Trái Phiếu, tùy thuộc vào thời hạn KH nắm giữ Trái Phiếu.
           </p>
           <p>
-            1.15 Tổng dòng tiền từ Trái Phiếu = Giá trị KH nhận được cuối kỳ + Coupon (nếu có) + Giá
+            1.15. Tổng dòng tiền từ Trái Phiếu = Giá trị KH nhận được cuối kỳ + Coupon (nếu có) + Giá
             trị tái đầu tư coupon (nếu có).
           </p>
           <p>
-            1.16 Lãi suất đáo hạn (tính trên thu nhập sau khi đã khấu trừ thuế thu nhập cá nhân nếu
+            1.16. Lãi suất đáo hạn (tính trên thu nhập sau khi đã khấu trừ thuế thu nhập cá nhân nếu
             KH là cá nhân): là lãi suất KH nhận được nếu giữ Trái Phiếu đến đáo hạn, tính
             theo&nbsp;%/năm/Giá trị đầu tư Trái Phiếu&nbsp;trên cơ sở 1 năm có 365 ngày. Giả định Tổ
             Chức Phát Hành thanh toán đúng hạn, đủ gốc, lãi Trái Phiếu và coupon của các kỳ chưa xác
@@ -104,45 +101,45 @@ const Term = () => {
             </li>
           </ul>
           <p>
-            1.17 Tài khoản ViettelPay: Là tài khoản của KH sử dụng trên ứng dụng ViettelPAY như 1 ví
+            1.17. Tài khoản ViettelPay: Là tài khoản của KH sử dụng trên ứng dụng ViettelPAY như 1 ví
             điện tử thanh toán
           </p>
-          <h4 className="mb-2">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</h4>
+          <p className="mst xmbs">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</p>
           <p>
-            2.1 Trái Phiếu giao dịch: Là Trái Phiếu được nêu tại Đăng Ký Bán Trái Phiếu, có các đặc
+            2.1. Trái Phiếu giao dịch: Là Trái Phiếu được nêu tại Đăng Ký Bán Trái Phiếu, có các đặc
             điểm được nêu tại Thông Tin Trái Phiếu.
           </p>
-          <p>2.2 Ngày giao dịch: Là Ngày Giao Dịch được nêu tại Đăng Ký Bán Trái Phiếu.</p>
-          <p>2.3 Khối lượng giao dịch: Là Khối Lượng được nêu tại Đăng Ký Bán Trái Phiếu.</p>
-          <p>2.4 Đơn giá giao dịch: Là Đơn Giá Giao Dịch được nêu tại Đăng Ký Bán Trái Phiếu</p>
+          <p>2.2. Ngày giao dịch: Là Ngày Giao Dịch được nêu tại Đăng Ký Bán Trái Phiếu.</p>
+          <p>2.3. Khối lượng giao dịch: Là Khối Lượng được nêu tại Đăng Ký Bán Trái Phiếu.</p>
+          <p>2.4. Đơn giá giao dịch: Là Đơn Giá Giao Dịch được nêu tại Đăng Ký Bán Trái Phiếu</p>
           <p>
-            2.5 Tổng giá trị giao dịch: Là Tổng Giá Trị Giao Dịch được nêu tại Đăng Ký Bán Trái
+            2.5. Tổng giá trị giao dịch: Là Tổng Giá Trị Giao Dịch được nêu tại Đăng Ký Bán Trái
             Phiếu
           </p>
           <p>
-            2.6 Thanh toán: MBS thực hiện thanh toán cho KH như quy định tại Mục 2.5 Điều này trước
+            2.6. Thanh toán: MBS thực hiện thanh toán cho KH như quy định tại Mục 2.5 Điều này trước
             trong Ngày Giao Dịch.
           </p>
           <p>
-            2.7 Chuyển nhượng Trái Phiếu: Khi Đăng Ký Bán Trái Phiếu của KH được MBS chấp nhận trên
+            2.7. Chuyển nhượng Trái Phiếu: Khi Đăng Ký Bán Trái Phiếu của KH được MBS chấp nhận trên
             hệ thống, KH và MBS chấp thuận chuyển nhượng Trái Phiếu với các nội dung như được nêu
             tại Đề nghị chuyển nhượng Trái Phiếu. Việc chuyển nhượng được thực hiện ngay trong Ngày
             Giao Dịch, sau khi MBS đã thanh toán cho KH như quy định tại Mục 2.6 Điều này.
           </p>
-          <h4 className="mb-2">ĐIỀU 3: HÌNH THÀNH HỢP ĐỒNG</h4>
+          <p className="mst xmbs">ĐIỀU 3: HÌNH THÀNH HỢP ĐỒNG</p>
           <p>
-            3.1 Thông Tin Trái Phiếu Giao Dịch, Đăng Ký Bán Trái Phiếu, Các Điều Khoản và Điều Kiện
+            3.1. Thông Tin Trái Phiếu Giao Dịch, Đăng Ký Bán Trái Phiếu, Các Điều Khoản và Điều Kiện
             bán Trái Phiếu cùng các tài liệu kèm theo sẽ hợp thành một hợp đồng mua bán Trái Phiếu
             giữa KH và MBS (“Hợp đồng”). Hợp đồng có hiệu lực kể từ thời điểm MBS chấp nhận Đăng Ký
             Bán Trái Phiếu của KH trên hệ thống. MBS sẽ (nhưng không phải là nghĩa vụ bắt buộc)
             thông báo lại cho KH việc chấp nhận này.
           </p>
           <p>
-            3.3 Hợp đồng&nbsp;được lập và lưu trữ dưới dạng dữ liệu điện tử trên hệ thống của MBS và
+            3.3. Hợp đồng&nbsp;được lập và lưu trữ dưới dạng dữ liệu điện tử trên hệ thống của MBS và
             có giá trị như một hợp đồng được ký dưới dạng văn bản.
           </p>
-          <h4 className="mb-2">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</h4>
-          <p>4.1 Quyền và nghĩa vụ của MBS</p>
+          <p className="mst xmbs">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</p>
+          <p>4.1. Quyền và nghĩa vụ của MBS</p>
           <p>
             – MBS cam kết thông tin của MBS nêu tại phần đầu của Hợp đồng này là chính xác, trung
             thực và sẽ sử dụng thông tin này để thực hiện thủ tục nhận chuyển nhượng quyền sở hữu
@@ -196,16 +193,16 @@ const Term = () => {
             – Các quyền và nghĩa vụ khác theo thỏa thuận tại Hợp đồng này, Các Văn Kiện Trái Phiếu
             và quy định của pháp luật.
           </p>
-          <h4 className="mb-2">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</h4>
+          <p className="mst xmbs">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</p>
           <p>
             Bất kỳ bên nào vi phạm các nghĩa vụ của mình tại Hợp đồng này phải có trách nhiệm khắc
             phục vi phạm trong vòng 02 ngày làm việc kể từ ngày phát sinh vi phạm. Nếu quá thời hạn
             trên, Bên vi phạm sẽ phải bồi thường toàn bộ thiệt hại thực tế phát sinh từ việc vi phạm
             nghĩa vụ của mình theo Hợp đồng này.
           </p>
-          <h4 className="mb-2">ĐIỀU 6: ĐIỀU KHOẢN THI HÀNH</h4>
+          <p className="mst xmbs">ĐIỀU 6: ĐIỀU KHOẢN THI HÀNH</p>
           <p>
-            6.1 Mỗi bên khẳng định rằng: (i) Đã hiểu rõ quyền, nghĩa vụ lợi ích và các rủi ro có thể
+            6.1. Mỗi bên khẳng định rằng: (i) Đã hiểu rõ quyền, nghĩa vụ lợi ích và các rủi ro có thể
             xảy ra của việc giao kết Hợp đồng này và (ii) Việc giao kết, thực hiện Hợp đồng này là
             hoàn toàn tự nguyện, không bị lừa dối, ép buộc và đã được thông qua bởi cấp có thẩm
             quyền của mỗi bên.

@@ -36,8 +36,8 @@ const Flow = props => {
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termNoninvest)}</span>
-                %/{t('năm')}
+                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termNoninvest)}%/{t('năm')}</span>
+
               </strong>
             </p>
             <table className="table table-bordered white-bg text-center table-responsive">
@@ -46,7 +46,7 @@ const Flow = props => {
                   <th>{t('STT')}</th>
                   <th>{t('Nội dung')}</th>
                   <th>{t('Ngày thanh toán')}</th>
-                  <th>{t('Số tiền thực nhận dự kiến (VND)')}</th>
+                  <th>{t('Số tiền thực nhận dự kiến (VNĐ)')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,19 +79,19 @@ const Flow = props => {
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termInvest)}</span>
-                %/{t('năm')}
+                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termInvest)}
+                %/{t('năm')}</span>
               </strong>
             </p>
             <table className="table table-bordered white-bg text-center table-responsive">
               <thead>
                 <tr className="text-primary">
                   <th>{t('STT')}</th>
-                  <th>{t('Số tiền coupon tái đầu từ (VND)')}</th>
+                  <th>{t('Số tiền coupon tái đầu từ (VNĐ)')}</th>
                   <th>{t('Ngày đầu tư')}</th>
                   <th>{t('Ngày kết thúc')}</th>
-                  <th>{t('Lãi suất tái đầu tư')}</th>
-                  <th>{t('Lãi tái đầu tư nhận được (VND)')}</th>
+                  <th>{t('LS tái đầu tư')}</th>
+                  <th>{t('Lãi tái đầu tư nhận được (VNĐ)')}</th>
                 </tr>
               </thead>
               <tbody>

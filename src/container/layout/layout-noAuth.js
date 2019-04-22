@@ -83,7 +83,7 @@ const Layout = props => {
       {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
       {props.accountError.status && Alert(props.accountError.message, props.accountClear)}
       {header(props)}
-      <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>z
+      <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>
       <Footer active={props.active} />
     </Fragment>
   );

@@ -45,7 +45,7 @@ class Order extends Component {
                 <td>{bond.maturityDate}</td>
               </tr>
               <tr>
-                <td>{t('Số lượng Trái phiếu đăng ký mua')}:</td>
+                <td>{t('Số lượng TP mua')}:</td>
                 <td>
                   {currency(contract.buyVol)} {t('Trái phiếu')}
                 </td>
@@ -53,19 +53,19 @@ class Order extends Component {
               <tr>
                 <td>{t('Đơn giá mua')}:</td>
                 <td>
-                  {currency(info.buyPrice)} {t('VND')}/ {t('Trái phiếu')}
+                  {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái phiếu')}
                 </td>
               </tr>
               <tr className="bgg">
-                <td>{t('Tổng tiền đầu tư')}:</td>
+                <td>{t('Tổng giá trị tiền đầu tư')}:</td>
                 <td>
-                  {currency(contract.buyValue)} {t('VND')}
+                  {currency(contract.buyValue)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
                 <td>{t('Phí giao dịch')}:</td>
                 <td>
-                  {currency(info.buyFee)} {t('VND')}
+                  {currency(info.buyFee)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
@@ -97,21 +97,21 @@ class Order extends Component {
           </table>
           <div className="term-condition">
             <Link to="/buy/info">
-              <i>{t('Thông tin Trái phiếu')}</i>
+              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" /><i>{t('Thông tin Trái phiếu')}</i>
             </Link>
             <br />
             <Link to="/buy/term">
-              <i>{t('Điều khoản và điều kiện đăng ký mua')}</i>
+              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" /><i>{t('Điều khoản & điều kiện đăng ký mua')}</i>
             </Link>
             <br />
             <Link to="/buy/flow">
-              <i>{t('Chi tiết dòng tiền')}</i>
+              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" /><i>{t('Chi tiết dòng tiền')}</i>
             </Link>
           </div>
           <label className="form-check-label">
             <i>
               {t(
-                'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên.'
+                'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên. Và các văn kiện Trái phiếu liên quan.'
               )}
             </i>
             <input
@@ -121,17 +121,17 @@ class Order extends Component {
             />
             <span className="checkmark" />
           </label>
-          <div className="row justify-content-center">
-            <div className="col-9">
-              <button
-                type="button"
-                onClick={() => history.push({ pathname: '/buy/confirm/' })}
-                className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
-                disabled={!this.state.toggle.checkbox}
-              >
-                {t('XÁC NHẬN')}
-              </button>
-            </div>
+        </div>
+        <div className="button-fixed">
+          <div className="wapper-button">
+            <button
+              type="button"
+              onClick={() => history.push({ pathname: '/buy/confirm/' })}
+              className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
+              disabled={!this.state.toggle.checkbox}
+            >
+              {t('XÁC NHẬN')}
+            </button>
           </div>
         </div>
       </Layout>

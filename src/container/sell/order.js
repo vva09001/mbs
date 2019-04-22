@@ -74,108 +74,106 @@ class Order extends Component {
     const { info, bond, t } = this.props;
     return (
       <Layout type={2} title="Đăng ký bán">
-        <div className="bond-detail">
+        <div className="bond-detail sellorder">
           <div className="section">
             <div className="row">
-              <div className="col-12">
+              <div className="col-12 mspot">
                 <h3>{info.bondCode}</h3>
               </div>
             </div>
           </div>
           <div className="pt-2">
-            <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">I. {t('Thông tin Trái phiếu sở hữu')}</label>
+            <div className="sum-field row">
+              <label className="col-12 mstit">I. {t('Thông tin Trái phiếu sở hữu')}</label>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày giao dịch mua')}:</label>
-              <div className="col-6">{info.buyDate}</div>
+            <div className="row">
+              <label className="col-6 ">{t('Ngày giao dịch mua')}:</label>
+              <div className="col-6 mdata">{info.buyDate}</div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày đáo hạn TP')}:</label>
-              <div className="col-6">{bond.maturityDate}</div>
+            <div className="row">
+              <label className="col-6 ">{t('Ngày đáo hạn TP')}:</label>
+              <div className="col-6 mdata">{bond.maturityDate}</div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Số lượng TP sở hữu')}:</label>
-              <div className="col-6">
+            <div className="row">
+              <label className="col-6 ">{t('Số lượng TP')}:</label>
+              <div className="col-6 mdata">
                 {currency(info.buyVol)} {t('TP')}
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Đơn giá mua')}:</label>
-              <div className="col-6">
-                {currency(info.buyPrice)} {t('VND')}
+            <div className="row">
+              <label className="col-6 ">{t('Đơn giá mua')}:</label>
+              <div className="col-6 mdata">
+                {currency(info.buyPrice)} {t('VNĐ')}
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Giá trị đầu tư')}:</label>
-              <div className="col-6">
-                {currency(info.buyValue)} {t('VND')}
+            <div className="row">
+              <label className="col-6 ">{t('Giá trị đầu tư')}:</label>
+              <div className="col-6 mdata">
+                {currency(info.buyValue)} {t('VNĐ')}
               </div>
             </div>
           </div>
           <div className="pb-2">
-            <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">
+            <div className="sum-field row">
+              <label className="col-12 mstit">
                 II. {t('Đề nghị giao dịch bán Trái phiếu')}
               </label>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày đề nghị bán')}:</label>
-              <div className="col-6">{FormatTime(this.state.date)}</div>
+            <div className="row">
+              <label className="col-6 ">{t('Ngày đề nghị bán')}:</label>
+              <div className="col-6 mdata">{FormatTime(this.state.date)}</div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày giao dịch bán')}:</label>
-              <div className="col-6">
+            <div className="row">
+              <label className="col-6 lh38">{t('Ngày giao dịch bán')}:</label>
+              <div className="col-6 mdata">
                 <div className="form-group">{this._sellDate()}</div>
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Đơn giá bán')}:</label>
-              <div className="col-6">
-                <strong>
-                  {currency(info.sellPrice)} {t('VND')}
-                </strong>
+            <div className="row">
+              <label className="col-6 ">{t('Đơn giá bán')}:</label>
+              <div className="col-6 mdata">
+                  {currency(info.sellPrice)} {t('VNĐ')}
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Số lượng TP')}:</label>
-              <div className="col-6">{currency(info.sellVol)}</div>
+
+            <div className="row">
+              <label className="col-6 ">{t('Số lượng TP')}:</label>
+              <div className="col-6 mdata">{currency(info.sellVol)} {t('TP')}</div>
+
             </div>
-            <div className="form-group sum-field row">
-              <label className="col-6 col-form-label">{t('TỔNG GIÁ TRỊ BÁN')}</label>
-              <label className="col-6 col-form-label">
-                {currency(info.sellValue)} {t('VND')}
+            <div className="sum-field row">
+              <label className="col-6 mspot">{t('TỔNG GIÁ TRỊ BÁN')}</label>
+              <label className="col-6 mdata mspot">
+                {currency(info.sellValue)} {t('VNĐ')}
               </label>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">
+            <div className="row fw13">
+              <label className="col-6">
                 <i>{t('Tỷ lệ thuế TNCN (%)')}</i>
               </label>
-              <div className="col-6">
+              <div className="col-6 mdata">
                 <i>{currency(info.taxPit)}</i>
               </div>
-            </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">
+              <label className="col-6">
                 <i>{t('Giá trị thuế TNCN')}</i>
               </label>
-              <div className="col-6">
+              <div className="col-6 mdata">
                 <i>
-                  {currency(info.taxValue)} {t('VND')}
+                  {currency(info.taxValue)} {t('VNĐ')}
                 </i>
               </div>
             </div>
             <div className="term-condition">
-              <Link to="/sell/term">{t('Điều khoản và điều kiện đăng ký bán')}</Link>
+
+              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" /><Link to="/sell/term"><i>{t('Điều khoản & điều kiện đăng ký bán')}</i></Link>
+
             </div>
             <label className="form-check-label">
-              <strong>
-                <i>
-                  {t(
-                    'Tôi xác nhận và đồng ý với các điều khoản và điều kiện bán Trái phiếu đã nêu trên.'
-                  )}
-                </i>
-              </strong>
+              <i>
+                {t(
+                  'Tôi xác nhận và đồng ý với các điều khoản và điều kiện bán Trái phiếu đã nêu trên.'
+                )}
+              </i>
               <input
                 type="checkbox"
                 onChange={() => this._onCheckBox()}
@@ -183,18 +181,18 @@ class Order extends Component {
               />
               <span className="checkmark" />
             </label>
-            <div className="row justify-content-center">
-              <div className="col-9">
-                <button
-                  onClick={() => this._onBook()}
-                  type="button"
-                  className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
-                  disabled={!this.state.toggle.checkbox}
-                >
-                  {t('ĐẶT LỆNH BÁN')}
-                </button>
-              </div>
-            </div>
+          </div>
+        </div>
+        <div className="button-fixed">
+          <div className="wapper-button">
+            <button
+              onClick={() => this._onBook()}
+              type="button"
+              className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
+              disabled={!this.state.toggle.checkbox}
+            >
+              {t('ĐẶT LỆNH BÁN')}
+            </button>
           </div>
         </div>
       </Layout>

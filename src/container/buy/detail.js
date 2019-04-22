@@ -40,7 +40,7 @@ class Detail extends Component {
     this.props.buyInfoFetch(params);
   };
   nonInvertRender() {
-    const label = ['Nội dung', 'Ngày thanh toán', 'Tiền nhận (VND)'];
+    const label = ['Nội dung', 'Ngày thanh toán', 'Tiền nhận (VNĐ)'];
     const content = ['content', 'payCouponDate', 'cashNonInvest'];
     return (
       <Section4
@@ -58,10 +58,10 @@ class Detail extends Component {
   }
   invertRender() {
     const label = [
-      'Số tiền coupon tái đầu tư (VND)',
+      'Số tiền coupon tái đầu tư (VNĐ)',
       'Ngày đầu tư',
       'Ngày kết thúc đầu tư',
-      'Lãi tái đầu tư nhận được (VND)'
+      'Lãi tái đầu tư nhận được (VNĐ)'
     ];
     const content = ['cashNonInvest', 'payCouponDate', 'lastPayCouponDate', 'cashInvest'];
     return (
@@ -128,16 +128,16 @@ class Detail extends Component {
           </div>
           {this.nonInvertRender()}
           {this.invertRender()}
-          <div className="row justify-content-center">
-            <div className="col-9">
-              <button
-                type="button"
-                onClick={() => this._setBuy()}
-                className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
-              >
-                {t('ĐẶT LỆNH MUA')}
-              </button>
-            </div>
+        </div>
+        <div className="button-fixed">
+          <div className="wapper-button">
+            <button
+              type="button"
+              onClick={() => this._setBuy()}
+              className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
+            >
+              {t('ĐẶT LỆNH MUA')}
+            </button>
           </div>
         </div>
       </Layout>

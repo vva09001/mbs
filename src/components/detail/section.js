@@ -131,8 +131,8 @@ const Section4 = props => {
           >
             <div className="d-flex w-50 justify-content-between">{title}</div>
             <div className="w-50">
-              <div className="text-right mr-2">{currency(sum)}</div>
-              <div className="text-right mr-2">{'VND'}</div>
+              <div className="text-right mr-2 text-bold">{currency(sum)}</div>
+              <div className="text-right mr-2 text-bold">{'VNĐ'}</div>
             </div>
             <span className="float-right collapse-custom">{status ? '-' : '+'}</span>
           </div>
