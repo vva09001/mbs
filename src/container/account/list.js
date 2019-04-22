@@ -35,6 +35,12 @@ class List extends Component {
             {currency(this.props.total)} {t('VNĐ')}
           </span>
         </h3>
+        <h3 className="text-center mt-3 mb-3">
+          {t('Tổng số lượng')}:{' '}
+          <span className="mspot">
+            {this.props.bonds.length} {t('Hợp đồng')}
+          </span>
+        </h3>
         {_.map(this.props.bonds, (item, index) => (
           <Card onDetail={this._onDetail} item={item} key={index} />
         ))}
