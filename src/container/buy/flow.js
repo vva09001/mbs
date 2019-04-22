@@ -59,7 +59,7 @@ const Flow = props => {
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan="3" className="text-primary">
+                  <td colSpan="2" className="text-primary">
                     <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
