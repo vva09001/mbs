@@ -43,7 +43,6 @@ const Flow = props => {
             <table className="table table-bordered white-bg text-center table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <th>{t('STT')}</th>
                   <th>{t('Nội dung')}</th>
                   <th>{t('Ngày thanh toán')}</th>
                   <th>{t('Số tiền thực nhận dự kiến (VNĐ)')}</th>
@@ -52,7 +51,6 @@ const Flow = props => {
               <tbody>
                 {_.map(props.flow.flowNonInvest, (item, index) => (
                   <tr>
-                    <td>{index + 1}</td>
                     <td>{t(item.content)}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{currency(item.cashNonInvest)}</td>
@@ -86,10 +84,9 @@ const Flow = props => {
             <table className="table table-bordered white-bg text-center table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <th>{t('STT')}</th>
                   <th>{t('Số tiền coupon tái đầu từ (VNĐ)')}</th>
-                  <th>{t('Ngày đầu tư')}</th>
-                  <th>{t('Ngày kết thúc')}</th>
+                  <th>{t('Từ ngày')}</th>
+                  <th>{t('Đến ngày')}</th>
                   <th>{t('LS tái đầu tư')}</th>
                   <th>{t('Lãi tái đầu tư nhận được (VNĐ)')}</th>
                 </tr>
@@ -97,7 +94,6 @@ const Flow = props => {
               <tbody>
                 {_.map(props.flow.flowInvest, (item, index) => (
                   <tr>
-                    <td>{index + 1}</td>
                     <td>{currency(item.cashNonInvest)}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{item.lastPayCouponDate}</td>
@@ -108,7 +104,7 @@ const Flow = props => {
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan="5" className="text-primary">
+                  <td colSpan="4" className="text-primary">
                     <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
