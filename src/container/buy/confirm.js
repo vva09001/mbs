@@ -54,26 +54,22 @@ class Confirm extends Component {
           </Popup>
         )}
         <div className="bond-buy-comfirm">
-          <h3 className="text-center mtitle">
-            {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY')} {bond.issuerBond}
-          </h3>
-          <h3 className="text-center mtitle">
-            {t('Mã Trái phiếu')}: {contract.bondCode}
-          </h3>
+          <h4 className="text-center mtitle uppc">
+            {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
+          </h4>
+          <h4 className="text-center mtitle mspot">
+            {t('Mã')}: {contract.bondCode}
+          </h4>
           <p>
             <b>I. {t('Bên chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên tổ chức')}</div>
-            <div className="col-8">
-              <b>: {t('Công ty cổ phần chứng khoán MB')}</b>
-            </div>
+            <div className="col-8">: {t('CTCP chứng khoán MB')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Số ĐKKD')}</div>
-            <div className="col-8">
-              <b>: {t('116/GP-UBCK do UBCKNN cấp ngày 09/12/2013')}</b>
-            </div>
+            <div className="col-8">: {t('116/GP-UBCK, UBCKNN cấp 09/12/2013')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Địa chỉ')}</div>
@@ -85,7 +81,7 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Đại diện')}</div>
             <div className="col-8">
-              : {t('Ông')} <b>{t('Trần Hải Hà')}</b>
+              : {t('Ông')} {t('Trần Hải Hà')}
             </div>
           </div>
           <div className="row">
@@ -95,10 +91,7 @@ class Confirm extends Component {
             </div>
           </div>
           <p>
-            <b>
-              II.
-              {t('Bên nhận chuyển nhượng')}
-            </b>
+            <b>II. {t('Bên nhận chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên cá nhân')}</div>
@@ -107,7 +100,7 @@ class Confirm extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Số CMND/HC/ĐKKD')}</div>
+            <div className="col-4">{t('Số CMND/...')}</div>
             <div className="col-8">: {contract.customerId}</div>
           </div>
           <div className="row">
@@ -147,29 +140,28 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-4">{t('Phí')}</div>
-            <div className="col-8">: 0</div>
+            <div className="col-8">: 0 VNĐ</div>
           </div>
           <div className="row">
             <div className="col-12">{t('Thuế TNCN tạm khấu trừ')}</div>
           </div>
-          <p>
+          <div className="fw13">
             <i>
-              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị chuyển nhượng')} x{' '}
-              {currency(contract.taxPit)}
+              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x {currency(contract.taxPit)}
               %)
             </i>
-          </p>
+          </div>
           <div className="confirm-content">
             <p>
-              {t('Tổ chức (Ông/Bà)')}: <b>{contract.customerName} </b>
+              {t('Ông/Bà')}: <b>{contract.customerName} </b>
               {t(
-                'được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB.'
+                'được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của CTCP Chứng khoán MB.'
               )}
             </p>
             <p>
               {bond.issuerBond}{' '}
               {t(
-                `ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc thanh toán giữa hai bên.`
+                `ủy quyền cho CTCP Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. CTCP Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc thanh toán giữa hai bên.`
               )}
             </p>
             <p>

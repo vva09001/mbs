@@ -16,9 +16,9 @@ class Confirm extends Component {
     return (
       <Layout type={1} title="Xác nhận giao dịch bán">
         <div className="bond-buy-comfirm">
-          <h3 className="text-center mtitle">
-            {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU CÔNG TY')} {bond.issuerBond}
-          </h3>
+          <h4 className="text-center mtitle">
+            {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
+          </h4>
           <h3 className="text-center mtitle">
             {t('Mã Trái phiếu')}: {info.bondCode}
           </h3>
@@ -117,7 +117,7 @@ class Confirm extends Component {
           </div>
           <p>
             <i>
-              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị chuyển nhượng')} x{' '}
+              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x{' '}
               {currency(info.taxPit)}
               %)
             </i>
@@ -125,13 +125,13 @@ class Confirm extends Component {
           <div className="confirm-content">
             <p>
               {t(
-                'Công ty cổ phần chứng khoán MB được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số Trái Phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB.'
+                'CTCP chứng khoán MB được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số Trái Phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của CTCP Chứng khoán MB.'
               )}
             </p>
             <p>
               {bond.issuerBond}{' '}
               {t(
-                'ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu Trái Phiếu, không xác nhận việc thanh toán giữa hai bên.'
+                'ủy quyền cho CTCP Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. CTCP Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu Trái Phiếu, không xác nhận việc thanh toán giữa hai bên.'
               )}
             </p>
             <p>

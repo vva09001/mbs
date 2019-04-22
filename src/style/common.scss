@@ -7,10 +7,17 @@ select:focus {
 .bg999 {
   background: #999;
 }
+.term-condition a {
+  font-size: 14px;
+}
 .container-fluid {
   padding-right: 5px;
   padding-left: 5px;
 }
+.fw13 {font-size: 13px; line-height: 18px;
+  margin-bottom: 10px;
+}
+.uppc {text-transform: uppercase}
 .mlabel,
 .card li span.mlabel {
   font-size: 14px;
@@ -29,8 +36,12 @@ select:focus {
 .tar {
   text-align: right;
 }
+.pdt10 {padding-top: 10px}
 .mspot {
   color: #ff3b30;
+}
+.buy-wrapper {
+  background: #fff;
 }
 .bond-buy-comfirm {
   background: #fff;
@@ -167,7 +178,7 @@ body {
 
   h4 {
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     margin: 0;
   }
 
@@ -238,7 +249,7 @@ body {
   .confirm-content {
     border: 1px solid #dcdde0;
     border-radius: 4px;
-    padding: 15px 10px;
+    padding: 10px;
     background-color: #fff;
     margin-bottom: 30px;
     p {
