@@ -64,7 +64,7 @@ const Layout = props => {
           {header(props)}
           <div className="container-fluid min-vh-100 text-center">
             <div className="wapper">
-              {t('Không có Trái phiếu nào')}
+              {t('Chưa đăng nhập')}
               <div className="icon-noProduct">
                 <img src="/img/surprised.png" alt="logo" />
               </div>

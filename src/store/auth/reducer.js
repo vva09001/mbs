@@ -1,11 +1,15 @@
 import actions from './actions';
+import moment from 'moment';
 
 const initialState = {
   token: null,
   error: {
     message: '',
     status: false
-  }
+  },
+  expiresAt: moment()
+    .add(3, 's')
+    .toDate()
 };
 
 const Auth = (state = initialState, action) => {

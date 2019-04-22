@@ -8,7 +8,7 @@ const Term = () => {
     <Layout type={1} title="Xác thực giao dịch bán">
       <div className="bond-detail sellterm">
         <div className="">
-          <h3 className="mb-3 tac">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU</h3>
+          <h3 className="mb-3 tac">{t('ĐIỀU KHOẢN VÀ ĐIỀU KIỆN BÁN TRÁI PHIẾU')}</h3>
           <p>
             Khách hàng (KH) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các quy
             định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC ĐIỀU KHOẢN VÀ
