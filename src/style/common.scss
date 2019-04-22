@@ -640,13 +640,33 @@ body {
 }
 .w-50 {
   width: 50%;
+  .text-bold {
+    font-weight: bold;
+  }
 }
 .wapper {
   padding-top: 40%;
   .icon-noProduct {
-   img {
-     width: 25%;
-     padding-top: 10%;
-   }
+    img {
+      width: 25%;
+      padding-top: 10%;
+    }
+  }
+}
+
+.button-fixed {
+  position: fixed;
+  bottom: 56px;
+  width: 97%;
+  background: #fff;
+  .wapper-button {
+    width: 60%;
+    margin: auto;
+  }
+  .button-comfirm{
+    padding-bottom: 3px;
+  }
+  button {
+    margin: 2px auto;
   }
 }

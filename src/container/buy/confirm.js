@@ -178,15 +178,15 @@ class Confirm extends Component {
               )}
             </p>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-9">
-              <a
-                href={this.props.payment_link}
-                className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
-              >
-                {t('XÁC NHẬN')}
-              </a>
-            </div>
+        </div>
+        <div className="button-fixed">
+          <div className="wapper-button button-comfirm">
+            <a
+              href={this.props.payment_link}
+              className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
+            >
+              {t('XÁC NHẬN')}
+            </a>
           </div>
         </div>
       </Layout>

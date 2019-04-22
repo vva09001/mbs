@@ -141,16 +141,16 @@ class Confirm extends Component {
               )}
             </p>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-9">
-              <button
-                onClick={() => this._onUpdate()}
-                type="button"
-                className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
-              >
-                {t('XÁC NHẬN')}
-              </button>
-            </div>
+        </div>
+        <div className="button-fixed">
+          <div className="wapper-button button-comfirm">
+            <button
+              onClick={() => this._onUpdate()}
+              type="button"
+              className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
+            >
+              {t('XÁC NHẬN')}
+            </button>
           </div>
         </div>
       </Layout>
