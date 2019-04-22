@@ -98,7 +98,7 @@ const Flow = props => {
                   <td>{t('Lãi tái đầu tư nhận được (VNĐ)')}</td>
                 </tr>
               </thead>
-              <tbody>
+              <tbody>h
                 {_.map(props.flow.flowInvest, (item, index) => (
                   <tr>
                     <td>{currency(item.cashNonInvest)}</td>

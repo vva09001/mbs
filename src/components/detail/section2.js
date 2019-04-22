@@ -72,44 +72,28 @@ class Section2 extends Component {
     return (
       <div className="section-2">
         <div className="form-group row">
-          <label className="col-5 col-form-label">{t('Ngày giao dịch')}</label>
+          <label className="col-5 col-form-label npdr">{t('Ngày giao dịch')}</label>
           <div className="col-7">
             <div className="tar">{this.props.date}</div>
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-5 col-form-label">{t('Giá đơn mua')}</label>
-          <div className="col-7">
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control text-primary tar"
-                disabled
-                value={currency(this.props.price)}
-              />
-              <div className="input-group-append">
-                <div className="input-group-text text-primary">{t('VNĐ')}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="form-group row">
-          <label className="col-5 col-form-label">{t('Số lượng TP mua')}</label>
+          <label className="col-5 col-form-label npdr">{t('Số lượng TP mua')}</label>
           <div className="col-7 no-pading-right">
             <div className="input-group number-field">
               <span
-                className="btn btn-light text-primary popup-click"
+                className="btn btn-light xmbs popup-click"
                 onClick={() => this.handleMount(false)}
               >
                 -
               </span>
               <input
-                className="number form-control text-primary"
+                className="number form-control bgmb"
                 value={this.props.params.volume}
                 onChange={e => this._onChangeAmount(e)}
               />
               <span
-                className="btn btn-light text-primary popup-click"
+                className="btn btn-light xmbs popup-click"
                 onClick={() => this.handleMount(true)}
               >
                 +
@@ -118,7 +102,15 @@ class Section2 extends Component {
           </div>
         </div>
         <div className="form-group row">
-          <label className="col-5 col-form-label clb">
+          <label className="col-5 col-form-label">{t('Giá đơn mua')}</label>
+          <div className="col-7">
+            <div className="input-group tar">
+              <span>{currency(this.props.price)} {t('VNĐ')}</span>
+            </div>
+          </div>
+        </div>
+        <div className="form-group row">
+          <label className="col-5 col-form-label clb npdr">
             <strong>{t('GIÁ TRỊ ĐẦU TƯ')}</strong>
           </label>
           <div className="col-7">

@@ -29,14 +29,19 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-5 no-pading-right">
-              <h6 className="mb-2col">{t('Ngày đáo hạn')}</h6>
-              <p className="mb-0">{props.item.maturityDate}</p>
+              <span className="col-form-label">{t('Ngày đáo hạn TP')}</span>
             </div>
             <div className="col-7 text-right no-pading-left">
-              <h5 className="mb-2col">{t('Đang còn')}</h5>
-              <p className="mb-0">
-                <span className="mspot">{currency(props.item.roomBalance)}</span> {t('Trái phiếu')}
-              </p>
+              <p className="mb-0">{props.item.maturityDate}</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-5 no-pading-right">
+              <span className="col-form-label">{t('Đang còn')}</span>
+            </div>
+            <div className="col-7 text-right no-pading-left">
+                <span className="xmbs col-form-label">{currency(props.item.roomBalance)}</span>
+              <span className="col-form-label"> {t('TP')}</span>
             </div>
           </div>
         </div>
@@ -62,8 +67,8 @@ const Section3 = props => {
         <label className="col-6 col-form-label">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right">
           <b>
-            <span className="mspot">{currency(props.item.termRate)}%</span>
-            <span className="mspot">/{t('năm')}</span>
+            <span className="xmbs">{currency(props.item.termRate)}%</span>
+            <span className="xmbs">/{t('năm')}</span>
           </b>
         </div>
       </div>
@@ -85,8 +90,8 @@ const Section3 = props => {
         </label>
         <div className="col-6 text-right">
           <b>
-            <span className="mspot">{currency(props.item.reinvestmentRate)}%</span>
-            <span className="mspot">/{t('năm')}</span>
+            <span className="xmbs">{currency(props.item.reinvestmentRate)}%</span>
+            <span className="xmbs">/{t('năm')}</span>
           </b>
         </div>
       </div>
