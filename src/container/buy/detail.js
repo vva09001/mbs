@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import bondsActions from 'store/bonds/actions';
 import buyActions from 'store/buy/actions';
