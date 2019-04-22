@@ -4,38 +4,66 @@ textarea:focus,
 select:focus {
   outline: none !important;
 }
-.popup-body {    max-height: 300px;
-  overflow: scroll;    font-size: 14px;}
+.popup-body {
+  max-height: 300px;
+  overflow: scroll;
+  font-size: 14px;
+}
 .bg999 {
   background: #999;
 }
-.sellterm li {font-size: 14px}
-.sellterm p {margin-bottom: 10px;}
+.sellterm li {
+  font-size: 14px;
+}
+.sellterm p {
+  margin-bottom: 10px;
+}
 .bond-detail p.mst {
-  font-weight:bold;}
-.sellterm {padding-top: 10px}
-.tac {text-align:  center}
-.mstit {color: #212529}
-.xmbs {color: #005197}
-.sellorder {font-size: 14px}
-.sellorder select {    color: #fff;
+  font-weight: bold;
+}
+.sellterm {
+  padding-top: 10px;
+}
+.tac {
+  text-align: center;
+}
+.mstit {
+  color: #212529;
+}
+.xmbs {
+  color: #005197;
+}
+.sellorder {
+  font-size: 14px;
+}
+.sellorder select {
+  color: #fff;
   font-weight: bold;
   font-size: 14px;
   border: 1px solid #007edc;
-  background: #007edc;}
-.mdata {text-align: right}
+  background: #007edc;
+}
+.mdata {
+  text-align: right;
+}
 .term-condition a {
   font-size: 14px;
 }
-.lh38 {line-height: 38px}
+.lh38 {
+  line-height: 38px;
+}
 .container-fluid {
   padding-right: 5px;
   padding-left: 5px;
 }
-.fw13 {font-size: 13px; line-height: 18px;
+.fw13 {
+  font-size: 13px;
+  line-height: 18px;
   margin-bottom: 10px;
 }
-.uppc {text-transform: uppercase}
+.uppc {
+  text-transform: uppercase;
+}
 .mlabel,
 .card li span.mlabel {
   font-size: 14px;
@@ -54,7 +82,9 @@ select:focus {
 .tar {
   text-align: right;
 }
-.pdt10 {padding-top: 10px}
+.pdt10 {
+  padding-top: 10px;
+}
 .mspot {
   color: #ff3b30;
 }
@@ -693,7 +723,7 @@ body {
     width: 60%;
     margin: auto;
   }
-  .button-comfirm{
+  .button-comfirm {
     padding-bottom: 3px;
   }
   button {

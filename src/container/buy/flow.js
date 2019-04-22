@@ -11,7 +11,9 @@ const Flow = props => {
   return (
     <Layout type={1} title="Xác thực giao dịch mua">
       <div className="buy-wrapper">
-        <h4 className="text-center mtitle text-uppercase">{t('Dòng tiền nhận được khi mua Trái phiếu')}</h4>
+        <h4 className="text-center mtitle text-uppercase">
+          {t('Dòng tiền nhận được khi mua Trái phiếu')}
+        </h4>
         <div className="row">
           <div className="col-12">
             <p className="mb-0">
@@ -36,11 +38,13 @@ const Flow = props => {
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termNoninvest)}%/{t('năm')}</span>
-
+                {t('Lãi suất đầu tư')}:{' '}
+                <span className="text-danger">
+                  {currency(props.info.termNoninvest)}%/{t('năm')}
+                </span>
               </strong>
             </p>
-            <table className="table table-bordered white-bg text-center table-responsive">
+            <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
                   <th>{t('STT')}</th>
@@ -55,7 +59,7 @@ const Flow = props => {
                     <td>{index + 1}</td>
                     <td>{t(item.content)}</td>
                     <td>{item.payCouponDate}</td>
-                    <td>{currency(item.cashNonInvest)}</td>
+                    <td className="tar">{currency(item.cashNonInvest)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -79,11 +83,14 @@ const Flow = props => {
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termInvest)}
-                %/{t('năm')}</span>
+                {t('Lãi suất đầu tư')}:{' '}
+                <span className="text-danger">
+                  {currency(props.info.termInvest)}
+                  %/{t('năm')}
+                </span>
               </strong>
             </p>
-            <table className="table table-bordered white-bg text-center table-responsive">
+            <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
                   <th>{t('STT')}</th>
@@ -102,7 +109,7 @@ const Flow = props => {
                     <td>{item.payCouponDate}</td>
                     <td>{item.lastPayCouponDate}</td>
                     <td>{currency(item.reinvestmentRate)}</td>
-                    <td>{currency(item.cashInvest)}</td>
+                    <td className="tar">{currency(item.cashInvest)}</td>
                   </tr>
                 ))}
               </tbody>
