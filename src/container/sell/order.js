@@ -171,7 +171,7 @@ class Order extends Component {
             <label className="form-check-label">
               <i>
                 {t(
-                  'Tôi xác nhận và đồng ý với các điều khoản và điều kiện bán Trái phiếu đã nêu trên.'
+                    'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên. Và các văn kiện Trái phiếu liên quan.'
                 )}
               </i>
               <input
