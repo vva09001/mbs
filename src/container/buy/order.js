@@ -121,17 +121,17 @@ class Order extends Component {
             />
             <span className="checkmark" />
           </label>
-          <div className="row justify-content-center">
-            <div className="col-9">
-              <button
-                type="button"
-                onClick={() => history.push({ pathname: '/buy/confirm/' })}
-                className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mt-3"
-                disabled={!this.state.toggle.checkbox}
-              >
-                {t('XÁC NHẬN')}
-              </button>
-            </div>
+        </div>
+        <div className="button-fixed">
+          <div className="wapper-button">
+            <button
+              type="button"
+              onClick={() => history.push({ pathname: '/buy/confirm/' })}
+              className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
+              disabled={!this.state.toggle.checkbox}
+            >
+              {t('XÁC NHẬN')}
+            </button>
           </div>
         </div>
       </Layout>
