@@ -8,7 +8,7 @@ const Term = () => {
     <Layout type={1} title="Xác thực giao dịch bán">
       <div className="bond-detail sellterm">
         <div className="">
-          <h3 className="mb-3 tac">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU</h3>
+          <h3 className="mb-3 tac">{t('ĐIỀU KHOẢN VÀ ĐIỀU KIỆN BÁN TRÁI PHIẾU')}</h3>
           <p>
             Khách hàng (KH) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các quy
             định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC ĐIỀU KHOẢN VÀ
@@ -33,13 +33,13 @@ const Term = () => {
           </p>
           <p>1.7. Ngày Giao Dịch: Là ngày KH bán Trái Phiếu.</p>
           <p>
-            1.8. Đơn Giá Giao Dịch: Là giá trị của 1 Trái Phiếu tại Ngày Giao Dịch. Đơn Giá Giao Dịch
-            do MBS xác định theo chính sách của MBS từng thời kỳ.
+            1.8. Đơn Giá Giao Dịch: Là giá trị của 1 Trái Phiếu tại Ngày Giao Dịch. Đơn Giá Giao
+            Dịch do MBS xác định theo chính sách của MBS từng thời kỳ.
           </p>
           <p>1.9. Giá Trị Giao Dịch: Giá Trị Giao Dịch = Đơn Giá Giao Dịch x Số lượng giao dịch</p>
           <p>
-            1.10. Thuế, Phí Giao Dịch: Là thuế, phí KH phải trả khi thực hiện giao dịch mua, bán Trái
-            Phiếu, bao gồm:
+            1.10. Thuế, Phí Giao Dịch: Là thuế, phí KH phải trả khi thực hiện giao dịch mua, bán
+            Trái Phiếu, bao gồm:
           </p>
           <p>
             – Phí khớp lệnh KH trả cho MBS để chuyển nhượng Trái Phiếu thông qua sở giao dịch chứng
@@ -58,8 +58,8 @@ const Term = () => {
           </p>
           <p>– Thuế chuyển nhượng Trái Phiếu theo quy định của pháp luật.</p>
           <p>
-            1.11. Tổng Giá Trị Giao Dịch: Tổng Giá Trị Giao Dịch = Giá Trị Giao Dịch – Thuế, Phí Giao
-            Dịch (nếu có)
+            1.11. Tổng Giá Trị Giao Dịch: Tổng Giá Trị Giao Dịch = Giá Trị Giao Dịch – Thuế, Phí
+            Giao Dịch (nếu có)
           </p>
           <p>
             1.12. Coupon: Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu có)) do Tổ Chức Phát
@@ -77,8 +77,8 @@ const Term = () => {
             hạn Trái Phiếu, tùy thuộc vào thời hạn KH nắm giữ Trái Phiếu.
           </p>
           <p>
-            1.15. Tổng dòng tiền từ Trái Phiếu = Giá trị KH nhận được cuối kỳ + Coupon (nếu có) + Giá
-            trị tái đầu tư coupon (nếu có).
+            1.15. Tổng dòng tiền từ Trái Phiếu = Giá trị KH nhận được cuối kỳ + Coupon (nếu có) +
+            Giá trị tái đầu tư coupon (nếu có).
           </p>
           <p>
             1.16. Lãi suất đáo hạn (tính trên thu nhập sau khi đã khấu trừ thuế thu nhập cá nhân nếu
@@ -101,8 +101,8 @@ const Term = () => {
             </li>
           </ul>
           <p>
-            1.17. Tài khoản ViettelPay: Là tài khoản của KH sử dụng trên ứng dụng ViettelPAY như 1 ví
-            điện tử thanh toán
+            1.17. Tài khoản ViettelPay: Là tài khoản của KH sử dụng trên ứng dụng ViettelPAY như 1
+            ví điện tử thanh toán
           </p>
           <p className="mst xmbs">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</p>
           <p>
@@ -135,8 +135,8 @@ const Term = () => {
             thông báo lại cho KH việc chấp nhận này.
           </p>
           <p>
-            3.3. Hợp đồng&nbsp;được lập và lưu trữ dưới dạng dữ liệu điện tử trên hệ thống của MBS và
-            có giá trị như một hợp đồng được ký dưới dạng văn bản.
+            3.3. Hợp đồng&nbsp;được lập và lưu trữ dưới dạng dữ liệu điện tử trên hệ thống của MBS
+            và có giá trị như một hợp đồng được ký dưới dạng văn bản.
           </p>
           <p className="mst xmbs">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</p>
           <p>4.1. Quyền và nghĩa vụ của MBS</p>
@@ -202,9 +202,9 @@ const Term = () => {
           </p>
           <p className="mst xmbs">ĐIỀU 6: ĐIỀU KHOẢN THI HÀNH</p>
           <p>
-            6.1. Mỗi bên khẳng định rằng: (i) Đã hiểu rõ quyền, nghĩa vụ lợi ích và các rủi ro có thể
-            xảy ra của việc giao kết Hợp đồng này và (ii) Việc giao kết, thực hiện Hợp đồng này là
-            hoàn toàn tự nguyện, không bị lừa dối, ép buộc và đã được thông qua bởi cấp có thẩm
+            6.1. Mỗi bên khẳng định rằng: (i) Đã hiểu rõ quyền, nghĩa vụ lợi ích và các rủi ro có
+            thể xảy ra của việc giao kết Hợp đồng này và (ii) Việc giao kết, thực hiện Hợp đồng này
+            là hoàn toàn tự nguyện, không bị lừa dối, ép buộc và đã được thông qua bởi cấp có thẩm
             quyền của mỗi bên.
           </p>
           <p>
