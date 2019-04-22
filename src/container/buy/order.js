@@ -13,7 +13,7 @@ class Order extends Component {
     this.state = {
       date: new Date(),
       toggle: {
-        checkbox: false
+        checkbox: true
       }
     };
   }
