@@ -39,12 +39,20 @@ class Order extends Component {
   };
   _onChange = e => {
     const value = e.target.value;
-    this.setState({
-      params: {
-        ...this.state.params,
-        sellDate: value
+    this.setState(
+      {
+        params: {
+          ...this.state.params,
+          sellDate: value
+        }
+      },
+      () => {
+        this.props.getInfo({
+          contractCode: this.props.info.buyContractCode,
+          sellDate: this.state.params.sellDate
+        });
       }
-    });
+    );
   };
   _onBook = () => {
     this.props.book(this.state.params);
@@ -79,7 +87,7 @@ class Order extends Component {
               <label className="col-12 col-form-label">I. {t('Thông tin Trái phiếu sở hữu')}</label>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày giao dịch')}:</label>
+              <label className="col-6 col-form-label">{t('Ngày giao dịch mua')}:</label>
               <div className="col-6">{info.buyDate}</div>
             </div>
             <div className="form-group row">
@@ -199,6 +207,7 @@ Order.propTypes = {
   bond: PropTypes.object,
   sellDate: PropTypes.array,
   book: PropTypes.func,
+  getInfo: PropTypes.func,
   t: PropTypes.func
 };
 
