@@ -35,7 +35,10 @@ const card = props => {
         </li>
         <li className="list-group-item">
           {t('Số lượng sở hữu')}
-          <span className="float-right">{currency(props.item.buyVol)} TP</span>
+          <p className="float-right">
+            <span className="quatity">{currency(props.item.buyVol)}</span>
+            <spn> {t('TP')}</spn>
+          </p>
         </li>
         <li className="list-group-item">
           {t('Giá trị tiền đầu tư')}
@@ -52,7 +55,8 @@ const card = props => {
         <li className="list-group-item">
           {t('Lãi suất đầu tư')}
           <p className="float-right">
-            <span className="quatity quatity-text">{currency(props.item.termRate)}</span>%/{t('năm')}
+            <span className="quatity quatity-text">{currency(props.item.termRate)}</span>
+            <span className="quatity"> {t('%/năm')}</span>
           </p>
         </li>
         {props.children}

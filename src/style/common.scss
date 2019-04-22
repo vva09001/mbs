@@ -9,8 +9,12 @@ select:focus {
   overflow: scroll;
   font-size: 14px;
 }
-.npdr {padding-right: 0}
-.bond-detail .section-2 {font-size: 14px}
+.npdr {
+  padding-right: 0;
+}
+.bond-detail .section-2 {
+  font-size: 14px;
+}
 .number.form-control.bgmb {
   color: #fff;
   font-weight: bold;
@@ -98,7 +102,7 @@ select:focus {
   padding-top: 10px;
 }
 .mspot {
-  color: #ff3b30;
+  color: #e60000;
 }
 .buy-wrapper {
   background: #fff;
@@ -642,7 +646,7 @@ body {
       font-weight: bold;
 
       .quatity {
-        color: #ff3b30;
+        color: #e60000;
       }
     }
     .quatity-text {
@@ -653,7 +657,7 @@ body {
   .title {
     a,
     button {
-      color: #007ddd;
+      color: #0052cc;
       font-size: 18px;
       font-weight: bold;
     }
@@ -673,7 +677,7 @@ body {
         padding: 0;
       }
       svg {
-        fill: #ff3b30;
+        fill: #e60000;
       }
     }
   }
@@ -717,10 +721,13 @@ body {
 }
 .wapper {
   padding-top: 40%;
+  padding-top: 40%;
+  background-color: #fff;
+  height: 100vh;
   .icon-noProduct {
     img {
-      width: 25%;
-      padding-top: 10%;
+      width: 40%;
+      padding-top: 5%;
     }
   }
 }
@@ -742,3 +749,21 @@ body {
     margin: 2px auto;
   }
 }
+.sell-title {
+  background-color: #fff;
+  top: 56px;
+  margin-left: 0px;
+  margin-right: 8px;
+  position: fixed;
+  z-index: 99;
+  width: 97%;
+  text-align: left;
+  font-size: 14px;
+  .bold {
+    font-weight: bold;
+  }
+}
+.list-conatainer {
+  padding-top: 70px;
+}
+

@@ -27,7 +27,7 @@ class List extends Component {
   _fetchDetail = params => {
     this.props.bondsDetail(params);
     this.props.buyFetch(params);
-  }
+  };
   _bondsFetch = params => {
     this.setState(
       {

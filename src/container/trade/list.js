@@ -67,7 +67,7 @@ class List extends Component {
             <div className="text-center wapper">
               {t('Không có Trái phiếu nào')}
               <div className="icon-noProduct">
-                <img src="/img/surprised.png" alt="logo" />
+                <img src="/img/iconfinder.svg" alt="logo" />
               </div>
             </div>
           ))}
