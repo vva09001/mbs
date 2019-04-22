@@ -11,11 +11,18 @@ const card = props => {
     <div className="card">
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
-          <Link to={'/buy/' + props.item.bondCode} className="btn-transparent text-truncate">
+          <Link
+            to={'/buy/' + props.item.bondCode}
+            onClick={() => props.fetchDetail({ code: props.item.bondCode })}
+            className="btn-transparent text-truncate"
+          >
             {props.item.bondCode}
           </Link>
           <span className="link">
-            <Link to={'/buy/' + props.item.bondCode}>
+            <Link
+              to={'/buy/' + props.item.bondCode}
+              onClick={() => props.fetchDetail({ code: props.item.bondCode })}
+            >
               <Icon name="arrow" width="18" height="24" />
             </Link>
           </span>
@@ -44,6 +51,7 @@ const card = props => {
 };
 card.propTypes = {
   item: PropTypes.object,
-  children: PropTypes.node
+  children: PropTypes.node,
+  fetchDetail: PropTypes.func
 };
 export default card;

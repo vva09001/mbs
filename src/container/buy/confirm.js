@@ -84,11 +84,14 @@ class Confirm extends Component {
 
           <div className="row">
             <div className="col-4">{t('Người đại diện')}</div>
-            <div className="col-4">
+            <div className="col-8">
               : {t('Ông')} <b>{t('Trần Hải Hà')}</b>
             </div>
+          </div>
+          <div className="row">
+            <div className="col-4">{t('Chức vụ')}</div>
             <div className="col-4">
-              {t('Chức vụ')}: <b>{t('Tổng Giám đốc')}.</b>
+              : <b>{t('Tổng Giám đốc')}.</b>
             </div>
           </div>
 
@@ -200,7 +203,8 @@ Confirm.propTypes = {
   getContract: PropTypes.func,
   approve: PropTypes.func,
   payment_link: PropTypes.string,
-  buyLoading: PropTypes.bool
+  buyLoading: PropTypes.bool,
+  t: PropTypes.func
 };
 
 const mapStateToProps = state => {

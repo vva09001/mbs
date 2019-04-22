@@ -141,7 +141,7 @@ const Section4 = props => {
       {status && (
         <div className="row">
           <div className="col-12">
-            <table className="table table-responsive table-striped">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   {_.map(label, (item, index) => (
