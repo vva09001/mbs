@@ -94,13 +94,19 @@ class Detail extends Component {
         {this.state.toggle.popup && (
           <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('popup')}>
             <p>
-              <strong>{t('Coupon')}:</strong> {currency(this.props.bond.couponPayment)}
+              <strong>{t('Coupon')}:</strong> Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu
+              có)) do Tổ Chức Phát Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ
+              theo quy định của Tổ Chức Phát Hành đối với Trái Phiếu.
             </p>
             <p>
-              <strong>{t('Tái đầu tư coupon')}:</strong> {currency(this.props.info.sumCashInvest)}
+              <strong>{t('Tái đầu tư coupon')}:</strong> Là việc Khách Hàng tiếp tục đầu tư khoản
+              coupon nhận được vào các hạng mục đầu tư khác trong thời gian nắm giữ Trái Phiếu (ví
+              dụ gửi tiết kiệm….)
             </p>
             <p>
-              <strong>{t('Lãi suất đầu tư')}:</strong> {currency(this.props.info.reinvestmentRate)}
+              <strong>{t('Lãi suất đầu tư')}:</strong> Là lợi suất đầu tư Trái Phiếu Khách Hàng nhận
+              được đã bao gồm tái đầu tư coupon (với giả định Khách Hàng tiếp tục đầu tư khoản
+              coupon với lãi suất 7.2%/năm)
             </p>
           </Popup>
         )}
