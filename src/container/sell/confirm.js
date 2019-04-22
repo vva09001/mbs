@@ -27,42 +27,30 @@ class Confirm extends Component {
           </p>
           <div className="row">
             <div className="col-4">{t('Tên cá nhân')}</div>
-            <div className="col-8">
-              : {info.customerName}
-            </div>
+            <div className="col-8">: {info.customerName}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Số CMND/...')}</div>
-            <div className="col-8">
-              : {info.customerId}
-            </div>
+            <div className="col-8">: {info.customerId}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Nơi cấp')}</div>
-            <div className="col-8">
-              : {info.customerIdplace}
-            </div>
+            <div className="col-8">: {info.customerIdplace}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Ngày cấp')}</div>
-            <div className="col-8">
-              : {info.customerIddate}
-            </div>
+            <div className="col-8">: {info.customerIddate}</div>
           </div>
           <p>
-            <b>
-              II. {t('Bên nhận chuyển nhượng')}
-            </b>
+            <b>II. {t('Bên nhận chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên tổ chức')}</div>
-            <div className="col-8">
-              : {t('CTCP chứng khoán MB')}
-            </div>
+            <div className="col-8">: {t('CTCP chứng khoán MB')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Số ĐKKD')}</div>
-            <div className="col-8">: {t('116/GP-UBCK do UBCKNN cấp ngày 09/12/2013')}</div>
+            <div className="col-8">: {t('116/GP-UBCK do UBCKNN cấp 09/12/2013')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Địa chỉ')}</div>
@@ -79,7 +67,7 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Chức vụ')}</div>
             <div className="col-8">
-              : {t('Tổng Giám đốc')}.
+              : <b>{t('Tổng Giám đốc')}.</b>
             </div>
           </div>
           <p>

@@ -11,7 +11,9 @@ const Flow = props => {
   return (
     <Layout type={1} title="Xác thực giao dịch mua">
       <div className="buy-wrapper">
-        <h4 className="text-center mtitle text-uppercase">{t('Dòng tiền nhận được khi mua Trái phiếu')}</h4>
+        <h4 className="text-center mtitle text-uppercase">
+          {t('Dòng tiền nhận được khi mua Trái phiếu')}
+        </h4>
         <div className="row">
           <div className="col-12">
             <p className="mb-0">
@@ -36,32 +38,32 @@ const Flow = props => {
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termNoninvest)}%/{t('năm')}</span>
-
+                {t('Lãi suất đầu tư')}:{' '}
+                <span className="text-danger">
+                  {currency(props.info.termNoninvest)}%/{t('năm')}
+                </span>
               </strong>
             </p>
-            <table className="table table-bordered white-bg text-center table-responsive">
+            <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <th>{t('STT')}</th>
-                  <th>{t('Nội dung')}</th>
-                  <th>{t('Ngày thanh toán')}</th>
-                  <th>{t('Số tiền thực nhận dự kiến (VNĐ)')}</th>
+                  <td>{t('Nội dung')}</td>
+                  <td>{t('Ngày thanh toán')}</td>
+                  <td>{t('Số tiền thực nhận dự kiến (VNĐ)')}</td>
                 </tr>
               </thead>
               <tbody>
                 {_.map(props.flow.flowNonInvest, (item, index) => (
                   <tr>
-                    <td>{index}</td>
                     <td>{t(item.content)}</td>
                     <td>{item.payCouponDate}</td>
-                    <td>{currency(item.cashNonInvest)}</td>
+                    <td className="tar">{currency(item.cashNonInvest)}</td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan="3" className="text-primary">
+                  <td colSpan="2" className="text-primary">
                     <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
@@ -79,36 +81,37 @@ const Flow = props => {
             </div>
             <p className="mt-2 mb-2 text-primary">
               <strong>
-                {t('Lãi suất đầu tư')}: <span className="text-danger">{currency(props.info.termInvest)}
-                %/{t('năm')}</span>
+                {t('Lãi suất đầu tư')}:{' '}
+                <span className="text-danger">
+                  {currency(props.info.termInvest)}
+                  %/{t('năm')}
+                </span>
               </strong>
             </p>
-            <table className="table table-bordered white-bg text-center table-responsive">
+            <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <th>{t('STT')}</th>
-                  <th>{t('Số tiền coupon tái đầu từ (VNĐ)')}</th>
-                  <th>{t('Ngày đầu tư')}</th>
-                  <th>{t('Ngày kết thúc')}</th>
-                  <th>{t('LS tái đầu tư')}</th>
-                  <th>{t('Lãi tái đầu tư nhận được (VNĐ)')}</th>
+                  <td>{t('Số tiền coupon tái đầu từ (VNĐ)')}</td>
+                  <td>{t('Từ ngày')}</td>
+                  <td>{t('Đến ngày')}</td>
+                  <td>{t('LS tái đầu tư')}</td>
+                  <td>{t('Lãi tái đầu tư nhận được (VNĐ)')}</td>
                 </tr>
               </thead>
               <tbody>
                 {_.map(props.flow.flowInvest, (item, index) => (
                   <tr>
-                    <td>{index + 1}</td>
                     <td>{currency(item.cashNonInvest)}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{item.lastPayCouponDate}</td>
                     <td>{currency(item.reinvestmentRate)}</td>
-                    <td>{currency(item.cashInvest)}</td>
+                    <td className="tar">{currency(item.cashInvest)}</td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan="5" className="text-primary">
+                  <td colSpan="4" className="text-primary">
                     <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
