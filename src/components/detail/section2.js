@@ -88,7 +88,7 @@ class Section2 extends Component {
                 value={currency(this.props.price)}
               />
               <div className="input-group-append">
-                <div className="input-group-text text-primary">{t('VND')}</div>
+                <div className="input-group-text text-primary">{t('VNĐ')}</div>
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ class Section2 extends Component {
                 <b className="clb">{currency(this.props.params.volume * this.props.price)}</b>
               </span>
               <div className="flex-shrink-1 input-group-append">
-                <div className="input-group-text clb">{t('VND')}</div>
+                <div className="input-group-text clb">{t('VNĐ')}</div>
               </div>
             </div>
           </div>

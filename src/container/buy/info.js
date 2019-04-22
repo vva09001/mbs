@@ -9,16 +9,12 @@ const Info = ({ detail }) => {
   const { t } = useTranslation();
   return (
     <Layout type={1} title="Thông tin Trái phiếu">
-      <div className="bond-detail">
-        <h4 className="text-center mtitle text-uppercase">
-          <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" />
-          {t(`Thông tin về Trái phiếu đăng ký mua`)}
-        </h4>
-        <table className="table table-bordered bg-white">
+      <div className="bond-detail pdt10">
+        <table className="table table-bordered bg-white ">
           <tbody>
             <tr>
               <td width="50%">
-                <b>{t(`Tổ chức Phát hành`)}</b>
+                <b>{t(`Tổ chức phát hành`)}</b>
               </td>
               <td width="50%">{detail.issuerBond}</td>
             </tr>
@@ -30,10 +26,10 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Mệnh giá Trái phiếu`)}</b>
+                <b>{t(`Mệnh giá`)}</b>
               </td>
               <td>
-                {currency(detail.parValue)} {t(`VNĐ`)}/ {t(`Trái phiếu`)}
+                {currency(detail.parValue)} {t(`VNĐ`)}/ {t(`TP`)}
               </td>
             </tr>
             <tr>
@@ -46,7 +42,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Kỳ hạn Trái phiếu`)}</b>
+                <b>{t(`Kỳ hạn`)}</b>
               </td>
               <td>{detail.termBond}</td>
             </tr>
@@ -64,11 +60,11 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Lãi suất Trái phiếu`)}</b>
+                <b>{t(`Lãi suất`)}</b>
               </td>
               <td>
                 {t(`Lãi suất áp dụng cho`)} {detail.termFixCount}{' '}
-                {t(`kỳ tính lãi đầu tiên của Trái phiếu là`)} {currency(detail.interestFixRate)}{' '}
+                {t(`kỳ tính lãi đầu tiên của TP là`)} {currency(detail.interestFixRate)}{' '}
                 {t(`%/năm`)}.
                 {detail.interestFloatRange !== 0
                   ? t(
@@ -81,7 +77,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Ngày thanh toán Lãi`)}</b>
+                <b>{t(`Thanh toán lãi`)}</b>
               </td>
               <td>
                 {detail.couponPayment} {t(`tháng/lần`)}
@@ -103,7 +99,7 @@ const Info = ({ detail }) => {
               <td>
                 <b>{t(`Đại lý đăng ký và thanh toán`)}</b>
               </td>
-              <td>{t(`Công ty cổ phần Chứng khoán MB`)}</td>
+              <td>{t(`CTCP Chứng khoán MB`)}</td>
             </tr>
           </tbody>
         </table>

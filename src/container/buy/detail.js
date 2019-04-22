@@ -48,7 +48,7 @@ class Detail extends Component {
     this.props.buyInfoFetch(params);
   };
   nonInvertRender() {
-    const label = ['Nội dung', 'Ngày thanh toán', 'Tiền nhận (VND)'];
+    const label = ['Nội dung', 'Ngày thanh toán', 'Tiền nhận (VNĐ)'];
     const content = ['content', 'payCouponDate', 'cashNonInvest'];
     return (
       <Section4
@@ -66,10 +66,10 @@ class Detail extends Component {
   }
   invertRender() {
     const label = [
-      'Số tiền coupon tái đầu tư (VND)',
+      'Số tiền coupon tái đầu tư (VNĐ)',
       'Ngày đầu tư',
       'Ngày kết thúc đầu tư',
-      'Lãi tái đầu tư nhận được (VND)'
+      'Lãi tái đầu tư nhận được (VNĐ)'
     ];
     const content = ['cashNonInvest', 'payCouponDate', 'lastPayCouponDate', 'cashInvest'];
     return (

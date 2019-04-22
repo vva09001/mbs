@@ -13,7 +13,7 @@ const Term = () => {
         <div className="bg-white p-4 mt-3 rounded border border-secondary">
           <h3 className="mb-3">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU</h3>
           <p>
-            Khách hàng (KH) và Công ty Cổ phần Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu
+            Khách hàng (KH) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu
             theo các quy định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC
             ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU
           </p>
