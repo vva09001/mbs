@@ -52,7 +52,7 @@ const Flow = props => {
               <tbody>
                 {_.map(props.flow.flowNonInvest, (item, index) => (
                   <tr>
-                    <td>{index}</td>
+                    <td>{index + 1}</td>
                     <td>{t(item.content)}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{currency(item.cashNonInvest)}</td>
