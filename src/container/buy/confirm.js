@@ -78,23 +78,25 @@ class Confirm extends Component {
           <p>
             <b>II. {t('Bên nhận chuyển nhượng')}</b>
           </p>
-          <div className="row">
-            <div className="col-4">{t('Tên cá nhân')}</div>
-            <div className="col-8">
-              <b>: {contract.customerName}</b>
+          <div className="mtable">
+            <div className="row">
+              <div className="col-4">{t('Tên cá nhân')}</div>
+              <div className="col-8">
+                <b>: {contract.customerName}</b>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-4">{t('Số CMND/...')}</div>
-            <div className="col-8">: {contract.customerId}</div>
-          </div>
-          <div className="row">
-            <div className="col-4">{t('Ngày cấp')}</div>
-            <div className="col-8">: {contract.customerIddate}</div>
-          </div>
-          <div className="row">
-            <div className="col-4">{t('Nơi cấp')}</div>
-            <div className="col-8">: {contract.customerIdplace}</div>
+            <div className="row">
+              <div className="col-4">{t('Số CMND/...')}</div>
+              <div className="col-8">: {contract.customerId}</div>
+            </div>
+            <div className="row">
+              <div className="col-4">{t('Ngày cấp')}</div>
+              <div className="col-8">: {contract.customerIddate}</div>
+            </div>
+            <div className="row">
+              <div className="col-4">{t('Nơi cấp')}</div>
+              <div className="col-8">: {contract.customerIdplace}</div>
+            </div>
           </div>
           <p>
             <b>III. {t('Nội dung chuyển nhượng')}</b>
