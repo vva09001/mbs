@@ -66,97 +66,95 @@ class Order extends Component {
     const { info, bond, t } = this.props;
     return (
       <Layout type={2} title="Đăng ký bán">
-        <div className="bond-detail">
+        <div className="bond-detail sellorder">
           <div className="section">
             <div className="row">
-              <div className="col-12">
+              <div className="col-12 xmbs">
                 <h3>{info.bondCode}</h3>
               </div>
             </div>
           </div>
           <div className="pt-2">
-            <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">I. {t('Thông tin Trái phiếu sở hữu')}</label>
+            <div className="sum-field row">
+              <label className="col-12 mstit">I. {t('Thông tin Trái phiếu sở hữu')}</label>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày giao dịch mua')}:</label>
-              <div className="col-6">{info.buyDate}</div>
+            <div className="row">
+              <label className="col-6 ">{t('Ngày giao dịch mua')}:</label>
+              <div className="col-6 mdata">{info.buyDate}</div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày đáo hạn TP')}:</label>
-              <div className="col-6">{bond.maturityDate}</div>
+            <div className="row">
+              <label className="col-6 ">{t('Ngày đáo hạn TP')}:</label>
+              <div className="col-6 mdata">{bond.maturityDate}</div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Số lượng TP')}:</label>
-              <div className="col-6">
+            <div className="row">
+              <label className="col-6 ">{t('Số lượng TP')}:</label>
+              <div className="col-6 mdata">
                 {currency(info.buyVol)} {t('TP')}
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Đơn giá mua')}:</label>
-              <div className="col-6">
+            <div className="row">
+              <label className="col-6 ">{t('Đơn giá mua')}:</label>
+              <div className="col-6 mdata">
                 {currency(info.buyPrice)} {t('VNĐ')}
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Giá trị đầu tư')}:</label>
-              <div className="col-6">
+            <div className="row">
+              <label className="col-6 ">{t('Giá trị đầu tư')}:</label>
+              <div className="col-6 mdata">
                 {currency(info.buyValue)} {t('VNĐ')}
               </div>
             </div>
           </div>
           <div className="pb-2">
-            <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">
+            <div className="sum-field row">
+              <label className="col-12 mstit">
                 II. {t('Đề nghị giao dịch bán Trái phiếu')}
               </label>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày đề nghị bán')}:</label>
-              <div className="col-6">{FormatTime(this.state.date)}</div>
+            <div className="row">
+              <label className="col-6 ">{t('Ngày đề nghị bán')}:</label>
+              <div className="col-6 mdata">{FormatTime(this.state.date)}</div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày giao dịch bán')}:</label>
-              <div className="col-6">
+            <div className="row">
+              <label className="col-6 lh38">{t('Ngày giao dịch bán')}:</label>
+              <div className="col-6 mdata">
                 <div className="form-group">{this._sellDate()}</div>
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Đơn giá bán')}:</label>
-              <div className="col-6">
-                <strong>
+            <div className="row">
+              <label className="col-6 ">{t('Đơn giá bán')}:</label>
+              <div className="col-6 mdata">
                   {currency(info.sellPrice)} {t('VNĐ')}
-                </strong>
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Số lượng TP')}:</label>
-              <div className="col-6">{currency(info.sellVol)} {t('TP')}</div>
+            <div className="row">
+              <label className="col-6 ">{t('Số lượng TP')}:</label>
+              <div className="col-6 mdata">{currency(info.sellVol)} {t('TP')}</div>
             </div>
-            <div className="form-group sum-field row">
-              <label className="col-6 col-form-label">{t('TỔNG GIÁ TRỊ BÁN')}</label>
-              <label className="col-6 col-form-label">
+            <div className="sum-field row">
+              <label className="col-6 mspot">{t('TỔNG GIÁ TRỊ BÁN')}</label>
+              <label className="col-6 mdata mspot">
                 {currency(info.sellValue)} {t('VNĐ')}
               </label>
             </div>
-            <div className="form-group row fw13">
+            <div className="row fw13">
               <label className="col-6">
                 <i>{t('Tỷ lệ thuế TNCN (%)')}</i>
               </label>
-              <div className="col-6">
+              <div className="col-6 mdata">
                 <i>{currency(info.taxPit)}</i>
               </div>
               <label className="col-6">
                 <i>{t('Giá trị thuế TNCN')}</i>
               </label>
-              <div className="col-6">
+              <div className="col-6 mdata">
                 <i>
                   {currency(info.taxValue)} {t('VNĐ')}
                 </i>
               </div>
             </div>
             <div className="term-condition">
-              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" /><Link to="/sell/term">{t('Điều khoản và điều kiện đăng ký bán')}</Link>
+              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" /><Link to="/sell/term"><i>{t('Điều khoản & điều kiện đăng ký bán')}</i></Link>
             </div>
             <label className="form-check-label">
                 <i>
