@@ -84,10 +84,16 @@ select:focus {
 .form-group {
   margin-bottom: 10px;
 }
+.bond-detail {font-size: 14px}
+.mgb10 {margin-bottom: 10px}
 .mb-4,
 .clb {
-  color: #007ddd;
+  color: #005197;
 }
+.lh25 {line-height: 25px}
+.lh42 {line-height: 42px;
+  margin-bottom: 0;}
+.no-padding {padding: 0 !important;}
 .mheading {
   color: #263d60;
 }
@@ -264,7 +270,7 @@ body {
     color: #000 !important;
   }
   .text-info {
-    color: #007ddd !important;
+    color: #005197 !important;
   }
   .color-1,
   .text-danger {
@@ -653,7 +659,7 @@ body {
   .title {
     a,
     button {
-      color: #007ddd;
+      color: #005197;
       font-size: 18px;
       font-weight: bold;
     }

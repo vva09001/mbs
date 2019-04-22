@@ -71,14 +71,14 @@ class Section2 extends Component {
     }
     return (
       <div className="section-2">
-        <div className="form-group row">
-          <label className="col-5 col-form-label npdr">{t('Ngày giao dịch')}</label>
+        <div className=" row">
+          <label className="col-5  npdr">{t('Ngày giao dịch')}</label>
           <div className="col-7">
             <div className="tar">{this.props.date}</div>
           </div>
         </div>
-        <div className="form-group row">
-          <label className="col-5 col-form-label npdr">{t('Số lượng TP mua')}</label>
+        <div className=" row">
+          <label className="col-5  npdr lh42">{t('Số lượng TP mua')}</label>
           <div className="col-7 no-pading-right">
             <div className="input-group number-field">
               <span
@@ -101,20 +101,20 @@ class Section2 extends Component {
             </div>
           </div>
         </div>
-        <div className="form-group row">
-          <label className="col-5 col-form-label">{t('Giá đơn mua')}</label>
+        <div className=" row">
+          <label className="col-5 ">{t('Giá đơn mua')}</label>
           <div className="col-7">
-            <div className="input-group tar">
+            <div className="tar">
               <span>{currency(this.props.price)} {t('VNĐ')}</span>
             </div>
           </div>
         </div>
-        <div className="form-group row">
-          <label className="col-5 col-form-label clb npdr">
+        <div className=" row mgb10">
+          <div className="col-5  clb npdr lh25">
             <strong>{t('GIÁ TRỊ ĐẦU TƯ')}</strong>
-          </label>
+          </div>
           <div className="col-7">
-            <div className="input-group">
+            <div className="input-group no-padding">
               <span className="form-control text-primary">
                 <b className="clb">{currency(this.props.params.volume * this.props.price)}</b>
               </span>
