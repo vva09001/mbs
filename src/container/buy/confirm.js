@@ -5,7 +5,6 @@ import Layout from 'container/layout/layout';
 import { currency } from 'utils/currency';
 import buyActions from 'store/buy/actions';
 import { withTranslation } from 'react-i18next';
-import Popup from 'components/common/popup';
 import Loading from 'components/common/loading';
 
 class Confirm extends Component {
@@ -39,20 +38,6 @@ class Confirm extends Component {
     }
     return (
       <Layout type={1} title="Xác thực giao dịch mua">
-        {this.state.toggle.success && (
-          <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('success')}>
-            <span>
-              <i>{t('Quý khách đã đăng ký mua Trái phiếu thành công')}</i>
-            </span>
-          </Popup>
-        )}
-        {this.state.toggle.error && (
-          <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('error')}>
-            <span className="text-danger">
-              <i>{t('Quý khách đăng ký mua Trái phiếu không thành công')}</i>
-            </span>
-          </Popup>
-        )}
         <div className="bond-buy-comfirm">
           <h4 className="text-center mtitle uppc">
             {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}

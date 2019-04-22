@@ -39,12 +39,20 @@ class Order extends Component {
   };
   _onChange = e => {
     const value = e.target.value;
-    this.setState({
-      params: {
-        ...this.state.params,
-        sellDate: value
+    this.setState(
+      {
+        params: {
+          ...this.state.params,
+          sellDate: value
+        }
+      },
+      () => {
+        this.props.getInfo({
+          contractCode: this.props.info.buyContractCode,
+          sellDate: this.state.params.sellDate
+        });
       }
-    });
+    );
   };
   _onBook = () => {
     this.props.book(this.state.params);
@@ -197,6 +205,7 @@ Order.propTypes = {
   bond: PropTypes.object,
   sellDate: PropTypes.array,
   book: PropTypes.func,
+  getInfo: PropTypes.func,
   t: PropTypes.func
 };
 
