@@ -13,9 +13,9 @@ const Term = () => {
         <div className="bg-white p-4 mt-3 rounded border border-secondary">
           <h3 className="mb-3">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU</h3>
           <p>
-            Khách hàng (KH) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu
-            theo các quy định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC
-            ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU
+            Khách hàng (KH) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các quy
+            định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC ĐIỀU KHOẢN VÀ
+            ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU
           </p>
           <h4 className="mb-2">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</h4>
           <p>1.1 Trái Phiếu: Là trái phiếu được xác định tại Đăng Ký Bán Trái Phiếu.</p>
