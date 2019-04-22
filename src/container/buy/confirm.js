@@ -65,15 +65,11 @@ class Confirm extends Component {
           </p>
           <div className="row">
             <div className="col-4">{t('Tên tổ chức')}</div>
-            <div className="col-8">
-              : {t('CTCP chứng khoán MB')}
-            </div>
+            <div className="col-8">: {t('CTCP chứng khoán MB')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Số ĐKKD')}</div>
-            <div className="col-8">
-              : {t('116/GP-UBCK, UBCKNN cấp 09/12/2013')}
-            </div>
+            <div className="col-8">: {t('116/GP-UBCK, UBCKNN cấp 09/12/2013')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Địa chỉ')}</div>
@@ -91,13 +87,11 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Chức vụ')}</div>
             <div className="col-8">
-                : {t('Tổng Giám đốc')}.
+              : <b>{t('Tổng Giám đốc')}.</b>
             </div>
           </div>
           <p>
-            <b>
-              II. {t('Bên nhận chuyển nhượng')}
-            </b>
+            <b>II. {t('Bên nhận chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên cá nhân')}</div>
@@ -153,8 +147,7 @@ class Confirm extends Component {
           </div>
           <div className="fw13">
             <i>
-              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x{' '}
-              {currency(contract.taxPit)}
+              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x {currency(contract.taxPit)}
               %)
             </i>
           </div>

@@ -72,11 +72,16 @@ class Confirm extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Người đại diện')}</div>
-            <div className="col-4">
-              <b>: {t('Ông Trần Hải Hà')}</b>
+            <div className="col-4">{t('Đại diện')}</div>
+            <div className="col-8">
+              : {t('Ông')} {t('Trần Hải Hà')}
             </div>
-            <div className="col-4">{t('Chức vụ: Tổng giám đốc')}</div>
+          </div>
+          <div className="row">
+            <div className="col-4">{t('Chức vụ')}</div>
+            <div className="col-8">
+              : <b>{t('Tổng Giám đốc')}.</b>
+            </div>
           </div>
           <p>
             <b>III. {t('Nội dung chuyển nhượng')}</b>
@@ -117,8 +122,7 @@ class Confirm extends Component {
           </div>
           <p>
             <i>
-              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x{' '}
-              {currency(info.taxPit)}
+              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x {currency(info.taxPit)}
               %)
             </i>
           </p>
