@@ -7,6 +7,7 @@ import Layout from 'container/layout/layout';
 import Card from 'components/buy/card';
 import Loading from 'components/common/loading';
 import bondsActions from 'store/bonds/actions';
+import buyActions from 'store/buy/actions';
 
 class List extends Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class List extends Component {
       num: 40,
       page: 1
     });
+  }
+  _fetchDetail = params => {
+    this.props.bondsDetail(params);
+    this.props.buyFetch(params);
   }
   _bondsFetch = params => {
     this.setState(
@@ -39,7 +44,9 @@ class List extends Component {
     });
   };
   _showList = () => {
-    return _.map(this.props.bonds, item => <Card item={item} key={item.bondCode} />);
+    return _.map(this.props.bonds, item => (
+      <Card fetchDetail={this._fetchDetail} item={item} key={item.bondCode} />
+    ));
   };
   render() {
     return (
@@ -61,7 +68,9 @@ List.propTypes = {
   bonds: PropTypes.array,
   loading: PropTypes.bool,
   bondsFetch: PropTypes.func,
-  profile: PropTypes.object
+  profile: PropTypes.object,
+  buyFetch: PropTypes.func,
+  bondsDetail: PropTypes.func
 };
 
 const mapStateToProps = state => {
@@ -73,6 +82,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
+  bondsDetail: bondsActions.detail,
+  buyFetch: buyActions.getBuy,
   bondsFetch: bondsActions.list
 };
 

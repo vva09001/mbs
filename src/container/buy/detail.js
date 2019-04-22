@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
-import bondsActions from 'store/bonds/actions';
 import buyActions from 'store/buy/actions';
 import Popup from 'components/common/popup';
 import { Section1, Section3, Section4 } from 'components/detail/section';
@@ -21,14 +20,7 @@ class Detail extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.bondsDetail({
-      code: this.props.match.params.code
-    });
-    this.props.buyFetch({
-      code: this.props.match.params.code
-    });
-  }
+  componentDidMount() {}
 
   showPopup = type => {
     this.setState({
@@ -92,17 +84,17 @@ class Detail extends Component {
       <Layout type={1} path="/" title="Đăng ký mua">
         {this.state.toggle.popup && (
           <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('popup')}>
-            <p>
+            <p className="text-justify">
               <strong>{t('Coupon')}:</strong> Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu
               có)) do Tổ Chức Phát Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ
               theo quy định của Tổ Chức Phát Hành đối với Trái Phiếu.
             </p>
-            <p>
+            <p className="text-justify">
               <strong>{t('Tái đầu tư coupon')}:</strong> Là việc Khách Hàng tiếp tục đầu tư khoản
               coupon nhận được vào các hạng mục đầu tư khác trong thời gian nắm giữ Trái Phiếu (ví
               dụ gửi tiết kiệm….)
             </p>
-            <p>
+            <p className="text-justify">
               <strong>{t('Lãi suất đầu tư')}:</strong> Là lợi suất đầu tư Trái Phiếu Khách Hàng nhận
               được đã bao gồm tái đầu tư coupon (với giả định Khách Hàng tiếp tục đầu tư khoản
               coupon với lãi suất 7.2%/năm)
@@ -158,11 +150,9 @@ Detail.propTypes = {
   bondLoading: PropTypes.bool,
   buyLoading: PropTypes.bool,
   buyFlowLoading: PropTypes.bool,
-  bondsDetail: PropTypes.func,
   info: PropTypes.object,
   flow: PropTypes.object,
   flowCash: PropTypes.object,
-  buyFetch: PropTypes.func,
   setBuy: PropTypes.func,
   buyFlowFetch: PropTypes.func,
   buyInfoFetch: PropTypes.func,
@@ -189,8 +179,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  bondsDetail: bondsActions.detail,
-  buyFetch: buyActions.getBuy,
   buyFlowFetch: buyActions.getFlow,
   buyInfoFetch: buyActions.getInfo,
   update: buyActions.update,

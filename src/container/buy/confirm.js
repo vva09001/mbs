@@ -200,7 +200,8 @@ Confirm.propTypes = {
   getContract: PropTypes.func,
   approve: PropTypes.func,
   payment_link: PropTypes.string,
-  buyLoading: PropTypes.bool
+  buyLoading: PropTypes.bool,
+  t: PropTypes.func
 };
 
 const mapStateToProps = state => {
