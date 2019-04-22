@@ -78,6 +78,8 @@ class Confirm extends Component {
           <p>
             <b>II. {t('Bên nhận chuyển nhượng')}</b>
           </p>
+          <div className="mtable">
+
           <div className="row">
             <div className="col-4">{t('Tên cá nhân')}</div>
             <div className="col-8">
@@ -95,6 +97,7 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Nơi cấp')}</div>
             <div className="col-8">: {contract.customerIdplace}</div>
+          </div>
           </div>
           <p>
             <b>III. {t('Nội dung chuyển nhượng')}</b>
