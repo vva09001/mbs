@@ -15,7 +15,7 @@ class Order extends Component {
     this.state = {
       date: new Date(),
       toggle: {
-        checkbox: false
+        checkbox: true
       },
       params: {}
     };
@@ -168,7 +168,11 @@ class Order extends Component {
                   )}
                 </i>
               </strong>
-              <input type="checkbox" onChange={() => this._onCheckBox()} />
+              <input
+                type="checkbox"
+                onChange={() => this._onCheckBox()}
+                checked={this.state.toggle.checkbox}
+              />
               <span className="checkmark" />
             </label>
             <div className="row justify-content-center">

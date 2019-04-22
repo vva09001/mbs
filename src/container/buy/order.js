@@ -13,7 +13,7 @@ class Order extends Component {
     this.state = {
       date: new Date(),
       toggle: {
-        checkbox: false
+        checkbox: true
       }
     };
   }
@@ -114,7 +114,11 @@ class Order extends Component {
                 'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên.'
               )}
             </i>
-            <input type="checkbox" onChange={() => this.onCheckBox()} />
+            <input
+              type="checkbox"
+              onChange={() => this.onCheckBox()}
+              checked={this.state.toggle.checkbox}
+            />
             <span className="checkmark" />
           </label>
           <div className="row justify-content-center">
