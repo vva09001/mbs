@@ -115,9 +115,7 @@ class Order extends Component {
           </div>
           <div className="pb-2">
             <div className="sum-field row">
-              <label className="col-12 mstit">
-                II. {t('Đề nghị giao dịch bán Trái phiếu')}
-              </label>
+              <label className="col-12 mstit">II. {t('Đề nghị giao dịch bán Trái phiếu')}</label>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Ngày đề nghị bán')}:</label>
@@ -132,14 +130,15 @@ class Order extends Component {
             <div className="row">
               <label className="col-6 ">{t('Đơn giá bán')}:</label>
               <div className="col-6 mdata">
-                  {currency(info.sellPrice)} {t('VNĐ')}
+                {currency(info.sellPrice)} {t('VNĐ')}
               </div>
             </div>
 
             <div className="row">
               <label className="col-6 ">{t('Số lượng TP')}:</label>
-              <div className="col-6 mdata">{currency(info.sellVol)} {t('TP')}</div>
-
+              <div className="col-6 mdata">
+                {currency(info.sellVol)} {t('TP')}
+              </div>
             </div>
             <div className="sum-field row">
               <label className="col-6 mspot">{t('TỔNG GIÁ TRỊ BÁN')}</label>
@@ -164,14 +163,15 @@ class Order extends Component {
               </div>
             </div>
             <div className="term-condition">
-
-              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" /><Link to="/sell/term"><i>{t('Điều khoản & điều kiện đăng ký bán')}</i></Link>
-
+              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" />
+              <Link to="/sell/term">
+                <i>{t('Điều khoản & điều kiện đăng ký bán')}</i>
+              </Link>
             </div>
             <label className="form-check-label">
               <i>
                 {t(
-                    'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên. Và các văn kiện Trái phiếu liên quan.'
+                  'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên. Và các văn kiện Trái phiếu liên quan.'
                 )}
               </i>
               <input

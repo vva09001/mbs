@@ -58,10 +58,10 @@ class Detail extends Component {
   }
   invertRender() {
     const label = [
-        'Ngày đầu tư',
-        'Ngày kết thúc đầu tư',
-        'Số tiền coupon tái đầu tư (VNĐ)',
-        'Lãi tái đầu tư nhận được (VNĐ)'
+      'Ngày đầu tư',
+      'Ngày kết thúc đầu tư',
+      'Số tiền coupon tái đầu tư (VNĐ)',
+      'Lãi tái đầu tư nhận được (VNĐ)'
     ];
     const content = ['payCouponDate', 'lastPayCouponDate', 'cashNonInvest', 'cashInvest'];
     return (
