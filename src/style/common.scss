@@ -4,6 +4,8 @@ textarea:focus,
 select:focus {
   outline: none !important;
 }
+.popup-body {    max-height: 300px;
+  overflow: scroll;}
 .bg999 {
   background: #999;
 }
