@@ -88,6 +88,7 @@ class Section2 extends Component {
                 -
               </span>
               <input
+                  type="number"
                 className="number form-control bgmb"
                 value={this.props.params.volume}
                 onChange={e => this._onChangeAmount(e)}
