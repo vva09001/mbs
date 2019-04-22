@@ -8,6 +8,8 @@ import Header1 from 'components/common/header1';
 import Header2 from 'components/common/header2';
 import Header3 from 'components/common/header3';
 import Popup from 'components/common/popup';
+import history from 'utils/history';
+import PopupDone from 'components/common/popup-done';
 import Footer from 'components/common/footer';
 // actions
 import buyActions from 'store/buy/actions';
@@ -43,6 +45,38 @@ const Alert = (message, toggle) => (
 const Layout = props => {
   return (
     <Fragment>
+      {props.buyDone && (
+        <PopupDone
+          showClosePopup={() => {
+            props.buyClear();
+            history.push({ pathname: '/buy/' });
+          }}
+          showViewPopup={() => {
+            props.buyClear();
+            history.push({ pathname: '/user/' });
+          }}
+        >
+          <span>
+            <i>Quý khách đã đăng ký mua Trái phiếu thành công</i>
+          </span>
+        </PopupDone>
+      )}
+      {props.sellDone && (
+        <PopupDone
+          showClosePopup={() => {
+            props.sellClear();
+            history.push({ pathname: '/sell/' });
+          }}
+          showViewPopup={() => {
+            props.sellClear();
+            history.push({ pathname: '/user/' });
+          }}
+        >
+          <span>
+            <i>Quý khách đã đăng ký bán Trái phiếu thành công</i>
+          </span>
+        </PopupDone>
+      )}
       {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
       {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
       {props.authError.status && Alert(props.authError.message, props.authClear)}
@@ -70,6 +104,8 @@ Layout.propTypes = {
   authClear: PropTypes.func,
   accountError: PropTypes.object,
   accountClear: PropTypes.func,
+  buyDone: PropTypes.bool,
+  sellDone: PropTypes.bool,
   bondsError: PropTypes.object
 };
 
@@ -80,7 +116,9 @@ const mapStateToProps = state => {
     bondsError: state.Bonds.error,
     authError: state.Bonds.error,
     tradeError: state.Trade.error,
-    accountError: state.Account.error
+    accountError: state.Account.error,
+    buyDone: state.Buy.buy_done,
+    sellDone: state.Sell.sell_done
   };
 };
 

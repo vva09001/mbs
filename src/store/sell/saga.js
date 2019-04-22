@@ -150,10 +150,7 @@ export function* sellUpdateSaga() {
 
       // handle request
       if (res.data.result === 0 && res.data.data !== null) {
-        yield put({
-          type: actions.SELL_ERROR,
-          error: { message: 'Thành công', status: true }
-        });
+        yield put({ type: actions.SELL_DONE, sell_done: true });
         yield history.push({ pathname: '/' });
       } else {
         yield put({
@@ -169,6 +166,7 @@ export function* sellUpdateSaga() {
 }
 export function* clearSellErrorSaga() {
   yield takeEvery(actions.CLEAR_SELL_ERROR, function*() {
+    yield put({ type: actions.SELL_DONE, sell_done: false });
     yield put({ type: actions.SELL_ERROR, error: { message: '', status: false } });
   });
 }

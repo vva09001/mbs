@@ -263,10 +263,7 @@ export function* verifyBuySaga() {
       // handle request
       if (res.data.result === 0 && res.data.data !== null) {
         if (data.params.error_code === '00') {
-          yield put({
-            type: actions.BUY_ERROR,
-            error: { message: 'Thành công', status: true }
-          });
+          yield put({ type: actions.BUY_DONE, buy_done: true });
         } else {
           yield put({
             type: actions.BUY_ERROR,
@@ -289,6 +286,7 @@ export function* verifyBuySaga() {
 
 export function* clearBuyErrorSaga() {
   yield takeEvery(actions.CLEAR_BUY_ERROR, function*() {
+    yield put({ type: actions.BUY_DONE, buy_done: false });
     yield put({ type: actions.BUY_ERROR, error: { message: '', status: false } });
   });
 }

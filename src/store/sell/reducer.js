@@ -7,6 +7,7 @@ const initialState = {
   contract: {},
   book: {},
   loading: false,
+  sell_done: false,
   total: 0,
   error: {
     message: '',
@@ -28,6 +29,8 @@ const Sell = (state = initialState, action) => {
       return { ...state, date: action.date };
     case actions.SELL_BOOK:
       return { ...state, book: action.book };
+    case actions.SELL_DONE:
+      return { ...state, sell_done: action.sell_done };
     case actions.SELL_LOADING:
       return { ...state, loading: action.loading };
     case actions.SELL_ERROR:
