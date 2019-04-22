@@ -47,9 +47,9 @@ const Flow = props => {
             <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <th>{t('Nội dung')}</th>
-                  <th>{t('Ngày thanh toán')}</th>
-                  <th>{t('Số tiền thực nhận dự kiến (VNĐ)')}</th>
+                  <td>{t('Nội dung')}</td>
+                  <td>{t('Ngày thanh toán')}</td>
+                  <td>{t('Số tiền thực nhận dự kiến (VNĐ)')}</td>
                 </tr>
               </thead>
               <tbody>
@@ -91,11 +91,11 @@ const Flow = props => {
             <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <th>{t('Số tiền coupon tái đầu từ (VNĐ)')}</th>
-                  <th>{t('Từ ngày')}</th>
-                  <th>{t('Đến ngày')}</th>
-                  <th>{t('LS tái đầu tư')}</th>
-                  <th>{t('Lãi tái đầu tư nhận được (VNĐ)')}</th>
+                  <td>{t('Số tiền coupon tái đầu từ (VNĐ)')}</td>
+                  <td>{t('Từ ngày')}</td>
+                  <td>{t('Đến ngày')}</td>
+                  <td>{t('LS tái đầu tư')}</td>
+                  <td>{t('Lãi tái đầu tư nhận được (VNĐ)')}</td>
                 </tr>
               </thead>
               <tbody>
