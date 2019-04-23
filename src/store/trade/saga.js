@@ -166,8 +166,12 @@ export function* tradeUpdateSaga() {
       // handle request
       if (res.data.result === 0 && res.data.data !== null) {
         yield put({
-          type: actions.TRADE_ERROR,
-          error: { message: 'Sửa thành công', status: true }
+          type: actions.TRADE_DONE,
+          done: {
+            message:
+              'Quý khách đã sửa giao dịch bán TP thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch',
+            status: true
+          }
         });
         yield history.push({ pathname: '/trade/' });
       } else {
