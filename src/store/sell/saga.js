@@ -27,13 +27,15 @@ export function* sellListSaga() {
         yield put({ type: actions.SELL_TOTAL, total: res.data.data.totalValue });
         yield put({ type: actions.SELL_LIST, list: res.data.data.data });
       } else {
+        // Check if account is not connected
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
+        } else {
+          yield put({
+            type: actions.SELL_ERROR,
+            error: { message: Error[res.data.result], status: true }
+          });
         }
-        yield put({
-          type: actions.SELL_ERROR,
-          error: { message: Error[res.data.result], status: true }
-        });
       }
 
       yield put({ type: actions.SELL_LOADING, loading: false });

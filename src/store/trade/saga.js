@@ -27,11 +27,12 @@ export function* tradeListSaga() {
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
+        } else {
+          yield put({
+            type: actions.TRADE_ERROR,
+            error: { message: Error[res.data.result], status: true }
+          });
         }
-        yield put({
-          type: actions.TRADE_ERROR,
-          error: { message: Error[res.data.result], status: true }
-        });
       }
 
       yield put({ type: actions.TRADE_LOADING, loading: false });

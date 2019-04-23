@@ -15,6 +15,7 @@ export function* accountCheckLinkSaga() {
       const profile = yield select(accountProfile);
       const params = {
         ...data.params,
+        customerId: profile.customerId,
         mobile: profile.userId,
         userId: profile.userId,
         channel: profile.channel,
@@ -25,8 +26,8 @@ export function* accountCheckLinkSaga() {
 
       // handle request
       if (res.data.result === 0 && res.data.data !== null) {
-        yield put({ type: actions.LINK_STEP_DATA, data: params });
         yield put({ type: actions.LINK_STEP, step: 2 });
+        yield put({ type: actions.LINK_STEP_DATA, data: params });
       } else {
         yield put({
           type: actions.ACCOUNT_ERROR,
@@ -100,11 +101,12 @@ export function* accountBondsSaga() {
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
+        } else {
+          yield put({
+            type: actions.ACCOUNT_ERROR,
+            error: { message: Error[res.data.result], status: true }
+          });
         }
-        yield put({
-          type: actions.ACCOUNT_ERROR,
-          error: { message: Error[res.data.result], status: true }
-        });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });

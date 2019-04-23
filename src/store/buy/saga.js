@@ -176,13 +176,15 @@ export function* updateBuySaga() {
           yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
           yield history.push({ pathname: '/buy/order/' });
         } else {
+          // Check if account is not connected
           if (res.data.result === -1010) {
             yield history.push({ pathname: '/user/connect/' });
+          } else {
+            yield put({
+              type: actions.BUY_ERROR,
+              error: { message: Error[res.data.result], status: true }
+            });
           }
-          yield put({
-            type: actions.BUY_ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
         }
         yield put({ type: actions.BUY_LOADING, loading: false });
       }
