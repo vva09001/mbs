@@ -10,7 +10,7 @@ const Term = () => {
         <h4 className="text-center mtitle text-uppercase">
           {t('CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN KHI GIAO DỊCH MUA Trái phiếu')}
         </h4>
-        <div className="bg-white p-4 mt-3 rounded border border-secondary">
+        <div className="bg-white p-4 mt-3 rounded border">
           <p>
             Khách hàng (“KH”) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các
             quy định được nêu tại Các Điều khoản và Điều kiện mua Trái Phiếu sau đây:
