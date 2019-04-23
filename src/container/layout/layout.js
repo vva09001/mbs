@@ -66,7 +66,7 @@ const Layout = props => {
             <div className="wapper">
               {t('Chưa đăng nhập')}
               <div className="icon-noProduct">
-                <img src="/img/surprised.png" alt="logo" />
+                <img src="/img/iconfinder.svg" alt="logo" />
               </div>
             </div>
           </div>

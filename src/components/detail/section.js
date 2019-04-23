@@ -63,7 +63,7 @@ const Section3 = props => {
   }
   return (
     <Fragment>
-      <div className=" row align-items-center">
+      <div className=" row align-items-center pading-top">
         <label className="col-6 c">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right">
           <b>
