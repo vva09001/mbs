@@ -57,23 +57,21 @@ const Alert = (message, toggle) => (
 
 const Layout = props => {
   const { t } = useTranslation();
-  if (!props.disabledValidated) {
-    if (!props.isLoggedIn) {
-      return (
-        <Fragment>
-          {header(props)}
-          <div className="container-fluid min-vh-100 text-center">
-            <div className="wapper">
-              {t('Chưa đăng nhập')}
-              <div className="icon-noProduct">
-                <img src="/img/surprised.png" alt="logo" />
-              </div>
+  if (!props.isLoggedIn) {
+    return (
+      <Fragment>
+        {header(props)}
+        <div className="container-fluid min-vh-100 text-center">
+          <div className="wapper">
+            {t('Chưa đăng nhập')}
+            <div className="icon-noProduct">
+              <img src="/img/surprised.png" alt="logo" />
             </div>
           </div>
-          <Footer active={props.active} />
-        </Fragment>
-      );
-    }
+        </div>
+        <Footer active={props.active} />
+      </Fragment>
+    );
   }
   return (
     <Fragment>
@@ -96,7 +94,6 @@ Layout.propTypes = {
   onClick: PropTypes.func,
   isLoggedIn: PropTypes.bool,
   isLinked: PropTypes.bool,
-  disabledValidated: PropTypes.bool,
   buyError: PropTypes.object,
   buyClear: PropTypes.func,
   sellError: PropTypes.object,

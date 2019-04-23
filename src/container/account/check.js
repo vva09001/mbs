@@ -29,15 +29,6 @@ class Check extends Component {
     return (
       <form className="row justify-content-center">
         <div className="form-group col-12">
-          <label>{t('Số CMTND')}</label>
-          <input
-            onChange={e => this._onChange(e, 'customerId')}
-            type="text"
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="form-group col-12">
           <label>{t('Số TKCK')}</label>
           <input
             onChange={e => this._onChange(e, 'accountCode')}
