@@ -84,7 +84,7 @@ const Section3 = props => {
           <img
             onClick={() => props.showPopup('popup')}
             alt="popup-click"
-            src="/img/ic_info.svg"
+            src="/img/ic_info_16x16.svg"
             className="align-top ml-2 popup-click"
           />
         </label>
@@ -132,7 +132,7 @@ const Section4 = props => {
         <div className="col-12">
           <div
             onClick={() => onClick(refs)}
-            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click"
+            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center"
           >
             <div className="d-flex w-50 justify-content-between">{title}</div>
             <div className="w-50">

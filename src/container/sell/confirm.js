@@ -55,13 +55,13 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Địa chỉ')}</div>
             <div className="col-8">
-              : {t('Tầng M-3-7 Tòa nhà MB, Số 3 Liễu Giai - Ba Đình - Hà Nội')}
+              {t('Tầng M-3-7 Tòa nhà MB, Số 3 Liễu Giai - Ba Đình - Hà Nội')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Đại diện')}</div>
             <div className="col-8">
-              : {t('Ông')} {t('Trần Hải Hà')}
+              {t('Ông')} {t('Trần Hải Hà')}
             </div>
           </div>
           <div className="row">
