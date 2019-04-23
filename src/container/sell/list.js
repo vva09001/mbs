@@ -35,19 +35,19 @@ class List extends Component {
     return (
       <Layout type={2} title="Danh mục TP có thể bán">
         <div className="row sell-title">
-          <div className="col-6 no-pading-right no-pading-left">
-            <div className="text-center mt-3 mb-3">
-              {t('Tổng số lượng')}:{' '}
-              <div className="bold">
-                {this.props.bonds.length} {t('hợp đồng')}
-              </div>
-            </div>
-          </div>
-          <div className="col-6 no-pading-right no-pading-left">
+          <div className="col-7 no-pading-right no-pading-left">
             <div className="text-center mt-3 mb-3">
               {t('Tổng giá trị đầu tư')}: <br />
               <div className="bold">
                 {currency(this.props.total)} {t('VNĐ')}
+              </div>
+            </div>
+          </div>
+          <div className="col-5 no-pading-right no-pading-left">
+            <div className="text-center mt-3 mb-3">
+              {t('Tổng số lượng')}:{' '}
+              <div className="bold">
+                {this.props.bonds.length} {t('hợp đồng')}
               </div>
             </div>
           </div>

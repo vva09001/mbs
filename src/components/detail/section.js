@@ -40,7 +40,7 @@ const Section1 = props => {
               <span className="c">{t('Đang còn')}</span>
             </div>
             <div className="col-7 text-right no-pading-left">
-                <span className="xmbs c">{currency(props.item.roomBalance)}</span>
+              <span className="xmbs c">{currency(props.item.roomBalance)}</span>
               <span className="c"> {t('TP')}</span>
             </div>
           </div>
@@ -63,7 +63,7 @@ const Section3 = props => {
   }
   return (
     <Fragment>
-      <div className=" row align-items-center">
+      <div className=" row align-items-center pading-top">
         <label className="col-6 c">{t('Lãi suất đáo hạn')}</label>
         <div className="col-6 text-right">
           <b>

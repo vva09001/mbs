@@ -29,30 +29,39 @@ class List extends Component {
     const { t } = this.props;
     return (
       <Layout type={2} title="Trái phiếu nắm giữ" active="/user/">
-        <h3 className="text-center mt-3 mb-3">
-          {t('Tổng giá trị đầu tư')}:{' '}
-          <span className="mspot">
-            {currency(this.props.total)} {t('VNĐ')}
-          </span>
-        </h3>
-        <h3 className="text-center mt-3 mb-3">
-          {t('Tổng số lượng')}:{' '}
-          <span className="mspot">
-            {this.props.bonds.length} {t('Hợp đồng')}
-          </span>
-        </h3>
-        {_.map(this.props.bonds, (item, index) => (
-          <Card onDetail={this._onDetail} item={item} key={index} />
-        ))}
-        {this.props.bonds === null ||
-          (this.props.bonds.length === 0 && (
-            <div className="text-center wapper">
-              {t('Không có Trái phiếu nào')}
-              <div className="icon-noProduct">
-                <img src="/img/iconfinder.svg" alt="logo" />
+        <div className="row sell-title">
+          <div className="col-7 no-pading-right no-pading-left">
+            <div className="text-center mt-3 mb-3">
+              {t('Tổng giá trị đầu tư')}:{' '}
+              <div className="bold">
+                {currency(this.props.total)} {t('VNĐ')}
               </div>
             </div>
+          </div>
+          <div className="col-5 no-pading-right no-pading-left">
+            <div className="text-center mt-3 mb-3">
+              {t('Tổng số lượng')}:{' '}
+              <div className="bold">
+                {this.props.bonds.length} {t('Hợp đồng')}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div />
+        <div className="list-conatainer">
+          {_.map(this.props.bonds, (item, index) => (
+            <Card onDetail={this._onDetail} item={item} key={index} />
           ))}
+          {this.props.bonds === null ||
+            (this.props.bonds.length === 0 && (
+              <div className="text-center wapper">
+                {t('Không có Trái phiếu nào')}
+                <div className="icon-noProduct">
+                  <img src="/img/iconfinder.svg" alt="logo" />
+                </div>
+              </div>
+            ))}
+        </div>
       </Layout>
     );
   }

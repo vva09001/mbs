@@ -13,7 +13,7 @@ const card = props => {
         <li className="list-group-item title">
           <button
             onClick={() => props.onDetail(props.item.bondCode)}
-            className="btn-transparent text-truncate"
+            className="btn-transparent text-truncate btn-sell"
           >
             {props.item.bondCode}
           </button>
