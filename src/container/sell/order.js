@@ -163,7 +163,7 @@ class Order extends Component {
               </div>
             </div>
             <div className="term-condition">
-              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" />
+              <img alt="popup-click" src="/img/ic_info.svg" className="mr-2" />
               <Link to="/sell/term">
                 <i>{t('Điều khoản & điều kiện đăng ký bán')}</i>
               </Link>

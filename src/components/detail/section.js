@@ -84,7 +84,7 @@ const Section3 = props => {
           <img
             onClick={() => props.showPopup('popup')}
             alt="popup-click"
-            src="/img/popup-icon.png"
+            src="/img/ic_info.svg"
             className="align-top ml-2 popup-click"
           />
         </label>

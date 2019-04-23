@@ -97,17 +97,17 @@ class Order extends Component {
           </table>
           <div className="term-condition">
             <Link to="/buy/info">
-              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" />
+              <img alt="popup-click" src="/img/ic_info.svg" className="mr-2" />
               <i>{t('Thông tin Trái phiếu')}</i>
             </Link>
             <br />
             <Link to="/buy/term">
-              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" />
+              <img alt="popup-click" src="/img/ic_info.svg" className="mr-2" />
               <i>{t('Điều khoản & điều kiện đăng ký mua')}</i>
             </Link>
             <br />
             <Link to="/buy/flow">
-              <img alt="popup-click" src="/img/popup-icon.png" className="mr-2" />
+              <img alt="popup-click" src="/img/ic_info.svg" className="mr-2" />
               <i>{t('Chi tiết dòng tiền')}</i>
             </Link>
           </div>
