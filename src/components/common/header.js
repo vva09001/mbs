@@ -15,7 +15,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
       <div className="col-8 text-center">
         <h3 className="uppc">{t(title)}</h3>
       </div>
-      <div className="col-2 text-right">
+      <div className="col-2">
         <div className="dropdown">
           <button onClick={() => onToggle()} className="navbar-toggler filter" type="button">
             <Icon name="ic_filter" width="20" height="20" />
