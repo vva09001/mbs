@@ -25,7 +25,8 @@ class HomePage extends Component {
 }
 
 HomePage.propTypes = {
-  checkAuth: PropTypes.func
+  checkAuth: PropTypes.func,
+  match: PropTypes.object
 };
 
 const mapStateToProps = state => {

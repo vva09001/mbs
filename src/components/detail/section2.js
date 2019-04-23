@@ -88,7 +88,7 @@ class Section2 extends Component {
                 -
               </span>
               <input
-                  type="number"
+                type="number"
                 className="number form-control bgmb"
                 value={this.props.params.volume}
                 onChange={e => this._onChangeAmount(e)}
@@ -106,7 +106,9 @@ class Section2 extends Component {
           <label className="col-5 ">{t('Giá đơn mua')}</label>
           <div className="col-7">
             <div className="tar">
-              <span>{currency(this.props.price)} {t('VNĐ')}</span>
+              <span>
+                {currency(this.props.price)} {t('VNĐ')}
+              </span>
             </div>
           </div>
         </div>

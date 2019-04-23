@@ -45,7 +45,6 @@ const Alert = (message, toggle) => (
 const Layout = props => {
   return (
     <Fragment>
-
       {props.buyDone.status && (
         <PopupDone
           showClosePopup={() => {

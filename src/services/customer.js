@@ -1,5 +1,4 @@
-import request from 'utils/request';
-
+import request from 'utils/request'
 
 const buyFlow = (params, token) => {
   return request({
@@ -11,4 +10,4 @@ const buyFlow = (params, token) => {
     params: params
   });
 };
-export { info, buyFlow };
+export { buyFlow };

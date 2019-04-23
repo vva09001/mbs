@@ -40,7 +40,9 @@ const Flow = props => {
               <strong>
                 {t('Lãi suất đầu tư')}:{' '}
                 <span className="text-danger">
-                  {currency(props.info.termNoninvest)}%/{t('năm')}
+                  {currency(props.info.termNoninvest)}
+                  %/
+                  {t('năm')}
                 </span>
               </strong>
             </p>
@@ -54,7 +56,7 @@ const Flow = props => {
               </thead>
               <tbody>
                 {_.map(props.flow.flowNonInvest, (item, index) => (
-                  <tr>
+                  <tr key={index}>
                     <td>{t(item.content)}</td>
                     <td>{item.payCouponDate}</td>
                     <td className="tar">{currency(item.cashNonInvest)}</td>
@@ -84,7 +86,8 @@ const Flow = props => {
                 {t('Lãi suất đầu tư')}:{' '}
                 <span className="text-danger">
                   {currency(props.info.termInvest)}
-                  %/{t('năm')}
+                  %/
+                  {t('năm')}
                 </span>
               </strong>
             </p>
@@ -100,7 +103,7 @@ const Flow = props => {
               </thead>
               <tbody>
                 {_.map(props.flow.flowInvest, (item, index) => (
-                  <tr>
+                  <tr key={index}>
                     <td>{currency(item.cashNonInvest)}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{item.lastPayCouponDate}</td>
@@ -128,7 +131,10 @@ const Flow = props => {
 };
 
 Flow.propTypes = {
-  flow: PropTypes.array
+  flow: PropTypes.array,
+  flowCash: PropTypes.object,
+  info: PropTypes.object,
+  t: PropTypes.func
 };
 
 const mapStateToProps = state => {
