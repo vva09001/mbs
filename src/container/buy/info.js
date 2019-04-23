@@ -10,7 +10,7 @@ const Info = ({ detail }) => {
   return (
     <Layout type={1} title="Thông tin Trái phiếu">
       <div className="bond-detail pdt10">
-        <table className="table bg-white ">
+        <table className="table table-striped table-responsive">
           <tbody>
             <tr>
               <td width="50%">

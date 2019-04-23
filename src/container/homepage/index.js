@@ -22,12 +22,7 @@ class HomePage extends Component {
         <div className="row">
           <div className="col-12 text-center">
             <h6 className="text-primary mt-3 mb-3">
-              <img
-                alt="logo"
-                src="/img/logo.png"
-                srcSet="/img/logo.png 2x, /img/logo.png 1x"
-                className="mr-2"
-              />
+              <img alt="logo" src="/img/logo_MBS.svg" className="mr-2 logoMBS" />
               {t('CTCP Chứng khoán MB')}
             </h6>
           </div>
@@ -37,14 +32,20 @@ class HomePage extends Component {
             <div className="col-12 btn btn-transparent h6 text-primary">
               <div className="button-buy">
                 <Link to="/buy/">
-                  <img src="/img/btnBUY.svg" alt="buy" />
+                  <img src="/img/ic_buy.svg" alt="buy" />
+                  <div className="text-buy">
+                    <h3>{t('MUA TRÁI PHIẾU')}</h3>
+                  </div>
                 </Link>
               </div>
             </div>
             <div className="col-12 btn btn-transparent h6 text-primary">
               <div className="button-sell">
                 <Link to="/sell/">
-                  <img src="/img/btnSELL.svg" alt="sell" />
+                  <img src="/img/ic_sale.svg" alt="sell" />
+                  <div className="text-sell">
+                    <h3>{t('BÁN TRÁI PHIẾU')}</h3>
+                  </div>
                 </Link>
               </div>
             </div>

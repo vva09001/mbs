@@ -133,7 +133,7 @@ select:focus {
 .table td,
 .table th {
   font-size: 14px;
-  padding: 0.50rem;
+  padding: 0.5rem;
 }
 .bgg {
   background: grey;
@@ -401,19 +401,6 @@ body {
     }
   }
 
-  .sum-field {
-    color: #005197 !important;
-    font-weight: bold;
-
-    input {
-      color: #005197 !important;
-    }
-
-    .input-group-text {
-      color: #005197 !important;
-    }
-  }
-
   .btn-light {
     width: 28px;
     height: 28px;
@@ -434,11 +421,14 @@ body {
     background: linear-gradient(to right, #0092c8, #005496);
     height: 48px;
     font-size: 18px;
+    width: 150px;
   }
   .btn-danger {
     background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
     font-size: 18px;
+    width: 150px;
+    margin: auto;
   }
   .button-trade {
     color: #fff;
@@ -524,7 +514,7 @@ body {
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 18px;
     margin: 0;
     font-weight: normal;
   }
@@ -716,9 +706,32 @@ body {
 }
 .button-buy {
   margin-top: 25% !important;
+  img {
+    width: 20%;
+  }
+  .text-buy {
+    font-size: 15px !important;
+    padding-top: 10px;
+    color: #000;
+    font-weight: bold;
+    h3 {
+      font-size: 15px !important;
+    }
+  }
 }
 .button-sell {
   margin-top: 10% !important;
+  img {
+    width: 20%;
+  }
+  .text-sell {
+    padding-top: 10px;
+    color: #000;
+    font-weight: bold;
+    h3 {
+      font-size: 15px !important;
+    }
+  }
 }
 .dropdown-menu {
   padding-top: 0px;
@@ -792,4 +805,53 @@ body {
 }
 .list-conatainer {
   padding-top: 75px;
+}
+.bond-detail-edit {
+  h3 {
+    color: #0052cc;
+  }
+  .sum-field {
+    color: #0052cc !important;
+    font-weight: bold;
+
+    input {
+      color: #0052cc !important;
+    }
+
+    .input-group-text {
+      color: #0052cc !important;
+    }
+  }
+}
+.bond-detail-cancel {
+  h3 {
+    color: #e60000;
+  }
+  .date {
+    color: #e60000;
+    font-weight: bold;
+  }
+  .col-12 {
+    color: #e60000;
+  }
+  .sum-field {
+    color: #e60000 !important;
+    font-weight: bold;
+    input {
+      color: #e60000 !important;
+    }
+
+    .input-group-text {
+      color: #e60000 !important;
+    }
+  }
+}
+.logoMBS {
+  width: 30%;
+}
+.ic_popup {
+  width: 15%;
+}
+.link-sell {
+  width: 40%;
 }
