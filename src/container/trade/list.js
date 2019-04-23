@@ -43,7 +43,7 @@ class List extends Component {
                       contractCode: item.sellContractCode
                     })
                   }
-                  className="button-trade rounded-pill border-0 btn-lg btn-block mr-2"
+                  className="button-delete rounded-pill border-0 btn-lg btn-block mr-2"
                 >
                   {t('HUỶ')}
                 </button>
@@ -67,7 +67,7 @@ class List extends Component {
             <div className="text-center wapper">
               {t('Không có Trái phiếu nào')}
               <div className="icon-noProduct">
-                <img src="/img/surprised.png" alt="logo" />
+                <img src="/img/iconfinder.svg" alt="logo" />
               </div>
             </div>
           ))}

@@ -26,31 +26,31 @@ class Confirm extends Component {
             <b>I. {t('Bên chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-4">{t('Tên cá nhân')}</div>
-            <div className="col-8">: {info.customerName}</div>
+            <div className="col-4 npdr">{t('Tên cá nhân')}</div>
+            <div className="col-8">{info.customerName}</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Số CMND/...')}</div>
-            <div className="col-8">: {info.customerId}</div>
+            <div className="col-4 npdr">{t('Số CMND/...')}</div>
+            <div className="col-8">{info.customerId}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Nơi cấp')}</div>
-            <div className="col-8">: {info.customerIdplace}</div>
+            <div className="col-8">{info.customerIdplace}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Ngày cấp')}</div>
-            <div className="col-8">: {info.customerIddate}</div>
+            <div className="col-8">{info.customerIddate}</div>
           </div>
           <p>
             <b>II. {t('Bên nhận chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên tổ chức')}</div>
-            <div className="col-8">: {t('CTCP chứng khoán MB')}</div>
+            <div className="col-8">{t('CTCP chứng khoán MB')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Số ĐKKD')}</div>
-            <div className="col-8">: {t('116/GP-UBCK do UBCKNN cấp 09/12/2013')}</div>
+            <div className="col-8">{t('116/GP-UBCK do UBCKNN cấp 09/12/2013')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Địa chỉ')}</div>
@@ -66,7 +66,7 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-4">{t('Chức vụ')}</div>
-            <div className="col-8">: {t('Tổng Giám đốc')}</div>
+            <div className="col-8">{t('Tổng Giám đốc')}</div>
           </div>
           <p>
             <b>III. {t('Nội dung chuyển nhượng')}</b>
@@ -74,35 +74,35 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Số lượng')}</div>
             <div className="col-8">
-              : {currency(info.sellVol)} {t('Trái phiếu')}
+              {currency(info.sellVol)} {t('Trái phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Mệnh giá')}</div>
             <div className="col-8">
-              : {currency(bond.parValue)} {t('VNĐ/Trái phiếu')}
+              {currency(bond.parValue)} {t('VNĐ/Trái phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Giá')}</div>
             <div className="col-8">
-              : {currency(info.sellPrice)} {t('VNĐ/Trái phiếu')}
+              {currency(info.sellPrice)} {t('VNĐ/Trái phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Tổng giá trị')}</div>
             <div className="col-8">
-              : {currency(info.sellValue)} {t('VNĐ')}
+              {currency(info.sellValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Phí')}</div>
-            <div className="col-8">: 0 {t('VNĐ')}</div>
+            <div className="col-8">0{t('VNĐ')}</div>
           </div>
           <div className="row">
             <div className="col-4">{t('Thuế TNCN')}</div>
             <div className="col-8">
-              : {currency(info.taxValue)} {t('VNĐ')}
+              {currency(info.taxValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="fw13">

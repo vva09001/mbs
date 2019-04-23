@@ -14,7 +14,7 @@ const card = props => {
         <li className="list-group-item title">
           <button
             onClick={() => props.onDetail(props.item.bondCode)}
-            className="btn-transparent text-truncate"
+            className="btn-transparent text-truncate btn-sell"
           >
             {props.item.bondCode}
           </button>
@@ -49,8 +49,7 @@ const card = props => {
           {t('Lãi suất đầu tư')}
           <p className="float-right">
             <span className="quatity quatity-text">{currency(props.item.termRate)}</span>
-            %/
-            {t('năm')}
+            <span className="quatity"> {t('%/năm')}</span>
           </p>
         </li>
         {props.children}

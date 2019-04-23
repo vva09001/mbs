@@ -9,8 +9,12 @@ select:focus {
   overflow: scroll;
   font-size: 14px;
 }
-.npdr {padding-right: 0}
-.bond-detail .section-2 {font-size: 14px}
+.npdr {
+  padding-right: 0;
+}
+.bond-detail .section-2 {
+  font-size: 14px;
+}
 .number.form-control.bgmb {
   color: #fff;
   font-weight: bold;
@@ -64,10 +68,6 @@ select:focus {
 .lh38 {
   line-height: 38px;
 }
-.container-fluid {
-  padding-right: 5px;
-  padding-left: 5px;
-}
 .fw13 {
   font-size: 13px;
   line-height: 18px;
@@ -84,16 +84,26 @@ select:focus {
 .form-group {
   margin-bottom: 10px;
 }
-.bond-detail {font-size: 14px}
-.mgb10 {margin-bottom: 10px}
+.bond-detail {
+  font-size: 14px;
+}
+.mgb10 {
+  margin-bottom: 10px;
+}
 .mb-4,
 .clb {
   color: #005197;
 }
-.lh25 {line-height: 25px}
-.lh42 {line-height: 42px;
-  margin-bottom: 0;}
-.no-padding {padding: 0 !important;}
+.lh25 {
+  line-height: 25px;
+}
+.lh42 {
+  line-height: 42px;
+  margin-bottom: 0;
+}
+.no-padding {
+  padding: 0 !important;
+}
 .mheading {
   color: #263d60;
 }
@@ -104,7 +114,7 @@ select:focus {
   padding-top: 10px;
 }
 .mspot {
-  color: #ff3b30;
+  color: #e60000;
 }
 .buy-wrapper {
   background: #fff;
@@ -117,10 +127,13 @@ select:focus {
   font-weight: bold;
   padding: 10px;
 }
+.pading-top {
+  padding-top: 15px;
+}
 .table td,
 .table th {
   font-size: 14px;
-  padding: 0.25rem;
+  padding: 0.50rem;
 }
 .bgg {
   background: grey;
@@ -226,8 +239,10 @@ body {
 
   .container-fluid {
     max-width: 750px;
-    padding-top: 65px;
+    padding-top: 60px;
     padding-bottom: 59px;
+    padding-right: 5px;
+    padding-left: 5px;
   }
 
   .white-bg {
@@ -318,6 +333,7 @@ body {
     padding: 10px;
     background-color: #fff;
     margin-bottom: 30px;
+    text-align: justify;
     p {
       margin-top: 0px;
       &:last-child {
@@ -427,6 +443,12 @@ body {
   .button-trade {
     color: #fff;
     background: linear-gradient(to right, #0092c8, #005496);
+    height: 35px;
+    font-size: 15px;
+  }
+  .button-delete {
+    color: #fff;
+    background: linear-gradient(to right, #de7868, #d71920);
     height: 35px;
     font-size: 15px;
   }
@@ -648,7 +670,7 @@ body {
       font-weight: bold;
 
       .quatity {
-        color: #ff3b30;
+        color: #e60000;
       }
     }
     .quatity-text {
@@ -659,7 +681,7 @@ body {
   .title {
     a,
     button {
-      color: #005197;
+      color: #0052cc;
       font-size: 18px;
       font-weight: bold;
     }
@@ -679,8 +701,11 @@ body {
         padding: 0;
       }
       svg {
-        fill: #ff3b30;
+        fill: #e60000;
       }
+    }
+    .btn-sell {
+      color: #e60000;
     }
   }
   .btn-primary {
@@ -723,10 +748,13 @@ body {
 }
 .wapper {
   padding-top: 40%;
+  padding-top: 40%;
+  background-color: #fff;
+  height: 100vh;
   .icon-noProduct {
     img {
-      width: 25%;
-      padding-top: 10%;
+      width: 40%;
+      padding-top: 5%;
     }
   }
 }
@@ -747,4 +775,21 @@ body {
   button {
     margin: 2px auto;
   }
+}
+.sell-title {
+  background-color: #fff;
+  top: 56px;
+  margin-left: 0px;
+  margin-right: 8px;
+  position: fixed;
+  z-index: 99;
+  width: 97%;
+  text-align: left;
+  font-size: 14px;
+  .bold {
+    font-weight: bold;
+  }
+}
+.list-conatainer {
+  padding-top: 75px;
 }
