@@ -69,11 +69,14 @@ const Layout = props => {
           }}
           showViewPopup={() => {
             props.sellClear();
-            history.push({ pathname: '/user/' });
+            history.push({ pathname: '/trade/' });
           }}
         >
           <span>
-            <i>Quý khách đã đăng ký bán Trái phiếu thành công</i>
+            <i>
+              Quý khách đã đăng ký bán TP thành công. Chi tiết giao dịch tại màn hình Danh mục "Quản
+              lý giao dịch"
+            </i>
           </span>
         </PopupDone>
       )}

@@ -34,6 +34,10 @@ const card = props => {
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
+          {t('Ngày đáo hạn dự kiến')}
+          <span className="float-right">{props.item.maturityDate}</span>
+        </li>
+        <li className="list-group-item">
           {t('Số lượng sở hữu')}
           <p className="float-right">
             <span className="quatity">{currency(props.item.buyVol)}</span>
