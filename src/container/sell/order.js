@@ -191,7 +191,7 @@ class Order extends Component {
               className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
               disabled={!this.state.toggle.checkbox}
             >
-              {t('ĐẶT LỆNH BÁN')}
+              {t('BÁN')}
             </button>
           </div>
         </div>

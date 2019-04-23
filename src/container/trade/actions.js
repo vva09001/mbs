@@ -60,7 +60,13 @@ class Actions extends Component {
         type={2}
         title={this.state.type === 'edit' ? t('Sửa giao dịch bán') : t('Bán Trái phiếu')}
       >
-        <div className="bond-detail">
+        <div
+          className={
+            this.state.type === 'edit'
+              ? t('bond-detail bond-detail-edit')
+              : t('bond-detail bond-detail-cancel')
+          }
+        >
           <div className="section">
             <div className="row">
               <div className="col-12">
@@ -70,30 +76,30 @@ class Actions extends Component {
           </div>
           <div className="pt-2">
             <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">I. {t('Thông tin Trái phiếu sở hữu')}</label>
+              <div className="col-12 col-form-div">I. {t('Thông tin Trái phiếu sở hữu')}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày giao dịch')}:</label>
+              <div className="col-6 col-form-div">{t('Ngày giao dịch')}:</div>
               <div className="col-6">{detail.buyDate}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày đáo hạn TP')}:</label>
+              <div className="col-6 col-form-div">{t('Ngày đáo hạn TP')}:</div>
               <div className="col-6">{detail.maturityDate}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Số lượng Trái phiếu sở hữu')}:</label>
+              <div className="col-6  npdr">{t('Số lượng TP sở hữu')}:</div>
               <div className="col-6">
                 {currency(detail.buyVol)} {t('Trái phiếu')}
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Đơn giá mua')}:</label>
+              <div className="col-6 col-form-div">{t('Đơn giá mua')}:</div>
               <div className="col-6">
                 {currency(detail.buyPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Giá trị đầu tư')}:</label>
+              <div className="col-6 col-form-div">{t('Giá trị đầu tư')}:</div>
               <div className="col-6">
                 {currency(detail.buyValue)} {t('VNĐ')}
               </div>
@@ -101,52 +107,50 @@ class Actions extends Component {
           </div>
           <div className="pb-2">
             <div className="form-group sum-field row">
-              <label className="col-12 col-form-label">
-                II. {t('Đề nghị giao dịch bán Trái phiếu')}
-              </label>
+              <div className="col-12 col-form-div">II. {t('Đề nghị giao dịch bán Trái phiếu')}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày đề nghị bán')}:</label>
+              <div className="col-6 col-form-div">{t('Ngày đề nghị bán')}:</div>
               <div className="col-6">{FormatTime(this.state.date)}</div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Ngày giao dịch bán')}:</label>
+              <div className="col-6 col-form-div">{t('Ngày giao dịch bán')}:</div>
               <div className="col-6">
-                {this.state.type === 'edit' ? this._sellDate() : detail.sellDate}
+                <p className=" date">
+                  {this.state.type === 'edit' ? this._sellDate() : detail.sellDate}
+                </p>
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Đơn giá bán')}:</label>
+              <div className="col-6 col-form-div">{t('Đơn giá bán')}:</div>
               <div className="col-6">
-                <strong>
-                  {currency(detail.sellPrice)} {t('VNĐ')}
-                </strong>
+                {currency(detail.sellPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">{t('Số lượng Trái phiếu')}:</label>
+              <div className="col-6 col-form-div">{t('Số lượng Trái phiếu')}:</div>
               <div className="col-6">
                 {currency(detail.sellVol)} {t('Trái phiếu')}
               </div>
             </div>
             <div className="form-group sum-field row">
-              <label className="col-6 col-form-label">{t('Tổng giá trị bán')}</label>
-              <label className="col-6 col-form-label">
+              <div className="col-6 col-form-div">{t('Tổng giá trị bán')}</div>
+              <div className="col-6 col-form-div">
                 {currency(detail.sellValue)} {t('VNĐ')}
-              </label>
+              </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">
+              <div className="col-6 col-form-div">
                 <i>{t('Tỷ lệ thuế TNCN (%)')}</i>
-              </label>
+              </div>
               <div className="col-6">
                 <i>{currency(detail.taxPit)}%</i>
               </div>
             </div>
             <div className="form-group row">
-              <label className="col-6 col-form-label">
+              <div className="col-6 col-form-div">
                 <i>{t('Giá trị thuế TNCN')}</i>
-              </label>
+              </div>
               <div className="col-6">
                 <i>
                   {currency(detail.taxValue)} {t('VNĐ')}
@@ -160,7 +164,11 @@ class Actions extends Component {
             <button
               type="button"
               onClick={() => this._onClick()}
-              className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
+              className={
+                this.state.type === 'edit'
+                  ? 'btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block'
+                  : 'btn btn-danger bg-gradient-primary rounded-pill border-0 btn-lg btn-block'
+              }
             >
               {this.state.type === 'edit' ? t('SỬA BÁN') : t('HUỶ BÁN')}
             </button>

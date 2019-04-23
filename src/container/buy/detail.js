@@ -136,7 +136,7 @@ class Detail extends Component {
               onClick={() => this._setBuy()}
               className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
             >
-              {t('ĐẶT LỆNH MUA')}
+              {t('MUA')}
             </button>
           </div>
         </div>
