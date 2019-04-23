@@ -94,11 +94,11 @@ const Flow = props => {
             <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <td>{t('Số tiền coupon tái đầu từ (VNĐ)')}</td>
+                  <td>{t('Tiền coupon tái đầu từ (VNĐ)')}</td>
                   <td>{t('Từ ngày')}</td>
                   <td>{t('Đến ngày')}</td>
                   <td>{t('LS tái đầu tư')}</td>
-                  <td>{t('Lãi tái đầu tư nhận được (VNĐ)')}</td>
+                  <td>{t('Lãi tái đầu tư nhận (VNĐ)')}</td>
                 </tr>
               </thead>
               <tbody>

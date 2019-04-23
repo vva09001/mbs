@@ -133,9 +133,9 @@ class Actions extends Component {
                 {currency(detail.sellVol)} {t('Trái phiếu')}
               </div>
             </div>
-            <div className="form-group sum-field row">
+            <div className="form-group row">
               <div className="col-6 col-form-div">{t('Tổng giá trị bán')}</div>
-              <div className="col-6 col-form-div">
+              <div className="col-6 col-form-div text-blod">
                 {currency(detail.sellValue)} {t('VNĐ')}
               </div>
             </div>

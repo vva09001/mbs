@@ -17,7 +17,7 @@ const card = props => {
           >
             {props.item.bondCode}
           </button>
-          <span className="link">
+          <span className="linkSell">
             <button onClick={() => props.onDetail(props.item.bondCode)}>
               <Icon name="arrow" width="18" height="24" />
             </button>
@@ -28,7 +28,7 @@ const card = props => {
           <span className="float-right">{props.item.buyDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Ngày đáo hạn')}
+          {t('Ngày đáo hạn TP')}
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
@@ -40,7 +40,8 @@ const card = props => {
         <li className="list-group-item">
           {t('Giá trị đầu tư')}
           <p className="float-right">
-            <span className="quatity">{currency(props.item.buyValue)}</span> {t('VNĐ')}
+            <span className="quatity">{currency(props.item.buyValue)}</span>
+            <span className="quatity"> {t('VNĐ')} </span>
           </p>
         </li>
         <li className="list-group-item">

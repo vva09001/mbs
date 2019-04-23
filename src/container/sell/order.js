@@ -142,7 +142,7 @@ class Order extends Component {
             </div>
             <div className="sum-field row">
               <label className="col-6 mspot">{t('TỔNG GIÁ TRỊ BÁN')}</label>
-              <label className="col-6 mdata mspot">
+              <label className="col-6 mdata mspot text-bold">
                 {currency(info.sellValue)} {t('VNĐ')}
               </label>
             </div>
