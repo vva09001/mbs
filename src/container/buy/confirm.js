@@ -158,7 +158,7 @@ class Confirm extends Component {
           </div>
         </div>
         <div className="button-fixed">
-          <div className="wapper-button button-comfirm">
+          <div className="wapper-button button-comfirm link-sell">
             <a
               href={this.props.payment_link}
               className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"

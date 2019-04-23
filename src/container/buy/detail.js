@@ -44,7 +44,7 @@ class Detail extends Component {
     const content = ['content', 'payCouponDate', 'cashNonInvest'];
     return (
       <Section4
-        title="Chưa bao gồm tái đầu tư coupon:"
+        title="Coupon TP, Tiền nhận cuối kỳ:"
         status={this.state.toggle.table1}
         refs="table1"
         onClick={this.showPopup}

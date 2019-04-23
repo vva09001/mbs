@@ -706,9 +706,32 @@ body {
 }
 .button-buy {
   margin-top: 25% !important;
+  img {
+    width: 20%;
+  }
+  .text-buy {
+    font-size: 15px !important;
+    padding-top: 10px;
+    color: #000;
+    font-weight: bold;
+    h3 {
+      font-size: 15px !important;
+    }
+  }
 }
 .button-sell {
   margin-top: 10% !important;
+  img {
+    width: 20%;
+  }
+  .text-sell {
+    padding-top: 10px;
+    color: #000;
+    font-weight: bold;
+    h3 {
+      font-size: 15px !important;
+    }
+  }
 }
 .dropdown-menu {
   padding-top: 0px;
@@ -822,4 +845,13 @@ body {
       color: #e60000 !important;
     }
   }
+}
+.logoMBS {
+  width: 30%;
+}
+.ic_popup {
+  width: 15%;
+}
+.link-sell {
+  width: 40%;
 }
