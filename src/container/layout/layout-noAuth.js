@@ -45,7 +45,7 @@ const Alert = (message, toggle) => (
 const Layout = props => {
   return (
     <Fragment>
-      {props.buyDone && (
+      {props.buyDone.status && (
         <PopupDone
           showClosePopup={() => {
             props.buyClear();
@@ -57,11 +57,11 @@ const Layout = props => {
           }}
         >
           <span>
-            <i>Quý khách đã đăng ký mua Trái phiếu thành công</i>
+            <i>{props.buyDone.message}</i>
           </span>
         </PopupDone>
       )}
-      {props.sellDone && (
+      {props.sellDone.status && (
         <PopupDone
           showClosePopup={() => {
             props.sellClear();
@@ -73,10 +73,23 @@ const Layout = props => {
           }}
         >
           <span>
-            <i>
-              Quý khách đã đăng ký bán TP thành công. Chi tiết giao dịch tại màn hình Danh mục "Quản
-              lý giao dịch"
-            </i>
+            <i>{props.sellDone.message}</i>
+          </span>
+        </PopupDone>
+      )}
+      {props.tradeDone.status && (
+        <PopupDone
+          showClosePopup={() => {
+            props.tradeClear();
+            history.push({ pathname: '/trade/' });
+          }}
+          showViewPopup={() => {
+            props.tradeClear();
+            history.push({ pathname: '/user/' });
+          }}
+        >
+          <span>
+            <i>{props.tradeDone.message}</i>
           </span>
         </PopupDone>
       )}
@@ -107,8 +120,9 @@ Layout.propTypes = {
   authClear: PropTypes.func,
   accountError: PropTypes.object,
   accountClear: PropTypes.func,
-  buyDone: PropTypes.bool,
-  sellDone: PropTypes.bool,
+  buyDone: PropTypes.object,
+  sellDone: PropTypes.object,
+  tradeDone: PropTypes.object,
   bondsError: PropTypes.object
 };
 
@@ -120,8 +134,9 @@ const mapStateToProps = state => {
     authError: state.Bonds.error,
     tradeError: state.Trade.error,
     accountError: state.Account.error,
-    buyDone: state.Buy.buy_done,
-    sellDone: state.Sell.sell_done
+    buyDone: state.Buy.done,
+    sellDone: state.Sell.done,
+    tradeDone: state.Trade.done
   };
 };
 

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-
+import PropTypes from 'prop-types';
 // import style
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -14,5 +14,7 @@ const RootContainer = props => {
     </div>
   );
 };
-
+RootContainer.propTypes = {
+  children: PropTypes.node
+};
 export default RootContainer;
