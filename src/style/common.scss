@@ -913,3 +913,15 @@ body {
   background-color: #007edc;
   color: #fff;
 }
+.btn-link {
+  background: linear-gradient(to right, #0092c8, #005496) !important;
+  width: 105px !important;
+  height: 48px;
+  margin: auto;
+  color: #fff;
+  a {
+    font-size: 17px;
+    padding-top: 17px;
+  
+  }
+}

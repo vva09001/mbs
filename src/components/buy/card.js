@@ -46,7 +46,7 @@ const card = props => {
             <Link
               to={'/buy/' + props.item.bondCode}
               onClick={() => props.fetchDetail({ code: props.item.bondCode })}
-              className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
+              className="btn btn-link rounded-pill border-0 btn-lg btn-block"
             >
               {t('MUA')}
             </Link>
