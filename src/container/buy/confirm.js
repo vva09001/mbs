@@ -43,8 +43,7 @@ class Confirm extends Component {
             {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
           </h4>
           <h4 className="text-center mtitle mspot">
-            {t('MÃ')}
-            {contract.bondCode}
+            {t('MÃ')} {contract.bondCode}
           </h4>
           <p>
             <b>I. {t('Bên chuyển nhượng')}</b>

@@ -37,7 +37,6 @@ const card = props => {
           {t('Số lượng sở hữu')}
           <p className="float-right">
             <span className="quatity">{currency(props.item.buyVol)}</span>
-            <spn> {t('TP')}</spn>
           </p>
         </li>
         <li className="list-group-item">

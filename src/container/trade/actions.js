@@ -76,14 +76,14 @@ class Actions extends Component {
           </div>
           <div className="pt-2">
             <div className="form-group sum-field row">
-              <div className="col-12 col-form-div">I. {t('Thông tin Trái phiếu sở hữu')}</div>
+              <div className="col-12 col-form-div"><b>I. {t('Thông tin Trái phiếu sở hữu')}</b></div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày giao dịch')}:</div>
               <div className="col-6">{detail.buyDate}</div>
             </div>
             <div className="form-group row">
-              <div className="col-6 col-form-div">{t('Ngày đáo hạn TP')}:</div>
+              <div className="col-6 col-form-div">{t('Ngày đáo hạn')}:</div>
               <div className="col-6">{detail.maturityDate}</div>
             </div>
             <div className="form-group row">
@@ -107,7 +107,7 @@ class Actions extends Component {
           </div>
           <div className="pb-2">
             <div className="form-group sum-field row">
-              <div className="col-12 col-form-div">II. {t('Đề nghị giao dịch bán Trái phiếu')}</div>
+              <div className="col-12 col-form-div"><b>II. {t('Đề nghị giao dịch bán Trái phiếu')}</b></div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày đề nghị bán')}:</div>
