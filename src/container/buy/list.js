@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 import Card from 'components/buy/card';
 import Loading from 'components/common/loading';
@@ -58,6 +59,7 @@ class List extends Component {
     ));
   };
   render() {
+    const { t } = this.props;
     return (
       <Layout
         toggle={this.state.toggle}
@@ -68,6 +70,15 @@ class List extends Component {
         active="/buy/"
       >
         {this.props.loading ? <Loading /> : this._showList()}
+        {this.props.bonds === null ||
+          (this.props.bonds.length === 0 && (
+            <div className="text-center wapper">
+              {t('Không có Trái phiếu nào')}
+              <div className="icon-noProduct">
+                <img src="/img/iconfinder_icon.png" alt="logo" />
+              </div>
+            </div>
+          ))}
       </Layout>
     );
   }
@@ -79,7 +90,8 @@ List.propTypes = {
   bondsFetch: PropTypes.func,
   profile: PropTypes.object,
   buyFetch: PropTypes.func,
-  bondsDetail: PropTypes.func
+  bondsDetail: PropTypes.func,
+  t: PropTypes.func
 };
 
 const mapStateToProps = state => {
@@ -99,4 +111,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(List);
+)(withTranslation()(List));
