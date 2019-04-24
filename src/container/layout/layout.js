@@ -11,12 +11,7 @@ import Header3 from 'components/common/header3';
 import Popup from 'components/common/popup';
 import Footer from 'components/common/footer';
 // actions
-import buyActions from 'store/buy/actions';
-import sellActions from 'store/sell/actions';
-import bondsActions from 'store/bonds/actions';
-import authActions from 'store/bonds/actions';
-import tradeActions from 'store/trade/actions';
-import accountActions from 'store/account/actions';
+import errorActions from 'store/error/actions';
 
 // components: First
 const header = props => {
@@ -75,11 +70,7 @@ const Layout = props => {
   }
   return (
     <Fragment>
-      {props.buyError.status && Alert(props.buyError.message, props.buyClear)}
-      {props.sellError.status && Alert(props.sellError.message, props.sellClear)}
-      {props.authError.status && Alert(props.authError.message, props.authClear)}
-      {props.tradeError.status && Alert(props.tradeError.message, props.tradeClear)}
-      {props.accountError.status && Alert(props.accountError.message, props.accountClear)}
+      {props.error.status && Alert(props.error.message, props.clear)}
       {header(props)}
       <div className="container-fluid min-vh-100">{props.children}</div>
       <Footer active={props.active} />
@@ -94,40 +85,21 @@ Layout.propTypes = {
   onClick: PropTypes.func,
   isLoggedIn: PropTypes.bool,
   isLinked: PropTypes.bool,
-  buyError: PropTypes.object,
-  buyClear: PropTypes.func,
-  sellError: PropTypes.object,
-  sellClear: PropTypes.func,
-  tradeError: PropTypes.object,
-  tradeClear: PropTypes.func,
-  bondsError: PropTypes.object,
-  authError: PropTypes.object,
-  authClear: PropTypes.func,
-  accountError: PropTypes.object,
-  accountClear: PropTypes.func,
-  children: PropTypes.node
+  children: PropTypes.node,
+  error: PropTypes.object,
+  clear: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.Auth.token !== null ? true : false,
     isLinked: state.Account.isExist === 1 ? true : false,
-    buyError: state.Buy.error,
-    sellError: state.Sell.error,
-    bondsError: state.Bonds.error,
-    authError: state.Bonds.error,
-    tradeError: state.Trade.error,
-    accountError: state.Account.error
+    error: state.Error.error
   };
 };
 
 const mapDispatchToProps = {
-  buyClear: buyActions.clearError,
-  sellClear: sellActions.clearError,
-  bondsClear: bondsActions.clearError,
-  authClear: authActions.clearError,
-  tradeClear: tradeActions.clearError,
-  accountClear: accountActions.clearError
+  clear: errorActions.clearError
 };
 
 export default connect(

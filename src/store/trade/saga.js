@@ -165,7 +165,7 @@ export function* tradeDeleteSaga() {
       // handle request
       if (res.data.result === 0) {
         yield put({
-          type: errorActions.DONE,
+          type: errorActions.TRADE_DONE,
           done: {
             message:
               'Quý khách đã hủy giao dịch bán TP thành công. Quý khách có thể xem lại thông tin giao dịch mua TP này tại màn hình Danh mục TP nắm giữ',
@@ -205,7 +205,7 @@ export function* tradeUpdateSaga() {
       // handle request
       if (res.data.result === 0 && res.data.data !== null) {
         yield put({
-          type: errorActions.DONE,
+          type: errorActions.TRADE_DONE,
           done: {
             message:
               'Quý khách đã sửa giao dịch bán TP thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch',

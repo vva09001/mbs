@@ -40,7 +40,7 @@ const Alert = (message, toggle) => (
 const Layout = props => {
   return (
     <Fragment>
-      {props.done.status && (
+      {props.buyDone.status && (
         <PopupDone
           showClosePopup={() => {
             props.clear();
@@ -52,7 +52,39 @@ const Layout = props => {
           }}
         >
           <span>
-            <i>{props.done.message}</i>
+            <i>{props.buyDone.message}</i>
+          </span>
+        </PopupDone>
+      )}
+      {props.sellDone.status && (
+        <PopupDone
+          showClosePopup={() => {
+            props.clear();
+            history.push({ pathname: '/sell/' });
+          }}
+          showViewPopup={() => {
+            props.clear();
+            history.push({ pathname: '/trade/' });
+          }}
+        >
+          <span>
+            <i>{props.sellDone.message}</i>
+          </span>
+        </PopupDone>
+      )}
+      {props.tradeDone.status && (
+        <PopupDone
+          showClosePopup={() => {
+            props.clear();
+            history.push({ pathname: '/trade/' });
+          }}
+          showViewPopup={() => {
+            props.clear();
+            history.push({ pathname: '/user/' });
+          }}
+        >
+          <span>
+            <i>{props.tradeDone.message}</i>
           </span>
         </PopupDone>
       )}
@@ -69,15 +101,19 @@ Layout.propTypes = {
   title: PropTypes.string,
   active: PropTypes.string,
   children: PropTypes.node,
-  done: PropTypes.object,
+  buyDone: PropTypes.object,
+  sellDone: PropTypes.object,
+  tradeDone: PropTypes.object,
   error: PropTypes.object,
   clear: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
-    error: state.error.error,
-    done: state.error.done
+    error: state.Error.error,
+    buyDone: state.Error.buy_done,
+    sellDone: state.Error.sell_done,
+    tradeDone: state.Error.trade_done
   };
 };
 

@@ -80,7 +80,12 @@ class Actions extends Component {
         title={this.state.type === 'edit' ? t('Sửa giao dịch bán') : t('Bán Trái phiếu')}
       >
         {this.state.status && (
-          <Popup showClosePopup={() => this._toggleState()} showViewPopup={() => this._onClick()}>
+          <Popup
+            closeText="KHÔNG"
+            viewText="CÓ"
+            showClosePopup={() => this._toggleState()}
+            showViewPopup={() => this._onClick()}
+          >
             <span>
               <i>
                 {this.state.type === 'edit'

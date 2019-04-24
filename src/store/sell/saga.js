@@ -185,21 +185,20 @@ export function* sellUpdateSaga() {
       // handle request
       if (res.data.result === 0 && res.data.data !== null) {
         yield put({
-          type: errorActions.DONE,
+          type: errorActions.SELL_DONE,
           done: {
             message:
               'Quý khách đã đăng ký bán TP thành công. Chi tiết giao dịch tại màn hình Danh mục Quản lý giao dịch',
             status: true
           }
         });
-        yield history.push({ pathname: '/' });
       } else {
         yield put({
           type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
-        yield history.push({ pathname: '/' });
       }
+      yield history.push({ pathname: '/' });
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
     }

@@ -270,7 +270,7 @@ export function* verifyBuySaga() {
       if (res.data.result === 0 && res.data.data !== null) {
         if (data.params.error_code === '00') {
           yield put({
-            type: errorActions.DONE,
+            type: errorActions.BUY_DONE,
             done: { message: 'Quý khách đã đăng ký mua TP thành công', status: true }
           });
         } else {

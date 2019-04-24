@@ -38,7 +38,8 @@ const expireTransform = createExpirationTransform({
 const persistConfig = {
   key: 'root',
   storage,
-  transforms: [expireTransform]
+  transforms: [expireTransform],
+  blacklist: ['Error']
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 export default persistedReducer;
