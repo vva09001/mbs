@@ -88,9 +88,7 @@ class Actions extends Component {
           </div>
           <div className="pt-2">
             <div className="form-group sum-field row">
-              <div className="col-12 col-form-div fwb">
-                I. {t('Thông tin Trái phiếu sở hữu')}
-              </div>
+              <div className="col-12 col-form-div fwb">I. {t('Thông tin Trái phiếu sở hữu')}</div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày giao dịch')}:</div>
