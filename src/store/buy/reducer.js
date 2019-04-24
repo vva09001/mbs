@@ -12,15 +12,7 @@ const initialState = {
   loading: false,
   loading_flow: false,
   loading_buy: false,
-  done: {
-    status: false,
-    message: ''
-  },
-  payment_link: '',
-  error: {
-    message: '',
-    status: false
-  }
+  payment_link: ''
 };
 
 const Buy = (state = initialState, action) => {
@@ -43,10 +35,6 @@ const Buy = (state = initialState, action) => {
       return { ...state, loading_flow: action.loading };
     case actions.BUY_INFO_LOADING:
       return { ...state, loading_buy: action.loading };
-    case actions.BUY_DONE:
-      return { ...state, done: action.done };
-    case actions.BUY_ERROR:
-      return { ...state, error: action.error };
     default:
       return state;
   }

@@ -11,11 +11,7 @@ const initialState = {
   stepData: {},
   list: [],
   total: 0,
-  loading: false,
-  error: {
-    message: '',
-    status: false
-  }
+  loading: false
 };
 
 const Account = (state = initialState, action) => {
@@ -32,8 +28,6 @@ const Account = (state = initialState, action) => {
       return { ...state, total: action.total };
     case actions.ACCOUNT_LOADING:
       return { ...state, loading: action.loading };
-    case actions.ACCOUNT_ERROR:
-      return { ...state, error: action.error };
     default:
       return state;
   }

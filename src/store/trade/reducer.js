@@ -4,15 +4,7 @@ const initialState = {
   list: [],
   detail: {},
   info: {},
-  loading: false,
-  done: {
-    message: '',
-    status: false
-  },
-  error: {
-    message: '',
-    status: false
-  }
+  loading: false
 };
 
 const Trade = (state = initialState, action) => {
@@ -27,10 +19,6 @@ const Trade = (state = initialState, action) => {
       return { ...state, info: action.info };
     case actions.TRADE_LOADING:
       return { ...state, loading: action.loading };
-    case actions.TRADE_DONE:
-      return { ...state, done: action.done };
-    case actions.TRADE_ERROR:
-      return { ...state, error: action.error };
     default:
       return state;
   }

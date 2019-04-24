@@ -3,6 +3,7 @@ import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { list, detail } from 'services/bonds';
 import { accountProfile, getToken } from 'store/selectors';
 import Error from 'utils/error';
+import errorActions from 'store/error/actions';
 
 export function* bondsList() {
   yield takeEvery(actions.BONDS_LIST, function*(data) {
@@ -27,14 +28,14 @@ export function* bondsList() {
         yield put({ type: actions.BONDS, list: res.data.data.data });
       } else {
         yield put({
-          type: actions.BONDS_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.BONDS_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.BONDS_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -63,7 +64,7 @@ export function* bondsGet() {
         yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
       } else {
         yield put({
-          type: actions.BONDS_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
@@ -74,11 +75,6 @@ export function* bondsGet() {
     }
   });
 }
-export function* clearBondsErrorSaga() {
-  yield takeEvery(actions.CLEAR_BONDS_ERROR, function*() {
-    yield put({ type: actions.BONDS_ERROR, error: { message: '', status: false } });
-  });
-}
 export default function* rootSaga() {
-  yield all([fork(bondsList), fork(bondsGet), fork(clearBondsErrorSaga)]);
+  yield all([fork(bondsList), fork(bondsGet)]);
 }

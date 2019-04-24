@@ -10,9 +10,6 @@ const actions = {
   TRADE_CHANGE_REQUEST: 'TRADE_CHANGE_REQUEST',
   TRADE_DELETE_REQUEST: 'TRADE_DELETE_REQUEST',
   TRADE_LOADING: 'TRADE_LOADING',
-  TRADE_DONE: 'TRADE_DONE',
-  TRADE_ERROR: 'TRADE_ERROR',
-  CLEAR_TRADE_ERROR: 'CLEAR_TRADE_ERROR',
   list: params => ({
     type: actions.TRADE_LIST_REQUEST,
     params
@@ -35,9 +32,6 @@ const actions = {
   }),
   delete: () => ({
     type: actions.TRADE_DELETE_REQUEST
-  }),
-  clearError: () => ({
-    type: actions.CLEAR_TRADE_ERROR
   })
 };
 export default actions;

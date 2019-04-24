@@ -10,6 +10,16 @@ const List = (params, token) => {
     params: params
   });
 };
+const Detail = (params, token) => {
+  return request({
+    url: '/api/bond/getContractBuyDetail',
+    method: 'get',
+    headers: {
+      Authorization: token
+    },
+    params: params
+  });
+};
 const Info = (params, token) => {
   return request({
     url: '/api/bond/getContractSellInfo',
@@ -70,4 +80,4 @@ const Date = (params, token) => {
     params: params
   });
 };
-export { List, Info, Flow, Update, Approve, Change, Date };
+export { List, Info, Flow, Update, Approve, Change, Date, Detail };

@@ -1,5 +1,6 @@
 import actions from './actions';
-import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
+import errorActions from 'store/error/actions';
+import { all, fork, put, takeEvery, select, take } from 'redux-saga/effects';
 import { PaymentGateway, VerifyResult } from 'services/auth';
 import { Info, Flow, FlowCash, Update, Contract } from 'services/buy';
 import Error from 'utils/error';
@@ -43,14 +44,14 @@ export function* getBuyInfoSaga() {
         yield put({ type: actions.BUY_INFO, info: res.data.data });
       } else {
         yield put({
-          type: actions.BUY_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.BUY_FLOW_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.BUY_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -77,14 +78,14 @@ export function* getBuyFlowSaga() {
         yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data });
       } else {
         yield put({
-          type: actions.BUY_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[resFlow.data.result], status: true }
         });
       }
 
       yield put({ type: actions.BUY_FLOW_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.BUY_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -108,22 +109,25 @@ export function* buyFetchSaga() {
         params.userId = null;
       }
       // Call 'info saga'
-      const resInfo = yield Info(params, token);
       yield put({
         type: actions.BUY_INFO_GET,
         params: data.params
       });
 
+      // get info data
+      yield take(actions.BUY_INFO);
+      const volMin = yield select(buyVolMin);
+
       // Call 'flow saga'
       yield put({
         type: actions.BUY_FLOW_GET,
-        params: { ...data.params, volume: resInfo.data.data.buyVolMin }
+        params: { ...data.params, volume: volMin }
       });
 
       // set params
       yield put({
         type: actions.BUY_PARAMS_REQUEST,
-        params: { volume: resInfo.data.data.buyVolMin }
+        params: { volume: volMin }
       });
 
       // Handle request flowCash
@@ -132,13 +136,13 @@ export function* buyFetchSaga() {
         yield put({ type: actions.BUY_FLOW_CASH, flowCash: resFlowCash.data.data });
       } else {
         yield put({
-          type: actions.BUY_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[resFlowCash.data.result], status: true }
         });
       }
       yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.BUY_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -155,7 +159,7 @@ export function* updateBuySaga() {
       // Check link condition
       if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
         yield put({
-          type: actions.BUY_ERROR,
+          type: errorActions.ERROR,
           error: {
             message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
             status: true
@@ -181,7 +185,7 @@ export function* updateBuySaga() {
             yield history.push({ pathname: '/user/connect/' });
           } else {
             yield put({
-              type: actions.BUY_ERROR,
+              type: errorActions.ERROR,
               error: { message: Error[res.data.result], status: true }
             });
           }
@@ -189,7 +193,7 @@ export function* updateBuySaga() {
         yield put({ type: actions.BUY_LOADING, loading: false });
       }
     } catch (error) {
-      yield put({ type: actions.BUY_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -217,7 +221,7 @@ export function* getContractSaga() {
         yield put({ type: actions.BUY_LOADING, loading: false });
       } else {
         yield put({
-          type: actions.BUY_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
         yield history.push({ pathname: '/' });
@@ -239,13 +243,13 @@ export function* getContractSaga() {
         yield put({ type: actions.BUY_PAYMENT_LINK, link: resPayment.data.data.url });
       } else {
         yield put({
-          type: actions.BUY_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[resPayment.data.result], status: true }
         });
         yield history.push({ pathname: '/' });
       }
     } catch (error) {
-      yield put({ type: actions.BUY_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -266,33 +270,26 @@ export function* verifyBuySaga() {
       if (res.data.result === 0 && res.data.data !== null) {
         if (data.params.error_code === '00') {
           yield put({
-            type: actions.BUY_DONE,
+            type: errorActions.DONE,
             done: { message: 'Quý khách đã đăng ký mua TP thành công', status: true }
           });
         } else {
           yield put({
-            type: actions.BUY_ERROR,
+            type: errorActions.ERROR,
             error: { message: VT_error.trade[data.params.error_code], status: true }
           });
         }
       } else {
         yield put({
-          type: actions.BUY_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
       yield history.push({ pathname: '/' });
       yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.BUY_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
-  });
-}
-
-export function* clearBuyErrorSaga() {
-  yield takeEvery(actions.CLEAR_BUY_ERROR, function*() {
-    yield put({ type: actions.BUY_DONE, done: { message: '', status: false } });
-    yield put({ type: actions.BUY_ERROR, error: { message: '', status: false } });
   });
 }
 
@@ -304,7 +301,6 @@ export default function* rootSaga() {
     fork(getBuyFlowSaga),
     fork(updateBuySaga),
     fork(getContractSaga),
-    fork(verifyBuySaga),
-    fork(clearBuyErrorSaga)
+    fork(verifyBuySaga)
   ]);
 }

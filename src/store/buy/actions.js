@@ -17,9 +17,6 @@ const actions = {
   BUY_VERIFY_RESULT: 'BUY_VERIFY_RESULT',
   BUY_LOADING: 'BUY_LOADING',
   BUY_FLOW_LOADING: 'BUY_FLOW_LOADING',
-  BUY_DONE: 'BUY_DONE',
-  BUY_ERROR: 'BUY_ERROR',
-  CLEAR_BUY_ERROR: 'CLEAR_BUY_ERROR',
   getBuy: params => ({
     type: actions.BUY_GET,
     params
@@ -48,9 +45,6 @@ const actions = {
   verifyResult: params => ({
     type: actions.BUY_VERIFY_RESULT,
     params
-  }),
-  clearError: () => ({
-    type: actions.CLEAR_BUY_ERROR
   })
 };
 export default actions;

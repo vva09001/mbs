@@ -1,4 +1,5 @@
 import actions from './actions';
+import errorActions from 'store/error/actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import Error from 'utils/error';
 import { List, Detail, Change, Delete } from 'services/trade';
@@ -29,7 +30,7 @@ export function* tradeListSaga() {
           yield history.push({ pathname: '/user/connect/' });
         } else {
           yield put({
-            type: actions.TRADE_ERROR,
+            type: errorActions.ERROR,
             error: { message: Error[res.data.result], status: true }
           });
         }
@@ -37,7 +38,7 @@ export function* tradeListSaga() {
 
       yield put({ type: actions.TRADE_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.TRADE_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -75,14 +76,14 @@ export function* tradeDetailSaga() {
         yield history.push({ pathname: '/trade/' + data.params.type });
       } else {
         yield put({
-          type: actions.TRADE_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.TRADE_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.TRADE_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -106,14 +107,14 @@ export function* tradeInfoSaga() {
         yield put({ type: actions.TRADE_INFO, info: res.data.data });
       } else {
         yield put({
-          type: actions.TRADE_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.TRADE_LOADING });
     } catch (error) {
-      yield put({ type: actions.TRADE_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -136,12 +137,12 @@ export function* sellGetDateSaga() {
         yield put({ type: actions.TRADE_DATE, date: res.data.data });
       } else {
         yield put({
-          type: actions.TRADE_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
     } catch (error) {
-      yield put({ type: actions.TRADE_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -164,7 +165,7 @@ export function* tradeDeleteSaga() {
       // handle request
       if (res.data.result === 0) {
         yield put({
-          type: actions.TRADE_DONE,
+          type: errorActions.DONE,
           done: {
             message:
               'Quý khách đã hủy giao dịch bán TP thành công. Quý khách có thể xem lại thông tin giao dịch mua TP này tại màn hình Danh mục TP nắm giữ',
@@ -174,14 +175,14 @@ export function* tradeDeleteSaga() {
         yield history.push({ pathname: '/' });
       } else {
         yield put({
-          type: actions.TRADE_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.TRADE_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.TRADE_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -204,7 +205,7 @@ export function* tradeUpdateSaga() {
       // handle request
       if (res.data.result === 0 && res.data.data !== null) {
         yield put({
-          type: actions.TRADE_DONE,
+          type: errorActions.DONE,
           done: {
             message:
               'Quý khách đã sửa giao dịch bán TP thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch',
@@ -214,22 +215,15 @@ export function* tradeUpdateSaga() {
         yield history.push({ pathname: '/trade/' });
       } else {
         yield put({
-          type: actions.TRADE_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.TRADE_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.TRADE_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
-  });
-}
-
-export function* clearTradeErrorSaga() {
-  yield takeEvery(actions.CLEAR_TRADE_ERROR, function*() {
-    yield put({ type: actions.TRADE_DONE, done: { message: '', status: false } });
-    yield put({ type: actions.TRADE_ERROR, error: { message: '', status: false } });
   });
 }
 
@@ -240,7 +234,6 @@ export default function* rootSaga() {
     fork(sellGetDateSaga),
     fork(tradeInfoSaga),
     fork(tradeDeleteSaga),
-    fork(tradeUpdateSaga),
-    fork(clearTradeErrorSaga)
+    fork(tradeUpdateSaga)
   ]);
 }

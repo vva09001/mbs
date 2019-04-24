@@ -4,6 +4,7 @@ import { CheckLink, Link, List, Info } from 'services/account';
 import { accountProfile, getToken, accountStep } from 'store/selectors';
 import Error from 'utils/error';
 import history from 'utils/history';
+import errorActions from 'store/error/actions';
 
 export function* accountCheckLinkSaga() {
   yield takeEvery(actions.CHECK_LINK_REQUEST, function*(data) {
@@ -30,14 +31,14 @@ export function* accountCheckLinkSaga() {
         yield put({ type: actions.LINK_STEP_DATA, data: params });
       } else {
         yield put({
-          type: actions.ACCOUNT_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.ACCOUNT_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -68,14 +69,14 @@ export function* accountLinkSaga() {
         yield history.goBack();
       } else {
         yield put({
-          type: actions.ACCOUNT_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.ACCOUNT_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -103,7 +104,7 @@ export function* accountBondsSaga() {
           yield history.push({ pathname: '/user/connect/' });
         } else {
           yield put({
-            type: actions.ACCOUNT_ERROR,
+            type: errorActions.ERROR,
             error: { message: Error[res.data.result], status: true }
           });
         }
@@ -111,7 +112,7 @@ export function* accountBondsSaga() {
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.ACCOUNT_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
   });
 }
@@ -138,21 +139,15 @@ export function* accountInfoSaga() {
         yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalCastInvest });
       } else {
         yield put({
-          type: actions.ACCOUNT_ERROR,
+          type: errorActions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
     } catch (error) {
-      yield put({ type: actions.ACCOUNT_ERROR, error: error.message });
+      yield put({ type: errorActions.ERROR, error: error.message });
     }
-  });
-}
-
-export function* clearAccountErrorSaga() {
-  yield takeEvery(actions.CLEAR_ACCOUNT_ERROR, function*() {
-    yield put({ type: actions.ACCOUNT_ERROR, error: { message: '', status: false } });
   });
 }
 
@@ -161,7 +156,6 @@ export default function* rootSaga() {
     fork(accountCheckLinkSaga),
     fork(accountLinkSaga),
     fork(accountInfoSaga),
-    fork(clearAccountErrorSaga),
     fork(accountBondsSaga)
   ]);
 }

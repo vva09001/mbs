@@ -3,11 +3,7 @@ import detail from 'db/getdetail';
 const initialState = {
   list: [],
   detail: detail,
-  loading: false,
-  error: {
-    message: '',
-    status: false
-  }
+  loading: false
 };
 
 const Bonds = (state = initialState, action) => {
@@ -18,8 +14,6 @@ const Bonds = (state = initialState, action) => {
       return { ...state, detail: action.detail };
     case actions.BONDS_LOADING:
       return { ...state, loading: action.loading };
-    case actions.BONDS_ERROR:
-      return { ...state, error: action.error };
     default:
       return state;
   }

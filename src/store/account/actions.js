@@ -9,8 +9,6 @@ const actions = {
   ACCOUNT_INFO: 'ACCOUNT_INFO',
   ACCOUNT_INFO_REQUEST: 'ACCOUNT_INFO_REQUEST',
   ACCOUNT_LOADING: 'ACCOUNT_LOADING',
-  ACCOUNT_ERROR: 'ACCOUNT_ERROR',
-  CLEAR_ACCOUNT_ERROR: 'CLEAR_ACCOUNT_ERROR',
   checkLink: params => ({
     type: actions.CHECK_LINK_REQUEST,
     params
@@ -25,9 +23,6 @@ const actions = {
   }),
   info: () => ({
     type: actions.ACCOUNT_INFO_REQUEST
-  }),
-  clearError: () => ({
-    type: actions.CLEAR_ACCOUNT_ERROR
   })
 };
 export default actions;

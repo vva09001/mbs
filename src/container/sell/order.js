@@ -71,7 +71,7 @@ class Order extends Component {
     );
   };
   render() {
-    const { info, bond, t } = this.props;
+    const { info, bond, t, sellDetail } = this.props;
     return (
       <Layout type={2} title="Đăng ký bán">
         <div className="bond-detail sellorder">
@@ -94,7 +94,7 @@ class Order extends Component {
             </div>
             <div className="row">
               <label className="col-6 ">{t('Ngày đáo hạn')}:</label>
-              <div className="col-6 mdata">{bond.maturityDate}</div>
+              <div className="col-6 mdata">{sellDetail.maturityDate}</div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Số lượng TP')}:</label>
@@ -217,6 +217,7 @@ Order.propTypes = {
 const mapStateToProps = state => {
   return {
     bond: state.Bonds.detail,
+    sellDetail: state.Sell.detail,
     info: state.Sell.info,
     sellDate: state.Sell.date
   };

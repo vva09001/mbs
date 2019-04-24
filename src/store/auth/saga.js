@@ -3,6 +3,7 @@ import accountActions from 'store/account/actions';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import { Authentication } from 'services/auth';
 import Error from 'utils/error';
+import errorActions from 'store/error/actions';
 
 export function* authSaga() {
   yield takeEvery(actions.AUTH_REQUEST, function*(data) {
@@ -21,7 +22,7 @@ export function* authSaga() {
         yield put({ type: accountActions.PRORFILE, profile: res.data.data });
       } else {
         yield put({
-          type: actions.AUTH_ERROR,
+          type: errorActions.ERROR,
           error: {
             message: Error[res.data.result],
             status: true
@@ -31,11 +32,6 @@ export function* authSaga() {
     } catch (error) {
       yield put({ type: actions.USER_ERROR, error: error.message });
     }
-  });
-}
-export function* clearAccountErrorSaga() {
-  yield takeEvery(actions.CLEAR_AUTH_ERROR, function*() {
-    yield put({ type: actions.AUTH_ERROR, error: { message: '', status: false } });
   });
 }
 export default function* rootSaga() {
