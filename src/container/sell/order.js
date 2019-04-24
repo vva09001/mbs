@@ -96,9 +96,7 @@ class Order extends Component {
             </div>
             <div className="row">
               <label className="col-6 ">{t('Số lượng TP')}:</label>
-              <div className="col-6 mdata">
-                {currency(info.buyVol)} {t('TP')}
-              </div>
+              <div className="col-6 mdata">{currency(info.buyVol)}</div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Đơn giá mua')}:</label>
@@ -136,9 +134,7 @@ class Order extends Component {
 
             <div className="row">
               <label className="col-6 ">{t('Số lượng TP')}:</label>
-              <div className="col-6 mdata">
-                {currency(info.sellVol)} {t('TP')}
-              </div>
+              <div className="col-6 mdata">{currency(info.sellVol)}</div>
             </div>
             <div className="sum-field row">
               <label className="col-6 mspot">{t('TỔNG GIÁ TRỊ BÁN')}</label>
