@@ -925,3 +925,7 @@ body {
   
   }
 }
+@media (max-width: 375px) {
+  .table td, .table th {font-size: 13px}
+}
+
