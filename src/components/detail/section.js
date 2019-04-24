@@ -29,7 +29,7 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-5 no-pading-right">
-              <span className="c">{t('Ngày đáo hạn TP')}</span>
+              <span className="c">{t('Ngày đáo hạn Trái phiếu')}</span>
             </div>
             <div className="col-7 text-right no-pading-left">
               <p className="mb-0">{props.item.maturityDate}</p>
@@ -37,11 +37,10 @@ const Section1 = props => {
           </div>
           <div className="row">
             <div className="col-5 no-pading-right">
-              <span className="c">{t('Đang còn')}</span>
+              <span className="c">{t('Hạn mức')}</span>
             </div>
             <div className="col-7 text-right no-pading-left">
               <span className="xmbs c text-bold">{currency(props.item.roomBalance)}</span>
-              <span className="c"> {t('TP')}</span>
             </div>
           </div>
         </div>
@@ -88,7 +87,7 @@ const Section3 = props => {
           <img
             onClick={() => props.showPopup('popup')}
             alt="popup-click"
-            src="/img/ic_info.svg"
+            src="/img/ic_info_16x16.svg"
             className="align-top ml-2 popup-click"
           />
         </label>
@@ -136,7 +135,7 @@ const Section4 = props => {
         <div className="col-12">
           <div
             onClick={() => onClick(refs)}
-            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center popup-click"
+            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center"
           >
             <div className="d-flex w-50 justify-content-between">{title}</div>
             <div className="w-50">

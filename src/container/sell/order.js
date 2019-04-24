@@ -84,21 +84,21 @@ class Order extends Component {
           </div>
           <div className="pt-2">
             <div className="sum-field row">
-              <label className="col-12 mstit">I. {t('Thông tin Trái phiếu sở hữu')}</label>
+              <label className="col-12 mstit">
+                <b>I. {t('Thông tin Trái phiếu sở hữu')}</b>
+              </label>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Ngày giao dịch mua')}:</label>
               <div className="col-6 mdata">{info.buyDate}</div>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Ngày đáo hạn TP')}:</label>
+              <label className="col-6 ">{t('Ngày đáo hạn')}:</label>
               <div className="col-6 mdata">{bond.maturityDate}</div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Số lượng TP')}:</label>
-              <div className="col-6 mdata">
-                {currency(info.buyVol)} {t('TP')}
-              </div>
+              <div className="col-6 mdata">{currency(info.buyVol)}</div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Đơn giá mua')}:</label>
@@ -115,7 +115,9 @@ class Order extends Component {
           </div>
           <div className="pb-2">
             <div className="sum-field row">
-              <label className="col-12 mstit">II. {t('Đề nghị giao dịch bán Trái phiếu')}</label>
+              <label className="col-12 mstit">
+                <b>II. {t('Đề nghị giao dịch bán Trái phiếu')}</b>
+              </label>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Ngày đề nghị bán')}:</label>
@@ -141,9 +143,7 @@ class Order extends Component {
             </div>
             <div className="row">
               <label className="col-6 ">{t('Số lượng TP')}:</label>
-              <div className="col-6 mdata">
-                {currency(info.sellVol)} {t('TP')}
-              </div>
+              <div className="col-6 mdata">{currency(info.sellVol)}</div>
             </div>
             <div className="sum-field row">
               <label className="col-6 mspot">{t('TỔNG GIÁ TRỊ BÁN')}</label>
@@ -168,7 +168,7 @@ class Order extends Component {
               </div>
             </div>
             <div className="term-condition">
-              <img alt="popup-click" src="/img/ic_info.svg" className="mr-2" />
+              <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
               <Link to="/sell/term">
                 <i>{t('Điều khoản & điều kiện đăng ký bán')}</i>
               </Link>

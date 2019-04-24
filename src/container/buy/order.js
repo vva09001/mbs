@@ -33,43 +33,43 @@ class Order extends Component {
           <table className="table table-bordered bg-white">
             <tbody>
               <tr className="bgg">
-                <td width="50%">{t('Mã Trái phiếu')}:</td>
+                <td width="50%">{t('Mã Trái phiếu')}</td>
                 <td width="50%">{bond.bondCode}</td>
               </tr>
               <tr>
-                <td>{t('Ngày giao dịch TP')}:</td>
+                <td>{t('Ngày giao dịch')}</td>
                 <td>{info.buyDate}</td>
               </tr>
               <tr>
-                <td>{t('Ngày đáo hạn TP')}:</td>
+                <td>{t('Ngày đáo hạn')}</td>
                 <td>{bond.maturityDate}</td>
               </tr>
               <tr>
-                <td>{t('Số lượng TP mua')}:</td>
+                <td>{t('Số lượng mua')}</td>
                 <td>
                   {currency(contract.buyVol)} {t('Trái phiếu')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Đơn giá mua')}:</td>
+                <td>{t('Đơn giá mua')}</td>
                 <td>
                   {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái phiếu')}
                 </td>
               </tr>
               <tr className="bgg">
-                <td>{t('Tổng giá trị tiền đầu tư')}:</td>
+                <td>{t('Tổng tiền đầu tư')}</td>
                 <td>
                   {currency(contract.buyValue)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Phí giao dịch')}:</td>
+                <td>{t('Phí giao dịch')}</td>
                 <td>
                   {currency(info.buyFee)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Lãi suất đầu tư (chưa bao gồm tái đầu tư coupon)')}:</td>
+                <td>{t('Lãi suất đầu tư (chưa bao gồm tái đầu tư coupon)')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
@@ -78,7 +78,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lãi suất đầu tư (đã bao gồm tái đầu tư coupon)')}:</td>
+                <td>{t('Lãi suất đầu tư (đã bao gồm tái đầu tư coupon)')}</td>
                 <td>
                   <b>
                     {currency(info.termInvest)}
@@ -87,7 +87,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Ngày thanh toán lãi')}:</td>
+                <td>{t('Ngày thanh toán lãi')}</td>
                 <td>
                   {t('Tiền lãi Trái phiếu được trả sau, định kỳ mỗi')} {info.couponPayment}{' '}
                   {t('tháng một lần vào ngày cuối cùng của mỗi Kỳ Tính Lãi')}
@@ -97,17 +97,17 @@ class Order extends Component {
           </table>
           <div className="term-condition">
             <Link to="/buy/info">
-              <img alt="popup-click" src="/img/ic_info.svg" className="mr-2" />
+              <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
               <i>{t('Thông tin Trái phiếu')}</i>
             </Link>
             <br />
             <Link to="/buy/term">
-              <img alt="popup-click" src="/img/ic_info.svg" className="mr-2" />
+              <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
               <i>{t('Điều khoản & điều kiện đăng ký mua')}</i>
             </Link>
             <br />
             <Link to="/buy/flow">
-              <img alt="popup-click" src="/img/ic_info.svg" className="mr-2" />
+              <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
               <i>{t('Chi tiết dòng tiền')}</i>
             </Link>
           </div>
