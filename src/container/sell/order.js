@@ -90,7 +90,7 @@ class Order extends Component {
             </div>
             <div className="row">
               <label className="col-6 ">{t('Ngày giao dịch mua')}:</label>
-              <div className="col-6 mdata">{info.buyDate}</div>
+              <div className="col-6 mdata">{sellDetail.buyDate}</div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Ngày đáo hạn')}:</label>
@@ -98,18 +98,18 @@ class Order extends Component {
             </div>
             <div className="row">
               <label className="col-6 ">{t('Số lượng TP')}:</label>
-              <div className="col-6 mdata">{currency(info.buyVol)}</div>
+              <div className="col-6 mdata">{currency(sellDetail.buyVol)}</div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Đơn giá mua')}:</label>
               <div className="col-6 mdata">
-                {currency(info.buyPrice)} {t('VNĐ')}
+                {currency(sellDetail.buyPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Giá trị đầu tư')}:</label>
               <div className="col-6 mdata">
-                {currency(info.buyValue)} {t('VNĐ')}
+                {currency(sellDetail.buyValue)} {t('VNĐ')}
               </div>
             </div>
           </div>
