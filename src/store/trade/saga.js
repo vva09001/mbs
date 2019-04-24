@@ -212,7 +212,7 @@ export function* tradeUpdateSaga() {
             status: true
           }
         });
-        yield history.push({ pathname: '/trade/' });
+        yield history.push({ pathname: '/' });
       } else {
         yield put({
           type: errorActions.ERROR,
