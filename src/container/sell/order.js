@@ -71,7 +71,7 @@ class Order extends Component {
     );
   };
   render() {
-    const { info, bond, t, sellDetail } = this.props;
+    const { info, t, sellDetail } = this.props;
     return (
       <Layout type={2} title="Đăng ký bán">
         <div className="bond-detail sellorder">
@@ -211,6 +211,7 @@ Order.propTypes = {
   sellDate: PropTypes.array,
   book: PropTypes.func,
   getInfo: PropTypes.func,
+  sellDetail: PropTypes.object,
   t: PropTypes.func
 };
 

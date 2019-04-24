@@ -11,6 +11,7 @@ import Bonds from 'store/bonds/reducer';
 import Buy from 'store/buy/reducer';
 import Sell from 'store/sell/reducer';
 import Trade from 'store/trade/reducer';
+import Error from 'store/error/reducer';
 
 const reducers = combineReducers({
   Account,
@@ -18,7 +19,8 @@ const reducers = combineReducers({
   Bonds,
   Buy,
   Sell,
-  Trade
+  Trade,
+  Error
 });
 const expireTransform = createExpirationTransform({
   expireKey: 'expiresAt',

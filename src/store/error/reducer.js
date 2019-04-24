@@ -10,7 +10,7 @@ const initialState = {
   }
 };
 
-const Buy = (state = initialState, action) => {
+const Error = (state = initialState, action) => {
   switch (action.type) {
     case actions.DONE:
       return { ...state, done: action.done };
@@ -21,4 +21,4 @@ const Buy = (state = initialState, action) => {
   }
 };
 
-export default Buy;
+export default Error;

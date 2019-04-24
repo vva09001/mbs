@@ -7,6 +7,7 @@ import { FormatTime } from 'utils/moment';
 import Layout from 'container/layout/layout';
 import { currency } from 'utils/currency';
 import tradeActions from 'store/trade/actions';
+import Popup from 'components/common/popup-done';
 
 class Actions extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class Actions extends Component {
     this.state = {
       type: 'cancel',
       date: new Date(),
-      params: {}
+      params: {},
+      status: false
     };
   }
   componentDidMount() {
@@ -25,6 +27,11 @@ class Actions extends Component {
       }
     });
   }
+  _toggleState = () => {
+    this.setState({
+      status: !this.state.status
+    });
+  };
   _onChange = e => {
     const value = e.target.value;
     this.setState(
@@ -72,6 +79,17 @@ class Actions extends Component {
         type={2}
         title={this.state.type === 'edit' ? t('Sửa giao dịch bán') : t('Bán Trái phiếu')}
       >
+        {this.state.status && (
+          <Popup showClosePopup={() => this._toggleState()} showViewPopup={() => this._onClick()}>
+            <span>
+              <i>
+                {this.state.type === 'edit'
+                  ? t('Quý khách có chắn chắn muốn Sửa ?')
+                  : t('Quý khách có chắn chắn muốn Hủy ?')}
+              </i>
+            </span>
+          </Popup>
+        )}
         <div
           className={
             this.state.type === 'edit'
@@ -142,6 +160,12 @@ class Actions extends Component {
               </div>
             </div>
             <div className="form-group row">
+              <div className="col-6 col-form-div">{t('Lãi suất')}:</div>
+              <div className="col-6 mdata">
+                {currency(info.termRate)} {t('%/năm')}
+              </div>
+            </div>
+            <div className="form-group row">
               <div className="col-6 col-form-div">{t('Số lượng Trái phiếu')}:</div>
               <div className="col-6 mdata">
                 {currency(info.sellVol)} {t('Trái phiếu')}
@@ -177,7 +201,7 @@ class Actions extends Component {
           <div className="wapper-button">
             <button
               type="button"
-              onClick={() => this._onClick()}
+              onClick={() => this._toggleState()}
               className={
                 this.state.type === 'edit'
                   ? 'btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block'

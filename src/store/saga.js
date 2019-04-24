@@ -5,7 +5,16 @@ import bondsSagas from 'store/bonds/saga';
 import buySagas from 'store/buy/saga';
 import sellSagas from 'store/sell/saga';
 import tradeSagas from 'store/trade/saga';
+import errorSagas from 'store/error/saga';
 
 export default function* rootSaga() {
-  yield all([accountSagas(), authSagas(), bondsSagas(), buySagas(), sellSagas(), tradeSagas()]);
+  yield all([
+    accountSagas(),
+    authSagas(),
+    bondsSagas(),
+    buySagas(),
+    sellSagas(),
+    tradeSagas(),
+    errorSagas()
+  ]);
 }
