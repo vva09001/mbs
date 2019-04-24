@@ -17,7 +17,8 @@ const trade = {
   M02: 'Chưa thiết lập tài khoản nhận tiền cho đối tác (liên hệ kỹ thuật Viettel)',
   M03: 'Hình thức thanh toán không phù hợp (liên hệ kỹ thuật Viettel)',
   M04: 'Ảnh QR bị lỗi hoặc không đọc được giá trị cần thiết từ ảnh',
-  '813': 'Lỗi kết nối tới CTT'
+  '813': 'Lỗi kết nối tới CTT',
+  '624': 'Lỗi không xác định'
 };
 
 const cancel = {

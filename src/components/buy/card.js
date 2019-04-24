@@ -12,17 +12,14 @@ const card = props => {
       <ul className="list-group list-group-flush">
         <li className="list-group-item title">
           <Link
-            to={'/buy/' + props.item.bondCode}
-            onClick={() => props.fetchDetail({ code: props.item.bondCode })}
+            to={'/buy/info/'}
+            onClick={() => props.onDetail(props.item.bondCode)}
             className="btn-transparent text-truncate"
           >
             {props.item.bondCode}
           </Link>
           <span className="link">
-            <Link
-              to={'/buy/' + props.item.bondCode}
-              onClick={() => props.fetchDetail({ code: props.item.bondCode })}
-            >
+            <Link to={'/buy/info/'} onClick={() => props.onDetail(props.item.bondCode)}>
               <Icon name="arrow" width="18" height="24" />
             </Link>
           </span>
@@ -44,6 +41,17 @@ const card = props => {
             <span className="clb">{currency(props.item.roomBalance)}</span>
           </p>
         </li>
+        <li className="list-group-item justify-content-center">
+          <div className="col-9">
+            <Link
+              to={'/buy/' + props.item.bondCode}
+              onClick={() => props.fetchDetail({ code: props.item.bondCode })}
+              className="btn btn-danger rounded-pill border-0 btn-lg btn-block"
+            >
+              {t('MUA')}
+            </Link>
+          </div>
+        </li>
         {props.children}
       </ul>
     </div>
@@ -52,6 +60,7 @@ const card = props => {
 card.propTypes = {
   item: PropTypes.object,
   children: PropTypes.node,
-  fetchDetail: PropTypes.func
+  fetchDetail: PropTypes.func,
+  onDetail: PropTypes.func
 };
 export default card;

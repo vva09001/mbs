@@ -27,15 +27,27 @@ class Actions extends Component {
   }
   _onChange = e => {
     const value = e.target.value;
-    this.setState({
-      params: {
-        sellDate: value
+    this.setState(
+      {
+        params: {
+          sellDate: value
+        }
+      },
+      () => {
+        this.props.getInfo({
+          sellDate: value,
+          contractCode: this.props.info.buyContractCode
+        });
       }
-    });
+    );
   };
   _sellDate = () => {
     return (
-      <select className="form-control form-control-trade" onChange={this._onChange.bind(this)}>
+      <select
+        className="form-control"
+        onChange={this._onChange.bind(this)}
+        value={this.props.info.sellDate}
+      >
         {_.map(this.props.sellDate, (item, index) => {
           return (
             <option key={index} value={item.termDate}>
@@ -54,7 +66,7 @@ class Actions extends Component {
     }
   };
   render() {
-    const { detail, t } = this.props;
+    const { detail, t, info } = this.props;
     return (
       <Layout
         type={2}
@@ -76,88 +88,86 @@ class Actions extends Component {
           </div>
           <div className="pt-2">
             <div className="form-group sum-field row">
-              <div className="col-12 col-form-div">
-                <b>I. {t('Thông tin Trái phiếu sở hữu')}</b>
-              </div>
+              <div className="col-12 col-form-div fwb">I. {t('Thông tin Trái phiếu sở hữu')}</div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày giao dịch')}:</div>
-              <div className="col-6">{detail.buyDate}</div>
+              <div className="col-6 mdata">{detail.buyDate}</div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày đáo hạn')}:</div>
-              <div className="col-6">{detail.maturityDate}</div>
+              <div className="col-6 mdata">{detail.maturityDate}</div>
             </div>
             <div className="form-group row">
               <div className="col-6  npdr">{t('Số lượng TP sở hữu')}:</div>
-              <div className="col-6">
+              <div className="col-6 mdata">
                 {currency(detail.buyVol)} {t('Trái phiếu')}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Đơn giá mua')}:</div>
-              <div className="col-6">
+              <div className="col-6 mdata">
                 {currency(detail.buyPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Giá trị đầu tư')}:</div>
-              <div className="col-6">
+              <div className="col-6 mdata">
                 {currency(detail.buyValue)} {t('VNĐ')}
               </div>
             </div>
           </div>
           <div className="pb-2">
             <div className="form-group sum-field row">
-              <div className="col-12 col-form-div">
-                <b>II. {t('Đề nghị giao dịch bán Trái phiếu')}</b>
+              <div className="col-12 col-form-div fwb">
+                II. {t('Đề nghị giao dịch bán Trái phiếu')}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày đề nghị bán')}:</div>
-              <div className="col-6">{FormatTime(this.state.date)}</div>
+              <div className="col-6 mdata">{FormatTime(this.state.date)}</div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày giao dịch bán')}:</div>
-              <div className="col-6">
-                <p className=" date">
+              <div className="col-6 mdata">
+                <span className=" date">
                   {this.state.type === 'edit' ? this._sellDate() : detail.sellDate}
-                </p>
+                </span>
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Đơn giá bán')}:</div>
-              <div className="col-6">
-                {currency(detail.sellPrice)} {t('VNĐ')}
+              <div className="col-6 mdata">
+                {currency(info.sellPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Số lượng Trái phiếu')}:</div>
-              <div className="col-6">
-                {currency(detail.sellVol)} {t('Trái phiếu')}
+              <div className="col-6 mdata">
+                {currency(info.sellVol)} {t('Trái phiếu')}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Tổng giá trị bán')}</div>
-              <div className="col-6 col-form-div text-blod date">
-                {currency(detail.sellValue)} {t('VNĐ')}
+              <div className="col-6 col-form-div text-blod date mdata">
+                {currency(info.sellValue)} {t('VNĐ')}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">
                 <i>{t('Tỷ lệ thuế TNCN (%)')}</i>
               </div>
-              <div className="col-6">
-                <i>{currency(detail.taxPit)}%</i>
+              <div className="col-6 mdata">
+                <i>{currency(info.taxPit)}%</i>
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">
                 <i>{t('Giá trị thuế TNCN')}</i>
               </div>
-              <div className="col-6">
+              <div className="col-6 mdata">
                 <i>
-                  {currency(detail.taxValue)} {t('VNĐ')}
+                  {currency(info.taxValue)} {t('VNĐ')}
                 </i>
               </div>
             </div>
@@ -186,22 +196,26 @@ class Actions extends Component {
 Actions.propTypes = {
   match: PropTypes.object,
   detail: PropTypes.object,
+  info: PropTypes.object,
   sellDate: PropTypes.array,
   change: PropTypes.func,
   delete: PropTypes.func,
+  getInfo: PropTypes.func,
   t: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
     detail: state.Trade.detail,
-    sellDate: state.Trade.date
+    sellDate: state.Trade.date,
+    info: state.Trade.info
   };
 };
 
 const mapDispatchToProps = {
   change: tradeActions.change,
-  delete: tradeActions.delete
+  delete: tradeActions.delete,
+  getInfo: tradeActions.getInfo
 };
 
 export default connect(

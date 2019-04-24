@@ -78,8 +78,8 @@ class Section2 extends Component {
           </div>
         </div>
         <div className=" row">
-          <label className="col-5  npdr lh42">{t('Số lượng mua')}</label>
-          <div className="col-7 no-pading-right">
+          <label className="col-6  npdr lh42">{t('Số lượng mua')}</label>
+          <div className="col-6 no-pading-right">
             <div className="input-group number-field">
               <span
                 className="btn btn-light xmbs popup-click"
@@ -89,7 +89,7 @@ class Section2 extends Component {
               </span>
               <input
                 type="number"
-                className="number form-control bgmb"
+                className="number form-control"
                 value={this.props.params.volume}
                 onChange={e => this._onChangeAmount(e)}
               />

@@ -4,6 +4,9 @@ textarea:focus,
 select:focus {
   outline: none !important;
 }
+.table td, .table th {vertical-align: middle}
+body {color: #222}
+tfoot td {background: #f9f9f9}
 .popup-body {
   max-height: 300px;
   overflow: scroll;
@@ -31,6 +34,7 @@ select:focus {
 .sellterm li {
   font-size: 14px;
 }
+.bond-detail-cancel,.bond-detail-edit {height: 100vh}
 .sellterm p {
   margin-bottom: 10px;
 }
@@ -39,12 +43,13 @@ select:focus {
 }
 .sellterm {
   padding-top: 10px;
+  text-align: justify;
 }
 .tac {
   text-align: center;
 }
 .mstit {
-  color: #212529;
+  color: #222222;
 }
 .xmbs {
   color: #0052cc;
@@ -53,7 +58,7 @@ select:focus {
 .sellorder {
   font-size: 14px;
 }
-.sellorder select {
+.sellorder select,.bond-detail-edit select {
   color: #fff;
   font-weight: bold;
   font-size: 14px;
@@ -62,6 +67,7 @@ select:focus {
   width: 120px;
   float: right;
 }
+.fwb {font-weight: bold}
 .mdata {
   text-align: right;
 }
@@ -104,12 +110,13 @@ select:focus {
   line-height: 25px;
 }
 .lh42 {
-  line-height: 42px;
+  line-height: 37px;
   margin-bottom: 0;
 }
 .no-padding {
   padding: 0 !important;
 }
+.taj {text-align: justify}
 .mheading {
   color: #263d60;
 }
@@ -365,7 +372,8 @@ body {
     &.number-field {
       display: inline-flex;
       width: 100%;
-      padding-right: 20px;
+      padding-right: 15px;
+      padding-top:0
     }
     span.form-control {
       font-size: 16px;
@@ -415,7 +423,7 @@ body {
 
   .btn-light {
     width: 35px;
-    height: 31px;
+    height: 35px;
     border: 1px solid #c9cdd4;
     background: #fff;
     display: flex;
@@ -777,7 +785,7 @@ body {
     border-bottom: 1px solid #e7e7e7;
     &.active {
       background: #e7e7e7;
-      color: #212529;
+      color: #222222;
     }
     &:hover {
       background: #e7e7e7;
@@ -829,13 +837,15 @@ body {
 .sell-title {
   background-color: #fff;
   top: 56px;
-  margin-left: 0px;
+  margin-left: -5px;
   margin-right: 8px;
   position: fixed;
   z-index: 99;
-  width: 97%;
+  width: 100%;
   text-align: left;
   font-size: 14px;
+  text-transform: uppercase;
+  padding: 0 15px;
   .bold {
     font-weight: bold;
   }
