@@ -41,7 +41,6 @@ const Section1 = props => {
             </div>
             <div className="col-7 text-right no-pading-left">
               <span className="xmbs c text-bold">{currency(props.item.roomBalance)}</span>
-              <span className="c"> {t('TP')}</span>
             </div>
           </div>
         </div>
