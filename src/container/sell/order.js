@@ -133,7 +133,12 @@ class Order extends Component {
                 {currency(info.sellPrice)} {t('VNĐ')}
               </div>
             </div>
-
+            <div className="row">
+              <label className="col-6 ">{t('Lãi suất')}:</label>
+              <div className="col-6 mdata">
+                {currency(info.termRate)} {t('%/năm')}
+              </div>
+            </div>
             <div className="row">
               <label className="col-6 ">{t('Số lượng TP')}:</label>
               <div className="col-6 mdata">

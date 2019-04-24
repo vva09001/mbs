@@ -2,7 +2,7 @@ import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import Error from 'utils/error';
 import { List, Detail, Change, Delete } from 'services/trade';
-import { Date } from 'services/sell';
+import { Date, Info } from 'services/sell';
 import history from 'utils/history';
 import { accountProfile, getToken, tradeCode } from 'store/selectors';
 
@@ -65,6 +65,12 @@ export function* tradeDetailSaga() {
           params: { contractCode: res.data.data.buyContractCode }
         });
 
+        // Get info by contractCode and sellDate
+        yield put({
+          type: actions.TRADE_INFO_REQUEST,
+          params: { contractCode: res.data.data.buyContractCode, sellDate: res.data.data.sellDate }
+        });
+
         // Move to action page
         yield history.push({ pathname: '/trade/' + data.params.type });
       } else {
@@ -75,6 +81,37 @@ export function* tradeDetailSaga() {
       }
 
       yield put({ type: actions.TRADE_LOADING, loading: false });
+    } catch (error) {
+      yield put({ type: actions.TRADE_ERROR, error: error.message });
+    }
+  });
+}
+
+export function* tradeInfoSaga() {
+  yield takeEvery(actions.TRADE_INFO_REQUEST, function*(data) {
+    try {
+      yield put({ type: actions.TRADE_LOADING });
+
+      // get request
+      const token = yield select(getToken);
+      const profile = yield select(accountProfile);
+      const params = {
+        ...data.params,
+        userId: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield Info(params, token);
+      // handle request
+      if (res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.TRADE_INFO, info: res.data.data });
+      } else {
+        yield put({
+          type: actions.TRADE_ERROR,
+          error: { message: Error[res.data.result], status: true }
+        });
+      }
+
+      yield put({ type: actions.TRADE_LOADING });
     } catch (error) {
       yield put({ type: actions.TRADE_ERROR, error: error.message });
     }
@@ -201,6 +238,7 @@ export default function* rootSaga() {
     fork(tradeListSaga),
     fork(tradeDetailSaga),
     fork(sellGetDateSaga),
+    fork(tradeInfoSaga),
     fork(tradeDeleteSaga),
     fork(tradeUpdateSaga),
     fork(clearTradeErrorSaga)

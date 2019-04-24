@@ -5,6 +5,8 @@ const actions = {
   TRADE_DETAIL_REQUEST: 'TRADE_DETAIL_REQUEST',
   TRADE_DATE: 'TRADE_DATE',
   TRADE_DATE_REQUEST: 'TRADE_DATE_REQUEST',
+  TRADE_INFO: 'TRADE_INFO',
+  TRADE_INFO_REQUEST: 'TRADE_INFO_REQUEST',
   TRADE_CHANGE_REQUEST: 'TRADE_CHANGE_REQUEST',
   TRADE_DELETE_REQUEST: 'TRADE_DELETE_REQUEST',
   TRADE_LOADING: 'TRADE_LOADING',
@@ -21,6 +23,10 @@ const actions = {
   }),
   getDate: params => ({
     type: actions.TRADE_DATE_REQUEST,
+    params
+  }),
+  getInfo: params => ({
+    type: actions.TRADE_INFO_REQUEST,
     params
   }),
   change: params => ({
