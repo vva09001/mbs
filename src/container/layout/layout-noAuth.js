@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import history from 'utils/history';
 // components: header
 import Header from 'components/common/header';
 import Header1 from 'components/common/header1';
 import Header2 from 'components/common/header2';
 import Header3 from 'components/common/header3';
 import Popup from 'components/common/popup';
-import history from 'utils/history';
 import PopupDone from 'components/common/popup-done';
 import Footer from 'components/common/footer';
 // actions
