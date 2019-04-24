@@ -9,7 +9,7 @@ const popup = props => {
         <div className="popup-header mb-2 text-center">{t('CHI TIẾT')}</div>
         <div className="popup-body mb-2 text-center">{props.children}</div>
         <div className="popup-footer text-center">
-          <button type="button" onClick={props.showPopup} className="mclose">
+          <button type="button" onClick={props.showPopup} className="mclose w100">
             {t('ĐÓNG')}
           </button>
         </div>
