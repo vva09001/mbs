@@ -33,7 +33,7 @@ class List extends Component {
       return <Loading />;
     }
     return (
-      <Layout type={2} title="Danh mục TP có thể bán">
+      <Layout type={2} title="TRÁI PHIẾU CÓ THỂ BÁN">
         <div className="row sell-title">
           <div className="col-7 no-pading-right no-pading-left">
             <div className="title-left mt-3 mb-3">

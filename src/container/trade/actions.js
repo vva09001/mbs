@@ -35,7 +35,7 @@ class Actions extends Component {
   };
   _sellDate = () => {
     return (
-      <select className="form-control" onChange={this._onChange.bind(this)}>
+      <select className="form-control form-control-trade" onChange={this._onChange.bind(this)}>
         {_.map(this.props.sellDate, (item, index) => {
           return (
             <option key={index} value={item.termDate}>
@@ -135,7 +135,7 @@ class Actions extends Component {
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Tổng giá trị bán')}</div>
-              <div className="col-6 col-form-div text-blod">
+              <div className="col-6 col-form-div text-blod date">
                 {currency(detail.sellValue)} {t('VNĐ')}
               </div>
             </div>
