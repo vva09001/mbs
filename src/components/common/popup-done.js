@@ -7,7 +7,7 @@ const popup = props => {
     <div className="popup">
       <div className="popup-wrapper rounded bg-white position-relative">
         <div className="popup-header mb-2 text-center">
-          <img className="ic_popup" src="/img/ic_info.svg" alt="popup-title" />
+          <img className="ic_popup" src="/img/ic_info_16x16.svg" alt="popup-title" />
         </div>
         <div className="popup-body mb-2 text-center">{props.children}</div>
         <div className="popup-footer text-center">
