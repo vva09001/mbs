@@ -35,7 +35,7 @@ class List extends Component {
               <div className="title-left">{t('Tổng giá trị đầu tư')}: </div>
             </div>
             <div className="col-6 no-pading-left">
-              <div className="bold">
+              <div className="bold tar">
                 {currency(this.props.total)} {t('VNĐ')}
               </div>
             </div>
