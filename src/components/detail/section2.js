@@ -78,7 +78,7 @@ class Section2 extends Component {
           </div>
         </div>
         <div className=" row">
-          <label className="col-5  npdr lh42">{t('Số lượng TP mua')}</label>
+          <label className="col-5  npdr lh42">{t('Số lượng mua')}</label>
           <div className="col-7 no-pading-right">
             <div className="input-group number-field">
               <span
@@ -103,7 +103,7 @@ class Section2 extends Component {
           </div>
         </div>
         <div className=" row">
-          <label className="col-5 ">{t('Giá đơn mua')}</label>
+          <label className="col-5 ">{t('Đơn giá mua')}</label>
           <div className="col-7">
             <div className="tar">
               <span>

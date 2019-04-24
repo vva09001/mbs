@@ -33,7 +33,7 @@ const Flow = props => {
         </div>
         <div className="row">
           <div className="col-12">
-            <div className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center">
+            <div className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center">
               <span>{t('Dòng tiền - chưa bao gồm tái đầu tư coupon')}:</span>
             </div>
             <p className="mt-2 mb-2 text-primary">
@@ -78,7 +78,7 @@ const Flow = props => {
         </div>
         <div className="row">
           <div className="col-12">
-            <div className="p-2 mb-1 bg-primary rounded text-white d-flex justify-content-between align-items-center">
+            <div className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center">
               <span>{t('Dòng tiền - đã bao gồm tái đầu tư coupon')}:</span>
             </div>
             <p className="mt-2 mb-2 text-primary">

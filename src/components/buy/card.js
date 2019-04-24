@@ -39,7 +39,7 @@ const card = props => {
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          <span className="mlabel">{t('Đang còn')}</span>
+          <span className="mlabel">{t('Hạn mức')}</span>
           <p className="float-right">
             <span className="clb">{currency(props.item.roomBalance)}</span>
           </p>
