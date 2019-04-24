@@ -18,7 +18,6 @@ class List extends Component {
       page: 1,
       order: 0
     });
-    this.props.getTotal();
   }
   _onDetail = code => {
     this.props.bondsDetail({
@@ -97,8 +96,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   bondsDetail: bondsActions.detail,
-  getList: accountActions.list,
-  getTotal: accountActions.info
+  getList: accountActions.list
 };
 
 export default connect(

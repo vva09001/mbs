@@ -99,6 +99,7 @@ export function* accountBondsSaga() {
       // handle request
       if (res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.ACCOUNT_LIST, list: res.data.data.data });
+        yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalValue });
       } else {
         if (res.data.result === -1010) {
           yield history.push({ pathname: '/user/connect/' });
