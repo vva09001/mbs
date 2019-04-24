@@ -132,9 +132,9 @@ class Actions extends Component {
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày giao dịch bán')}:</div>
               <div className="col-6">
-                <p className=" date">
+                <span className=" date">
                   {this.state.type === 'edit' ? this._sellDate() : detail.sellDate}
-                </p>
+                </span>
               </div>
             </div>
             <div className="form-group row">
