@@ -90,7 +90,8 @@ List.propTypes = {
 const mapStateToProps = state => {
   return {
     bonds: state.Sell.list,
-    total: state.Sell.total
+    total: state.Sell.total,
+    loading: state.Sell.loading
   };
 };
 

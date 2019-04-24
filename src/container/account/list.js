@@ -6,6 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import Card from 'components/account/card';
+import Loading from 'components/common/loading';
 import accountActions from 'store/account/actions';
 import bondsActions from 'store/bonds/actions';
 import history from 'utils/history';
@@ -27,6 +28,9 @@ class List extends Component {
   };
   render() {
     const { t } = this.props;
+    if (this.props.loading) {
+      return <Loading />;
+    }
     return (
       <Layout type={2} title="Trái phiếu nắm giữ" active="/user/">
         <div className="sell-title">
@@ -79,13 +83,15 @@ List.propTypes = {
   getTotal: PropTypes.func,
   bondsDetail: PropTypes.func,
   t: PropTypes.func,
-  total: PropTypes.number
+  total: PropTypes.number,
+  loading: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
     bonds: state.Account.list,
-    total: state.Account.total
+    total: state.Account.total,
+    loading: state.Account.loading
   };
 };
 
