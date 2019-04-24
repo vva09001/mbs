@@ -29,6 +29,15 @@ class Check extends Component {
     return (
       <form className="row justify-content-center">
         <div className="form-group col-12">
+          <p>
+            <i>
+              {t(
+                'Quý khách vui lòng hoàn thiện các thông tin sau để hoàn tất yêu cầu liên kết tài khoản trước khi thực hiện giao dịch.'
+              )}
+            </i>
+          </p>
+        </div>
+        <div className="form-group col-12">
           <label>{t('Số TKCK')}</label>
           <input
             onChange={e => this._onChange(e, 'accountCode')}
