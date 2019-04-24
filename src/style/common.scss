@@ -34,7 +34,7 @@ tfoot td {background: #f9f9f9}
 .sellterm li {
   font-size: 14px;
 }
-.bond-detail-cancel {height: 100vh}
+.bond-detail-cancel,.bond-detail-edit {height: 100vh}
 .sellterm p {
   margin-bottom: 10px;
 }
@@ -58,7 +58,7 @@ tfoot td {background: #f9f9f9}
 .sellorder {
   font-size: 14px;
 }
-.sellorder select {
+.sellorder select,.bond-detail-edit select {
   color: #fff;
   font-weight: bold;
   font-size: 14px;
@@ -67,6 +67,7 @@ tfoot td {background: #f9f9f9}
   width: 120px;
   float: right;
 }
+.fwb {font-weight: bold}
 .mdata {
   text-align: right;
 }
@@ -102,7 +103,9 @@ tfoot td {background: #f9f9f9}
 .clb {
   color: #0052cc;
 }
-.table thead td {vertical-align: middle}
+.table thead td {
+  vertical-align: middle;
+}
 .lh25 {
   line-height: 25px;
 }
@@ -438,28 +441,30 @@ body {
     background: linear-gradient(to right, #0092c8, #005496);
     height: 48px;
     font-size: 17px;
-    width: 70%;
+    width: auto;
+    padding: 0 35px;
   }
   .btn-danger {
     background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
     font-size: 17px;
-    width: 70%;
+    width: auto;
+    padding: 0 35px;
     margin: auto;
   }
   .button-trade {
     color: #fff;
     background: linear-gradient(to right, #0092c8, #005496);
     height: 48px;
-    font-size: 17px;
-    width: 70%;
+    width: auto;
+    padding: 0 35px;
   }
   .button-delete {
     color: #fff;
     background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
-    font-size: 17px;
-    width: 70%;
+    width: auto;
+    padding: 0 35px;
   }
   .collapse-custom {
     width: 15px;
@@ -840,7 +845,7 @@ body {
   text-align: left;
   font-size: 14px;
   text-transform: uppercase;
-  padding: 0 15px;
+  padding: 15px;
   .bold {
     font-weight: bold;
   }
@@ -900,6 +905,10 @@ body {
   margin-left: 3px;
   text-align: left;
 }
+.sell-title .title-right,.sell-title .title-left {
+  margin-right: 0px;
+  margin-left: 0;
+}
 .title-right {
   margin-right: 3px;
   text-align: right;
@@ -908,3 +917,19 @@ body {
   background-color: #007edc;
   color: #fff;
 }
+.btn-link {
+  background: linear-gradient(to right, #0092c8, #005496) !important;
+  width: 105px !important;
+  height: 48px;
+  margin: auto;
+  color: #fff;
+  a {
+    font-size: 17px;
+    padding-top: 17px;
+  
+  }
+}
+@media (max-width: 375px) {
+  .table td, .table th {font-size: 13px}
+}
+

@@ -52,7 +52,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
                 }}
                 className={filterPicked === 2 ? 'dropdown-item active' : 'dropdown-item'}
               >
-                {t('Số lượng trái phiếu giảm dần')}
+                {t('Hạn mức giảm dần')}
               </button>
             </div>
           )}
