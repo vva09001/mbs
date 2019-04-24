@@ -108,7 +108,7 @@ Section3.propTypes = {
 const showContent = (items, content, t) => {
   return _.map(content, (item, index) => {
     if (item === 'content') {
-      return <td key={index}>{t(items[item])}</td>;
+      return <td className="tal" key={index}>{t(items[item])}</td>;
     } else if (item === 'cashNonInvest' || item === 'reinvestmentRate' || item === 'cashInvest') {
       return (
         <td className="tar" key={index}>
@@ -116,7 +116,7 @@ const showContent = (items, content, t) => {
         </td>
       );
     }
-    return <td key={index}>{items[item]}</td>;
+    return <td className="tac" key={index}>{items[item]}</td>;
   });
 };
 const Section4 = props => {
@@ -145,7 +145,7 @@ const Section4 = props => {
       {status && (
         <div className="row">
           <div className="col-12">
-            <table className="table table-striped table-responsive">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   {_.map(label, (item, index) => (

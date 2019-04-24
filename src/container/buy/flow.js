@@ -58,7 +58,7 @@ const Flow = props => {
                 {_.map(props.flow.flowNonInvest, (item, index) => (
                   <tr key={index}>
                     <td>{t(item.content)}</td>
-                    <td>{item.payCouponDate}</td>
+                    <td className="tac">{item.payCouponDate}</td>
                     <td className="tar">{currency(item.cashNonInvest)}</td>
                   </tr>
                 ))}
@@ -69,7 +69,7 @@ const Flow = props => {
                     <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
-                    <h5 className="text-info">{currency(props.info.sumCashNoninvest)}</h5>
+                    <h5 className="text-info tar">{currency(props.info.sumCashNoninvest)}</h5>
                   </td>
                 </tr>
               </tfoot>
@@ -118,7 +118,7 @@ const Flow = props => {
                     <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
                   </td>
                   <td>
-                    <h5 className="text-info">{currency(props.info.sumCashInvest)}</h5>
+                    <h5 className="text-info tar">{currency(props.info.sumCashInvest)}</h5>
                   </td>
                 </tr>
               </tfoot>
