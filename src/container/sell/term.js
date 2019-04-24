@@ -14,7 +14,7 @@ const Term = () => {
             định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC ĐIỀU KHOẢN VÀ
             ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU
           </p>
-          <p className="mst xmbs">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</p>
+          <p className="mst">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</p>
           <p>1.1. Trái Phiếu: Là trái phiếu được xác định tại Đăng Ký Bán Trái Phiếu.</p>
           <p>1.2. Tổ Chức Phát Hành: Là doanh nghiệp phát hành Trái Phiếu.</p>
           <p>
@@ -104,7 +104,7 @@ const Term = () => {
             1.17. Tài khoản ViettelPay: Là tài khoản của KH sử dụng trên ứng dụng ViettelPAY như 1
             ví điện tử thanh toán
           </p>
-          <p className="mst xmbs">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</p>
+          <p className="mst">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</p>
           <p>
             2.1. Trái Phiếu giao dịch: Là Trái Phiếu được nêu tại Đăng Ký Bán Trái Phiếu, có các đặc
             điểm được nêu tại Thông Tin Trái Phiếu.
@@ -126,7 +126,7 @@ const Term = () => {
             tại Đề nghị chuyển nhượng Trái Phiếu. Việc chuyển nhượng được thực hiện ngay trong Ngày
             Giao Dịch, sau khi MBS đã thanh toán cho KH như quy định tại Mục 2.6 Điều này.
           </p>
-          <p className="mst xmbs">ĐIỀU 3: HÌNH THÀNH HỢP ĐỒNG</p>
+          <p className="mst">ĐIỀU 3: HÌNH THÀNH HỢP ĐỒNG</p>
           <p>
             3.1. Thông Tin Trái Phiếu Giao Dịch, Đăng Ký Bán Trái Phiếu, Các Điều Khoản và Điều Kiện
             bán Trái Phiếu cùng các tài liệu kèm theo sẽ hợp thành một hợp đồng mua bán Trái Phiếu
@@ -138,7 +138,7 @@ const Term = () => {
             3.3. Hợp đồng&nbsp;được lập và lưu trữ dưới dạng dữ liệu điện tử trên hệ thống của MBS
             và có giá trị như một hợp đồng được ký dưới dạng văn bản.
           </p>
-          <p className="mst xmbs">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</p>
+          <p className="mst">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</p>
           <p>4.1. Quyền và nghĩa vụ của MBS</p>
           <p>
             – MBS cam kết thông tin của MBS nêu tại phần đầu của Hợp đồng này là chính xác, trung
@@ -193,14 +193,14 @@ const Term = () => {
             – Các quyền và nghĩa vụ khác theo thỏa thuận tại Hợp đồng này, Các Văn Kiện Trái Phiếu
             và quy định của pháp luật.
           </p>
-          <p className="mst xmbs">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</p>
+          <p className="mst">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</p>
           <p>
             Bất kỳ bên nào vi phạm các nghĩa vụ của mình tại Hợp đồng này phải có trách nhiệm khắc
             phục vi phạm trong vòng 02 ngày làm việc kể từ ngày phát sinh vi phạm. Nếu quá thời hạn
             trên, Bên vi phạm sẽ phải bồi thường toàn bộ thiệt hại thực tế phát sinh từ việc vi phạm
             nghĩa vụ của mình theo Hợp đồng này.
           </p>
-          <p className="mst xmbs">ĐIỀU 6: ĐIỀU KHOẢN THI HÀNH</p>
+          <p className="mst">ĐIỀU 6: ĐIỀU KHOẢN THI HÀNH</p>
           <p>
             6.1. Mỗi bên khẳng định rằng: (i) Đã hiểu rõ quyền, nghĩa vụ lợi ích và các rủi ro có
             thể xảy ra của việc giao kết Hợp đồng này và (ii) Việc giao kết, thực hiện Hợp đồng này
