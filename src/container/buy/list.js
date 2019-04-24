@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-
 import Layout from 'container/layout/layout';
 import Card from 'components/buy/card';
 import Loading from 'components/common/loading';
@@ -28,6 +27,11 @@ class List extends Component {
     this.props.bondsDetail(params);
     this.props.buyFetch(params);
   };
+  _onDetail = code => {
+    this.props.bondsDetail({
+      code: code
+    });
+  };
   _bondsFetch = params => {
     this.setState(
       {
@@ -45,7 +49,12 @@ class List extends Component {
   };
   _showList = () => {
     return _.map(this.props.bonds, item => (
-      <Card fetchDetail={this._fetchDetail} item={item} key={item.bondCode} />
+      <Card
+        onDetail={this._onDetail}
+        fetchDetail={this._fetchDetail}
+        item={item}
+        key={item.bondCode}
+      />
     ));
   };
   render() {

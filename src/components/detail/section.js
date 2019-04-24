@@ -72,6 +72,10 @@ const Section3 = props => {
         </div>
       </div>
       <div className=" row align-items-center">
+        <label className="col-6 c">{t('Ngày đáo hạn')}</label>
+        <div className="col-6 text-right">{props.item.maturityDate}</div>
+      </div>
+      <div className=" row align-items-center">
         <label className="col-6 c">{t('Thời gian nắm giữ')}</label>
         <div className="col-6 text-right c">
           {currency(props.item.numInvestDate)} {t('ngày')}

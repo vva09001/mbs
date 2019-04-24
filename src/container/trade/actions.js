@@ -27,15 +27,27 @@ class Actions extends Component {
   }
   _onChange = e => {
     const value = e.target.value;
-    this.setState({
-      params: {
-        sellDate: value
+    this.setState(
+      {
+        params: {
+          sellDate: value
+        }
+      },
+      () => {
+        this.props.getInfo({
+          sellDate: value,
+          contractCode: this.props.info.buyContractCode
+        });
       }
-    });
+    );
   };
   _sellDate = () => {
     return (
-      <select className="form-control form-control-trade" onChange={this._onChange.bind(this)}>
+      <select
+        className="form-control"
+        onChange={this._onChange.bind(this)}
+        value={this.props.info.sellDate}
+      >
         {_.map(this.props.sellDate, (item, index) => {
           return (
             <option key={index} value={item.termDate}>
@@ -54,7 +66,7 @@ class Actions extends Component {
     }
   };
   render() {
-    const { detail, t } = this.props;
+    const { detail, t, info } = this.props;
     return (
       <Layout
         type={2}
@@ -128,19 +140,19 @@ class Actions extends Component {
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Đơn giá bán')}:</div>
               <div className="col-6">
-                {currency(detail.sellPrice)} {t('VNĐ')}
+                {currency(info.sellPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Số lượng Trái phiếu')}:</div>
               <div className="col-6">
-                {currency(detail.sellVol)} {t('Trái phiếu')}
+                {currency(info.sellVol)} {t('Trái phiếu')}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Tổng giá trị bán')}</div>
               <div className="col-6 col-form-div text-blod date">
-                {currency(detail.sellValue)} {t('VNĐ')}
+                {currency(info.sellValue)} {t('VNĐ')}
               </div>
             </div>
             <div className="form-group row">
@@ -148,7 +160,7 @@ class Actions extends Component {
                 <i>{t('Tỷ lệ thuế TNCN (%)')}</i>
               </div>
               <div className="col-6">
-                <i>{currency(detail.taxPit)}%</i>
+                <i>{currency(info.taxPit)}%</i>
               </div>
             </div>
             <div className="form-group row">
@@ -157,7 +169,7 @@ class Actions extends Component {
               </div>
               <div className="col-6">
                 <i>
-                  {currency(detail.taxValue)} {t('VNĐ')}
+                  {currency(info.taxValue)} {t('VNĐ')}
                 </i>
               </div>
             </div>
@@ -186,22 +198,26 @@ class Actions extends Component {
 Actions.propTypes = {
   match: PropTypes.object,
   detail: PropTypes.object,
+  info: PropTypes.object,
   sellDate: PropTypes.array,
   change: PropTypes.func,
   delete: PropTypes.func,
+  getInfo: PropTypes.func,
   t: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
     detail: state.Trade.detail,
-    sellDate: state.Trade.date
+    sellDate: state.Trade.date,
+    info: state.Trade.info
   };
 };
 
 const mapDispatchToProps = {
   change: tradeActions.change,
-  delete: tradeActions.delete
+  delete: tradeActions.delete,
+  getInfo: tradeActions.getInfo
 };
 
 export default connect(

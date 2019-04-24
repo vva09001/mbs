@@ -164,6 +164,7 @@ tfoot td {background: #f9f9f9}
   line-height: 30px;
   padding: 5px 20px;
   font-size: 15px;
+  font-weight: bold;
 }
 thead td {
   text-align: center;
@@ -436,13 +437,13 @@ body {
     background: linear-gradient(to right, #0092c8, #005496);
     height: 48px;
     font-size: 17px;
-    padding: 10px;
+    width: 70%;
   }
   .btn-danger {
     background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
     font-size: 17px;
-    width: 150px;
+    width: 70%;
     margin: auto;
   }
   .button-trade {
@@ -450,14 +451,14 @@ body {
     background: linear-gradient(to right, #0092c8, #005496);
     height: 48px;
     font-size: 17px;
-    width: 150px;
+    width: 70%;
   }
   .button-delete {
     color: #fff;
     background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
     font-size: 17px;
-    width: 150px;
+    width: 70%;
   }
   .collapse-custom {
     width: 15px;
