@@ -103,7 +103,9 @@ tfoot td {background: #f9f9f9}
 .clb {
   color: #0052cc;
 }
-.table thead td {vertical-align: middle}
+.table thead td {
+  vertical-align: middle;
+}
 .lh25 {
   line-height: 25px;
 }
@@ -439,28 +441,30 @@ body {
     background: linear-gradient(to right, #0092c8, #005496);
     height: 48px;
     font-size: 17px;
-    width: 70%;
+    width: auto;
+    padding: 0 35px;
   }
   .btn-danger {
     background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
     font-size: 17px;
-    width: 70%;
+    width: auto;
+    padding: 0 35px;
     margin: auto;
   }
   .button-trade {
     color: #fff;
     background: linear-gradient(to right, #0092c8, #005496);
     height: 48px;
-    font-size: 17px;
-    width: 70%;
+    width: auto;
+    padding: 0 35px;
   }
   .button-delete {
     color: #fff;
     background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
-    font-size: 17px;
-    width: 70%;
+    width: auto;
+    padding: 0 35px;
   }
   .collapse-custom {
     width: 15px;
