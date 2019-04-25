@@ -93,7 +93,7 @@ const Section3 = props => {
         </label>
         <div className="col-6 text-right">
           <b>
-            <span className="xmbs">{currency(props.item.reinvestmentRate)}%</span>
+            <span className="xmbs">{currency(props.item.termInvest)}%</span>
             <span className="xmbs">/{t('năm')}</span>
           </b>
         </div>
