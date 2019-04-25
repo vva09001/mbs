@@ -59,7 +59,7 @@ const Layout = props => {
         {header(props)}
         <div className="container-fluid min-vh-100 text-center">
           <div className="wapper">
-            {t('Chưa đăng nhập')}
+            {t('timeOutLogin')}
             <div className="icon-noProduct">
               <img src="/img/iconfinder_icon.png" alt="logo" />
             </div>

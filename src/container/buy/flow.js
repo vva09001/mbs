@@ -9,7 +9,7 @@ import Layout from 'container/layout/layout';
 const Flow = props => {
   const { t } = props;
   return (
-    <Layout type={1} title="Xác thực giao dịch mua">
+    <Layout type={1} title={t('Đằng Ký Mua Trái Phiếu')}>
       <div className="buy-wrapper">
         <h4 className="text-center mtitle text-uppercase">
           {t('Dòng tiền nhận được khi mua Trái phiếu')}

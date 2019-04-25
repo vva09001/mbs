@@ -27,7 +27,8 @@ class Detail extends Component {
       toggle: {
         ...this.state.toggle,
         [type]: !this.state.toggle[type]
-      }
+      },
+      popupTitle: 'Thông tin trái phiếu'
     });
   };
 
@@ -78,7 +79,7 @@ class Detail extends Component {
     return (
       <Layout type={1} path="/" title="Đăng ký mua">
         {this.state.toggle.popup && (
-          <Popup title="Thông tin Trái phiếu" showPopup={() => this.showPopup('popup')}>
+          <Popup title={t('Thông tin trái phiếu')} showPopup={() => this.showPopup('popup')}>
             <p className="text-justify">
               <strong>{t('Coupon')}:</strong> Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu
               có)) do Tổ Chức Phát Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ
@@ -90,9 +91,9 @@ class Detail extends Component {
               dụ gửi tiết kiệm….)
             </p>
             <p className="text-justify">
-              <strong>{t('Lợi suất đầu tư')}:</strong> Là lợi suất đầu tư Trái Phiếu Khách Hàng nhận
-              được đã bao gồm tái đầu tư coupon (với giả định Khách Hàng tiếp tục đầu tư khoản
-              coupon với lãi suất 7.2%/năm)
+              <strong>{t('Lợi suất đã tái đầu tư')}:</strong> Là lợi suất đầu tư Trái Phiếu Khách
+              Hàng nhận được đã bao gồm tái đầu tư coupon (với giả định Khách Hàng tiếp tục đầu tư
+              khoản coupon với lãi suất 7.2%/năm)
             </p>
           </Popup>
         )}
@@ -131,7 +132,7 @@ class Detail extends Component {
               onClick={() => this._setBuy()}
               className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
             >
-              {t('MUA')}
+              {t('mua')}
             </button>
           </div>
         </div>

@@ -48,7 +48,7 @@ const card = props => {
               onClick={() => props.fetchDetail({ code: props.item.bondCode })}
               className="btn btn-link rounded-pill border-0 btn-lg btn-block"
             >
-              {t('MUA')}
+              {t('mua')}
             </Link>
           </div>
         </li>

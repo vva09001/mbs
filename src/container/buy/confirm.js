@@ -37,7 +37,7 @@ class Confirm extends Component {
       return <Loading />;
     }
     return (
-      <Layout type={1} title="Xác thực giao dịch mua">
+      <Layout type={1} title="ĐĂNG KÝ MUA TRÁI PHIẾU">
         <div className="bond-buy-comfirm">
           <h4 className="text-center mtitle uppc">
             {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}

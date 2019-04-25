@@ -5,7 +5,7 @@ import Layout from 'container/layout/layout';
 const Term = () => {
   const { t } = useTranslation();
   return (
-    <Layout type={1} title="Xác thực giao dịch mua">
+    <Layout type={1} title="ĐĂNG KÝ MUA TRÁI PHIẾU">
       <div className="bond-detail font12">
         <h4 className="text-center mtitle text-uppercase xtgdm">
           {t('CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN KHI GIAO DỊCH MUA Trái phiếu')}

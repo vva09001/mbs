@@ -87,11 +87,7 @@ class Actions extends Component {
             showViewPopup={() => this._onClick()}
           >
             <span>
-              <i>
-                {this.state.type === 'edit'
-                  ? t('Quý khách có chắn chắn muốn Sửa ?')
-                  : t('Quý khách có chắn chắn muốn Hủy ?')}
-              </i>
+              <i>{this.state.type === 'edit' ? t('editConFirm?') : t('caneConFirm')}</i>
             </span>
           </Popup>
         )}
@@ -209,8 +205,8 @@ class Actions extends Component {
               onClick={() => this._toggleState()}
               className={
                 this.state.type === 'edit'
-                  ? 'btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block'
-                  : 'btn btn-danger bg-gradient-primary rounded-pill border-0 btn-lg btn-block'
+                  ? 'btn btn-primary rounded-pill border-0 btn-lg btn-block'
+                  : 'btn btn-danger rounded-pill border-0 btn-lg btn-block'
               }
             >
               {this.state.type === 'edit' ? t('SỬA BÁN') : t('HUỶ BÁN')}

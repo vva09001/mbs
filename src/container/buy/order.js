@@ -56,7 +56,7 @@ class Order extends Component {
                   {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái phiếu')}
                 </td>
               </tr>
-              <tr className="bgg">
+              <tr>
                 <td>{t('Giá Trị Giao Dịch')}</td>
                 <td>
                   {currency(contract.buyValue)} {t('VNĐ')}
@@ -68,8 +68,14 @@ class Order extends Component {
                   {currency(info.buyFee)} {t('VNĐ')}
                 </td>
               </tr>
+              <tr className="bgg">
+                <td>{t('Tổng Giá Trị Giao Dịch')}</td>
+                <td>
+                  {currency(contract.buyValue + info.buyFee)} {t('VNĐ')}
+                </td>
+              </tr>
               <tr>
-                <td>{t('Lợi suất đầu tư (chưa bao gồm tái đầu tư coupon)')}</td>
+                <td>{t('Lợi Suất Đáo Hạn (chưa bao gồm tái đầu tư coupon)')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
@@ -78,7 +84,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi suất đầu tư (đã bao gồm tái đầu tư coupon)')}</td>
+                <td>{t('Lợi Suất Đã Tái Đầu Tư (đã bao gồm tái đầu tư coupon)')}</td>
                 <td>
                   <b>
                     {currency(info.termInvest)}

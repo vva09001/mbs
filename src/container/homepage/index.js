@@ -23,7 +23,7 @@ class HomePage extends Component {
           <div className="col-12 text-center">
             <h6 className="text-primary mt-3 mb-3">
               <img alt="logo" src="/img/logo_MBS.svg" className="mr-2 logoMBS" />
-              {t('CTCP Chứng khoán MB')}
+              {t('MBS')}
             </h6>
           </div>
         </div>

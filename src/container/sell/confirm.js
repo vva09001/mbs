@@ -14,7 +14,7 @@ class Confirm extends Component {
   render() {
     const { bond, info, t } = this.props;
     return (
-      <Layout type={1} title="Xác nhận giao dịch bán">
+      <Layout type={1} title={t('Xác nhận giao dịch bán')}>
         <div className="bond-buy-comfirm">
           <h4 className="text-center mtitle uppc">
             {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
@@ -112,22 +112,12 @@ class Confirm extends Component {
             </i>
           </div>
           <div className="confirm-content">
+            <p>{t('confirmSell1')}</p>
             <p>
-              {t(
-                'CTCP chứng khoán MB được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số Trái Phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của CTCP Chứng khoán MB.'
-              )}
+              {bond.issuerBond} {t('confirmSell2')}
             </p>
             <p>
-              {bond.issuerBond}{' '}
-              {t(
-                'ủy quyền cho CTCP Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. CTCP Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu Trái Phiếu, không xác nhận việc thanh toán giữa hai bên.'
-              )}
-            </p>
-            <p>
-              {t('Hai bên thừa nhận, trong mọi trường hợp,')} {bond.issuerBond}{' '}
-              {t(
-                'là đơn vị chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái Phiếu.'
-              )}
+              {t('Hai bên thừa nhận, trong mọi trường hợp,')} {bond.issuerBond} {t('confirmSell3')}
             </p>
           </div>
         </div>
