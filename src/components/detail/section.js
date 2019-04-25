@@ -63,7 +63,7 @@ const Section3 = props => {
   return (
     <Fragment>
       <div className=" row align-items-center pading-top">
-        <label className="col-6 c">{t('Lãi suất đáo hạn')}</label>
+        <label className="col-6 c">{t('Lợi suất đáo hạn')}</label>
         <div className="col-6 text-right">
           <b>
             <span className="xmbs">{currency(props.item.termRate)}%</span>
@@ -83,7 +83,7 @@ const Section3 = props => {
       </div>
       <div className=" row align-items-center">
         <label className="col-6 c">
-          {t('Lãi suất đầu tư')}
+          {t('Lợi suất đã tái đầu tư')}
           <img
             onClick={() => props.showPopup('popup')}
             alt="popup-click"

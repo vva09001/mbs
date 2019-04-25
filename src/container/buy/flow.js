@@ -33,19 +33,19 @@ const Flow = props => {
         </div>
         <div className="row">
           <div className="col-12">
-            <div className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center">
+            <div className="p-2 bgb text-white d-flex justify-content-between align-items-center">
               <span>{t('Dòng tiền - chưa bao gồm tái đầu tư coupon')}:</span>
             </div>
-            <p className="mt-2 mb-2 text-primary">
+            <div className="text-primary wpp">
               <strong>
-                {t('Lãi suất đầu tư')}:{' '}
+                {t('Lợi suất đáo hạn')}:{' '}
                 <span className="text-danger">
                   {currency(props.info.termNoninvest)}
                   %/
                   {t('năm')}
                 </span>
               </strong>
-            </p>
+            </div>
             <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
@@ -78,19 +78,19 @@ const Flow = props => {
         </div>
         <div className="row">
           <div className="col-12">
-            <div className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center">
+            <div className="p-2 bgb text-white d-flex justify-content-between align-items-center">
               <span>{t('Dòng tiền - đã bao gồm tái đầu tư coupon')}:</span>
             </div>
-            <p className="mt-2 mb-2 text-primary">
+            <div className="text-primary wpp">
               <strong>
-                {t('Lãi suất đầu tư')}:{' '}
+                {t('Lợi suất đã tái đầu tư')}:{' '}
                 <span className="text-danger">
                   {currency(props.info.termInvest)}
                   %/
                   {t('năm')}
                 </span>
               </strong>
-            </p>
+            </div>
             <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">

@@ -90,7 +90,7 @@ class Detail extends Component {
               dụ gửi tiết kiệm….)
             </p>
             <p className="text-justify">
-              <strong>{t('Lãi suất đầu tư')}:</strong> Là lợi suất đầu tư Trái Phiếu Khách Hàng nhận
+              <strong>{t('Lợi suất đầu tư')}:</strong> Là lợi suất đầu tư Trái Phiếu Khách Hàng nhận
               được đã bao gồm tái đầu tư coupon (với giả định Khách Hàng tiếp tục đầu tư khoản
               coupon với lãi suất 7.2%/năm)
             </p>
