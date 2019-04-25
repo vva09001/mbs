@@ -14,13 +14,13 @@ const card = props => {
         <li className="list-group-item title">
           <button
             onClick={() => props.onDetail(props.item.bondCode)}
-            className="btn-transparent text-truncate"
+            className="btn-transparent text-truncate btn-sell"
           >
             {props.item.bondCode}
           </button>
           <button
             onClick={() => props.onDetail(props.item.bondCode)}
-            className="link btn-transparent"
+            className="link btn-transparent linkSell"
           >
             <Icon name="arrow" width="18" height="24" />
           </button>
@@ -34,7 +34,7 @@ const card = props => {
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Số lượng sở hữu')}
+          {t('Trái phiếu sở hữu')}
           <p className="float-right">
             <span className="quatity">{currency(props.item.buyVol)}</span>
           </p>
@@ -56,7 +56,7 @@ const card = props => {
           </p>
         </li>
         <li className="list-group-item">
-          {t('Lãi suất đầu tư')}
+          {t('Lợi suất đầu tư')}
           <p className="float-right">
             <span className="quatity quatity-text">{currency(props.item.termRate)}</span>
             <span className="quatity"> {t('%/năm')}</span>

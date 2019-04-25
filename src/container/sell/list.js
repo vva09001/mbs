@@ -37,7 +37,7 @@ class List extends Component {
         <div className="sell-title">
           <div className="row">
             <div className="col-6 no-pading-right">
-              <div className="title-left">{t('Tổng giá trị đầu tư')}: </div>
+              <div className="title-left bold tar">{t('Tổng giá trị đầu tư')}: </div>
             </div>
             <div className="col-6 no-pading-left">
               <div className="bold tar">
@@ -47,7 +47,7 @@ class List extends Component {
           </div>
           <div className="row">
             <div className="col-6 no-pading-right">
-              <div className="title-left">{t('Tổng số lượng')}: </div>
+              <div className="title-left bold tar">{t('Tổng số lượng')}: </div>
             </div>
             <div className="col-6 no-pading-left">
               <div className="title-right">

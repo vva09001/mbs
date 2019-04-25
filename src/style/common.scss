@@ -28,6 +28,13 @@ tfoot td {background: #f9f9f9}
 .bg999 {
   background: #999;
 }
+.bgb {
+  background-color: #005197;;
+}
+.wpp {
+  border:  1px solid #e6e6e6;
+  padding: 5px;
+}
 .mtable .col-4 {
   padding-right: 0;
 }
@@ -674,11 +681,6 @@ body {
     width: 100%;
     justify-content: space-between;
     line-height: 30px;
-
-    span {
-      font-weight: bold;
-    }
-
     p {
       margin: 0;
       font-weight: bold;

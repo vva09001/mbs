@@ -27,17 +27,17 @@ class Order extends Component {
   render() {
     const { bond, info, contract, t } = this.props;
     return (
-      <Layout type={1} title="Xác thực giao dịch mua">
+      <Layout type={1} title="ĐĂNG KÝ MUA TRÁI PHIẾU">
         <div className="bond-detail">
           <h4 className="text-center text-uppercase mtitle">{t('THÔNG TIN VỀ GIAO DỊCH')}</h4>
           <table className="table table-bordered bg-white">
             <tbody>
               <tr className="bgg">
-                <td width="50%">{t('Mã Trái phiếu')}</td>
+                <td width="50%">{t('Trái phiếu')}</td>
                 <td width="50%">{bond.bondCode}</td>
               </tr>
               <tr>
-                <td>{t('Ngày giao dịch')}</td>
+                <td>{t('Ngày Giao Dịch')}</td>
                 <td>{info.buyDate}</td>
               </tr>
               <tr>
@@ -45,31 +45,31 @@ class Order extends Component {
                 <td>{bond.maturityDate}</td>
               </tr>
               <tr>
-                <td>{t('Số lượng mua')}</td>
+                <td>{t('Khối lượng')}</td>
                 <td>
                   {currency(contract.buyVol)} {t('Trái phiếu')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Đơn giá mua')}</td>
+                <td>{t('Đơn Giá Giao Dịch')}</td>
                 <td>
                   {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái phiếu')}
                 </td>
               </tr>
               <tr className="bgg">
-                <td>{t('Tổng tiền đầu tư')}</td>
+                <td>{t('Giá Trị Giao Dịch')}</td>
                 <td>
                   {currency(contract.buyValue)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Phí giao dịch')}</td>
+                <td>{t('Thuế, Phí giao dịch')} </td>
                 <td>
                   {currency(info.buyFee)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Lãi suất đầu tư (chưa bao gồm tái đầu tư coupon)')}</td>
+                <td>{t('Lợi suất đầu tư (chưa bao gồm tái đầu tư coupon)')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
@@ -78,7 +78,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lãi suất đầu tư (đã bao gồm tái đầu tư coupon)')}</td>
+                <td>{t('Lợi suất đầu tư (đã bao gồm tái đầu tư coupon)')}</td>
                 <td>
                   <b>
                     {currency(info.termInvest)}
