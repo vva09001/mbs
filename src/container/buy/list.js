@@ -60,6 +60,9 @@ class List extends Component {
   };
   render() {
     const { t } = this.props;
+    if (this.props.loading) {
+      return <Loading />;
+    }
     return (
       <Layout
         toggle={this.state.toggle}
@@ -69,16 +72,16 @@ class List extends Component {
         title="Sản phẩm"
         active="/buy/"
       >
-        {this.props.loading ? <Loading /> : this._showList()}
-        {this.props.bonds === null ||
-          (this.props.bonds.length === 0 && (
-            <div className="text-center wapper">
-              {t('Không có Trái phiếu nào')}
-              <div className="icon-noProduct">
-                <img src="/img/iconfinder_icon.png" alt="logo" />
-              </div>
+        {this.props.bonds.length === 0 ? (
+          <div className="text-center wapper">
+            {t('Không có Trái phiếu nào')}
+            <div className="icon-noProduct">
+              <img src="/img/iconfinder_icon.png" alt="logo" />
             </div>
-          ))}
+          </div>
+        ) : (
+          this._showList()
+        )}
       </Layout>
     );
   }

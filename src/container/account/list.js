@@ -58,18 +58,19 @@ class List extends Component {
         </div>
         <div />
         <div className="list-conatainer">
-          {_.map(this.props.bonds, (item, index) => (
-            <Card onDetail={this._onDetail} item={item} key={index} />
-          ))}
-          {this.props.bonds === null ||
-            (this.props.bonds.length === 0 && (
-              <div className="text-center wapper">
-                {t('Không có Trái phiếu nào')}
-                <div className="icon-noProduct">
-                  <img src="/img/iconfinder_icon.png" alt="logo" />
-                </div>
+          {}
+          {this.props.bonds.length === 0 ? (
+            <div className="text-center wapper">
+              {t('Không có Trái phiếu nào')}
+              <div className="icon-noProduct">
+                <img src="/img/iconfinder_icon.png" alt="logo" />
               </div>
-            ))}
+            </div>
+          ) : (
+            _.map(this.props.bonds, (item, index) => (
+              <Card onDetail={this._onDetail} item={item} key={index} />
+            ))
+          )}
         </div>
       </Layout>
     );
