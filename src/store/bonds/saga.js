@@ -1,5 +1,5 @@
 import actions from './actions';
-import { all, fork, put, takeEvery, select, take } from 'redux-saga/effects';
+import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { list, detail } from 'services/bonds';
 import { accountProfile, getToken } from 'store/selectors';
 import Error from 'utils/error';
