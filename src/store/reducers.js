@@ -31,7 +31,7 @@ const expireTransform = createExpirationTransform({
       status: false
     },
     expiresAt: moment()
-      .add(5, 'm')
+      .add(10, 'm')
       .toDate()
   }
 });
