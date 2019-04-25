@@ -26,51 +26,53 @@ class List extends Component {
     });
     history.push({ pathname: '/buy/info/' });
   };
+  _showList = () => {
+    return _.map(this.props.bonds, (item, index) => (
+      <Card onDetail={this._onDetail} item={item} key={index}>
+        <li className="list-group-item justify-content-center">
+          <button
+            onClick={() =>
+              this._onClick({
+                type: 'delete',
+                contractCode: item.sellContractCode
+              })
+            }
+            className="button-delete rounded-pill border-0 btn-lg btn-block mr-2"
+          >
+            {this.props.t('HUỶ')}
+          </button>
+          <button
+            onClick={() =>
+              this._onClick({
+                type: 'edit',
+                contractCode: item.sellContractCode
+              })
+            }
+            className="button-trade rounded-pill border-0 btn-lg btn-block no-margin"
+          >
+            {this.props.t('SỬA')}
+          </button>
+        </li>
+      </Card>
+    ));
+  };
   render() {
     const { t } = this.props;
+    if (this.props.loading) {
+      return <Loading />;
+    }
     return (
       <Layout type={2} title="Quản lý giao dịch" active="/trade/">
-        {this.props.loading ? (
-          <Loading />
-        ) : (
-          _.map(this.props.bonds, (item, index) => (
-            <Card onDetail={this._onDetail} item={item} key={index}>
-              <li className="list-group-item justify-content-center">
-                <button
-                  onClick={() =>
-                    this._onClick({
-                      type: 'delete',
-                      contractCode: item.sellContractCode
-                    })
-                  }
-                  className="button-delete rounded-pill border-0 btn-lg btn-block mr-2"
-                >
-                  {t('HUỶ')}
-                </button>
-                <button
-                  onClick={() =>
-                    this._onClick({
-                      type: 'edit',
-                      contractCode: item.sellContractCode
-                    })
-                  }
-                  className="button-trade rounded-pill border-0 btn-lg btn-block no-margin"
-                >
-                  {t('SỬA')}
-                </button>
-              </li>
-            </Card>
-          ))
-        )}
-        {this.props.bonds === null ||
-          (this.props.bonds.length === 0 && (
-            <div className="text-center wapper">
-              {t('Không có Trái phiếu nào')}
-              <div className="icon-noProduct">
-                <img src="/img/iconfinder_icon.png" alt="logo" />
-              </div>
+        {this.props.bonds.length === 0 ? (
+          <div className="text-center wapper">
+            {t('Không có Trái phiếu nào')}
+            <div className="icon-noProduct">
+              <img src="/img/iconfinder_icon.png" alt="logo" />
             </div>
-          ))}
+          </div>
+        ) : (
+          this._showList()
+        )}
       </Layout>
     );
   }
