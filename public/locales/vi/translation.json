@@ -126,5 +126,6 @@
   "là đơn vị chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái Phiếu.": "là đơn vị chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái Phiếu.",
   "Tổng giá trị đầu tư": "Tổng giá trị đầu tư",
   "Không có Trái phiếu nào": "Không có Trái phiếu nào",
-  "Khối lượng": "Khối lượng"
+  "Khối lượng": "Khối lượng",
+  "need_auth": "Lỗi auth"
 }

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import history from 'utils/history';
 // components: header
@@ -37,6 +38,7 @@ const Alert = (message, toggle) => (
   </Popup>
 );
 const Layout = props => {
+  const { t } = useTranslation();
   return (
     <Fragment>
       {props.buyDone.status && (
@@ -87,7 +89,7 @@ const Layout = props => {
           </span>
         </PopupDone>
       )}
-      {props.error.status && Alert(props.error.message, props.clear)}
+      {props.error.status && Alert(t(props.error.message), props.clear)}
       {header(props)}
       <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>
       <Footer active={props.active} />

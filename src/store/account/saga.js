@@ -49,6 +49,7 @@ export function* accountCheckLinkSaga() {
     }
   });
 }
+
 export function* accountLinkSaga() {
   yield takeEvery(actions.LINK_REQUEST, function*(data) {
     try {

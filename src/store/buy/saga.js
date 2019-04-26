@@ -132,6 +132,7 @@ export function* buyFetchSaga() {
       // get info data
       yield take(actions.BUY_INFO);
       const volMin = yield select(buyVolMin);
+      const info = yield select(buyInfo);
 
       // Call 'flow saga'
       yield put({
@@ -142,7 +143,7 @@ export function* buyFetchSaga() {
       // set params
       yield put({
         type: actions.BUY_PARAMS_REQUEST,
-        params: { volume: volMin }
+        params: { volume: volMin, sum: volMin * info.buyPrice }
       });
 
       // Handle request flowCash
@@ -181,6 +182,14 @@ export function* checkMountBuySaga() {
         type: errorActions.ERROR,
         error: {
           message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
+          status: true
+        }
+      });
+    } else if (params.sum > 100000000) {
+      yield put({
+        type: errorActions.ERROR,
+        error: {
+          message: `Giới hạn tiền là 100,000,000 VNĐ`,
           status: true
         }
       });
