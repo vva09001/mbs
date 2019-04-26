@@ -15,7 +15,7 @@ request.interceptors.request.use(
     return config;
   },
   error => {
-    return Promise.reject(error);
+    return error;
   }
 );
 
@@ -25,7 +25,8 @@ request.interceptors.response.use(
     return response;
   },
   error => {
-    return Promise.reject(error);
+    const response = JSON.parse(JSON.stringify(error))
+    return response.response;
   }
 );
 

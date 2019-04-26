@@ -56,6 +56,55 @@ const Layout = props => {
   if (!props.isLoggedIn) {
     return (
       <Fragment>
+        {props.buyDone.status && (
+          <PopupDone
+            showClosePopup={() => {
+              props.clear();
+              history.push({ pathname: '/buy/' });
+            }}
+            showViewPopup={() => {
+              props.clear();
+              history.push({ pathname: '/user/' });
+            }}
+          >
+            <span>
+              <i>{props.buyDone.message}</i>
+            </span>
+          </PopupDone>
+        )}
+        {props.sellDone.status && (
+          <PopupDone
+            showClosePopup={() => {
+              props.clear();
+              history.push({ pathname: '/sell/' });
+            }}
+            showViewPopup={() => {
+              props.clear();
+              history.push({ pathname: '/trade/' });
+            }}
+          >
+            <span>
+              <i>{props.sellDone.message}</i>
+            </span>
+          </PopupDone>
+        )}
+        {props.tradeDone.status && (
+          <PopupDone
+            showClosePopup={() => {
+              props.clear();
+              history.push({ pathname: '/trade/' });
+            }}
+            showViewPopup={() => {
+              props.clear();
+              history.push({ pathname: '/user/' });
+            }}
+          >
+            <span>
+              <i>{props.tradeDone.message}</i>
+            </span>
+          </PopupDone>
+        )}
+        {props.error.status && Alert(props.error.message, props.clear)}
         {header(props)}
         <div className="container-fluid min-vh-100 text-center">
           <div className="wapper">
@@ -133,7 +182,6 @@ Layout.propTypes = {
   active: PropTypes.string,
   onClick: PropTypes.func,
   isLoggedIn: PropTypes.bool,
-  isLinked: PropTypes.bool,
   children: PropTypes.node,
   buyDone: PropTypes.object,
   sellDone: PropTypes.object,
@@ -145,7 +193,6 @@ Layout.propTypes = {
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.Auth.token !== null ? true : false,
-    isLinked: state.Account.isExist === 1 ? true : false,
     error: state.Error.error,
     buyDone: state.Error.buy_done,
     sellDone: state.Error.sell_done,
