@@ -33,7 +33,7 @@ class Confirm extends Component {
   };
   render() {
     const { contract, bond, t } = this.props;
-    if (this.props.buyLoading) {
+    if (this.props.loading) {
       return <Loading />;
     }
     return (
@@ -177,7 +177,7 @@ Confirm.propTypes = {
   getContract: PropTypes.func,
   approve: PropTypes.func,
   payment_link: PropTypes.string,
-  buyLoading: PropTypes.bool,
+  loading: PropTypes.bool,
   t: PropTypes.func
 };
 
@@ -185,7 +185,7 @@ const mapStateToProps = state => {
   return {
     bond: state.Bonds.detail,
     contract: state.Buy.contract,
-    buyLoading: state.Buy.loading,
+    loading: state.Buy.loading,
     payment_link: state.Buy.payment_link
   };
 };

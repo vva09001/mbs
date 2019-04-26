@@ -32,7 +32,7 @@ class Detail extends Component {
   };
 
   _setBuy = () => {
-    this.props.update();
+    this.props.checkMount();
   };
 
   _onFetch = params => {
@@ -151,7 +151,7 @@ Detail.propTypes = {
   setBuy: PropTypes.func,
   buyFlowFetch: PropTypes.func,
   buyInfoFetch: PropTypes.func,
-  update: PropTypes.func,
+  checkMount: PropTypes.func,
   match: PropTypes.object,
   profile: PropTypes.object,
   params: PropTypes.object,
@@ -176,7 +176,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   buyFlowFetch: buyActions.getFlow,
   buyInfoFetch: buyActions.getInfo,
-  update: buyActions.update,
+  checkMount: buyActions.checkMount,
   updateParams: buyActions.updateParams
 };
 

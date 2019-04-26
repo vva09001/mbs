@@ -25,7 +25,7 @@ request.interceptors.response.use(
     return response;
   },
   error => {
-    const response = JSON.parse(JSON.stringify(error))
+    const response = JSON.parse(JSON.stringify(error));
     return response.response;
   }
 );

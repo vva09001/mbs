@@ -8,7 +8,7 @@ import VT_error from 'utils/viettel_error';
 import history from 'utils/history';
 import {
   accountProfile,
-  buyGetContract,
+  buyInfo,
   getToken,
   buyVolMax,
   buyVolMin,
@@ -170,59 +170,67 @@ export function* buyFetchSaga() {
   });
 }
 
+// Check Mount buy
+export function* checkMountBuySaga() {
+  yield takeEvery(actions.BUY_CHECK_MOUNT, function*() {
+    const volMax = yield select(buyVolMax);
+    const volMin = yield select(buyVolMin);
+    const params = yield select(buyGetParams);
+    if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
+      yield put({
+        type: errorActions.ERROR,
+        error: {
+          message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
+          status: true
+        }
+      });
+    } else {
+      yield history.push({ pathname: '/buy/order/' });
+    }
+  });
+}
 export function* updateBuySaga() {
   yield takeEvery(actions.BUY_UPDATE, function*() {
     try {
-      const volMax = yield select(buyVolMax);
-      const volMin = yield select(buyVolMin);
       const params = yield select(buyGetParams);
       const bond = yield select(bondsDetail);
       const profile = yield select(accountProfile);
       const token = yield select(getToken);
       // Check link condition
-      if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
+
+      yield put({ type: actions.BUY_LOADING, loading: true });
+      // Get request
+      const param = {
+        userId: profile.userId,
+        channel: profile.channel,
+        code: bond.bondCode,
+        volume: params.volume
+      };
+      const res = yield Update(param, token);
+      // handle request
+      if (res.status === 200) {
+        if (res.data.result === 0 && res.data.data !== null) {
+          yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
+          yield history.push({ pathname: '/buy/order/' });
+        } else {
+          // Check if account is not connected
+          if (res.data.result === -1010) {
+            yield history.push({ pathname: '/user/connect/' });
+          } else {
+            yield put({
+              type: errorActions.ERROR,
+              error: { message: Error[res.data.result], status: true }
+            });
+          }
+        }
+      } else {
         yield put({
           type: errorActions.ERROR,
-          error: {
-            message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
-            status: true
-          }
+          error: { message: res.data.message, status: true }
         });
-      } else {
-        yield put({ type: actions.BUY_LOADING, loading: true });
-        // Get request
-        const param = {
-          userId: profile.userId,
-          channel: profile.channel,
-          code: bond.bondCode,
-          volume: params.volume
-        };
-        const res = yield Update(param, token);
-        // handle request
-        if (res.status === 200) {
-          if (res.data.result === 0 && res.data.data !== null) {
-            yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
-            yield history.push({ pathname: '/buy/order/' });
-          } else {
-            // Check if account is not connected
-            if (res.data.result === -1010) {
-              yield history.push({ pathname: '/user/connect/' });
-            } else {
-              yield put({
-                type: errorActions.ERROR,
-                error: { message: Error[res.data.result], status: true }
-              });
-            }
-          }
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: res.data.message, status: true }
-          });
-          yield history.push({ pathname: '/' });
-        }
-        yield put({ type: actions.BUY_LOADING, loading: false });
+        yield history.push({ pathname: '/' });
       }
+      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
     }
@@ -237,12 +245,13 @@ export function* getContractSaga() {
       // Select state
       const token = yield select(getToken);
       const account = yield select(accountProfile);
-      const contract = yield select(buyGetContract);
+      const info = yield select(buyInfo);
+      const param = yield select(buyGetParams);
       // Get request
       const params = {
         userId: account.userId,
         channel: account.channel,
-        contractCode: contract.contractCode
+        contractCode: info.contractCode
       };
       const res = yield Contract(params, token);
 
@@ -269,10 +278,10 @@ export function* getContractSaga() {
       // Payment link params - request
       const paramsPayment = {
         command: 'PAYMENT',
-        contractCode: contract.contractCode,
+        contractCode: info.contractCode,
         cancel_url: process.env.REACT_APP_URL + '/buy/verify/',
         return_url: process.env.REACT_APP_URL + '/buy/verify/',
-        trans_amount: contract.buyValue,
+        trans_amount: param.sum,
         version: '2.0'
       };
       const resPayment = yield PaymentGateway(paramsPayment, token);
@@ -354,6 +363,7 @@ export default function* rootSaga() {
     fork(getBuyInfoSaga),
     fork(getBuyFlowSaga),
     fork(updateBuySaga),
+    fork(checkMountBuySaga),
     fork(getContractSaga),
     fork(verifyBuySaga)
   ]);

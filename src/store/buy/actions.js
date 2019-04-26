@@ -15,6 +15,7 @@ const actions = {
   BUY_APPROVE: 'BUY_APPROVE',
   BUY_PAYMENT_LINK: 'BUY_PAYMENT_LINK',
   BUY_VERIFY_RESULT: 'BUY_VERIFY_RESULT',
+  BUY_CHECK_MOUNT: 'BUY_CHECK_MOUNT',
   BUY_LOADING: 'BUY_LOADING',
   BUY_FLOW_LOADING: 'BUY_FLOW_LOADING',
   getBuy: params => ({
@@ -45,6 +46,9 @@ const actions = {
   verifyResult: params => ({
     type: actions.BUY_VERIFY_RESULT,
     params
+  }),
+  checkMount: () => ({
+    type: actions.BUY_CHECK_MOUNT
   })
 };
 export default actions;

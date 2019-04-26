@@ -7,6 +7,7 @@ export const bondsDetail = state => state.Bonds.detail;
 export const buyGetParams = state => state.Buy.params;
 export const buyGetBook = state => state.Buy.book;
 export const buyGetContract = state => state.Buy.contract;
+export const buyInfo = state => state.Buy.info;
 export const buyVolMin = state => state.Buy.info.buyVolMin;
 export const buyVolMax = state => state.Bonds.detail.roomBalance;
 
