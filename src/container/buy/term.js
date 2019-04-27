@@ -1,9 +1,9 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 
 const Term = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <Layout type={1} title="ĐĂNG KÝ MUA TRÁI PHIẾU">
       <div className="bond-detail">

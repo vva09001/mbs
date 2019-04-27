@@ -59,7 +59,7 @@ class List extends Component {
     ));
   };
   render() {
-    const { t } = this.props;
+    // const { t } = this.props;
     if (this.props.loading) {
       return <Loading />;
     }
