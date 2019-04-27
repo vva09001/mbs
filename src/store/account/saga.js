@@ -24,16 +24,23 @@ export function* accountCheckLinkSaga() {
         type: 0
       };
       const res = yield CheckLink(params, token);
-
       // handle request
-      if (res.data.result === 0 && res.data.data !== null) {
-        yield put({ type: actions.LINK_STEP, step: 2 });
-        yield put({ type: actions.LINK_STEP_DATA, data: params });
+      if (res.status === 200) {
+        if (res.data.result === 0 && res.data.data !== null) {
+          yield put({ type: actions.LINK_STEP, step: 2 });
+          yield put({ type: actions.LINK_STEP_DATA, data: params });
+        } else {
+          yield put({
+            type: errorActions.ERROR,
+            error: { message: Error[res.data.result], status: true }
+          });
+        }
       } else {
         yield put({
           type: errorActions.ERROR,
-          error: { message: Error[res.data.result], status: true }
+          error: { message: res.data.message, status: true }
         });
+        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
@@ -42,6 +49,7 @@ export function* accountCheckLinkSaga() {
     }
   });
 }
+
 export function* accountLinkSaga() {
   yield takeEvery(actions.LINK_REQUEST, function*(data) {
     try {
@@ -63,15 +71,23 @@ export function* accountLinkSaga() {
       const res = yield Link(params, token);
 
       // handle request
-      if (res.data.result === 0 && res.data.data !== null) {
-        yield put({ type: actions.LINK_STEP, step: 1 });
-        yield put({ type: actions.PRORFILE, profile: { ...profile, isExist: 1 } });
-        yield history.goBack();
+      if (res.status === 200) {
+        if (res.data.result === 0 && res.data.data !== null) {
+          yield put({ type: actions.LINK_STEP, step: 1 });
+          yield put({ type: actions.PRORFILE, profile: { ...profile, isExist: 1 } });
+          yield history.goBack();
+        } else {
+          yield put({
+            type: errorActions.ERROR,
+            error: { message: Error[res.data.result], status: true }
+          });
+        }
       } else {
         yield put({
           type: errorActions.ERROR,
-          error: { message: Error[res.data.result], status: true }
+          error: { message: res.data.message, status: true }
         });
+        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
@@ -97,18 +113,26 @@ export function* accountBondsSaga() {
       const res = yield List(params, token);
 
       // handle request
-      if (res.data.result === 0 && res.data.data !== null) {
-        yield put({ type: actions.ACCOUNT_LIST, list: res.data.data.data });
-        yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalValue });
-      } else {
-        if (res.data.result === -1010) {
-          yield history.push({ pathname: '/user/connect/' });
+      if (res.status === 200) {
+        if (res.data.result === 0 && res.data.data !== null) {
+          yield put({ type: actions.ACCOUNT_LIST, list: res.data.data.data });
+          yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalValue });
         } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
+          if (res.data.result === -1010) {
+            yield history.push({ pathname: '/user/connect/' });
+          } else {
+            yield put({
+              type: errorActions.ERROR,
+              error: { message: Error[res.data.result], status: true }
+            });
+          }
         }
+      } else {
+        yield put({
+          type: errorActions.ERROR,
+          error: { message: res.data.message, status: true }
+        });
+        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
@@ -136,13 +160,21 @@ export function* accountInfoSaga() {
       const res = yield Info(params, token);
 
       // handle request
-      if (res.data.result === 0 && res.data.data !== null) {
-        yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalCastInvest });
+      if (res.status === 200) {
+        if (res.data.result === 0 && res.data.data !== null) {
+          yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalCastInvest });
+        } else {
+          yield put({
+            type: errorActions.ERROR,
+            error: { message: Error[res.data.result], status: true }
+          });
+        }
       } else {
         yield put({
           type: errorActions.ERROR,
-          error: { message: Error[res.data.result], status: true }
+          error: { message: res.data.message, status: true }
         });
+        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });

@@ -2,13 +2,13 @@ import actions from './actions';
 import errorActions from 'store/error/actions';
 import { all, fork, put, takeEvery, select, take } from 'redux-saga/effects';
 import { PaymentGateway, VerifyResult } from 'services/auth';
-import { Info, Flow, FlowCash, Update, Contract } from 'services/buy';
+import { Info, Flow, FlowCash, Update } from 'services/buy';
 import Error from 'utils/error';
 import VT_error from 'utils/viettel_error';
 import history from 'utils/history';
 import {
   accountProfile,
-  buyGetContract,
+  buyInfo,
   getToken,
   buyVolMax,
   buyVolMin,
@@ -40,13 +40,21 @@ export function* getBuyInfoSaga() {
         params.userId = null;
       }
       const res = yield Info(params, token);
-      if (res.data.result === 0 && res.data.data !== null) {
-        yield put({ type: actions.BUY_INFO, info: res.data.data });
+      if (res.status === 200) {
+        if (res.data.result === 0 && res.data.data !== null) {
+          yield put({ type: actions.BUY_INFO, info: res.data.data });
+        } else {
+          yield put({
+            type: errorActions.ERROR,
+            error: { message: Error[res.data.result], status: true }
+          });
+        }
       } else {
         yield put({
           type: errorActions.ERROR,
-          error: { message: Error[res.data.result], status: true }
+          error: { message: res.data.message, status: true }
         });
+        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.BUY_FLOW_LOADING, loading: false });
@@ -74,15 +82,22 @@ export function* getBuyFlowSaga() {
         params.userId = null;
       }
       const resFlow = yield Flow(params, token);
-      if (resFlow.data.result === 0) {
-        yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data });
+      if (resFlow.status === 200) {
+        if (resFlow.data.result === 0) {
+          yield put({ type: actions.BUY_FLOW, flow: resFlow.data.data });
+        } else {
+          yield put({
+            type: errorActions.ERROR,
+            error: { message: Error[resFlow.data.result], status: true }
+          });
+        }
       } else {
         yield put({
           type: errorActions.ERROR,
-          error: { message: Error[resFlow.data.result], status: true }
+          error: { message: resFlow.data.message, status: true }
         });
+        yield history.push({ pathname: '/' });
       }
-
       yield put({ type: actions.BUY_FLOW_LOADING, loading: false });
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
@@ -117,6 +132,7 @@ export function* buyFetchSaga() {
       // get info data
       yield take(actions.BUY_INFO);
       const volMin = yield select(buyVolMin);
+      const info = yield select(buyInfo);
 
       // Call 'flow saga'
       yield put({
@@ -127,18 +143,26 @@ export function* buyFetchSaga() {
       // set params
       yield put({
         type: actions.BUY_PARAMS_REQUEST,
-        params: { volume: volMin }
+        params: { volume: volMin, sum: volMin * info.buyPrice }
       });
 
       // Handle request flowCash
       const resFlowCash = yield FlowCash(params, token);
       if (resFlowCash.status === 200) {
-        yield put({ type: actions.BUY_FLOW_CASH, flowCash: resFlowCash.data.data });
+        if (resFlowCash.data.result === 0) {
+          yield put({ type: actions.BUY_FLOW_CASH, flowCash: resFlowCash.data.data });
+        } else {
+          yield put({
+            type: errorActions.ERROR,
+            error: { message: Error[resFlowCash.data.result], status: true }
+          });
+        }
       } else {
         yield put({
           type: errorActions.ERROR,
-          error: { message: Error[resFlowCash.data.result], status: true }
+          error: { message: resFlowCash.data.message, status: true }
         });
+        yield history.push({ pathname: '/' });
       }
       yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
@@ -147,35 +171,53 @@ export function* buyFetchSaga() {
   });
 }
 
+// Check Mount buy
+export function* checkMountBuySaga() {
+  yield takeEvery(actions.BUY_CHECK_MOUNT, function*() {
+    const volMax = yield select(buyVolMax);
+    const volMin = yield select(buyVolMin);
+    const params = yield select(buyGetParams);
+    if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
+      yield put({
+        type: errorActions.ERROR,
+        error: {
+          message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
+          status: true
+        }
+      });
+    } else if (params.sum > 100000000) {
+      yield put({
+        type: errorActions.ERROR,
+        error: {
+          message: `Giá Trị Giao Dịch vượt quá giới hạn thanh toán tiền trong TK ViettelPay (tối đa 100 triệu/giao dịch) . Quý khách vui lòng chọn Khối Lượng nhỏ hơn.`,
+          status: true
+        }
+      });
+    } else {
+      yield history.push({ pathname: '/buy/order/' });
+    }
+  });
+}
 export function* updateBuySaga() {
   yield takeEvery(actions.BUY_UPDATE, function*() {
     try {
-      const volMax = yield select(buyVolMax);
-      const volMin = yield select(buyVolMin);
       const params = yield select(buyGetParams);
       const bond = yield select(bondsDetail);
       const profile = yield select(accountProfile);
       const token = yield select(getToken);
       // Check link condition
-      if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
-        yield put({
-          type: errorActions.ERROR,
-          error: {
-            message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
-            status: true
-          }
-        });
-      } else {
-        yield put({ type: actions.BUY_LOADING, loading: true });
-        // Get request
-        const param = {
-          userId: profile.userId,
-          channel: profile.channel,
-          code: bond.bondCode,
-          volume: params.volume
-        };
-        const res = yield Update(param, token);
-        // handle request
+
+      yield put({ type: actions.BUY_LOADING, loading: true });
+      // Get request
+      const param = {
+        userId: profile.userId,
+        channel: profile.channel,
+        code: bond.bondCode,
+        volume: params.volume
+      };
+      const res = yield Update(param, token);
+      // handle request
+      if (res.status === 200) {
         if (res.data.result === 0 && res.data.data !== null) {
           yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
           yield history.push({ pathname: '/buy/order/' });
@@ -190,8 +232,14 @@ export function* updateBuySaga() {
             });
           }
         }
-        yield put({ type: actions.BUY_LOADING, loading: false });
+      } else {
+        yield put({
+          type: errorActions.ERROR,
+          error: { message: res.data.message, status: true }
+        });
+        yield history.push({ pathname: '/' });
       }
+      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
     }
@@ -205,49 +253,68 @@ export function* getContractSaga() {
 
       // Select state
       const token = yield select(getToken);
-      const account = yield select(accountProfile);
-      const contract = yield select(buyGetContract);
-      // Get request
+      const profile = yield select(accountProfile);
+      const info = yield select(buyInfo);
+      const param = yield select(buyGetParams);
+
+      // update Contract
       const params = {
-        userId: account.userId,
-        channel: account.channel,
-        contractCode: contract.contractCode
+        userId: profile.userId,
+        channel: profile.channel,
+        code: info.bondCode,
+        volume: param.volume
       };
-      const res = yield Contract(params, token);
+      const res = yield Update(params, token);
+      if (res.status === 200) {
+        if (res.data.result === 0 && res.data.data !== null) {
+          // Payment link params - request
+          const paramsPayment = {
+            command: 'PAYMENT',
+            contractCode: res.data.data.contractCode,
+            cancel_url: process.env.REACT_APP_URL + '/buy/verify/',
+            return_url: process.env.REACT_APP_URL + '/buy/verify/',
+            trans_amount: res.data.data.buyValue,
+            version: '2.0'
+          };
+          const resPayment = yield PaymentGateway(paramsPayment, token);
 
-      // handle request
-      if (res.data.result === 0 && res.data.data !== null) {
-        yield put({ type: actions.BUY_CONTRACT, contract: res.data.data });
-        yield put({ type: actions.BUY_LOADING, loading: false });
+          // handle request
+          if (resPayment.status === 200) {
+            if (resPayment.data.result === 0 && resPayment.data.result !== null) {
+              yield window.location.replace(resPayment.data.data.url);
+            } else {
+              yield put({
+                type: errorActions.ERROR,
+                error: { message: Error[resPayment.data.result], status: true }
+              });
+              yield history.push({ pathname: '/' });
+            }
+          } else {
+            yield put({
+              type: errorActions.ERROR,
+              error: { message: resPayment.data.message, status: true }
+            });
+            yield history.push({ pathname: '/' });
+          }
+        } else {
+          // Check if account is not connected
+          if (res.data.result === -1010) {
+            yield history.push({ pathname: '/user/connect/' });
+          } else {
+            yield put({
+              type: errorActions.ERROR,
+              error: { message: Error[res.data.result], status: true }
+            });
+          }
+        }
       } else {
         yield put({
           type: errorActions.ERROR,
-          error: { message: Error[res.data.result], status: true }
+          error: { message: res.data.message, status: true }
         });
         yield history.push({ pathname: '/' });
       }
-
-      // Payment link params - request
-      const paramsPayment = {
-        command: 'PAYMENT',
-        contractCode: contract.contractCode,
-        cancel_url: process.env.REACT_APP_URL + '/buy/verify/',
-        return_url: process.env.REACT_APP_URL + '/buy/verify/',
-        trans_amount: contract.buyValue,
-        version: '2.0'
-      };
-      const resPayment = yield PaymentGateway(paramsPayment, token);
-
-      // handle request
-      if (resPayment.data.result === 0) {
-        yield put({ type: actions.BUY_PAYMENT_LINK, link: resPayment.data.data.url });
-      } else {
-        yield put({
-          type: errorActions.ERROR,
-          error: { message: Error[resPayment.data.result], status: true }
-        });
-        yield history.push({ pathname: '/' });
-      }
+      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
     }
@@ -267,22 +334,29 @@ export function* verifyBuySaga() {
       };
       const res = yield VerifyResult(params, token);
       // handle request
-      if (res.data.result === 0 && res.data.data !== null) {
-        if (data.params.error_code === '00') {
-          yield put({
-            type: errorActions.BUY_DONE,
-            done: { message: 'Quý khách đã đăng ký mua Trái Phiếu thành công', status: true }
-          });
+      if (res.status === 200) {
+        if (res.data.result === 0 && res.data.data !== null) {
+          if (data.params.error_code === '00') {
+            yield put({
+              type: errorActions.BUY_DONE,
+              done: { message: 'Quý khách đã đăng ký mua Trái Phiếu thành công', status: true }
+            });
+          } else {
+            yield put({
+              type: errorActions.ERROR,
+              error: { message: VT_error.trade[data.params.error_code], status: true }
+            });
+          }
         } else {
           yield put({
             type: errorActions.ERROR,
-            error: { message: VT_error.trade[data.params.error_code], status: true }
+            error: { message: Error[res.data.result], status: true }
           });
         }
       } else {
         yield put({
           type: errorActions.ERROR,
-          error: { message: Error[res.data.result], status: true }
+          error: { message: res.data.message, status: true }
         });
       }
       yield history.push({ pathname: '/' });
@@ -300,6 +374,7 @@ export default function* rootSaga() {
     fork(getBuyInfoSaga),
     fork(getBuyFlowSaga),
     fork(updateBuySaga),
+    fork(checkMountBuySaga),
     fork(getContractSaga),
     fork(verifyBuySaga)
   ]);

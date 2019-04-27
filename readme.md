@@ -1,5 +1,5 @@
 # MBS
-Ứng dụng dành cho Trái phiếu. Sử dụng React-redux-saga.
+Ứng dụng dành cho Trái Phiếu. Sử dụng React-redux-saga.
 Để chạy ứng dụng, ta cần copy file **.env.example** và đổi tên thành **.env**
 
 ## Cài đặt package

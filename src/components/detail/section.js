@@ -29,7 +29,7 @@ const Section1 = props => {
           </h3>
           <div className="row">
             <div className="col-7 no-pading-right">
-              <span className="c">{t('Ngày đáo hạn Trái phiếu')}</span>
+              <span className="c">{t('Ngày đáo hạn Trái Phiếu')}</span>
             </div>
             <div className="col-5 text-right no-pading-left">
               <p className="mb-0">{props.item.maturityDate}</p>

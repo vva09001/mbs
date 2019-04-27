@@ -17,9 +17,7 @@ class Confirm extends Component {
       }
     };
   }
-  componentDidMount() {
-    this.props.getContract();
-  }
+  componentDidMount() {}
   showPopup = type => {
     this.setState({
       toggle: {
@@ -29,11 +27,11 @@ class Confirm extends Component {
     });
   };
   _onApprove = () => {
-    this.props.approve();
+    this.props.getContract();
   };
   render() {
-    const { contract, bond, t } = this.props;
-    if (this.props.buyLoading) {
+    const { info, bond, t } = this.props;
+    if (this.props.loading) {
       return <Loading />;
     }
     return (
@@ -43,7 +41,7 @@ class Confirm extends Component {
             {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
           </h4>
           <h4 className="text-center mtitle mspot">
-            {t('MÃ')} {contract.bondCode}
+            {t('MÃ')} {info.bondCode}
           </h4>
           <p>
             <b>I. {t('Bên chuyển nhượng')}</b>
@@ -79,19 +77,19 @@ class Confirm extends Component {
           <div className="mtable">
             <div className="row">
               <div className="col-4">{t('Tên cá nhân')}</div>
-              <div className="col-8">{contract.customerName}</div>
+              <div className="col-8">{info.customerName}</div>
             </div>
             <div className="row">
               <div className="col-4">{t('Số CMND/...')}</div>
-              <div className="col-8">{contract.customerId}</div>
+              <div className="col-8">{info.customerId}</div>
             </div>
             <div className="row">
               <div className="col-4">{t('Ngày cấp')}</div>
-              <div className="col-8">{contract.customerIddate}</div>
+              <div className="col-8">{info.customerIddate}</div>
             </div>
             <div className="row">
               <div className="col-4">{t('Nơi cấp')}</div>
-              <div className="col-8">{contract.customerIdplace}</div>
+              <div className="col-8">{info.customerIdplace}</div>
             </div>
           </div>
           <p>
@@ -100,25 +98,25 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Số lượng')}</div>
             <div className="col-8">
-              {currency(contract.buyVol)} {t('Trái phiếu')}
+              {currency(info.buyVol)} {t('Trái Phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Mệnh giá')}</div>
             <div className="col-8">
-              {currency(bond.parValue)} {t('VNĐ/Trái phiếu')}
+              {currency(bond.parValue)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Giá')}</div>
             <div className="col-8">
-              {currency(contract.buyPrice)} {t('VNĐ/Trái phiếu')}
+              {currency(info.buyPrice)} {t('VNĐ/Trái phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Tổng giá trị')}</div>
             <div className="col-8">
-              {currency(contract.buyValue)} {t('VNĐ')}
+              {currency(info.buyValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="row">
@@ -131,13 +129,13 @@ class Confirm extends Component {
           </div>
           <div className="fw13">
             <i>
-              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x {currency(contract.taxPit)}
+              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x {currency(info.taxPit)}
               %)
             </i>
           </div>
           <div className="confirm-content">
             <p>
-              {t('Ông/Bà')}: <b>{contract.customerName} </b>
+              {t('Ông/Bà')}: <b>{info.customerName} </b>
               {t(
                 'được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của CTCP Chứng khoán MB.'
               )}
@@ -158,12 +156,12 @@ class Confirm extends Component {
         </div>
         <div className="button-fixed">
           <div className="wapper-button button-comfirm link-sell">
-            <a
-              href={this.props.payment_link}
+            <button
+              onClick={() => this._onApprove()}
               className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
             >
               {t('XÁC NHẬN')}
-            </a>
+            </button>
           </div>
         </div>
       </Layout>
@@ -172,27 +170,26 @@ class Confirm extends Component {
 }
 
 Confirm.propTypes = {
-  contract: PropTypes.object,
+  info: PropTypes.object,
   bond: PropTypes.object,
   getContract: PropTypes.func,
   approve: PropTypes.func,
   payment_link: PropTypes.string,
-  buyLoading: PropTypes.bool,
+  loading: PropTypes.bool,
   t: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
     bond: state.Bonds.detail,
-    contract: state.Buy.contract,
-    buyLoading: state.Buy.loading,
+    info: state.Buy.info,
+    loading: state.Buy.loading,
     payment_link: state.Buy.payment_link
   };
 };
 
 const mapDispatchToProps = {
-  getContract: buyActions.getContract,
-  approve: buyActions.approve
+  getContract: buyActions.getContract
 };
 
 export default connect(

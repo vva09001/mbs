@@ -200,5 +200,6 @@
   "XEM": "XEM",
   "THÔNG BÁO": "THÔNG BÁO",
   "confirmSell2": "ủy quyền cho CTCP Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. CTCP Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu Trái Phiếu, không xác nhận việc thanh toán giữa hai bên.",
-  "confirmSell3": "'là đơn vị chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái Phiếu."
+  "confirmSell3": "'là đơn vị chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái Phiếu.",
+  "need_auth": "Lỗi auth"
 }
