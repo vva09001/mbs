@@ -32,7 +32,7 @@ const card = props => {
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Trái phiếu sở hữu')}
+          {t('Trái Phiếu sở hữu')}
           <p className="float-right">
             <span className="quatity">{currency(props.item.buyVol)}</span>
           </p>
@@ -57,7 +57,8 @@ const card = props => {
               onClick={() =>
                 props.onClick({
                   bondCode: props.item.bondCode,
-                  contractCode: props.item.contractCode
+                  contractCode: props.item.contractCode,
+                  buyVol: props.item.buyVol
                 })
               }
               className="btn btn-danger rounded-pill border-0 btn-lg btn-block"

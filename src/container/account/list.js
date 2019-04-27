@@ -31,7 +31,7 @@ class List extends Component {
       return <Loading />;
     }
     return (
-      <Layout type={2} title="Trái phiếu nắm giữ" active="/user/">
+      <Layout type={2} title="Trái Phiếu nắm giữ" active="/user/">
         <div className="sell-title">
           <div className="row">
             <div className="col-6 no-pading-right">
@@ -61,7 +61,7 @@ class List extends Component {
           {}
           {this.props.bonds.length === 0 ? (
             <div className="text-center wapper">
-              {t('Không có Trái phiếu nào')}
+              {t('Không có Trái Phiếu nào')}
               <div className="icon-noProduct">
                 <img src="/img/iconfinder_icon.png" alt="logo" />
               </div>

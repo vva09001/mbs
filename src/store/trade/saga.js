@@ -72,7 +72,7 @@ export function* tradeDetailSaga() {
           // get date by contract code Buy
           yield put({
             type: actions.TRADE_DATE_REQUEST,
-            params: { contractCode: res.data.data.buyContractCode }
+            params: res.data.data
           });
 
           // Get info by contractCode and sellDate
@@ -154,7 +154,8 @@ export function* sellGetDateSaga() {
       const params = {
         contractCode: data.params.contractCode,
         userId: profile.userId,
-        channel: profile.channel
+        channel: profile.channel,
+        volume: data.params.buyVol
       };
       const res = yield Date(params, token);
 

@@ -172,7 +172,8 @@ export function* sellGetContractSaga() {
 
       // Get SellDate list
       const dateParams = {
-        contractCode: data.params.contractCode
+        contractCode: data.params.contractCode,
+        volume: data.params.buyVol
       };
       yield put({ type: actions.SELL_DATE_REQUEST, params: dateParams });
       yield take(actions.SELL_DATE);

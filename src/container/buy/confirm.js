@@ -98,13 +98,13 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Số lượng')}</div>
             <div className="col-8">
-              {currency(info.buyVol)} {t('Trái phiếu')}
+              {currency(info.buyVol)} {t('Trái Phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Mệnh giá')}</div>
             <div className="col-8">
-              {currency(bond.parValue)} {t('VNĐ/Trái phiếu')}
+              {currency(bond.parValue)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
