@@ -38,7 +38,7 @@ const card = props => {
         <li className="list-group-item">
           <span className="mlabel">{t('Hạn mức')}</span>
           <p className="float-right">
-            <span className="clb">{currency(props.item.roomBalance)}</span>
+            <span className="clb">{currency(props.item.roomBalance) + t(' Trái Phiếu')}</span>
           </p>
         </li>
         <li className="list-group-item justify-content-center">
@@ -48,7 +48,7 @@ const card = props => {
               onClick={() => props.fetchDetail({ code: props.item.bondCode })}
               className="btn btn-link rounded-pill border-0 btn-lg btn-block"
             >
-              {t('mua')}
+              {t('Mua')}
             </Link>
           </div>
         </li>

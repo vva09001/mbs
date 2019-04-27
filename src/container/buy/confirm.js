@@ -35,7 +35,7 @@ class Confirm extends Component {
       return <Loading />;
     }
     return (
-      <Layout type={1} title="ĐĂNG KÝ MUA TRÁI PHIẾU">
+      <Layout type={1} title="MUA TRÁI PHIẾU">
         <div className="bond-buy-comfirm">
           <h4 className="text-center mtitle uppc">
             {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
@@ -44,7 +44,7 @@ class Confirm extends Component {
             {t('MÃ')} {info.bondCode}
           </h4>
           <p>
-            <b>I. {t('Bên chuyển nhượng')}</b>
+            <b>{t('Bên chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Tên tổ chức')}</div>
@@ -72,7 +72,7 @@ class Confirm extends Component {
             <div className="col-8">{t('Tổng Giám đốc')}</div>
           </div>
           <p>
-            <b>II. {t('Bên nhận chuyển nhượng')}</b>
+            <b>{t('Bên nhận chuyển nhượng')}</b>
           </p>
           <div className="mtable">
             <div className="row">
@@ -91,9 +91,12 @@ class Confirm extends Component {
               <div className="col-4">{t('Nơi cấp')}</div>
               <div className="col-8">{info.customerIdplace}</div>
             </div>
+            <div className="row">
+              <div className="col-4">{t('Tài khoản Ngân hàng')}</div>
+            </div>
           </div>
           <p>
-            <b>III. {t('Nội dung chuyển nhượng')}</b>
+            <b>{t('Nội dung chuyển nhượng')}</b>
           </p>
           <div className="row">
             <div className="col-4">{t('Số lượng')}</div>
@@ -124,7 +127,7 @@ class Confirm extends Component {
             <div className="col-8">0 VNĐ</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Thuế TNCN')}</div>
+            <div className="col-4">{t('Thuế TNCN (Do MBS chi trả)')}</div>
             <div className="col-8" />
           </div>
           <div className="fw13">

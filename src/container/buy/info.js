@@ -14,19 +14,19 @@ const Info = ({ detail }) => {
           <tbody>
             <tr>
               <td width="50%">
-                <b>{t(`Tổ chức phát hành`)}</b>
+                <b>{t(`Tổ Chức Phát Hành`)}</b>
               </td>
               <td width="50%">{detail.issuerBond}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Mã Trái phiếu`)}</b>
+                <b>{t(`Trái Phiếu`)}</b>
               </td>
               <td>{detail.bondCode}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Mệnh giá`)}</b>
+                <b>{t(`Mệnh Giá`)}</b>
               </td>
               <td>
                 {currency(detail.parValue)} {t(`VNĐ`)}/ {t(`TP`)}
@@ -34,33 +34,33 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Giá phát hành`)}</b>
+                <b>{t(`Giá Phát Hành`)}</b>
               </td>
               <td>
-                {currency(detail.issuePrice)}% {t(`mệnh giá`)}
+                {currency(detail.issuePrice)}% {t(`Mệnh Giá`)}
               </td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Kỳ hạn`)}</b>
+                <b>{t(`Kỳ Hạn`)}</b>
               </td>
               <td>{detail.termBond}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Ngày phát hành`)}</b>
+                <b>{t(`Ngày Phát Hành`)}</b>
               </td>
               <td>{detail.releaseDate}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Ngày đáo hạn`)}</b>
+                <b>{t(`Ngày Đáo Hạn`)}</b>
               </td>
               <td>{detail.maturityDate}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Lãi suất`)}</b>
+                <b>{t(`Lãi Suất`)}</b>
               </td>
               <td>
                 {t(`Lãi suất áp dụng cho`)} {detail.termFixCount}{' '}
@@ -77,7 +77,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Thanh toán lãi`)}</b>
+                <b>{t(`Thanh Toán Lãi`)}</b>
               </td>
               <td>
                 {detail.couponPayment} {t(`tháng/lần`)}
@@ -85,19 +85,25 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Hình thức`)}</b>
+                <b>{t(`Hình Thức`)}</b>
               </td>
               <td>{detail.releaseForm}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Quyền liên quan đến Trái phiếu`)}</b>
+                <b>{t(`Quyền Liên Quan Đến Trái Phiếu`)}</b>
               </td>
               <td>{detail.rightBuyDesc}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Đại lý đăng ký và thanh toán`)}</b>
+                <b>{t(`Đại Lý Đăng Ký Lưu Ký`)}</b>
+              </td>
+              <td>{detail.paymentAgents}</td>
+            </tr>
+            <tr>
+              <td>
+                <b>{t(`Đại Lý Thanh Toán`)}</b>
               </td>
               <td>{detail.paymentAgents}</td>
             </tr>

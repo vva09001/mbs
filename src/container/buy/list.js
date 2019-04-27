@@ -72,16 +72,7 @@ class List extends Component {
         title="Sản phẩm"
         active="/buy/"
       >
-        {this.props.bonds.length === 0 ? (
-          <div className="text-center wapper">
-            {t('Không có Trái phiếu nào')}
-            <div className="icon-noProduct">
-              <img src="/img/iconfinder_icon.png" alt="logo" />
-            </div>
-          </div>
-        ) : (
-          this._showList()
-        )}
+        {this.props.bonds.length === 0 ? <div className="text-center wapper" /> : this._showList()}
       </Layout>
     );
   }

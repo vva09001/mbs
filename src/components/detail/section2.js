@@ -72,13 +72,13 @@ class Section2 extends Component {
     return (
       <div className="section-2">
         <div className=" row">
-          <label className="col-5  npdr">{t('Ngày giao dịch')}</label>
+          <label className="col-5  npdr">{t('Ngày Giao Dịch')}</label>
           <div className="col-7">
             <div className="tar">{this.props.date}</div>
           </div>
         </div>
         <div className=" row">
-          <label className="col-6  npdr lh42">{t('Số lượng mua')}</label>
+          <label className="col-6  npdr lh42">{t('Khối Lượng')}</label>
           <div className="col-6 no-pading-right">
             <div className="input-group number-field">
               <span
@@ -103,7 +103,7 @@ class Section2 extends Component {
           </div>
         </div>
         <div className=" row">
-          <label className="col-5 ">{t('Đơn giá mua')}</label>
+          <label className="col-5 ">{t('Đơn Giá Giao Dịch')}</label>
           <div className="col-7">
             <div className="tar">
               <span>
@@ -114,7 +114,7 @@ class Section2 extends Component {
         </div>
         <div className=" row mgb10">
           <div className="col-5  clb npdr lh25">
-            <strong>{t('GIÁ TRỊ ĐẦU TƯ')}</strong>
+            <strong>{t('Giá Trị Đầu Tư')}</strong>
           </div>
           <div className="col-7">
             <div className="input-group no-padding">

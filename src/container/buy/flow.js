@@ -66,7 +66,7 @@ const Flow = props => {
               <tfoot>
                 <tr>
                   <td colSpan="2" className="text-primary">
-                    <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
+                    <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
                   </td>
                   <td>
                     <h5 className="text-info tar">{currency(props.info.sumCashNoninvest)}</h5>
@@ -98,7 +98,7 @@ const Flow = props => {
                   <td>{t('Từ ngày')}</td>
                   <td>{t('Đến ngày')}</td>
                   <td>{t('LS tái đầu tư')}</td>
-                  <td>{t('Lãi tái đầu tư nhận (VNĐ)')}</td>
+                  <td>{t('Lãi tái đầu tư (VNĐ)')}</td>
                 </tr>
               </thead>
               <tbody>
@@ -115,7 +115,7 @@ const Flow = props => {
               <tfoot>
                 <tr>
                   <td colSpan="4" className="text-primary">
-                    <strong>{t('Tổng dòng tiền từ Trái phiếu')}</strong>
+                    <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
                   </td>
                   <td>
                     <h5 className="text-info tar">{currency(props.info.sumCashInvest)}</h5>
@@ -123,6 +123,9 @@ const Flow = props => {
                 </tr>
               </tfoot>
             </table>
+            <i>
+              {t('Lãi xuất')}: <span className="text-danger">{t('7%/năm')}</span>
+            </i>
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ class Detail extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Layout type={1} path="/" title="Đăng ký mua">
+      <Layout type={1} path="/" title={t('MUA TRÁI PHIẾU')}>
         {this.state.toggle.popup && (
           <Popup title={t('Thông tin trái phiếu')} showPopup={() => this.showPopup('popup')}>
             <p className="text-justify">
@@ -132,7 +132,7 @@ class Detail extends Component {
               onClick={() => this._setBuy()}
               className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
             >
-              {t('mua')}
+              {t('Mua')}
             </button>
           </div>
         </div>

@@ -152,7 +152,7 @@ export function* sellGetDateSaga() {
       const token = yield select(getToken);
       const profile = yield select(accountProfile);
       const params = {
-        contractCode: data.params.contractCode,
+        contractCode: data.params.buyContractCode,
         userId: profile.userId,
         channel: profile.channel,
         volume: data.params.buyVol

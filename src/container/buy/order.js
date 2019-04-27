@@ -27,9 +27,9 @@ class Order extends Component {
   render() {
     const { bond, info, contract, t } = this.props;
     return (
-      <Layout type={1} title="ĐĂNG KÝ MUA TRÁI PHIẾU">
+      <Layout type={1} title={t('MUA TRÁI PHIẾU')}>
         <div className="bond-detail">
-          <h4 className="text-center text-uppercase mtitle">{t('THÔNG TIN VỀ GIAO DỊCH')}</h4>
+          <h4 className="text-center text-uppercase mtitle">{t('Đăng Ký Mua Trái Phiếu')}</h4>
           <table className="table table-bordered bg-white">
             <tbody>
               <tr className="bgg">
@@ -47,7 +47,7 @@ class Order extends Component {
               <tr>
                 <td>{t('Khối lượng')}</td>
                 <td>
-                  {currency(contract.buyVol)} {t('Trái phiếu')}
+                  {currency(info.buyVol)} {t('Trái phiếu')}
                 </td>
               </tr>
               <tr>
@@ -57,9 +57,9 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Giá Trị Giao Dịch')}</td>
+                <td>{t('Tổng Giá Trị Giao Dịch')}</td>
                 <td>
-                  {currency(contract.buyValue)} {t('VNĐ')}
+                  {currency(info.buyValue)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
@@ -75,7 +75,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi Suất Đáo Hạn (chưa bao gồm tái đầu tư coupon)')}</td>
+                <td>{t('Lợi Suất Đáo Hạn')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
@@ -84,7 +84,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi Suất Đã Tái Đầu Tư (đã bao gồm tái đầu tư coupon)')}</td>
+                <td>{t('Lợi Suất Đã Tái Đầu Tư')}</td>
                 <td>
                   <b>
                     {currency(info.termInvest)}
@@ -104,12 +104,12 @@ class Order extends Component {
           <div className="term-condition">
             <Link to="/buy/info">
               <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
-              <i>{t('Thông tin Trái phiếu')}</i>
+              <i>{t('Thông tin Trái Phiếu')}</i>
             </Link>
             <br />
             <Link to="/buy/term">
               <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
-              <i>{t('Điều khoản & điều kiện đăng ký mua')}</i>
+              <i>{t('Điều khoản & Điều kiện mua')}</i>
             </Link>
             <br />
             <Link to="/buy/flow">
@@ -120,7 +120,7 @@ class Order extends Component {
           <label className="form-check-label">
             <i>
               {t(
-                'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên. Và các văn kiện Trái phiếu liên quan.'
+                'Tôi xác nhận và đồng ý với các điều khoản, điều kiện mua Trái Phiếu đã nêu trên và các Văn Kiện Trái Phiếu liên quan.'
               )}
             </i>
             <input

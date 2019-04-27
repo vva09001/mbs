@@ -115,6 +115,9 @@ tfoot td {
 }
 .bond-detail {
   font-size: 14px;
+  .text-right {
+    text-align: right;
+  }
 }
 .mgb10 {
   margin-bottom: 10px;
@@ -159,6 +162,7 @@ tfoot td {
   padding: 0 10px;
 }
 .mtitle {
+  font-size: 17px;
   font-weight: bold;
   padding: 10px;
 }
@@ -960,4 +964,7 @@ body {
   .table th {
     font-size: 13px;
   }
+}
+.custom-card {
+  margin-top: 75px;
 }

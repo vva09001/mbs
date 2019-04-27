@@ -9,7 +9,7 @@ import Loading from 'components/common/loading';
 import tradeActions from 'store/trade/actions';
 import bondsActions from 'store/bonds/actions';
 import history from 'utils/history';
-
+import { currency } from 'utils/currency';
 class List extends Component {
   componentDidMount() {
     this.props.getList({
@@ -63,15 +63,34 @@ class List extends Component {
     }
     return (
       <Layout type={2} title="Quản lý giao dịch" active="/trade/">
-        {this.props.bonds.length === 0 ? (
-          <div className="text-center wapper">
-            {t('Không có Trái phiếu nào')}
-            <div className="icon-noProduct">
-              <img src="/img/iconfinder_icon.png" alt="logo" />
+        <div className="sell-title">
+          <div className="row">
+            <div className="col-6 no-pading-right">
+              <div className="title-left bold tar">{t('Tổng giá trị đầu tư')}: </div>
+            </div>
+            <div className="col-6 no-pading-left">
+              <div className="bold tar">
+                {currency(this.props.total)} {t('VNĐ')}
+              </div>
             </div>
           </div>
+          <div className="row">
+            <div className="col-6 no-pading-right">
+              <div className="title-left bold tar">{t('Tổng số lượng')}: </div>
+            </div>
+            <div className="col-6 no-pading-left">
+              <div className="title-right">
+                <div className="bold">
+                  {this.props.bonds.length} {t('Hợp đồng')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {this.props.bonds.length === 0 ? (
+          <div className="text-center wapper" />
         ) : (
-          this._showList()
+          <div className="custom-card">{this._showList()}</div>
         )}
       </Layout>
     );
@@ -84,12 +103,14 @@ List.propTypes = {
   getDetail: PropTypes.func,
   bondsDetail: PropTypes.func,
   t: PropTypes.func,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  total: PropTypes.number
 };
 
 const mapStateToProps = state => {
   return {
     bonds: state.Trade.list,
+    total: state.Sell.total,
     loading: state.Trade.loading
   };
 };

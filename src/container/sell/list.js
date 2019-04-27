@@ -60,12 +60,7 @@ class List extends Component {
         </div>
         <div className="list-conatainer">
           {this.props.bonds.length === 0 ? (
-            <div className="text-center wapper">
-              {t('Không có Trái phiếu nào có thể bán')}
-              <div className="icon-noProduct">
-                <img src="/img/iconfinder_icon.png" alt="logo" />
-              </div>
-            </div>
+            <div className="text-center wapper" />
           ) : (
             _.map(this.props.bonds, (item, index) => (
               <Card onDetail={this._onDetail} item={item} key={index} onClick={this._getContract} />

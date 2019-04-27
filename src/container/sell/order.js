@@ -73,7 +73,7 @@ class Order extends Component {
   render() {
     const { info, t, sellDetail } = this.props;
     return (
-      <Layout type={2} title="Đăng ký bán">
+      <Layout type={2} title={t('BÁN TRÁI PHIẾU')}>
         <div className="bond-detail sellorder">
           <div className="section">
             <div className="row">
@@ -85,7 +85,7 @@ class Order extends Component {
           <div className="pt-2">
             <div className="sum-field row">
               <label className="col-12 mstit">
-                <b>I. {t('Thông tin Trái phiếu sở hữu')}</b>
+                <b>{t('Thông Tin Trái Phiếu Sở hữu')}</b>
               </label>
             </div>
             <div className="row">
@@ -97,17 +97,19 @@ class Order extends Component {
               <div className="col-6 mdata">{sellDetail.maturityDate}</div>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Số lượng TP')}:</label>
-              <div className="col-6 mdata">{currency(sellDetail.buyVol)}</div>
+              <label className="col-6 ">{t('Khối Lượng')}:</label>
+              <div className="col-6 mdata">
+                {currency(sellDetail.buyVol)} {t('TP')}
+              </div>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Đơn giá mua')}:</label>
+              <label className="col-6 ">{t('Đơn GIá Giao Dịch')}:</label>
               <div className="col-6 mdata">
                 {currency(sellDetail.buyPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Giá trị đầu tư')}:</label>
+              <label className="col-6 ">{t('Giá Trị Đầu Tư')}:</label>
               <div className="col-6 mdata">
                 {currency(sellDetail.buyValue)} {t('VNĐ')}
               </div>
@@ -116,7 +118,7 @@ class Order extends Component {
           <div className="pb-2">
             <div className="sum-field row">
               <label className="col-12 mstit">
-                <b>II. {t('Đề nghị giao dịch bán Trái phiếu')}</b>
+                <b>{t('Đề nghị giao dịch bán Trái phiếu')}</b>
               </label>
             </div>
             <div className="row">
@@ -124,29 +126,31 @@ class Order extends Component {
               <div className="col-6 mdata">{FormatTime(this.state.date)}</div>
             </div>
             <div className="row">
-              <label className="col-6 lh38">{t('Ngày giao dịch bán')}:</label>
+              <label className="col-6 lh38">{t('Ngày giao dịch')}:</label>
               <div className="col-6 mdata">
                 <div className="form-group">{this._sellDate()}</div>
               </div>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Đơn giá bán')}:</label>
+              <label className="col-6 ">{t('Đơn Giá Giao Dịch')}:</label>
               <div className="col-6 mdata">
                 {currency(info.sellPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Lãi suất')}:</label>
+              <label className="col-6 ">{t('Lợi suất đầu tư')}:</label>
               <div className="col-6 mdata">
                 {currency(info.termRate)} {t('%/năm')}
               </div>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Số lượng TP')}:</label>
-              <div className="col-6 mdata">{currency(info.sellVol)}</div>
+              <label className="col-6 ">{t('Khối Lượng')}:</label>
+              <div className="col-6 mdata">
+                {currency(info.sellVol)} {t('TP')}
+              </div>
             </div>
             <div className="sum-field row">
-              <label className="col-6 mspot">{t('TỔNG GIÁ TRỊ BÁN')}</label>
+              <label className="col-6 mspot">{t('Giá Trị Giao Dịch')}</label>
               <label className="col-6 mdata mspot text-bold">
                 {currency(info.sellValue)} {t('VNĐ')}
               </label>
@@ -159,7 +163,7 @@ class Order extends Component {
                 <i>{currency(info.taxPit)}</i>
               </div>
               <label className="col-6">
-                <i>{t('Giá trị thuế TNCN')}</i>
+                <i>{t('Thuế TNCN (Do MBS chi trả)')}</i>
               </label>
               <div className="col-6 mdata">
                 <i>
@@ -170,13 +174,13 @@ class Order extends Component {
             <div className="term-condition">
               <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
               <Link to="/sell/term">
-                <i>{t('Điều khoản & điều kiện đăng ký bán')}</i>
+                <i>{t('Điều khoản & Điều kiện bán Trái Phiếu')}</i>
               </Link>
             </div>
             <label className="form-check-label">
               <i>
                 {t(
-                  'Tôi xác nhận và đồng ý với các điều khoản và điều kiện mua Trái phiếu đã nêu trên. Và các văn kiện Trái phiếu liên quan.'
+                  'Tôi xác nhận và đồng ý với các điều khoản, điều kiện bánTrái Phiếu đã nêu trên và các Văn Kiện Trái Phiếu liên quan.'
                 )}
               </i>
               <input
