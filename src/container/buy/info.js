@@ -68,7 +68,7 @@ const Info = ({ detail }) => {
                 {t(`%/năm`)}.
                 {detail.interestFloatRange !== 0
                   ? t(
-                      `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ`
+                      `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái Phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ`
                     ) +
                     detail.interestFloatRange +
                     t(`%/năm`)

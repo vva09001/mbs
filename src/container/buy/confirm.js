@@ -113,7 +113,7 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Giá')}</div>
             <div className="col-8">
-              {currency(info.buyPrice)} {t('VNĐ/Trái phiếu')}
+              {currency(info.buyPrice)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">

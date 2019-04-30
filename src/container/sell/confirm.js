@@ -50,7 +50,7 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-12">
               {t(
-                'Sau khi thỏa thuận, Bên chuyển nhượng và Bên nhận chuyển nhượng thống nhất thực hiện việc chuyển nhượng Trái phiếu Công ty Cổ phần Tập đoàn FLC – Mã số Trái phiếu'
+                'Sau khi thỏa thuận, Bên chuyển nhượng và Bên nhận chuyển nhượng thống nhất thực hiện việc chuyển nhượng Trái Phiếu Công ty Cổ phần Tập đoàn FLC – Mã số Trái Phiếu'
               )}{' '}
               {''}
               {bond.bondCode}
@@ -112,19 +112,19 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-4">{t('Khối Lượng')}</div>
             <div className="col-8">
-              {currency(info.sellVol)} {t('Trái phiếu')}
+              {currency(info.sellVol)} {t('Trái Phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Mệnh giá')}</div>
             <div className="col-8">
-              {currency(bond.parValue)} {t('VNĐ/Trái phiếu')}
+              {currency(bond.parValue)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
             <div className="col-4">{t('Giá chuyển nhượng')}</div>
             <div className="col-8">
-              {currency(info.sellPrice)} {t('VNĐ/Trái phiếu')}
+              {currency(info.sellPrice)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">

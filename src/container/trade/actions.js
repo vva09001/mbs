@@ -77,7 +77,7 @@ class Actions extends Component {
     return (
       <Layout
         type={2}
-        title={this.state.type === 'edit' ? t('Sửa giao dịch bán') : t('Bán Trái phiếu')}
+        title={this.state.type === 'edit' ? t('Sửa giao dịch bán') : t('Bán Trái Phiếu')}
       >
         {this.state.status && (
           <Popup
@@ -107,7 +107,7 @@ class Actions extends Component {
           </div>
           <div className="pt-2">
             <div className="form-group sum-field row">
-              <div className="col-12 col-form-div fwb">{t('Thông tin Trái phiếu sở hữu')}</div>
+              <div className="col-12 col-form-div fwb">{t('Thông tin Trái Phiếu sở hữu')}</div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày Giao Dịch')}:</div>
@@ -120,7 +120,7 @@ class Actions extends Component {
             <div className="form-group row">
               <div className="col-6  npdr">{t('Khối Lượng sở hữu')}:</div>
               <div className="col-6 mdata">
-                {currency(detail.buyVol)} {t('Trái phiếu')}
+                {currency(detail.buyVol)} {t('Trái Phiếu')}
               </div>
             </div>
             <div className="form-group row">
@@ -138,7 +138,7 @@ class Actions extends Component {
           </div>
           <div className="pb-2">
             <div className="form-group sum-field row">
-              <div className="col-12 col-form-div fwb">{t('Đề nghị giao dịch bán Trái phiếu')}</div>
+              <div className="col-12 col-form-div fwb">{t('Đề nghị giao dịch bán Trái Phiếu')}</div>
             </div>
             <div className="form-group row">
               <div className="col-6 col-form-div">{t('Ngày đề nghị bán')}:</div>
@@ -165,9 +165,9 @@ class Actions extends Component {
               </div>
             </div>
             <div className="form-group row">
-              <div className="col-6 col-form-div">{t('Số lượng Trái phiếu')}:</div>
+              <div className="col-6 col-form-div">{t('Số lượng Trái Phiếu')}:</div>
               <div className="col-6 mdata">
-                {currency(info.sellVol)} {t('Trái phiếu')}
+                {currency(info.sellVol)} {t('Trái Phiếu')}
               </div>
             </div>
             <div className="form-group row">

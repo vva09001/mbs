@@ -89,7 +89,7 @@ class Order extends Component {
               </label>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Ngày giao dịch mua')}:</label>
+              <label className="col-6 ">{t('Ngày Giao Dịch')}:</label>
               <div className="col-6 mdata">{sellDetail.buyDate}</div>
             </div>
             <div className="row">
@@ -118,7 +118,7 @@ class Order extends Component {
           <div className="pb-2">
             <div className="sum-field row">
               <label className="col-12 mstit">
-                <b>{t('Đề nghị giao dịch bán Trái phiếu')}</b>
+                <b>{t('Đề nghị giao dịch bán Trái Phiếu')}</b>
               </label>
             </div>
             <div className="row">

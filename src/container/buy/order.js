@@ -33,7 +33,7 @@ class Order extends Component {
           <table className="table table-bordered bg-white">
             <tbody>
               <tr className="bgg">
-                <td width="50%">{t('Trái phiếu')}</td>
+                <td width="50%">{t('Trái Phiếu')}</td>
                 <td width="50%">{bond.bondCode}</td>
               </tr>
               <tr>
@@ -47,13 +47,13 @@ class Order extends Component {
               <tr>
                 <td>{t('Khối lượng')}</td>
                 <td>
-                  {currency(info.buyVol)} {t('Trái phiếu')}
+                  {currency(info.buyVol)} {t('Trái Phiếu')}
                 </td>
               </tr>
               <tr>
                 <td>{t('Đơn Giá Giao Dịch')}</td>
                 <td>
-                  {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái phiếu')}
+                  {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái Phiếu')}
                 </td>
               </tr>
               <tr>
