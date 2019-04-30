@@ -75,10 +75,17 @@ class Order extends Component {
     return (
       <Layout type={2} title={t('BÁN TRÁI PHIẾU')}>
         <div className="bond-detail sellorder">
+          <div className="row text-center text-uppercase">
+            <div className="col-12">
+              <h3>{t('Đăng Ký Bán Trái Phiếu')}</h3>
+            </div>
+          </div>
           <div className="section">
             <div className="row">
               <div className="col-12 mspot">
-                <h3>{info.bondCode}</h3>
+                <h3>
+                  {t('Trái Phiếu')}: {info.bondCode}
+                </h3>
               </div>
             </div>
           </div>
@@ -99,11 +106,11 @@ class Order extends Component {
             <div className="row">
               <label className="col-6 ">{t('Khối Lượng')}:</label>
               <div className="col-6 mdata">
-                {currency(sellDetail.buyVol)} {t('TP')}
+                {currency(sellDetail.buyVol)} {t('Trái Phiếu')}
               </div>
             </div>
             <div className="row">
-              <label className="col-6 ">{t('Đơn GIá Giao Dịch')}:</label>
+              <label className="col-6 ">{t('Đơn Giá Giao Dịch')}:</label>
               <div className="col-6 mdata">
                 {currency(sellDetail.buyPrice)} {t('VNĐ')}
               </div>
@@ -118,7 +125,7 @@ class Order extends Component {
           <div className="pb-2">
             <div className="sum-field row">
               <label className="col-12 mstit">
-                <b>{t('Đề nghị giao dịch bán Trái Phiếu')}</b>
+                <b>{t('Đăng Ký Bán Trái Phiếu')}</b>
               </label>
             </div>
             <div className="row">
@@ -126,7 +133,7 @@ class Order extends Component {
               <div className="col-6 mdata">{FormatTime(this.state.date)}</div>
             </div>
             <div className="row">
-              <label className="col-6 lh38">{t('Ngày giao dịch')}:</label>
+              <label className="col-6 lh38">{t('Ngày Giao Dịch')}:</label>
               <div className="col-6 mdata">
                 <div className="form-group">{this._sellDate()}</div>
               </div>
@@ -146,7 +153,7 @@ class Order extends Component {
             <div className="row">
               <label className="col-6 ">{t('Khối Lượng')}:</label>
               <div className="col-6 mdata">
-                {currency(info.sellVol)} {t('TP')}
+                {currency(info.sellVol)} {t('Trái Phiếu')}
               </div>
             </div>
             <div className="sum-field row">

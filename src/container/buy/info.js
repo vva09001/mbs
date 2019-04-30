@@ -77,7 +77,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Thanh Toán Lãi`)}</b>
+                <b>{t(`Kỳ Thanh Toán Lãi`)}</b>
               </td>
               <td>
                 {detail.couponPayment} {t(`tháng/lần`)}

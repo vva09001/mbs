@@ -63,7 +63,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Thuế, Phí giao dịch')} </td>
+                <td>{t('Thuế, Phí Giao Dịch')} </td>
                 <td>
                   {currency(info.buyFee)} {t('VNĐ')}
                 </td>
@@ -75,7 +75,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi Suất Đáo Hạn')}</td>
+                <td>{t('Lợi suất đáo hạn')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
@@ -84,7 +84,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi Suất Đã Tái Đầu Tư')}</td>
+                <td>{t('Lợi suất đã tái đầu tư')}</td>
                 <td>
                   <b>
                     {currency(info.termInvest)}
