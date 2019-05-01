@@ -34,7 +34,7 @@ Connect.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    isLinked: state.Account.isExist === 1 ? true : false,
+    isLinked: state.Account.profile.isExist === 1 ? true : false,
     step: state.Account.step
   };
 };
