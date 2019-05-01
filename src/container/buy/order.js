@@ -33,7 +33,7 @@ class Order extends Component {
           <table className="table table-bordered bg-white">
             <tbody>
               <tr className="bgg">
-                <td width="50%">{t('Trái phiếu')}</td>
+                <td width="50%">{t('Trái Phiếu')}</td>
                 <td width="50%">{bond.bondCode}</td>
               </tr>
               <tr>
@@ -47,13 +47,13 @@ class Order extends Component {
               <tr>
                 <td>{t('Khối lượng')}</td>
                 <td>
-                  {currency(info.buyVol)} {t('Trái phiếu')}
+                  {currency(info.buyVol)} {t('Trái Phiếu')}
                 </td>
               </tr>
               <tr>
                 <td>{t('Đơn Giá Giao Dịch')}</td>
                 <td>
-                  {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái phiếu')}
+                  {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái Phiếu')}
                 </td>
               </tr>
               <tr>
@@ -63,7 +63,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Thuế, Phí giao dịch')} </td>
+                <td>{t('Thuế, Phí Giao Dịch')} </td>
                 <td>
                   {currency(info.buyFee)} {t('VNĐ')}
                 </td>
@@ -75,7 +75,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi Suất Đáo Hạn')}</td>
+                <td>{t('Lợi suất đáo hạn')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
@@ -84,7 +84,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi Suất Đã Tái Đầu Tư')}</td>
+                <td>{t('Lợi suất đã tái đầu tư')}</td>
                 <td>
                   <b>
                     {currency(info.termInvest)}

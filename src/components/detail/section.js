@@ -40,7 +40,9 @@ const Section1 = props => {
               <span className="c">{t('Hạn mức')}</span>
             </div>
             <div className="col-7 text-right no-pading-left">
-              <span className="xmbs c text-bold">{currency(props.item.roomBalance)}</span>
+              <span className="xmbs c text-bold">
+                {currency(props.item.roomBalance)} {t('Trái Phiếu')}
+              </span>
             </div>
           </div>
         </div>

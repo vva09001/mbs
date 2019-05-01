@@ -12,7 +12,7 @@ const Flow = props => {
     <Layout type={1} title={t('Đằng Ký Mua Trái Phiếu')}>
       <div className="buy-wrapper">
         <h4 className="text-center mtitle text-uppercase">
-          {t('Dòng tiền nhận được khi mua Trái phiếu')}
+          {t('Dòng tiền nhận được khi mua Trái Phiếu')}
         </h4>
         <div className="row">
           <div className="col-12">
@@ -97,7 +97,7 @@ const Flow = props => {
                   <td>{t('Tiền coupon tái đầu tư (VNĐ)')}</td>
                   <td>{t('Từ ngày')}</td>
                   <td>{t('Đến ngày')}</td>
-                  <td>{t('LS tái đầu tư')}</td>
+                  <td>{t('Lãi tái đầu tư')}</td>
                   <td>{t('Lãi tái đầu tư (VNĐ)')}</td>
                 </tr>
               </thead>
@@ -124,7 +124,7 @@ const Flow = props => {
               </tfoot>
             </table>
             <i>
-              {t('Lãi xuất')}: <span className="text-danger">{t('7%/năm')}</span>
+              {t('Lãi suất tái đầu từ ')}: <span className="text-danger">{t('%/năm')}</span>
             </i>
           </div>
         </div>

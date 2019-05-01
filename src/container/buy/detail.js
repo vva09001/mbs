@@ -28,7 +28,7 @@ class Detail extends Component {
         ...this.state.toggle,
         [type]: !this.state.toggle[type]
       },
-      popupTitle: 'Thông tin trái phiếu'
+      popupTitle: 'Thông tin Trái Phiếu'
     });
   };
 
@@ -79,7 +79,7 @@ class Detail extends Component {
     return (
       <Layout type={1} path="/" title={t('MUA TRÁI PHIẾU')}>
         {this.state.toggle.popup && (
-          <Popup title={t('Thông tin trái phiếu')} showPopup={() => this.showPopup('popup')}>
+          <Popup title={t('Thông tin Trái Phiếu')} showPopup={() => this.showPopup('popup')}>
             <p className="text-justify">
               <strong>{t('Coupon')}:</strong> Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu
               có)) do Tổ Chức Phát Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ

@@ -7,15 +7,15 @@ const Term = () => {
   return (
     <Layout type={1} title="Xác thực giao dịch bán">
       <div className="bond-detail sellterm">
-        <div className="">
+        <div className="bg-white taj">
           <p>
             Khách hàng (KH) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các quy
-            định được nêu tại Các Điều khoản và Điều kiện bán Trái phiếu sau đây: CÁC ĐIỀU KHOẢN VÀ
+            định được nêu tại Các Điều khoản và Điều kiện bán Trái Phiếu sau đây: CÁC ĐIỀU KHOẢN VÀ
             ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU
           </p>
           <p className="mst">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</p>
           <p>
-            <b>1.1. Trái Phiếu</b>: Là trái phiếu được xác định tại Đăng Ký Bán Trái Phiếu.
+            <b>1.1. Trái Phiếu</b>: Là Trái Phiếu được xác định tại Đăng Ký Bán Trái Phiếu.
           </p>
           <p>
             <b>1.2. Tổ Chức Phát Hành</b>: Là doanh nghiệp phát hành Trái Phiếu.
@@ -23,7 +23,7 @@ const Term = () => {
           <p>
             <b>1.3. Tổ Chức Lưu Ký Trái Phiếu</b>: là Trung tâm Lưu ký chứng khoán Việt Nam hoặc tổ
             chức là thành viên của Trung tâm Lưu ký chứng khoán Việt Nam thực hiện dịch vụ lưu ký
-            trái phiếu doanh nghiệp cho Tổ Chức Phát Hành.
+            Trái Phiếu doanh nghiệp cho Tổ Chức Phát Hành.
           </p>
           <p>
             <b>1.4. Thông Tin Trái Phiếu Giao Dịch</b>: Là bản tóm tắt thông tin về Trái Phiếu.
@@ -53,7 +53,7 @@ const Term = () => {
           </p>
           <p>
             – Phí khớp lệnh KH trả cho MBS để chuyển nhượng Trái Phiếu thông qua sở giao dịch chứng
-            khoán, áp dụng với các trái phiếu niêm yết. Phí khớp lệnh được xác định theo quy
+            khoán, áp dụng với các Trái Phiếu niêm yết. Phí khớp lệnh được xác định theo quy
             định/chính sách của sở giao dịch chứng khoán từng thời kỳ;
           </p>
           <p>

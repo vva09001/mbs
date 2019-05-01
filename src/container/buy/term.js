@@ -15,7 +15,7 @@ const Term = () => {
           <h3 className="mb-3">CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;MUA TRÁI PHIẾU</h3>
           <h4 className="mb-2">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</h4>
           <p>
-            <b>1.1 Trái Phiếu</b>: Là trái phiếu được xác định tại Đăng Ký Mua Trái Phiếu.
+            <b>1.1 Trái Phiếu</b>: Là trái Phiếu được xác định tại Đăng Ký Mua Trái Phiếu.
           </p>
           <p>
             {' '}
@@ -53,8 +53,8 @@ const Term = () => {
             bán Trái Phiếu, bao gồm:
           </p>
           <p>
-            – Phí khớp lệnh KH trả cho MBS để chuyển nhượng trái phiếu thông qua Sở giao dịch chứng
-            khoán, áp dụng với các trái phiếu niêm yết. Phí khớp lệnh được xác định theo quy
+            – Phí khớp lệnh KH trả cho MBS để chuyển nhượng Trái Phiếu thông qua Sở giao dịch chứng
+            khoán, áp dụng với các Trái Phiếu niêm yết. Phí khớp lệnh được xác định theo quy
             định/chính sách của Sở giao dịch chứng khoán từng thời kỳ;
           </p>
           <p>
@@ -64,7 +64,7 @@ const Term = () => {
           </p>
           <p>
             – Phí chuyển nhượng Trái Phiếu KH phải trả cho Đại lý chuyển nhượng (nếu có) để chuyển
-            nhượng trái phiếu, áp dụng với trái phiếu chưa niêm yết. Phí chuyển nhượng được xác định
+            nhượng Trái Phiếu, áp dụng với Trái Phiếu chưa niêm yết. Phí chuyển nhượng được xác định
             theo quy định, chính sách của Đại lý chuyển nhượng Trái Phiếu từng thời kỳ.
           </p>
           <p>– Thuế chuyển nhượng Trái Phiếu theo quy định của pháp luật.</p>
@@ -103,7 +103,7 @@ const Term = () => {
             đầu tư Trái Phiếu&nbsp;trên cơ sở 1 năm có 365 ngày.
           </p>
           <p>
-            Giả định Tổ Chức Phát Hành thanh toán đúng hạn, đủ gốc, lãi trái phiếu và coupon của các
+            Giả định Tổ Chức Phát Hành thanh toán đúng hạn, đủ gốc, lãi Trái Phiếu và coupon của các
             kỳ chưa xác định lãi suất được giả định như tại&nbsp;Chi tiết dòng tiền.
           </p>
           <img src="/img/images1.png" alt="logo" className="w-100" />
@@ -131,7 +131,7 @@ const Term = () => {
             <b>2.3 Khối lượng giao dịch</b>: Là Khối Lượng được nêu tại Đăng Ký Mua Trái Phiếu.
           </p>
           <p>
-            <b>2.4 Đơn giá giao dịch trái phiếu</b>: Là Đơn Giá Giao Dịch được nêu tại Đăng Ký Mua
+            <b>2.4 Đơn giá giao dịch Trái Phiếu</b>: Là Đơn Giá Giao Dịch được nêu tại Đăng Ký Mua
             Trái Phiếu
           </p>
           <p>
@@ -160,7 +160,7 @@ const Term = () => {
               3.1 Thông Tin Trái Phiếu Giao Dịch, Đăng Ký Mua Trái Phiếu, Các Điều Khoản và Điều
               Kiện mua Trái Phiếu
             </b>
-            : cùng các tài liệu kèm theo sẽ hợp thành một hợp đồng mua bán trái phiếu giữa KH và MBS
+            : cùng các tài liệu kèm theo sẽ hợp thành một hợp đồng mua bán Trái Phiếu giữa KH và MBS
             (“Hợp đồng”). Hợp đồng có hiệu lực kể từ thời điểm MBS chấp nhận Đăng Ký Mua Trái Phiếu
             của KH trên hệ thống. MBS sẽ (nhưng không phải là nghĩa vụ bắt buộc) thông báo lại cho
             KH việc chấp nhận này.
@@ -200,7 +200,7 @@ const Term = () => {
             <b>4.2. Quyền và nghĩa vụ của KH</b>
           </p>
           <p>
-            – Được Tổ Chức Phát Hành Trái Phiếu thanh toán đầy đủ, đúng hạn gốc, lãi trái phiếu khi
+            – Được Tổ Chức Phát Hành Trái Phiếu thanh toán đầy đủ, đúng hạn gốc, lãi Trái Phiếu khi
             đến hạn và bảo đảm việc thực hiện các quyền kèm theo (nếu có) theo các điều kiện, điều
             khoản của Trái Phiếu khi phát hành.
           </p>
@@ -269,7 +269,7 @@ const Term = () => {
           <p>
             (i) Đưa ra quyết định mua Trái Phiếu: KH có được tất cả các thông tin mà KH tin tưởng là
             cần thiết hoặc phù hợp để đưa ra quyết định mua Trái Phiếu của KH, bao gồm nhưng không
-            giới hạn các thông tin trong Các Văn Kiện Trái Phiếu, thông tin về dòng tiền Trái phiếu
+            giới hạn các thông tin trong Các Văn Kiện Trái Phiếu, thông tin về dòng tiền Trái Phiếu
             dự kiến … và KH cũng thừa nhận rằng MBS hoặc bất kỳ bên có liên quan của MBS không xác
             nhận các thông tin đó hoặc đưa ra các khẳng định hoặc bảo đảm về tính chính xác và đầy
             đủ của các thông tin đó;
@@ -313,7 +313,7 @@ const Term = () => {
             thực tế phát sinh từ việc vi phạm nghĩa vụ của mình theo Các Điều Khoản và Điều Kiện mua
             Trái Phiếu.
           </p>
-          <h4 className="mb-2">ĐIỀU 6: TỔ CHỨC PHÁT HÀNH MUA LẠI TRÁI PHIẾU TRƯỚC HẠN</h4>
+          <h4 className="mb-2">ĐIỀU 6: TỔ CHỨC PHÁT HÀNH MUA LẠI Trái Phiếu TRƯỚC HẠN</h4>
           <p>
             Trong trường hợp Tổ Chức Phát Hành thực hiện việc mua lại trước hạn đối với một phần
             hoặc toàn bộ Trái Phiếu được giao dịch theo Các Điều Khoản và Điều Kiện mua Trái Phiếu

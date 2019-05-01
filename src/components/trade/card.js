@@ -26,11 +26,11 @@ const card = props => {
           </button>
         </li>
         <li className="list-group-item">
-          {t('Ngày đáo hạn')}
+          {t('Ngày Đáo Hạn')}
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Ngày bán trước hạn (dự kiến)')}
+          {t('Ngày bán dự kiến')}
           <span className="float-right">{props.item.sellDate}</span>
         </li>
         <li className="list-group-item">
