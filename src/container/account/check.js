@@ -3,12 +3,19 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import accountActions from 'store/account/actions';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import Button from 'react-validation/build/button';
+import { required } from 'utils/validation';
 
 class Check extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      params: {}
+      params: {
+        accountCode: '',
+        password: ''
+      }
     };
   }
   componentDidMount() {}
@@ -27,7 +34,12 @@ class Check extends Component {
   render() {
     const { t } = this.props;
     return (
-      <form className="row justify-content-center">
+      <Form
+        ref={c => {
+          this.form = c;
+        }}
+        className="row justify-content-center"
+      >
         <div className="form-group col-12">
           <p>
             <i>
@@ -39,35 +51,39 @@ class Check extends Component {
         </div>
         <div className="form-group col-12">
           <label>{t('Số TKCK')}</label>
-          <input
+          <Input
             onChange={e => this._onChange(e, 'accountCode')}
+            value={this.state.params.accountCode}
+            name="accountCode"
             type="text"
             className="form-control"
-            required
+            validations={[required]}
           />
         </div>
         <div className="form-group col-12">
           <label>{t('Mật khẩu')}</label>
-          <input
+          <Input
             onChange={e => this._onChange(e, 'password')}
+            value={this.state.params.password}
+            name="password"
             type="password"
             className="form-control"
-            required
+            validations={[required]}
           />
           <small className="form-text text-muted">
             ({t('Mật khẩu là mật khẩu giao dịch tại MBS')})
           </small>
         </div>
         <div className="col-9">
-          <button
+          <Button
             type="button"
             onClick={() => this._onClick()}
             className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
           >
             {t('LIÊN KẾT TÀI KHOẢN')}
-          </button>
+          </Button>
         </div>
-      </form>
+      </Form>
     );
   }
 }

@@ -1,4 +1,5 @@
 export default {
+  '2': 'error',
   '-1': 'Hệ thống đã bị khóa',
   '-2': 'Loại KH không hợp lệ',
   '-3': 'Khách hàng đã tồn tại',

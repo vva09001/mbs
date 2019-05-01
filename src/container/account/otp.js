@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import Button from 'react-validation/build/button';
 import accountActions from 'store/account/actions';
+import { required } from 'utils/validation';
 
 class Otp extends Component {
   constructor(props) {
@@ -27,26 +31,26 @@ class Otp extends Component {
   render() {
     const { t } = this.props;
     return (
-      <form className="row justify-content-center">
+      <Form className="row justify-content-center">
         <div className="form-group col-12">
           <label>{t('Mã OTP')}</label>
-          <input
+          <Input
             onChange={e => this._onChange(e, 'otp')}
             type="text"
             className="form-control"
-            required
+            validations={[required]}
           />
         </div>
         <div className="col-9">
-          <button
+          <Button
             type="button"
             onClick={() => this._onClick()}
             className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
           >
             {t('XÁC NHẬN')}
-          </button>
+          </Button>
         </div>
-      </form>
+      </Form>
     );
   }
 }
