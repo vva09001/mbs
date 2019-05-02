@@ -90,7 +90,7 @@ class Section2 extends Component {
               <input
                 type="number"
                 className="number form-control"
-                value={this.props.params.volume}
+                value={this.props.params.volume.toString()}
                 onChange={e => this._onChangeAmount(e)}
               />
               <span
