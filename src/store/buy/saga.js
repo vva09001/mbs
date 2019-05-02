@@ -42,6 +42,9 @@ export function* getBuyInfoSaga() {
       const res = yield Info(params, token);
       if (res.status === 200) {
         if (res.data.result === 0 && res.data.data !== null) {
+          if (res.data.data.buyVolMin > res.data.data.roomBalance) {
+            res.data.data.buyVolMin = res.data.data.roomBalance;
+          }
           yield put({ type: actions.BUY_INFO, info: res.data.data });
         } else {
           yield put({
