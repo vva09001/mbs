@@ -40,7 +40,11 @@ class Section2 extends Component {
     }
   }
   _onChangeAmount = event => {
-    const number = parseInt(event.target.value);
+    let number = parseInt(event.target.value);
+    console.log(event.target.value)
+    if (this.props.params.volume === 0) {
+      number = this.props.params.volume + number
+    }
     if (number > 0 && number <= 999999) {
       this.props.handleParam({
         ...this.props.params,
@@ -90,7 +94,7 @@ class Section2 extends Component {
               <input
                 type="number"
                 className="number form-control"
-                value={this.props.params.volume}
+                value={this.props.params.volume.toString()}
                 onChange={e => this._onChangeAmount(e)}
               />
               <span
