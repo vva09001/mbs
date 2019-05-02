@@ -192,7 +192,7 @@ export function* checkMountBuySaga() {
       yield put({
         type: errorActions.ERROR,
         error: {
-          message: `Giá Trị Giao Dịch vượt quá giới hạn thanh toán tiền trong TK ViettelPay (tối đa 100 triệu/giao dịch) . Quý khách vui lòng chọn Khối Lượng nhỏ hơn.`,
+          message: `Giá Trị Giao Dịch vượt quá giới hạn thanh toán tiền trong TK ViettelPay (tối đa 100 triệu/giao dịch). Quý khách vui lòng chọn Khối Lượng nhỏ hơn.`,
           status: true
         }
       });
