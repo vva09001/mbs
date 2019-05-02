@@ -118,7 +118,9 @@ class Actions extends Component {
               <div className="col-6 mdata">{detail.maturityDate}</div>
             </div>
             <div className="form-group row">
-              <div className="col-6  npdr">{t('Khối Lượng sở hữu')}:</div>
+              <div className="col-6  npdr">
+                {this.state.type === 'edit' ? t('Khối Lượng sở hữu') : t('Khối Lượng')}:
+              </div>
               <div className="col-6 mdata">
                 {currency(detail.buyVol)} {t('Trái Phiếu')}
               </div>
