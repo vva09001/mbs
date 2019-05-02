@@ -33,25 +33,25 @@ const Flow = props => {
         </div>
         <div className="row">
           <div className="col-12">
-            <div className="p-2 bgb text-white d-flex justify-content-between align-items-center">
-              <span>{t('Dòng tiền - chưa bao gồm tái đầu tư coupon')}:</span>
+            <div className="p-2 bg999 text-white d-flex justify-content-between align-items-center">
+              <span>{t('Dòng tiền chưa bao gồm tái đầu tư coupon')}</span>
             </div>
             <div className="text-primary wpp">
-              <strong>
+              <i className="font14">
                 {t('Lợi suất đáo hạn')}:{' '}
-                <span className="text-danger">
+                <strong className="text-info">
                   {currency(props.info.termNoninvest)}
                   %/
                   {t('năm')}
-                </span>
-              </strong>
+                </strong>
+              </i>
             </div>
             <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
                   <td>{t('Nội dung')}</td>
                   <td>{t('Ngày thanh toán')}</td>
-                  <td>{t('Số tiền thực nhận dự kiến (VNĐ)')}</td>
+                  <td>{t('Tiền nhận (VNĐ)')}</td>
                 </tr>
               </thead>
               <tbody>
@@ -78,43 +78,41 @@ const Flow = props => {
         </div>
         <div className="row">
           <div className="col-12">
-            <div className="p-2 bgb text-white d-flex justify-content-between align-items-center">
-              <span>{t('Dòng tiền - đã bao gồm tái đầu tư coupon')}:</span>
+            <div className="p-2 bg999 text-white d-flex justify-content-between align-items-center">
+              <span>{t('Dòng tiền đã bao gồm tái đầu tư coupon')}</span>
             </div>
             <div className="text-primary wpp">
-              <strong>
+              <i className="font14">
                 {t('Lợi suất đã tái đầu tư')}:{' '}
-                <span className="text-danger">
+                <strong className="text-info">
                   {currency(props.info.termInvest)}
                   %/
                   {t('năm')}
-                </span>
-              </strong>
+                </strong>
+              </i>
             </div>
             <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <td>{t('Tiền coupon tái đầu tư (VNĐ)')}</td>
                   <td>{t('Từ ngày')}</td>
                   <td>{t('Đến ngày')}</td>
-                  <td>{t('Lãi tái đầu tư')}</td>
+                  <td>{t('Coupon tái đầu tư')}</td>
                   <td>{t('Lãi tái đầu tư (VNĐ)')}</td>
                 </tr>
               </thead>
               <tbody>
                 {_.map(props.flow.flowInvest, (item, index) => (
                   <tr key={index}>
-                    <td>{currency(item.cashNonInvest)}</td>
                     <td>{item.payCouponDate}</td>
                     <td>{item.lastPayCouponDate}</td>
-                    <td>{currency(item.reinvestmentRate)}</td>
+                    <td>{currency(item.cashNonInvest)}</td>
                     <td className="tar">{currency(item.cashInvest)}</td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan="4" className="text-primary">
+                  <td colSpan="3" className="text-primary">
                     <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
                   </td>
                   <td>
@@ -124,7 +122,7 @@ const Flow = props => {
               </tfoot>
             </table>
             <i>
-              {t('Lãi suất tái đầu từ ')}: <span className="text-danger">{t('%/năm')}</span>
+              {t('Lãi suất tái đầu tư')}: {props.flow.flowInvest[0].reinvestmentRate} {t('%/năm')}
             </i>
           </div>
         </div>

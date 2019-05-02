@@ -75,25 +75,25 @@ class Order extends Component {
     return (
       <Layout type={2} title={t('BÁN TRÁI PHIẾU')}>
         <div className="bond-detail sellorder">
-          <div className="row text-center text-uppercase">
-            <div className="col-12">
-              <h3>{t('Đăng Ký Bán Trái Phiếu')}</h3>
+          <div className="row">
+            <div className="col-12 pt-3">
+              <h4 className="text-center">{t('Đăng Ký Bán Trái Phiếu')}</h4>
             </div>
           </div>
           <div className="section">
             <div className="row">
               <div className="col-12 mspot">
-                <h3>
+                <h4 className="text-center">
                   {t('Trái Phiếu')}: {info.bondCode}
-                </h3>
+                </h4>
               </div>
             </div>
           </div>
           <div className="pt-2">
-            <div className="sum-field row">
-              <label className="col-12 mstit">
+            <div className="sum-field titles row">
+              <div className="msti">
                 <b>{t('Thông Tin Trái Phiếu Sở hữu')}</b>
-              </label>
+              </div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Ngày Giao Dịch')}:</label>
@@ -123,10 +123,10 @@ class Order extends Component {
             </div>
           </div>
           <div className="pb-2">
-            <div className="sum-field row">
-              <label className="col-12 mstit">
+            <div className="sum-field titles row">
+              <div className="mstit">
                 <b>{t('Đăng Ký Bán Trái Phiếu')}</b>
-              </label>
+              </div>
             </div>
             <div className="row">
               <label className="col-6 ">{t('Ngày đề nghị bán')}:</label>
@@ -147,7 +147,8 @@ class Order extends Component {
             <div className="row">
               <label className="col-6 ">{t('Lợi suất đầu tư')}:</label>
               <div className="col-6 mdata">
-                {currency(info.termRate)} {t('%/năm')}
+                {currency(info.termRate)}
+                {t('%/năm')}
               </div>
             </div>
             <div className="row">
@@ -187,7 +188,7 @@ class Order extends Component {
             <label className="form-check-label">
               <i>
                 {t(
-                  'Tôi xác nhận và đồng ý với các điều khoản, điều kiện bánTrái Phiếu đã nêu trên và các Văn Kiện Trái Phiếu liên quan.'
+                  'Tôi xác nhận và đồng ý với các điều khoản, điều kiện bán Trái Phiếu đã nêu trên và các Văn Kiện Trái Phiếu liên quan.'
                 )}
               </i>
               <input

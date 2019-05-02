@@ -204,7 +204,7 @@ export function* tradeDeleteSaga() {
             type: errorActions.TRADE_DONE,
             done: {
               message:
-                'Quý khách đã hủy giao dịch bán TP thành công. Quý khách có thể xem lại thông tin giao dịch mua TP này tại màn hình Danh mục TP nắm giữ',
+                'Quý khách đã hủy giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch mua Trái Phiếu này tại màn hình Danh mục Trái Phiếu nắm giữ',
               status: true
             }
           });
@@ -251,7 +251,7 @@ export function* tradeUpdateSaga() {
             type: errorActions.TRADE_DONE,
             done: {
               message:
-                'Quý khách đã sửa giao dịch bán TP thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch',
+                'Quý khách đã sửa giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch',
               status: true
             }
           });

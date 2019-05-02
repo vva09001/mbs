@@ -5,7 +5,7 @@ import Layout from 'container/layout/layout';
 const Term = () => {
   // const { t } = useTranslation();
   return (
-    <Layout type={1} title="Xác thực giao dịch bán">
+    <Layout type={1} title="ĐIỀU KHOẢN & ĐIỀU KIỆN BÁN TRÁI PHIẾU">
       <div className="bond-detail sellterm">
         <div className="bg-white taj">
           <p>

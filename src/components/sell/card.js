@@ -24,7 +24,7 @@ const card = props => {
           </span>
         </li>
         <li className="list-group-item">
-          {t('Ngày giao dịch mua')}
+          {t('Ngày Giao Dịch')}
           <span className="float-right">{props.item.buyDate}</span>
         </li>
         <li className="list-group-item">
@@ -32,9 +32,11 @@ const card = props => {
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Trái Phiếu sở hữu')}
+          {t('Khối Lượng')}
           <p className="float-right">
-            <span className="quatity">{currency(props.item.buyVol)}</span>
+            <span className="quatity">
+              {currency(props.item.buyVol)} {t('Trái Phiếu')}
+            </span>
           </p>
         </li>
         <li className="list-group-item">

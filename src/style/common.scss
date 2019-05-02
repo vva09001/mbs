@@ -74,6 +74,9 @@ tfoot td {
 }
 .sellorder {
   font-size: 14px;
+    h4 {
+      font-weight: bold;
+    }
 }
 .sellorder select,
 .bond-detail-edit select {
@@ -146,6 +149,7 @@ tfoot td {
   }
   h4 {
     font-size: 12px !important;
+    font-weight: bold;
   }
   h3 {
     font-size: 12px !important;
@@ -168,10 +172,17 @@ tfoot td {
 }
 .buy-wrapper {
   background: #fff;
+  .font14 {
+    font-size: 14px;
+  }
 }
 .bond-buy-comfirm {
   background: #fff;
   padding: 0 10px;
+  .bgdd {
+    background-color: #ddd;
+    padding: 5px;
+  }
 }
 .mtitle {
   font-size: 17px;
@@ -899,7 +910,6 @@ body {
   }
   .sum-field {
     font-weight: bold;
-
     input {
       color: #0052cc !important;
     }
@@ -982,4 +992,9 @@ body {
 }
 .custom-card {
   margin-top: 75px;
+}
+.titles {
+  background-color: #ddd;
+  margin: 0;
+  padding: 4px;
 }

@@ -9,7 +9,7 @@ import Loading from 'components/common/loading';
 import tradeActions from 'store/trade/actions';
 import bondsActions from 'store/bonds/actions';
 import history from 'utils/history';
-import { currency } from 'utils/currency';
+// import { currency } from 'utils/currency';
 class List extends Component {
   componentDidMount() {
     this.props.getList({
@@ -66,16 +66,6 @@ class List extends Component {
         <div className="sell-title">
           <div className="row">
             <div className="col-6 no-pading-right">
-              <div className="title-left bold tar">{t('Tổng giá trị đầu tư')}: </div>
-            </div>
-            <div className="col-6 no-pading-left">
-              <div className="bold tar">
-                {currency(this.props.total)} {t('VNĐ')}
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-6 no-pading-right">
               <div className="title-left bold tar">{t('Tổng số lượng')}: </div>
             </div>
             <div className="col-6 no-pading-left">
@@ -88,7 +78,7 @@ class List extends Component {
           </div>
         </div>
         {this.props.bonds.length === 0 ? (
-          <div className="text-center wapper" />
+          <div className="text-center " />
         ) : (
           <div className="custom-card">{this._showList()}</div>
         )}
