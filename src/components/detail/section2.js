@@ -40,11 +40,7 @@ class Section2 extends Component {
     }
   }
   _onChangeAmount = event => {
-    let number = parseInt(event.target.value);
-    console.log(event.target.value)
-    if (this.props.params.volume === 0) {
-      number = this.props.params.volume + number
-    }
+    const number = parseInt(event.target.value);
     if (number > 0 && number <= 999999) {
       this.props.handleParam({
         ...this.props.params,
