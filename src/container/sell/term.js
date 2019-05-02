@@ -6,14 +6,14 @@ const Term = () => {
   // const { t } = useTranslation();
   return (
     <Layout type={1} title="ĐIỀU KHOẢN & ĐIỀU KIỆN BÁN TRÁI PHIẾU">
-      <div className="bond-detail sellterm">
+      <div className="bond-detail">
         <div className="bg-white taj">
           <p>
             Khách hàng (KH) và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các quy
             định được nêu tại Các Điều khoản và Điều kiện bán Trái Phiếu sau đây: CÁC ĐIỀU KHOẢN VÀ
             ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU
           </p>
-          <p className="mst">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</p>
+          <h4 className="mst">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</h4>
           <p>
             <b>1.1. Trái Phiếu</b>: Là Trái Phiếu được xác định tại Đăng Ký Bán Trái Phiếu.
           </p>
@@ -119,7 +119,7 @@ const Term = () => {
             <b>1.17. Tài khoản ViettelPay</b>: Là tài khoản của KH sử dụng trên ứng dụng ViettelPAY
             như 1 ví điện tử thanh toán
           </p>
-          <p className="mst">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</p>
+          <h4 className="mst">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</h4>
           <p>
             <b>2.1. Trái Phiếu giao dịch</b>: Là Trái Phiếu được nêu tại Đăng Ký Bán Trái Phiếu, có
             các đặc điểm được nêu tại Thông Tin Trái Phiếu.
@@ -148,7 +148,7 @@ const Term = () => {
             trong Ngày Giao Dịch, sau khi MBS đã thanh toán cho KH như quy định tại Mục 2.6 Điều
             này.
           </p>
-          <p className="mst">ĐIỀU 3: HÌNH THÀNH HỢP ĐỒNG</p>
+          <h4 className="mst">ĐIỀU 3: HÌNH THÀNH HỢP ĐỒNG</h4>
           <p>
             <b>
               3.1. Thông Tin Trái Phiếu Giao Dịch, Đăng Ký Bán Trái Phiếu, Các Điều Khoản và Điều
@@ -165,7 +165,7 @@ const Term = () => {
             </b>
             : và có giá trị như một hợp đồng được ký dưới dạng văn bản.
           </p>
-          <p className="mst">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</p>
+          <h4 className="mst">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</h4>
           <p>
             <b>4.1. Quyền và nghĩa vụ của MBS</b>
           </p>
@@ -224,14 +224,14 @@ const Term = () => {
             – Các quyền và nghĩa vụ khác theo thỏa thuận tại Hợp đồng này, Các Văn Kiện Trái Phiếu
             và quy định của pháp luật.
           </p>
-          <p className="mst">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</p>
+          <h4 className="mst">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</h4>
           <p>
             Bất kỳ bên nào vi phạm các nghĩa vụ của mình tại Hợp đồng này phải có trách nhiệm khắc
             phục vi phạm trong vòng 02 ngày làm việc kể từ ngày phát sinh vi phạm. Nếu quá thời hạn
             trên, Bên vi phạm sẽ phải bồi thường toàn bộ thiệt hại thực tế phát sinh từ việc vi phạm
             nghĩa vụ của mình theo Hợp đồng này.
           </p>
-          <p className="mst">ĐIỀU 6: ĐIỀU KHOẢN THI HÀNH</p>
+          <h4 className="mst">ĐIỀU 6: ĐIỀU KHOẢN THI HÀNH</h4>
           <p>
             <b>6.1. Mỗi bên khẳng định rằng</b>: (i) Đã hiểu rõ quyền, nghĩa vụ lợi ích và các rủi
             ro có thể xảy ra của việc giao kết Hợp đồng này và (ii) Việc giao kết, thực hiện Hợp

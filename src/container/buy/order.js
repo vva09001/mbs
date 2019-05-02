@@ -109,7 +109,7 @@ class Order extends Component {
             <br />
             <Link to="/buy/term">
               <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
-              <i>{t('Điều khoản & Điều kiện mua')}</i>
+              <i>{t('Điều khoản & Điều kiện mua Trái Phiếu')}</i>
             </Link>
             <br />
             <Link to="/buy/flow">
