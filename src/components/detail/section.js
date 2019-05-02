@@ -145,13 +145,9 @@ const Section4 = props => {
         <div className="col-12">
           <div
             onClick={() => onClick(refs)}
-            className="p-2 mb-1 bg999 rounded text-white d-flex justify-content-between align-items-center"
+            className="p-2 bg999 text-white d-flex justify-content-between align-items-center"
           >
-            <div className="d-flex w-50 justify-content-between">{title}</div>
-            <div className="w-50">
-              <div className="text-right mr-2 text-bold">{currency(sum)}</div>
-              <div className="text-right mr-2 text-bold">{'VNĐ'}</div>
-            </div>
+            <div className="d-flex justify-content-between">{title}</div>
             <span className="float-right collapse-custom">{status ? '-' : '+'}</span>
           </div>
         </div>
@@ -172,6 +168,16 @@ const Section4 = props => {
                   <tr key={index}>{showContent(res, content, t)}</tr>
                 ))}
               </tbody>
+              <tfoot>
+                <tr>
+                  <td colSpan="2" className="text-primary">
+                    <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
+                  </td>
+                  <td>
+                    <h5 className="text-info tar">{currency(sum)}</h5>
+                  </td>
+                </tr>
+              </tfoot>
             </table>
           </div>
         </div>
@@ -190,5 +196,68 @@ Section4.propTypes = {
   content: PropTypes.array,
   items: PropTypes.array
 };
+const Section5 = props => {
+  const { t } = useTranslation();
+  const { title, sum, label, items, content, onClick, status, refs } = props;
+  if (props.loading) {
+    return <Loading />;
+  }
+  return (
+    <Fragment>
+      <div className="row">
+        <div className="col-12">
+          <div
+            onClick={() => onClick(refs)}
+            className="p-2 bg999 text-white d-flex justify-content-between align-items-center"
+          >
+            <div className="d-flex justify-content-between">{title}</div>
+            <span className="float-right collapse-custom">{status ? '-' : '+'}</span>
+          </div>
+        </div>
+      </div>
+      {status && (
+        <div className="row">
+          <div className="col-12">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  {_.map(label, (item, index) => (
+                    <td key={index}>{item}</td>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {_.map(items, (res, index) => (
+                  <tr key={index}>{showContent(res, content, t)}</tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colSpan="3" className="text-primary">
+                    <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
+                  </td>
+                  <td>
+                    <h5 className="text-info tar">{currency(sum)}</h5>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      )}
+    </Fragment>
+  );
+};
+Section5.propTypes = {
+  title: PropTypes.string,
+  sum: PropTypes.number,
+  onClick: PropTypes.func,
+  status: PropTypes.bool,
+  refs: PropTypes.string,
+  loading: PropTypes.bool,
+  label: PropTypes.array,
+  content: PropTypes.array,
+  items: PropTypes.array
+};
 
-export { Section1, Section3, Section4 };
+export { Section1, Section3, Section4, Section5 };

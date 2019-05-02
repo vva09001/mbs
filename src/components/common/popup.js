@@ -6,7 +6,7 @@ const popup = props => {
   return (
     <div className="popup">
       <div className="popup-wrapper rounded bg-white position-relative">
-        <div className="popup-header mb-2 text-center">{props.title || t('Thông báo')}</div>
+        <div className="popup-header mb-2 text-center">{props.title || t('THÔNG BÁO')}</div>
         <div className="popup-body mb-2 text-center">{props.children}</div>
         <div className="popup-footer text-center">
           <button type="button" onClick={props.showPopup} className="mclose w100">
