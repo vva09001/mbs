@@ -5,7 +5,7 @@ import Layout from 'container/layout/layout';
 const Term = () => {
   // const { t } = useTranslation();
   return (
-    <Layout type={1} title="ĐĂNG KÝ MUA TRÁI PHIẾU">
+    <Layout type={1} title="ĐIỀU KHOẢN & ĐIỀU KIỆN BÁN TRÁI PHIẾU">
       <div className="bond-detail">
         <div className="bg-white taj">
           <p>
@@ -13,7 +13,7 @@ const Term = () => {
             quy định được nêu tại Các Điều khoản và Điều kiện mua Trái Phiếu sau đây:
           </p>
           <h3 className="mb-3">CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;MUA TRÁI PHIẾU</h3>
-          <h4 className="mb-2">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</h4>
+          <h4 className="mb-2 mst">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</h4>
           <p>
             <b>1.1 Trái Phiếu</b>: Là trái Phiếu được xác định tại Đăng Ký Mua Trái Phiếu.
           </p>
@@ -119,7 +119,7 @@ const Term = () => {
               Dịch đến (nhưng không bao gồm cả) ngày đáo hạn Trái Phiếu.
             </li>
           </ul>
-          <h4 className="mb-2">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</h4>
+          <h4 className="mb-2 mst">ĐIỀU 2: QUY ĐỊNH VỀ GIAO DỊCH TRÁI PHIẾU</h4>
           <p>
             <b>2.1 Trái Phiếu giao dịch</b>: Là Trái Phiếu được nêu tại Đăng Ký Mua Trái Phiếu, có
             các đặc điểm được nêu tại Thông Tin Trái Phiếu
@@ -154,7 +154,7 @@ const Term = () => {
             <b>2.8 Hủy giao dịch</b>: Giao dịch sẽ mua bán Trái Phiếu giữa KH và MBS sẽ bị hủy trong
             trường hợp KH không hoàn tất thanh toán đúng thời hạn như quy định tại Mục 2.6 Điều này.
           </p>
-          <h4 className="mb-2">ĐIỀU 3: HÌNH THÀNH HỢP ĐỒNG</h4>
+          <h4 className="mb-2 mst">ĐIỀU 3: HÌNH THÀNH HỢP ĐỒNG</h4>
           <p>
             <b>
               3.1 Thông Tin Trái Phiếu Giao Dịch, Đăng Ký Mua Trái Phiếu, Các Điều Khoản và Điều
@@ -169,7 +169,7 @@ const Term = () => {
             <b>3.2 Hợp đồng</b>&nbsp;được lập và lưu trữ dưới dạng dữ liệu điện tử trên hệ thống của
             MBS và có giá trị như một hợp đồng được ký dưới dạng văn bản.
           </p>
-          <h4 className="mb-2">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</h4>
+          <h4 className="mb-2 mst">ĐIỀU 4: QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</h4>
           <p>
             <b> 4.1 Quyền và nghĩa vụ của MBS</b>
           </p>
@@ -305,7 +305,7 @@ const Term = () => {
             – Các quyền và nghĩa vụ khác theo thỏa thuận tại Các Điều Khoản và Điều Kiện mua Trái
             Phiếu, Các Văn Kiện Trái Phiếu và quy định của pháp luật.
           </p>
-          <h4 className="mb-2">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</h4>
+          <h4 className="mb-2 mst">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</h4>
           <p>
             Bất kỳ bên nào vi phạm các nghĩa vụ của mình tại Các Điều Khoản và Điều Kiện mua Trái
             Phiếu phải có trách nhiệm khắc phục vi phạm trong vòng 02 ngày làm việc kể từ ngày phát
@@ -313,7 +313,7 @@ const Term = () => {
             thực tế phát sinh từ việc vi phạm nghĩa vụ của mình theo Các Điều Khoản và Điều Kiện mua
             Trái Phiếu.
           </p>
-          <h4 className="mb-2">ĐIỀU 6: TỔ CHỨC PHÁT HÀNH MUA LẠI Trái Phiếu TRƯỚC HẠN</h4>
+          <h4 className="mb-2 mst">ĐIỀU 6: TỔ CHỨC PHÁT HÀNH MUA LẠI Trái Phiếu TRƯỚC HẠN</h4>
           <p>
             Trong trường hợp Tổ Chức Phát Hành thực hiện việc mua lại trước hạn đối với một phần
             hoặc toàn bộ Trái Phiếu được giao dịch theo Các Điều Khoản và Điều Kiện mua Trái Phiếu
@@ -370,7 +370,7 @@ const Term = () => {
             Phát Hành mua lại vẫn thuộc sở hữu của KH; tỷ lệ, nguyên tắc mua lại sẽ căn cứ theo tỷ
             lệ và nguyên tắc mua lại do Tổ Chức Phát Hành công bố.
           </p>
-          <h4 className="mb-2">ĐIỀU 7: ĐIỀU KHOẢN THI HÀNH</h4>
+          <h4 className="mb-2 mst">ĐIỀU 7: ĐIỀU KHOẢN THI HÀNH</h4>
           <p>
             <b>7.1. Mỗi bên khẳng định rằng</b>: (i) Đã hiểu rõ quyền, nghĩa vụ lợi ích và các rủi
             ro có thể xảy ra của việc giao kết Hợp đồng này và (ii) Việc giao kết, thực hiện Hợp

@@ -33,7 +33,7 @@ class List extends Component {
       return <Loading />;
     }
     return (
-      <Layout type={2} title={t('TRÁI PHIẾU CÓ THỂ BÁN')}>
+      <Layout type={2} title={t('BÁN TRÁI PHIẾU')}>
         <div className="sell-title">
           <div className="row">
             <div className="col-6 no-pading-right">

@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 import buyActions from 'store/buy/actions';
 import Popup from 'components/common/popup';
-import { Section1, Section3, Section4 } from 'components/detail/section';
+import { Section1, Section3, Section4, Section5 } from 'components/detail/section';
 import Section2 from 'components/detail/section2';
 
 class Detail extends Component {
@@ -61,7 +61,7 @@ class Detail extends Component {
     const label = ['Từ ngày', 'Đến ngày', 'Coupon tái đầu tư', 'Lãi tái đầu tư nhận (VNĐ)'];
     const content = ['payCouponDate', 'lastPayCouponDate', 'cashNonInvest', 'cashInvest'];
     return (
-      <Section4
+      <Section5
         title="Đã bao gồm tái đầu tư coupon:"
         status={this.state.toggle.table2}
         refs="table2"

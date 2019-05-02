@@ -29,7 +29,7 @@ class Order extends Component {
     return (
       <Layout type={1} title={t('MUA TRÁI PHIẾU')}>
         <div className="bond-detail">
-          <h4 className="text-center text-uppercase mtitle">{t('Đăng Ký Mua Trái Phiếu')}</h4>
+          <h4 className="text-center mtitle">{t('Đăng Ký Mua Trái Phiếu')}</h4>
           <table className="table table-bordered bg-white">
             <tbody>
               <tr className="bgg">

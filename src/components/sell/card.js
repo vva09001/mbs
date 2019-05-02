@@ -24,7 +24,7 @@ const card = props => {
           </span>
         </li>
         <li className="list-group-item">
-          {t('Ngày giao dịch mua')}
+          {t('Ngày Giao Dịch')}
           <span className="float-right">{props.item.buyDate}</span>
         </li>
         <li className="list-group-item">
