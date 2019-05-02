@@ -32,9 +32,7 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <h4 className="text-center mtitle uppc">
-                {t(' TRÁI PHIẾU CÔNG TY CỔ PHẦN TẬP ĐOÀN FLC ')}
-              </h4>
+              <h4 className="text-center mtitle uppc">{bond.issuerBond}</h4>
             </div>
           </div>
 
@@ -43,17 +41,16 @@ class Confirm extends Component {
           </h4>
           <div className="row">
             <div className="col-3 npdr">{t('Kính gửi')}: </div>
-            <div className="col-9">{t('- Công ty Cổ phần Tập đoàn FLC')}</div>
+            <div className="col-9">{`- ${bond.issuerBond}`}</div>
             <div className="col-3 npdr" />
             <div className="col-9">{t('- Công ty Cổ phần Chứng khoán MB')}</div>
           </div>
           <div className="row">
             <div className="col-12">
               {t(
-                'Sau khi thỏa thuận, Bên chuyển nhượng và Bên nhận chuyển nhượng thống nhất thực hiện việc chuyển nhượng Trái Phiếu Công ty Cổ phần Tập đoàn FLC – Mã số Trái Phiếu'
-              )}{' '}
-              {''}
-              {bond.bondCode}
+                'Sau khi thỏa thuận, Bên chuyển nhượng và Bên nhận chuyển nhượng thống nhất thực hiện việc chuyển nhượng Trái Phiếu'
+              )}
+              {' ' + bond.issuerBond} {bond.bondCode + ' '}
               {
                 'từ Bên chuyển nhượng sang Bên nhận chuyển nhượng theo thông tin được nêu dưới đây: '
               }
