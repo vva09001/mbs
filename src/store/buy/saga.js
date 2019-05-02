@@ -180,6 +180,7 @@ export function* checkMountBuySaga() {
     const volMax = yield select(buyVolMax);
     const volMin = yield select(buyVolMin);
     const params = yield select(buyGetParams);
+    const profile = yield select(accountProfile);
     if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
       yield put({
         type: errorActions.ERROR,
@@ -197,7 +198,11 @@ export function* checkMountBuySaga() {
         }
       });
     } else {
-      yield history.push({ pathname: '/buy/order/' });
+      if (profile.isExist === 1) {
+        yield history.push({ pathname: '/buy/order/' });
+      } else {
+        yield history.push({ pathname: '/user/connect/' });
+      }
     }
   });
 }
