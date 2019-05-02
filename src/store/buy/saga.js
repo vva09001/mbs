@@ -185,7 +185,7 @@ export function* checkMountBuySaga() {
       yield put({
         type: errorActions.ERROR,
         error: {
-          message: `Số lượng TP phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
+          message: `Số lượng Trái Phiếu phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
           status: true
         }
       });
@@ -347,7 +347,11 @@ export function* verifyBuySaga() {
           if (data.params.error_code === '00') {
             yield put({
               type: errorActions.BUY_DONE,
-              done: { message: 'Quý khách đã đăng ký mua Trái Phiếu thành công', status: true }
+              done: {
+                message:
+                  'Quý khách đã đăng ký mua Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Trái Phiếu nắm giữ.',
+                status: true
+              }
             });
           } else {
             yield put({

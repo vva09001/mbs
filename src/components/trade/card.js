@@ -52,7 +52,7 @@ const card = props => {
         <li className="list-group-item">
           {t('Lợi suất đầu tư')}
           <p className="float-right">
-            <span className="quatity quatity-text">
+            <span className="quatity">
               {currency(props.item.termRate)}
               {t('%/năm')}
             </span>
