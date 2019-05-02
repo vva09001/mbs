@@ -25,7 +25,7 @@ class Order extends Component {
     });
   };
   render() {
-    const { bond, info, contract, t } = this.props;
+    const { bond, info, t } = this.props;
     return (
       <Layout type={1} title={t('MUA TRÁI PHIẾU')}>
         <div className="bond-detail">
@@ -57,7 +57,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Tổng Giá Trị Giao Dịch')}</td>
+                <td>{t('Giá Trị Giao Dịch')}</td>
                 <td>
                   {currency(info.buyValue)} {t('VNĐ')}
                 </td>
@@ -71,7 +71,7 @@ class Order extends Component {
               <tr className="bgg">
                 <td>{t('Tổng Giá Trị Giao Dịch')}</td>
                 <td>
-                  {currency(contract.buyValue + info.buyFee)} {t('VNĐ')}
+                  {currency(info.buyValue + info.buyFee)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
