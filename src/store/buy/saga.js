@@ -42,6 +42,9 @@ export function* getBuyInfoSaga() {
       const res = yield Info(params, token);
       if (res.status === 200) {
         if (res.data.result === 0 && res.data.data !== null) {
+          if (res.data.data.buyVolMin > res.data.data.roomBalance) {
+            res.data.data.buyVolMin = res.data.data.roomBalance;
+          }
           yield put({ type: actions.BUY_INFO, info: res.data.data });
         } else {
           yield put({
@@ -177,6 +180,7 @@ export function* checkMountBuySaga() {
     const volMax = yield select(buyVolMax);
     const volMin = yield select(buyVolMin);
     const params = yield select(buyGetParams);
+    const profile = yield select(accountProfile);
     if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
       yield put({
         type: errorActions.ERROR,
@@ -189,12 +193,16 @@ export function* checkMountBuySaga() {
       yield put({
         type: errorActions.ERROR,
         error: {
-          message: `Giá Trị Giao Dịch vượt quá giới hạn thanh toán tiền trong TK ViettelPay (tối đa 100 triệu/giao dịch) . Quý khách vui lòng chọn Khối Lượng nhỏ hơn.`,
+          message: `Giá Trị Giao Dịch vượt quá giới hạn thanh toán tiền trong TK ViettelPay (tối đa 100 triệu/giao dịch). Quý khách vui lòng chọn Khối Lượng nhỏ hơn.`,
           status: true
         }
       });
     } else {
-      yield history.push({ pathname: '/buy/order/' });
+      if (profile.isExist === 1) {
+        yield history.push({ pathname: '/buy/order/' });
+      } else {
+        yield history.push({ pathname: '/user/connect/' });
+      }
     }
   });
 }

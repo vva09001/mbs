@@ -15,6 +15,9 @@ class Check extends Component {
       params: {
         accountCode: '',
         password: ''
+      },
+      toggle: {
+        password: true
       }
     };
   }
@@ -30,6 +33,14 @@ class Check extends Component {
   };
   _onClick = () => {
     this.props.checkLink(this.state.params);
+  };
+  _onToggle = type => {
+    this.setState({
+      toggle: {
+        ...this.state.toggle,
+        [type]: !this.state.toggle[type]
+      }
+    });
   };
   render() {
     const { t } = this.props;
@@ -62,14 +73,26 @@ class Check extends Component {
         </div>
         <div className="form-group col-12">
           <label>{t('Mật khẩu')}</label>
-          <Input
-            onChange={e => this._onChange(e, 'password')}
-            value={this.state.params.password}
-            name="password"
-            type="password"
-            className="form-control"
-            validations={[required]}
-          />
+          <div className="d-flex">
+            <div className="flex-grow-1">
+              <Input
+                onChange={e => this._onChange(e, 'password')}
+                value={this.state.params.password}
+                name="password"
+                type={this.state.toggle.password ? 'password' : 'text'}
+                className="form-control"
+                validations={[required]}
+              />
+            </div>
+            <div className="input-group-append">
+              <span
+                onClick={() => this._onToggle('password')}
+                className="input-group-text clickStyle"
+              >
+                <i className="fa fa-eye" />
+              </span>
+            </div>
+          </div>
           <small className="form-text text-muted">
             ({t('Mật khẩu là mật khẩu giao dịch tại MBS')})
           </small>
