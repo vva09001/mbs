@@ -87,7 +87,7 @@ class Actions extends Component {
             showViewPopup={() => this._onClick()}
           >
             <span>
-              <i>{this.state.type === 'edit' ? t('editConFirm?') : t('caneConFirm')}</i>
+              <i>{this.state.type === 'edit' ? t('editConFirm') : t('caneConFirm')}</i>
             </span>
           </Popup>
         )}

@@ -182,13 +182,24 @@ export function* checkMountBuySaga() {
     const params = yield select(buyGetParams);
     const profile = yield select(accountProfile);
     if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
-      yield put({
-        type: errorActions.ERROR,
-        error: {
-          message: `Số lượng Trái Phiếu phải lớn hơn ${volMin} và nhỏ hơn ${volMax}`,
-          status: true
-        }
-      });
+      if (params.volume === 0 || params.volume < volMin) {
+        yield put({
+          type: errorActions.ERROR,
+          error: {
+            message: `Khối lượng Trái phiếu đặt mua phải ≥ ${volMin}`,
+            status: true
+          }
+        });
+      }
+      if (params.volume > volMax) {
+        yield put({
+          type: errorActions.ERROR,
+          error: {
+            message: `Khối lượng Trái phiếu đặt mua phải ≤ ${volMax}`,
+            status: true
+          }
+        });
+      }
     } else if (params.sum > 100000000) {
       yield put({
         type: errorActions.ERROR,
