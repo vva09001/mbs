@@ -125,7 +125,8 @@ class Detail extends Component {
           {this.nonInvertRender()}
           {this.invertRender()}
           <i>
-            {t('Lãi suất tái đầu tư')}: {this.props.flow.flowInvest[0].reinvestmentRate}{t('%/năm')}
+            {t('Lãi suất tái đầu tư')}: {this.props.flow.flowInvest[0].reinvestmentRate}
+            {t('%/năm')}
           </i>
         </div>
         <div className="button-fixed">

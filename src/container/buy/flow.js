@@ -122,7 +122,8 @@ const Flow = props => {
               </tfoot>
             </table>
             <i>
-              {t('Lãi suất tái đầu tư')}: {props.flow.flowInvest[0].reinvestmentRate}{t('%/năm')}
+              {t('Lãi suất tái đầu tư')}: {props.flow.flowInvest[0].reinvestmentRate}
+              {t('%/năm')}
             </i>
           </div>
         </div>
