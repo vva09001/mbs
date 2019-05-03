@@ -1,7 +1,9 @@
 import actions from './actions';
 import contract from '../../db/getContractBuyDetail';
 const initialState = {
-  flow: {},
+  flow: {
+    flowInvest: []
+  },
   flowCash: {},
   info: {},
   params: {

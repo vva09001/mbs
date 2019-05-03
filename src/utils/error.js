@@ -102,7 +102,7 @@ export default {
   '-1083': 'Đang ngoài giờ giao dịch Trái Phiếu',
   '-1084': 'Ngày tạo hợp đồng không được để trống',
   '-1085':
-    'Quý khách không thể đặt bán online Hợp đồng Trái Phiếu này. Do đang sở hữu "Giấy chứng nhận sở hữu Trái Phiếu". Vui lòng liên hệ MBS để được hỗ trợ  (1900 9088).',
+    'Quý khách không thể đặt bán online Hợp đồng Trái Phiếu này. Do đang sở hữu "Giấy chứng nhận sở hữu Trái Phiếu". Vui lòng liên hệ MBS để được hỗ trợ  (0972 352 595).',
   '-1086': '',
   '-1087': '',
   '-1088': '',
