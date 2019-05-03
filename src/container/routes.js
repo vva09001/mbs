@@ -29,6 +29,8 @@ import TradeActions from 'container/trade/actions';
 import AccountList from 'container/account/list';
 import AccountConnect from 'container/account/connect';
 
+import Loading from 'container/loading';
+
 const AppRouter = () => {
   return (
     <Router history={history}>
@@ -56,6 +58,8 @@ const AppRouter = () => {
 
           <Route exact path="/user/" component={AccountList} />
           <Route path="/user/connect" component={AccountConnect} />
+
+          <Route exact path="/loading" component={Loading} />
         </Switch>
       </RootContainer>
     </Router>

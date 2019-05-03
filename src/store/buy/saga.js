@@ -289,6 +289,7 @@ export function* getContractSaga() {
           // handle request
           if (resPayment.status === 200) {
             if (resPayment.data.result === 0 && resPayment.data.result !== null) {
+              yield history.push({ pathname: '/loading' });
               yield (window.location = resPayment.data.data.url);
             } else {
               yield put({
