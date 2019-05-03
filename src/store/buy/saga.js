@@ -336,6 +336,7 @@ export function* getContractSaga() {
               type: errorActions.ERROR,
               error: { message: Error[res.data.result], status: true }
             });
+            yield history.push({ pathname: '/' });
           }
           yield put({ type: actions.BUY_LOADING, loading: false });
         }
