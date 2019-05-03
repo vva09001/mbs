@@ -50,16 +50,17 @@ class Confirm extends Component {
               {t(
                 'Sau khi thỏa thuận, Bên chuyển nhượng và Bên nhận chuyển nhượng thống nhất thực hiện việc chuyển nhượng Trái Phiếu'
               )}
-              {' ' + bond.issuerBond} {bond.bondCode + ' '}
+              {' ' + bond.issuerBond} – Mã số Trái phiếu {bond.bondCode + ' '}
               {
                 'từ Bên chuyển nhượng sang Bên nhận chuyển nhượng theo thông tin được nêu dưới đây: '
               }
             </div>
           </div>
-
-          <p>
-            <b>{t('Bên chuyển nhượng')}</b>
-          </p>
+          <div className="sum-field titles row">
+            <div className="msti">
+              <b>{t('Bên chuyển nhượng')}</b>
+            </div>
+          </div>
           <div className="row">
             <div className="col-4 npdr">{t('Tên cá nhân')}</div>
             <div className="col-8">{info.customerName}</div>
@@ -148,11 +149,25 @@ class Confirm extends Component {
           </div>
           <div className="confirm-content">
             <p>
-              {t('confirmSell1')} {bond.issuerBond}{' '}
+              {t('Tổ chức (Ông/ Bà)')}: {info.customerName}{' '}
             </p>
-            <p>{t('confirmSell2')}</p>
-            <p>{t('confirmSell3')}</p>
-            <p>{t('confirmSell4')}</p>
+            <p>
+              {t(
+                'được ghi tên trên Sổ Đăng Ký và được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB. Bên nhận chuyển nhượng không chịu ảnh hưởng cũng như không phải chịu trách nhiệm về bất kỳ thỏa thuận liên quan đến Trái Phiếu giữa Tổ Chức Phát Hành và/hoặc Đại Lý Đăng Ký Lưu Ký và/hoặc Bên chuyển nhượng và/hoặc bên thứ ba nào khác mà Bên nhận chuyển nhượng không được thông báo bằng văn bản, ngoại trừ Bản Công Bố Thông Tin, Hợp Đồng Đại lý Đăng Ký Lưu Ký và Hợp đồng mua bán giữa Bên chuyển nhượng và Bên nhận chuyển nhượng.'
+              )}
+            </p>
+            <p>
+              {bond.issuerBond}{' '}
+              {t(
+                'ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư (Bên chuyển nhượng, Bên nhận chuyển nhượng). Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc thanh toán giữa hai bên.'
+              )}
+            </p>
+            <p>
+              {t('Các Bên thừa nhận, trong mọi trường hợp,')} {bond.issuerBond}{' '}
+              {t(
+                'là đơn vị chịu trách nhiệm thanh toán gốc và/hoặc lãi Trái Phiếu cho Chủ Sở Hữu Trái Phiếu và cam đoan chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Chủ Sở Hữu Trái Phiếu.'
+              )}
+            </p>
           </div>
         </div>
         <div className="button-fixed">

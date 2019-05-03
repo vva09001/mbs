@@ -61,7 +61,8 @@ export default {
   '-1043': 'Kênh giao dịch không được để trống',
   '-1044': 'Room kênh Trái Phiếu chưa được định nghĩa',
   '-1045': 'Không ghi nhận số âm cho room đặt chỗ',
-  '-1046': 'Khối lượng Trái phiếu đặt mua vượt quá Hạn mức Trái Phiếu thực tế có thể mua tại MBS. Quý khách vui lòng đặt khối lượng nhỏ hơn.',
+  '-1046':
+    'Khối lượng Trái phiếu đặt mua vượt quá Hạn mức Trái Phiếu thực tế có thể mua tại MBS. Quý khách vui lòng đặt khối lượng nhỏ hơn.',
   '-1047': 'Không tìm thấy room kỳ hạn',
   '-1048': 'Không ghi nhận số âm khi unblock',
   '-1049': 'Không ghi nhận số âm cho room duyệt mua',
