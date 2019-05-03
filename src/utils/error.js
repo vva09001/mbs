@@ -101,7 +101,7 @@ export default {
   '-1082': '',
   '-1083': 'Đang ngoài giờ giao dịch Trái Phiếu.',
   '-1084': '',
-  '-1085': '',
+  '-1085': 'Chi ban duoc khi hop dong XAC NHAN SO DU',
   '-1086': '',
   '-1087': '',
   '-1088': '',

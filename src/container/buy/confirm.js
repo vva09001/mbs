@@ -94,7 +94,7 @@ class Confirm extends Component {
               <div className="col-7">{info.customerIdplace}</div>
             </div>
             <div className="row">
-              <div className="col-5">{t('Tài khoản Ngân hàng')}</div>
+              <div className="col-5">{t('Số Tài Khoản')}</div>
             </div>
             <div className="row">
               <div className="col-5">{t('Mở tại')}</div>
@@ -130,16 +130,6 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-5">{t('Phí')}</div>
             <div className="col-7">0 VNĐ</div>
-          </div>
-          <div className="row">
-            <div className="col-5">{t('Thuế TNCN')}</div>
-            <div className="col-7" />
-          </div>
-          <div className="fw13">
-            <i>
-              ({t('Thuế TNCN tạm khấu trừ')} = {t('Tổng giá trị')} x {currency(info.taxPit)}
-              %)
-            </i>
           </div>
           <div className="confirm-content">
             <p>

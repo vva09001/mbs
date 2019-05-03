@@ -182,7 +182,16 @@ export function* checkMountBuySaga() {
     const params = yield select(buyGetParams);
     const profile = yield select(accountProfile);
     if (params.volume === 0 || params.volume < volMin || params.volume > volMax) {
-      if (params.volume === 0 || params.volume < volMin) {
+      if (params.volume === 0) {
+        yield put({
+          type: errorActions.ERROR,
+          error: {
+            message: `Khối lượng Trái phiếu đặt mua phải > ${volMin}`,
+            status: true
+          }
+        });
+      }
+      if (params.volume < volMin) {
         yield put({
           type: errorActions.ERROR,
           error: {
