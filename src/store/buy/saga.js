@@ -300,14 +300,15 @@ export function* getContractSaga() {
           // handle request
           if (resPayment.status === 200) {
             if (resPayment.data.result === 0 && resPayment.data.result !== null) {
-              yield history.push({ pathname: '/loading' });
               yield (window.location = resPayment.data.data.url);
+              yield put({ type: actions.BUY_LOADING, loading: true });
             } else {
               yield put({
                 type: errorActions.ERROR,
                 error: { message: Error[resPayment.data.result], status: true }
               });
               yield history.push({ pathname: '/' });
+              yield put({ type: actions.BUY_LOADING, loading: false });
             }
           } else {
             yield put({
@@ -315,6 +316,7 @@ export function* getContractSaga() {
               error: { message: resPayment.data.message, status: true }
             });
             yield history.push({ pathname: '/' });
+            yield put({ type: actions.BUY_LOADING, loading: false });
           }
         } else {
           // Check if account is not connected
@@ -326,15 +328,16 @@ export function* getContractSaga() {
               error: { message: Error[res.data.result], status: true }
             });
           }
+          yield put({ type: actions.BUY_LOADING, loading: false });
         }
       } else {
+        yield put({ type: actions.BUY_LOADING, loading: false });
         yield put({
           type: errorActions.ERROR,
           error: { message: res.data.message, status: true }
         });
         yield history.push({ pathname: '/' });
       }
-      yield put({ type: actions.BUY_LOADING, loading: false });
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
     }

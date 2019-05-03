@@ -17,7 +17,9 @@ class Confirm extends Component {
       }
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.resetLoading();
+  }
   showPopup = type => {
     this.setState({
       toggle: {
@@ -182,6 +184,7 @@ Confirm.propTypes = {
   approve: PropTypes.func,
   payment_link: PropTypes.string,
   loading: PropTypes.bool,
+  resetLoading: PropTypes.func,
   t: PropTypes.func
 };
 
@@ -194,8 +197,15 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-  getContract: buyActions.getContract
+const mapDispatchToProps = dispatch => {
+  return {
+    getContract: () => {
+      dispatch(buyActions.getContract());
+    },
+    resetLoading: () => {
+      dispatch({ type: buyActions.BUY_LOADING, loading: false });
+    }
+  };
 };
 
 export default connect(

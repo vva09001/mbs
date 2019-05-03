@@ -1,7 +1,5 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 // import component
 import history from 'utils/history';
@@ -28,8 +26,6 @@ import TradeActions from 'container/trade/actions';
 
 import AccountList from 'container/account/list';
 import AccountConnect from 'container/account/connect';
-
-import Loading from 'container/loading';
 
 const AppRouter = () => {
   return (
@@ -58,25 +54,10 @@ const AppRouter = () => {
 
           <Route exact path="/user/" component={AccountList} />
           <Route path="/user/connect" component={AccountConnect} />
-
-          <Route exact path="/loading" component={Loading} />
         </Switch>
       </RootContainer>
     </Router>
   );
 };
-AppRouter.propTypes = {
-  auth: PropTypes.bool
-};
-const mapStateToProps = state => {
-  return {
-    auth: state.Account.auth
-  };
-};
 
-const mapDispatchToProps = {};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppRouter);
+export default AppRouter;
