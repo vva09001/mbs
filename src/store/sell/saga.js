@@ -77,6 +77,7 @@ export function* sellInfoSaga() {
             type: errorActions.ERROR,
             error: { message: Error[res.data.result], status: true }
           });
+          yield history.push({ pathname: '/sell/' });
         }
       } else {
         yield put({
