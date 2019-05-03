@@ -72,6 +72,7 @@ export function* sellInfoSaga() {
       if (res.status === 200) {
         if (res.data.result === 0 && res.data.data !== null) {
           yield put({ type: actions.SELL_INFO, info: res.data.data });
+          yield history.push({ pathname: '/sell/order/' });
         } else {
           yield put({
             type: errorActions.ERROR,
@@ -189,7 +190,6 @@ export function* sellGetContractSaga() {
         sellDate: sell_Date[0].termDate
       };
       yield put({ type: actions.SELL_INFO_GET, params: infoParams });
-      yield history.push({ pathname: '/sell/order/' });
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
     }
