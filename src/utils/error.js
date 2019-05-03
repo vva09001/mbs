@@ -101,7 +101,7 @@ export default {
   '-1082': 'Hiện tại không phải ngày giao dịch trái phiếu.',
   '-1083': 'Đang ngoài giờ giao dịch Trái Phiếu',
   '-1084': 'Ngày tạo hợp đồng không được để trống',
-  '-1085': 'Chi ban duoc khi hop dong XAC NHAN SO DU',
+  '-1085': 'Chỉ bán được khi hợp đồng XÁC NHẬN SỐ DƯ',
   '-1086': '',
   '-1087': '',
   '-1088': '',

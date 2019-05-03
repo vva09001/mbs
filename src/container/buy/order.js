@@ -42,7 +42,7 @@ class Order extends Component {
               </tr>
               <tr>
                 <td>{t('Ngày đáo hạn')}</td>
-                <td>{bond.maturityDate}</td>
+                <td>{info.maturityDate}</td>
               </tr>
               <tr>
                 <td>{t('Khối lượng')}</td>
