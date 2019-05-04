@@ -1,11 +1,13 @@
 import actions from './actions';
-import contract from '../../db/getContractBuyDetail';
+import contract from 'db/buyContract';
+import flow from 'db/buyFlow';
+import flowCash from 'db/buyFlowCash';
+import info from 'db/buyInfo';
+
 const initialState = {
-  flow: {
-    flowInvest: []
-  },
-  flowCash: {},
-  info: {},
+  flow: flow,
+  flowCash: flowCash,
+  info: info,
   params: {
     volume: 0,
     sum: 0
@@ -37,6 +39,8 @@ const Buy = (state = initialState, action) => {
       return { ...state, loading_flow: action.loading };
     case actions.BUY_INFO_LOADING:
       return { ...state, loading_buy: action.loading };
+    case actions.BUY_RESET:
+      return initialState;
     default:
       return state;
   }

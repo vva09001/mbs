@@ -4,7 +4,7 @@ import { CheckLink, Link, List, Info } from 'services/account';
 import { accountProfile, getToken, accountStep } from 'store/selectors';
 import Error from 'utils/error';
 import history from 'utils/history';
-import errorActions from 'store/error/actions';
+import { errorActions } from 'store/actions';
 
 export function* accountCheckLinkSaga() {
   yield takeEvery(actions.CHECK_LINK_REQUEST, function*(data) {

@@ -1,0 +1,23 @@
+export default {
+  "contractCode":"",
+  "customerName":"",
+  "customerId":"",
+  "customerIdDate":"",
+  "customerIdPlace":"",
+  "bondCode":"",
+  "buyDate":"",
+  "termRate":0,
+  "reinvestmentRate":0,
+  "buyVol":0,
+  "buyPrice":0,
+  "buyFee":0,
+  "buyValue":0,
+  "maturityDate":"",
+  "status":"",
+  "numInvestDate": "",
+  "sumCashNonInvest": 0,
+  "sumCashInvest": 0,
+  "termNonInvest": 0,
+  "termInvest": 0,
+  "taxPit": 0
+}

@@ -1,9 +1,11 @@
 import actions from './actions';
+import detail from 'db/detail';
+import info from 'db/sellInfo';
 
 const initialState = {
   list: [],
-  detail: {},
-  info: {},
+  detail: detail,
+  info: info,
   loading: false
 };
 
@@ -19,6 +21,8 @@ const Trade = (state = initialState, action) => {
       return { ...state, info: action.info };
     case actions.TRADE_LOADING:
       return { ...state, loading: action.loading };
+    case actions.TRADE_RESET:
+      return initialState;
     default:
       return state;
   }

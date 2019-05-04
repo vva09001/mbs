@@ -159,7 +159,9 @@ const Section4 = props => {
               <thead>
                 <tr>
                   {_.map(label, (item, index) => (
-                    <td key={index}>{item}</td>
+                    <td key={index} className={item.align}>
+                      {item.text}
+                    </td>
                   ))}
                 </tr>
               </thead>

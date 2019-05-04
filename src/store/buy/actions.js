@@ -18,6 +18,7 @@ const actions = {
   BUY_CHECK_MOUNT: 'BUY_CHECK_MOUNT',
   BUY_LOADING: 'BUY_LOADING',
   BUY_FLOW_LOADING: 'BUY_FLOW_LOADING',
+  BUY_RESET: 'BUY_RESET',
   getBuy: params => ({
     type: actions.BUY_GET,
     params

@@ -1,6 +1,5 @@
 import actions from './actions';
-import bondsActions from '../bonds/actions';
-import errorActions from 'store/error/actions';
+import { bondsActions, errorActions } from 'store/actions';
 import { all, fork, put, takeEvery, take, select } from 'redux-saga/effects';
 import Error from 'utils/error';
 import { List, Info, Date, Update, Detail } from 'services/sell';

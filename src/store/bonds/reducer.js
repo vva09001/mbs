@@ -1,5 +1,5 @@
 import actions from './actions';
-import detail from 'db/getdetail';
+import detail from 'db/detail';
 const initialState = {
   list: [],
   detail: detail,
@@ -14,6 +14,8 @@ const Bonds = (state = initialState, action) => {
       return { ...state, detail: action.detail };
     case actions.BONDS_LOADING:
       return { ...state, loading: action.loading };
+    case actions.BONDS_RESET:
+      return initialState;
     default:
       return state;
   }

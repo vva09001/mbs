@@ -1,5 +1,5 @@
 import actions from './actions';
-import errorActions from 'store/error/actions';
+import { errorActions } from 'store/actions';
 import { all, fork, put, takeEvery, select, take } from 'redux-saga/effects';
 import { PaymentGateway, VerifyResult } from 'services/auth';
 import { Info, Flow, FlowCash, Update } from 'services/buy';

@@ -41,7 +41,11 @@ class Detail extends Component {
     this.props.buyInfoFetch(params);
   };
   nonInvertRender() {
-    const label = ['Nội dung', 'Ngày thanh toán', 'Tiền nhận (VNĐ)'];
+    const label = [
+      { text: 'Nội dung', align: 'text-left' },
+      { text: 'Ngày thanh toán', align: 'text-center' },
+      { text: 'Tiền nhận (VNĐ)', align: 'text-center' }
+    ];
     const content = ['content', 'payCouponDate', 'cashNonInvest'];
     return (
       <Section4

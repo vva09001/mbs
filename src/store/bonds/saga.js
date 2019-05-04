@@ -4,7 +4,7 @@ import { list, detail } from 'services/bonds';
 import { accountProfile, getToken } from 'store/selectors';
 import Error from 'utils/error';
 import history from 'utils/history';
-import errorActions from 'store/error/actions';
+import { errorActions } from 'store/actions';
 
 export function* bondsList() {
   yield takeEvery(actions.BONDS_LIST, function*(data) {
