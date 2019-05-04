@@ -222,7 +222,7 @@ export function* sellUpdateSaga() {
             type: errorActions.SELL_DONE,
             done: {
               message:
-                'Quý khách đã đăng ký bán TP thành công. Chi tiết giao dịch tại màn hình Danh mục Quản lý giao dịch',
+                'Quý khách đã đăng ký bán Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Quản lý giao dịch',
               status: true
             }
           });

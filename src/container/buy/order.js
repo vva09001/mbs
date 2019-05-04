@@ -53,7 +53,7 @@ class Order extends Component {
               <tr>
                 <td>{t('Đơn Giá Giao Dịch')}</td>
                 <td>
-                  {currency(info.buyPrice)} {t('VNĐ')}/ {t('Trái Phiếu')}
+                  {currency(info.buyPrice)} {t('VNĐ')}/{t('Trái Phiếu')}
                 </td>
               </tr>
               <tr>
@@ -94,8 +94,8 @@ class Order extends Component {
               </tr>
               <tr>
                 <td>{t('Ngày thanh toán lãi')}</td>
-                <td>
-                  {t('Tiền lãi Trái phiếu được trả sau, định kỳ mỗi')} {info.couponPayment}{' '}
+                <td className="text-justify">
+                  {t('Tiền lãi Trái Phiếu được trả sau, định kỳ mỗi')} {info.couponPayment}{' '}
                   {t('tháng một lần vào ngày cuối cùng của mỗi Kỳ Tính Lãi')}
                 </td>
               </tr>

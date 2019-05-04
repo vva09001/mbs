@@ -27,12 +27,12 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <h4 className="text-center mtitle uppc">{t('ĐỀ NGHỊ CHUYỂN NHƯỢNG')}</h4>
+              <h4 className="text-center mtitle no-padding uppc">{t('ĐỀ NGHỊ CHUYỂN NHƯỢNG')}</h4>
             </div>
           </div>
           <div className="row">
             <div className="col-12">
-              <h4 className="text-center mtitle uppc">{bond.issuerBond}</h4>
+              <h4 className="text-center mtitle no-padding uppc">{bond.issuerBond}</h4>
             </div>
           </div>
 
@@ -45,7 +45,7 @@ class Confirm extends Component {
             <div className="col-3 npdr" />
             <div className="col-9">{t('- Công ty Cổ phần Chứng khoán MB')}</div>
           </div>
-          <div className="row">
+          <div className="row text-justy">
             <div className="col-12">
               {t(
                 'Sau khi thỏa thuận, Bên chuyển nhượng và Bên nhận chuyển nhượng thống nhất thực hiện việc chuyển nhượng Trái Phiếu'
@@ -62,82 +62,82 @@ class Confirm extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-4 npdr">{t('Tên cá nhân')}</div>
-            <div className="col-8">{info.customerName}</div>
+            <div className="col-5 npdr hl18">{t('Tên cá nhân')}:</div>
+            <div className="col-7 hl18">{info.customerName}</div>
           </div>
           <div className="row">
-            <div className="col-4 npdr">{t('Số CMND/...')}</div>
-            <div className="col-8">{info.customerId}</div>
+            <div className="col-5  hl18 npdr">{t('Số CMND/...')}:</div>
+            <div className="col-7  hl18">{info.customerId}</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Nơi cấp')}</div>
-            <div className="col-8">{info.customerIdplace}</div>
+            <div className="col-5  hl18">{t('Nơi cấp')}:</div>
+            <div className="col-7  hl18">{info.customerIdplace}</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Ngày cấp')}</div>
-            <div className="col-8">{info.customerIddate}</div>
+            <div className="col-5  hl18">{t('Ngày cấp')}:</div>
+            <div className="col-7  hl18">{info.customerIddate}</div>
           </div>
-          <p>
+          <p className="titles">
             <b>{t('Bên nhận chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-4">{t('Tên tổ chức')}</div>
-            <div className="col-8">{t('CTCP chứng khoán MB')}</div>
+            <div className="col-5  hl18">{t('Tên tổ chức')}:</div>
+            <div className="col-7  hl18">{t('CTCP chứng khoán MB')}</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Số ĐKKD')}</div>
-            <div className="col-8">{t('116/GP-UBCK do UBCKNN cấp 09/12/2013')}</div>
+            <div className="col-5  hl18">{t('Số ĐKKD')}:</div>
+            <div className="col-7  hl18">{t('116/GP-UBCK do UBCKNN cấp 09/12/2013')}</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Địa chỉ')}</div>
-            <div className="col-8">
+            <div className="col-5  hl18">{t('Địa chỉ')}:</div>
+            <div className="col-7  hl18">
               {t('Tầng M-3-7 Tòa nhà MB, Số 3 Liễu Giai - Ba Đình - Hà Nội')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Đại diện')}</div>
-            <div className="col-8">
+            <div className="col-5  hl18">{t('Đại diện')}:</div>
+            <div className="col-7  hl18">
               {t('Ông')} {t('Trần Hải Hà')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Chức vụ')}</div>
-            <div className="col-8">{t('Tổng Giám đốc')}</div>
+            <div className="col-5  hl18">{t('Chức vụ')}:</div>
+            <div className="col-7  hl18">{t('Tổng Giám đốc')}</div>
           </div>
-          <p>
+          <p className="titles">
             <b>{t('Thông Tin Chuyển Nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-4">{t('Khối Lượng')}</div>
-            <div className="col-8">
+            <div className="col-5  hl18">{t('Khối Lượng')}:</div>
+            <div className="col-7  hl18">
               {currency(info.sellVol)} {t('Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Mệnh giá')}</div>
-            <div className="col-8">
+            <div className="col-5  hl18">{t('Mệnh giá')}:</div>
+            <div className="col-7  hl18">
               {currency(bond.parValue)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Giá chuyển nhượng')}</div>
-            <div className="col-8">
+            <div className="col-5  hl18">{t('Giá chuyển nhượng')}:</div>
+            <div className="col-7  hl18">
               {currency(info.sellPrice)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Tổng giá trị chuyển nhượng')}</div>
-            <div className="col-8">
+            <div className="col-5  hl18">{t('Tổng giá trị chuyển nhượng')}:</div>
+            <div className="col-7  hl18">
               {currency(info.sellValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Phí chuyển nhượng')}</div>
-            <div className="col-8">0{t('VNĐ')}</div>
+            <div className="col-5 hl18">{t('Phí chuyển nhượng')}:</div>
+            <div className="col-7 hl18">0 {t('VNĐ')}</div>
           </div>
           <div className="row">
-            <div className="col-4">{t('Thuế TNCN (Do MBS chi trả)')}</div>
-            <div className="col-8">
+            <div className="col-5 hl18">{t('Thuế TNCN (Do MBS chi trả)')}</div>
+            <div className="col-7 hl18">
               {currency(info.taxValue)} {t('VNĐ')}
             </div>
           </div>

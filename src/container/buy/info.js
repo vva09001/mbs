@@ -29,7 +29,7 @@ const Info = ({ detail }) => {
                 <b>{t(`Mệnh Giá`)}</b>
               </td>
               <td>
-                {currency(detail.parValue)} {t(`VNĐ`)}/ {t(`Trái Phiếu`)}
+                {currency(detail.parValue)} {t(`VNĐ`)}/{t(`Trái Phiếu`)}
               </td>
             </tr>
             <tr>
@@ -62,9 +62,9 @@ const Info = ({ detail }) => {
               <td>
                 <b>{t(`Lãi Suất`)}</b>
               </td>
-              <td>
+              <td className="text-justify">
                 {t(`Lãi suất áp dụng cho`)} {detail.termFixCount}{' '}
-                {t(`kỳ tính lãi đầu tiên của Trái Phiếu là`)} {currency(detail.interestFixRate)}{' '}
+                {t(`kỳ tính lãi đầu tiên của Trái Phiếu là`)} {currency(detail.interestFixRate)}
                 {t(`%/năm`)}.
                 {detail.interestFloatRange !== 0
                   ? t(
@@ -99,7 +99,7 @@ const Info = ({ detail }) => {
               <td>
                 <b>{t(`Đại Lý Đăng Ký Lưu Ký`)}</b>
               </td>
-              <td>{detail.paymentAgents}</td>
+              <td>{detail.depositAgents}</td>
             </tr>
             <tr>
               <td>

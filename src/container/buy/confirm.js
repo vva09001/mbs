@@ -39,9 +39,19 @@ class Confirm extends Component {
     return (
       <Layout type={1} title="MUA TRÁI PHIẾU">
         <div className="bond-buy-comfirm">
-          <h4 className="text-center mtitle uppc">
-            {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')} {bond.issuerBond}
-          </h4>
+          <div className="row">
+            <div className="col-12">
+              <h4 className="text-center mtitle no-padding uppc">
+                {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')}
+              </h4>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12">
+              <h4 className="text-center mtitle no-padding uppc">{bond.issuerBond}</h4>
+            </div>
+          </div>
+
           <h4 className="text-center mtitle mspot">
             {t('MÃ')} {info.bondCode}
           </h4>
@@ -49,87 +59,87 @@ class Confirm extends Component {
             <b>{t('Bên chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-5">{t('Tên tổ chức')}</div>
-            <div className="col-7">{t('CTCP chứng khoán MB')}</div>
+            <div className="col-5 hl18">{t('Tên tổ chức')}</div>
+            <div className="col-7 hl18">{t('CTCP chứng khoán MB')}</div>
           </div>
           <div className="row">
-            <div className="col-5">{t('Số ĐKKD')}</div>
-            <div className="col-7">{t('116/GP-UBCK, UBCKNN cấp 09/12/2013')}</div>
+            <div className="col-5 hl18">{t('Số ĐKKD')}</div>
+            <div className="col-7 hl18">{t('116/GP-UBCK, UBCKNN cấp 09/12/2013')}</div>
           </div>
           <div className="row">
-            <div className="col-5">{t('Địa chỉ')}</div>
-            <div className="col-7">
+            <div className="col-5 hl18">{t('Địa chỉ')}</div>
+            <div className="col-7 hl18 text-justify">
               {t('Tầng M-3-7 Tòa nhà MB, Số 3 Liễu Giai - Ba Đình - Hà Nội')}
             </div>
           </div>
 
           <div className="row">
-            <div className="col-5">{t('Đại diện')}</div>
-            <div className="col-7">
+            <div className="col-5 hl18">{t('Đại diện')}</div>
+            <div className="col-7 hl18">
               {t('Ông')} {t('Trần Hải Hà')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5">{t('Chức vụ')}</div>
-            <div className="col-7">{t('Tổng Giám đốc')}</div>
+            <div className="col-5 hl18">{t('Chức vụ')}</div>
+            <div className="col-7 hl18">{t('Tổng Giám đốc')}</div>
           </div>
           <p className="bgdd">
             <b>{t('Bên nhận chuyển nhượng')}</b>
           </p>
           <div className="mtable">
             <div className="row">
-              <div className="col-5">{t('Tên cá nhân')}</div>
-              <div className="col-7">{info.customerName}</div>
+              <div className="col-5 hl18">{t('Tên cá nhân')}</div>
+              <div className="col-7 hl18">{info.customerName}</div>
             </div>
             <div className="row">
-              <div className="col-5">{t('Số CMND/...')}</div>
-              <div className="col-7">{info.customerId}</div>
+              <div className="col-5 hl18">{t('Số CMND/...')}</div>
+              <div className="col-7 hl18">{info.customerId}</div>
             </div>
             <div className="row">
-              <div className="col-5">{t('Ngày cấp')}</div>
-              <div className="col-7">{info.customerIddate}</div>
+              <div className="col-5 hl18">{t('Ngày cấp')}</div>
+              <div className="col-7 hl18">{info.customerIddate}</div>
             </div>
             <div className="row">
-              <div className="col-5">{t('Nơi cấp')}</div>
-              <div className="col-7">{info.customerIdplace}</div>
+              <div className="col-5 hl18">{t('Nơi cấp')}</div>
+              <div className="col-7 hl18">{info.customerIdplace}</div>
             </div>
             <div className="row">
-              <div className="col-5">{t('Số Tài Khoản')}</div>
+              <div className="col-5 hl18">{t('Số Tài Khoản')}</div>
             </div>
             <div className="row">
-              <div className="col-5">{t('Mở tại')}</div>
+              <div className="col-5 hl18">{t('Mở tại')}</div>
             </div>
           </div>
           <p className="bgdd">
             <b>{t('Nội dung chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-5">{t('Số lượng')}</div>
-            <div className="col-7">
+            <div className="col-5 hl18">{t('Số lượng')}</div>
+            <div className="col-7 hl18">
               {currency(info.buyVol)} {t('Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5">{t('Mệnh giá')}</div>
-            <div className="col-7">
+            <div className="col-5 hl18">{t('Mệnh giá')}</div>
+            <div className="col-7 hl18">
               {currency(bond.parValue)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5">{t('Giá')}</div>
-            <div className="col-7">
+            <div className="col-5 hl18">{t('Giá')}</div>
+            <div className="col-7 hl18">
               {currency(info.buyPrice)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5">{t('Tổng giá trị')}</div>
-            <div className="col-7">
+            <div className="col-5 hl18">{t('Tổng giá trị')}</div>
+            <div className="col-7 hl18">
               {currency(info.buyValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5">{t('Phí')}</div>
-            <div className="col-7">0 VNĐ</div>
+            <div className="col-5 hl18">{t('Phí')}</div>
+            <div className="col-7 hl18">0 VNĐ</div>
           </div>
           <div className="confirm-content">
             <p>
