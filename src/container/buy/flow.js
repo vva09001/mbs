@@ -49,7 +49,7 @@ const Flow = props => {
             <table className="table table-striped">
               <thead>
                 <tr className="text-primary">
-                  <td className="text">{t('Nội dung')}</td>
+                  <td className="text-left">{t('Nội dung')}</td>
                   <td>{t('Ngày thanh toán')}</td>
                   <td>{t('Tiền nhận (VNĐ)')}</td>
                 </tr>
