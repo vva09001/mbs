@@ -16,7 +16,7 @@ const Section1 = props => {
     <div className="section">
       <div className="row">
         <div className="col-12">
-          <h3 className="mb-4">
+          <h3 className="mb-4 mt-2">
             {props.item.bondCode}
             <span
               className="link popup-click"
@@ -220,7 +220,7 @@ const Section5 = props => {
       {status && (
         <div className="row">
           <div className="col-12">
-            <table className="table table-striped">
+            <table className="table table-striped table-responsive">
               <thead>
                 <tr>
                   {_.map(label, (item, index) => (
@@ -233,6 +233,16 @@ const Section5 = props => {
                   <tr key={index}>{showContent(res, content, t)}</tr>
                 ))}
               </tbody>
+              <tfoot>
+                <tr>
+                  <td colSpan="4" className="text-primary white-bg">
+                    <i>
+                      {t('Lãi suất tái đầu tư')}: {items.length > 0 ? items[0].reinvestmentRate : 0}
+                      {t('%/năm')}
+                    </i>
+                  </td>
+                </tr>
+              </tfoot>
               <tfoot>
                 <tr>
                   <td colSpan="3" className="text-primary">

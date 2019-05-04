@@ -1,10 +1,20 @@
 .buy-wrapper {
   padding: 0px 15px 30px;
+  font-size: 14px;
 }
 .bond-buy-comfirm {
   font-size: 14px;
-  line-height: 18px;
+  line-height: 22px;
   padding-bottom: 30px;
+  .text-justy {
+    text-align: justify;
+  }
+  .mspot {
+    padding-bottom: 10px;
+  }
+  .lh18 {
+    line-height: 18px !important;
+  }
 
   .col-5::after {
     content: ':';

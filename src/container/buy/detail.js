@@ -128,13 +128,6 @@ class Detail extends Component {
           </div>
           {this.nonInvertRender()}
           {this.invertRender()}
-          <i>
-            {t('Lãi suất tái đầu tư')}:{' '}
-            {this.props.flow.flowInvest.length > 0
-              ? this.props.flow.flowInvest[0].reinvestmentRate
-              : 0}
-            {t('%/năm')}
-          </i>
         </div>
         <div className="button-fixed">
           <div className="wapper-button">

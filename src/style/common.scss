@@ -74,9 +74,9 @@ tfoot td {
 }
 .sellorder {
   font-size: 14px;
-    h4 {
-      font-weight: bold;
-    }
+  h4 {
+    font-weight: bold;
+  }
 }
 .sellorder select,
 .bond-detail-edit select {
@@ -120,6 +120,9 @@ tfoot td {
   font-size: 14px;
   .text-right {
     text-align: right;
+  }
+  .row-padding {
+    padding: 5px;
   }
 }
 .mgb10 {
@@ -182,12 +185,20 @@ tfoot td {
   .bgdd {
     background-color: #ddd;
     padding: 5px;
+    margin-bottom: 5px;
+  }
+  .lh18 {
+    line-height: 18px !important;
   }
 }
+
 .mtitle {
   font-size: 17px;
   font-weight: bold;
   padding: 10px;
+  &.no-padding {
+    padding: 0;
+  }
 }
 .pading-top {
   padding-top: 15px;
@@ -917,6 +928,9 @@ body {
       color: #0052cc !important;
     }
   }
+  .row {
+    padding: 5px;
+  }
 }
 .bond-detail-cancel {
   h3 {
@@ -935,6 +949,9 @@ body {
     .input-group-text {
       color: #e60000 !important;
     }
+  }
+  .row {
+    padding: 5px;
   }
 }
 .logoMBS {
@@ -996,4 +1013,8 @@ body {
   background-color: #ddd;
   margin: 0;
   padding: 4px;
+  margin-bottom: 5px !important;
+}
+.lh35 {
+  line-height: 35px;
 }

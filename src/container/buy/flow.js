@@ -22,7 +22,7 @@ const Flow = props => {
                 <strong> {props.flowCash.couponDate}</strong>
               </span>
             </p>
-            <p>
+            <p className="mb-0">
               {t('Đến ngày')}:
               <span className="text-info">
                 <strong> {props.info.maturityDate}</strong>
@@ -46,10 +46,10 @@ const Flow = props => {
                 </strong>
               </i>
             </div>
-            <table className="table table-striped table-responsive">
+            <table className="table table-striped">
               <thead>
                 <tr className="text-primary">
-                  <td>{t('Nội dung')}</td>
+                  <td className="text">{t('Nội dung')}</td>
                   <td>{t('Ngày thanh toán')}</td>
                   <td>{t('Tiền nhận (VNĐ)')}</td>
                 </tr>
@@ -112,6 +112,19 @@ const Flow = props => {
               </tbody>
               <tfoot>
                 <tr>
+                  <td colSpan="4" className="text-primary white-bg">
+                    <i>
+                      {t('Lãi suất tái đầu tư')}:{' '}
+                      {props.flow.flowInvest.length > 0
+                        ? props.flow.flowInvest[0].reinvestmentRate
+                        : 0}
+                      {t('%/năm')}
+                    </i>
+                  </td>
+                </tr>
+              </tfoot>
+              <tfoot>
+                <tr>
                   <td colSpan="3" className="text-primary">
                     <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
                   </td>
@@ -121,11 +134,6 @@ const Flow = props => {
                 </tr>
               </tfoot>
             </table>
-            <i>
-              {t('Lãi suất tái đầu tư')}:{' '}
-              {props.flow.flowInvest.length > 0 ? props.flow.flowInvest[0].reinvestmentRate : 0}
-              {t('%/năm')}
-            </i>
           </div>
         </div>
       </div>

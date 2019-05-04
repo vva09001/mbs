@@ -374,7 +374,7 @@ export function* verifyBuySaga() {
               type: errorActions.BUY_DONE,
               done: {
                 message:
-                  'Quý khách đã đăng ký mua TP thành công. Chi tiết giao dịch tại màn hình Danh mục TP nắm giữ.',
+                  'Quý khách đã đăng ký mua Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Trái Phiếu nắm giữ.',
                 status: true
               }
             });
