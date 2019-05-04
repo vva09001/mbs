@@ -53,7 +53,7 @@ class Confirm extends Component {
           </div>
 
           <h4 className="text-center mtitle mspot">
-            {t('MÃ')} {info.bondCode}
+            {t('Mã Số Trái Phiếu')}: {info.bondCode}
           </h4>
           <p className="bgdd">
             <b>{t('Bên chuyển nhượng')}</b>
