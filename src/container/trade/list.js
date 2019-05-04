@@ -6,8 +6,7 @@ import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 import Card from 'components/trade/card';
 import Loading from 'components/common/loading';
-import tradeActions from 'store/trade/actions';
-import bondsActions from 'store/bonds/actions';
+import { bondsActions, tradeActions } from 'store/actions';
 import history from 'utils/history';
 // import { currency } from 'utils/currency';
 class List extends Component {

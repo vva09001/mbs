@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Layout from 'container/layout/layout';
 import { currency } from 'utils/currency';
-import buyActions from 'store/buy/actions';
+import { buyActions } from 'store/actions';
 import { withTranslation } from 'react-i18next';
 import Loading from 'components/common/loading';
 

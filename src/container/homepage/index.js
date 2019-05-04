@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 import qs from 'query-string';
 import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout-noAuth';
-import buyActions from 'store/buy/actions';
-import authActions from 'store/auth/actions';
+import { buyActions, authActions } from 'store/actions';
 
 class HomePage extends Component {
   componentDidMount() {

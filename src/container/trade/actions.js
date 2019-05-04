@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { FormatTime } from 'utils/moment';
 import Layout from 'container/layout/layout';
 import { currency } from 'utils/currency';
-import tradeActions from 'store/trade/actions';
+import { tradeActions } from 'store/actions';
 import Popup from 'components/common/popup-done';
 
 class Actions extends Component {

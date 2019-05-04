@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 import { FormatTime } from 'utils/moment';
 import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
-import sellActions from 'store/sell/actions';
+import { sellActions } from 'store/actions';
 
 class Order extends Component {
   constructor(props) {

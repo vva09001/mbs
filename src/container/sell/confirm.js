@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
-import sellActions from 'store/sell/actions';
+import { sellActions } from 'store/actions';
 import moment from 'moment';
 class Confirm extends Component {
   componentDidMount() {}

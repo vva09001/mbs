@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import Button from 'react-validation/build/button';
-import accountActions from 'store/account/actions';
+import { accountActions } from 'store/actions';
 import { required } from 'utils/validation';
 
 class Otp extends Component {

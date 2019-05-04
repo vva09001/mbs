@@ -7,8 +7,7 @@ import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import Card from 'components/sell/card';
 import Loading from 'components/common/loading';
-import sellActions from 'store/sell/actions';
-import bondsActions from 'store/bonds/actions';
+import { sellActions, bondsActions } from 'store/actions';
 import history from 'utils/history';
 
 class List extends Component {

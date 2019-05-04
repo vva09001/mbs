@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import qs from 'query-string';
-import buyActions from 'store/buy/actions';
+import { buyActions } from 'store/actions';
 import Loading from 'components/common/loading';
 
 class Verify extends Component {

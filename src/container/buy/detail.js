@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
-import buyActions from 'store/buy/actions';
+import { buyActions } from 'store/actions';
 import Popup from 'components/common/popup';
 import { Section1, Section3, Section4, Section5 } from 'components/detail/section';
 import Section2 from 'components/detail/section2';

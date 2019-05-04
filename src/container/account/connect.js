@@ -5,7 +5,7 @@ import Check from 'container/account/check';
 import Otp from 'container/account/otp';
 import Layout from 'container/layout/layout';
 import { Redirect } from 'react-router';
-import accountAction from 'store/account/actions';
+import { accountActions } from 'store/actions';
 
 class Connect extends Component {
   componentDidMount() {
@@ -42,7 +42,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     resetStep: () => {
-      dispatch({ type: accountAction.LINK_STEP, step: 1 });
+      dispatch({ type: accountActions.LINK_STEP, step: 1 });
     }
   };
 };
