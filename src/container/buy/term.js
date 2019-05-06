@@ -27,7 +27,7 @@ const Term = () => {
             trái phiếu doanh nghiệp cho Tổ Chức Phát Hành.
           </p>
           <p>
-            <b>4 Thông Tin Trái Phiếu Giao Dịch</b>: Là bản tóm tắt thông tin về Trái Phiếu.
+            <b>1.4 Thông Tin Trái Phiếu Giao Dịch</b>: Là bản tóm tắt thông tin về Trái Phiếu.
           </p>
           <p>
             <b>1.5 Các Văn Kiện Trái Phiếu</b>: Gồm Bản Công Bố Thông Tin do Tổ Chức Phát Hành công
