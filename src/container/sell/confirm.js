@@ -27,7 +27,9 @@ class Confirm extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <h4 className="text-center mtitle no-padding uppc">{t('ĐỀ NGHỊ CHUYỂN NHƯỢNG')}</h4>
+              <h4 className="text-center mtitle no-padding uppc">
+                {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')}
+              </h4>
             </div>
           </div>
           <div className="row">
@@ -50,7 +52,7 @@ class Confirm extends Component {
               {t(
                 'Sau khi thỏa thuận, Bên chuyển nhượng và Bên nhận chuyển nhượng thống nhất thực hiện việc chuyển nhượng Trái Phiếu'
               )}
-              {' ' + bond.issuerBond} – Mã số Trái phiếu {bond.bondCode + ' '}
+              {' ' + bond.issuerBond} – Mã số Trái Phiếu {bond.bondCode + ' '}
               {
                 'từ Bên chuyển nhượng sang Bên nhận chuyển nhượng theo thông tin được nêu dưới đây: '
               }

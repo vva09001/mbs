@@ -27,7 +27,7 @@ const Section1 = props => {
               <Icon name="arrow" width="18" height="24" />
             </span>
           </h3>
-          <div className="row">
+          <div className="row mb-3">
             <div className="col-7 no-pading-right">
               <span className="c">{t('Ngày đáo hạn Trái Phiếu')}</span>
             </div>

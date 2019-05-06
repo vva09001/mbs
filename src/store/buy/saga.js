@@ -186,7 +186,7 @@ export function* checkMountBuySaga() {
         yield put({
           type: errorActions.ERROR,
           error: {
-            message: `Khối lượng Trái phiếu đặt mua phải > ${volMin}`,
+            message: `Khối lượng Trái Phiếu đặt mua phải > ${volMin}`,
             status: true
           }
         });
@@ -195,7 +195,7 @@ export function* checkMountBuySaga() {
         yield put({
           type: errorActions.ERROR,
           error: {
-            message: `Khối lượng Trái phiếu đặt mua phải ≥ ${volMin}`,
+            message: `Khối lượng Trái Phiếu đặt mua phải ≥ ${volMin}`,
             status: true
           }
         });
@@ -204,7 +204,7 @@ export function* checkMountBuySaga() {
         yield put({
           type: errorActions.ERROR,
           error: {
-            message: `Khối lượng Trái phiếu đặt mua phải ≤ ${volMax}`,
+            message: `Khối lượng Trái Phiếu đặt mua phải ≤ ${volMax}`,
             status: true
           }
         });
