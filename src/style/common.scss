@@ -245,6 +245,17 @@ thead td {
 .no-margin {
   margin: 0 !important;
 }
+.input-group-custom {
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  input {
+    border: 0;
+  }
+  .input-group-text {
+    background: transparent;
+    border: 0;
+  }
+}
 body {
   .btn-transparent {
     display: inline-block;

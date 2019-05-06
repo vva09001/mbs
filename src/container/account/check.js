@@ -73,7 +73,7 @@ class Check extends Component {
         </div>
         <div className="form-group col-12">
           <label>{t('Mật khẩu')}</label>
-          <div className="d-flex">
+          <div className="d-flex input-group-custom">
             <div className="flex-grow-1">
               <Input
                 onChange={e => this._onChange(e, 'password')}
@@ -89,7 +89,7 @@ class Check extends Component {
                 onClick={() => this._onToggle('password')}
                 className="input-group-text clickStyle"
               >
-                <i className="fa fa-eye" />
+                <i className={this.state.toggle.password ? 'fa fa-eye' : 'fa fa-eye-slash'} />
               </span>
             </div>
           </div>
