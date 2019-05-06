@@ -151,9 +151,7 @@ class Confirm extends Component {
           </div>
           <div className="confirm-content">
             <p>
-              {t('Tổ chức (Ông/ Bà)')}: {info.customerName}{' '}
-            </p>
-            <p>
+              {t('Tổ chức (Ông/ Bà)')}: <span className="text-blod">{info.customerName}</span>{' '}
               {t(
                 'được ghi tên trên Sổ Đăng Ký và được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB.'
               )}
@@ -170,7 +168,7 @@ class Confirm extends Component {
             <p>
               {t('Các Bên thừa nhận, trong mọi trường hợp,')} {bond.issuerBond}{' '}
               {t(
-                'là đơn vị chịu trách nhiệm thanh toán gốc và/hoặc lãi Trái Phiếu cho Chủ Sở Hữu Trái Phiếu và cam đoan chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Chủ Sở Hữu Trái Phiếu'
+                'là đơn vị chịu trách nhiệm thanh toán gốc và/hoặc lãi Trái Phiếu cho Chủ Sở Hữu Trái Phiếu và cam đoan chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Chủ Sở Hữu Trái Phiếu.'
               )}
             </p>
           </div>

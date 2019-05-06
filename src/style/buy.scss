@@ -15,13 +15,16 @@
   .lh18 {
     line-height: 18px !important;
   }
-
-  .col-5::after {
-    content: ':';
-    position: absolute;
-    right: 0;
-    padding-right: 0;
+  .text-blod {
+    font-weight: bold;
   }
+
+  // .col-5::after {
+  //   content: ':';
+  //   position: absolute;
+  //   right: 0;
+  //   padding-right: 0;
+  // }
   h2 {
     margin-bottom: 20px;
   }

@@ -116,7 +116,7 @@ class Confirm extends Component {
             <b>{t('Nội dung chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-5 hl18">{t('Khối Lượng')}</div>
+            <div className="col-5 hl18">{t('Khối Lượng')} :</div>
             <div className="col-7 hl18">
               {currency(info.buyVol)} {t('Trái Phiếu')}
             </div>
@@ -145,15 +145,14 @@ class Confirm extends Component {
           </div>
           <div className="confirm-content">
             <p>
-              {t('Ông/Bà')}: <b>{info.customerName} </b>
+              {t('Tổ chức (Ông/ Bà)')}: <span className="text-blod">{info.customerName}</span>{' '}
               {t(
                 'được ghi tên trên Sổ Đăng Ký và được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB.'
               )}
             </p>
             <p>
               {t(
-                `Bên nhận chuyển nhượng không chịu ảnh hưởng cũng như không phải chịu trách nhiệm về bất kỳ thỏa thuận liên quan đến Trái Phiếu giữa Tổ Chức Phát Hành và/hoặc Đại Lý Đăng Ký Lưu Ký và/hoặc Bên chuyển nhượng và/hoặc bên thứ ba nào khác mà Bên nhận chuyển nhượng không được thông báo bằng văn bản, ngoại trừ Bản Công Bố Thông Tin, Hợp Đồng Đại lý Đăng Ký Lưu Ký và Hợp đồng mua bán giữa Bên chuyển nhượng và Bên nhận chuyển nhượng.
-                `
+                'Bên nhận chuyển nhượng không chịu ảnh hưởng cũng như không phải chịu trách nhiệm về bất kỳ thỏa thuận liên quan đến Trái Phiếu giữa Tổ Chức Phát Hành và/hoặc Đại Lý Đăng Ký Lưu Ký và/hoặc Bên chuyển nhượng và/hoặc bên thứ ba nào khác mà Bên nhận chuyển nhượng không được thông báo bằng văn bản, ngoại trừ Bản Công Bố Thông Tin, Hợp Đồng Đại lý Đăng Ký Lưu Ký và Hợp đồng mua bán giữa Bên chuyển nhượng và Bên nhận chuyển nhượng.'
               )}
               {bond.issuerBond}{' '}
               {t(
@@ -161,9 +160,9 @@ class Confirm extends Component {
               )}
             </p>
             <p>
-              {t(`Các Bên thừa nhận, trong mọi trường hợp, `)} {bond.issuerBond}{' '}
+              {t('Các Bên thừa nhận, trong mọi trường hợp,')} {bond.issuerBond}{' '}
               {t(
-                `là đơn vị chịu trách nhiệm thanh toán gốc và/hoặc lãi Trái Phiếu cho Chủ Sở Hữu Trái Phiếu và cam đoan chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Chủ Sở Hữu Trái Phiếu. `
+                'là đơn vị chịu trách nhiệm thanh toán gốc và/hoặc lãi Trái Phiếu cho Chủ Sở Hữu Trái Phiếu và cam đoan chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Chủ Sở Hữu Trái Phiếu.'
               )}
             </p>
           </div>
