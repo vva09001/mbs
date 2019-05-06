@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 const Info = ({ detail }) => {
   const { t } = useTranslation();
   return (
-    <Layout type={1} title="Thông tin Trái phiếu">
+    <Layout type={1} title="Thông tin Trái Phiếu">
       <div className="bond-detail pdt10">
         <table className="table table-striped">
           <tbody>
