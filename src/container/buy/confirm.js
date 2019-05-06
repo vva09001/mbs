@@ -116,7 +116,7 @@ class Confirm extends Component {
             <b>{t('Nội dung chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-5 hl18">{t('Khối Lượng')} :</div>
+            <div className="col-5 hl18">{t('Khối Lượng')}</div>
             <div className="col-7 hl18">
               {currency(info.buyVol)} {t('Trái Phiếu')}
             </div>

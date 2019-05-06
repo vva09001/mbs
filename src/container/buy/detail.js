@@ -62,7 +62,7 @@ class Detail extends Component {
     );
   }
   invertRender() {
-    const label = ['Từ ngày', 'Đến ngày', 'Coupon tái đầu tư', 'Lãi tái đầu tư nhận (VNĐ)'];
+    const label = ['Từ ngày', 'Đến ngày', 'Coupon tái đầu tư', 'Lãi tái đầu tư (VNĐ)'];
     const content = ['payCouponDate', 'lastPayCouponDate', 'cashNonInvest', 'cashInvest'];
     return (
       <Section5
