@@ -75,7 +75,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi suất đáo hạn')}</td>
+                <td>{t('Lợi suất chưa tái đầu tư')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
