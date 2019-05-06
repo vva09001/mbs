@@ -74,7 +74,7 @@ class Confirm extends Component {
           </div>
 
           <div className="row">
-            <div className="col-5 hl18">{t('Đại diện')}</div>
+            <div className="col-5 hl18">{t('Người đại diện')}</div>
             <div className="col-7 hl18">
               {t('Ông')} {t('Trần Hải Hà')}
             </div>
@@ -105,16 +105,18 @@ class Confirm extends Component {
             </div>
             <div className="row">
               <div className="col-5 hl18">{t('Số Tài Khoản')}</div>
+              <div className="col-7 hl18">{info.custAccountBankCode}</div>
             </div>
             <div className="row">
               <div className="col-5 hl18">{t('Mở tại')}</div>
+              <div className="col-7 hl18">{info.custBankName}</div>
             </div>
           </div>
           <p className="bgdd">
             <b>{t('Nội dung chuyển nhượng')}</b>
           </p>
           <div className="row">
-            <div className="col-5 hl18">{t('Số lượng')}</div>
+            <div className="col-5 hl18">{t('Khối Lượng')}</div>
             <div className="col-7 hl18">
               {currency(info.buyVol)} {t('Trái Phiếu')}
             </div>
@@ -126,38 +128,42 @@ class Confirm extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Giá')}</div>
+            <div className="col-5 hl18">{t('Giá chuyển nhượng')}</div>
             <div className="col-7 hl18">
               {currency(info.buyPrice)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Tổng giá trị')}</div>
+            <div className="col-5 hl18">{t('Tổng giá trị chuyển nhượng')}</div>
             <div className="col-7 hl18">
               {currency(info.buyValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Phí')}</div>
+            <div className="col-5 hl18">{t('Phí chuyển nhượng')}</div>
             <div className="col-7 hl18">0 VNĐ</div>
           </div>
           <div className="confirm-content">
             <p>
               {t('Ông/Bà')}: <b>{info.customerName} </b>
               {t(
-                'được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của CTCP Chứng khoán MB.'
+                'được ghi tên trên Sổ Đăng Ký và được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB.'
               )}
             </p>
             <p>
+              {t(
+                `Bên nhận chuyển nhượng không chịu ảnh hưởng cũng như không phải chịu trách nhiệm về bất kỳ thỏa thuận liên quan đến Trái Phiếu giữa Tổ Chức Phát Hành và/hoặc Đại Lý Đăng Ký Lưu Ký và/hoặc Bên chuyển nhượng và/hoặc bên thứ ba nào khác mà Bên nhận chuyển nhượng không được thông báo bằng văn bản, ngoại trừ Bản Công Bố Thông Tin, Hợp Đồng Đại lý Đăng Ký Lưu Ký và Hợp đồng mua bán giữa Bên chuyển nhượng và Bên nhận chuyển nhượng.
+                `
+              )}
               {bond.issuerBond}{' '}
               {t(
-                `ủy quyền cho CTCP Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư. CTCP Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc thanh toán giữa hai bên.`
+                'ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư (Bên chuyển nhượng, Bên nhận chuyển nhượng). Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc thanh toán giữa hai bên.'
               )}
             </p>
             <p>
-              {t(`Hai bên thừa nhận, trong mọi trường hợp,`)} {bond.issuerBond}{' '}
+              {t(`Các Bên thừa nhận, trong mọi trường hợp, `)} {bond.issuerBond}{' '}
               {t(
-                `là đơn vị chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Người Sở Hữu Trái Phiếu.`
+                `là đơn vị chịu trách nhiệm thanh toán gốc và/hoặc lãi Trái Phiếu cho Chủ Sở Hữu Trái Phiếu và cam đoan chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Chủ Sở Hữu Trái Phiếu. `
               )}
             </p>
           </div>

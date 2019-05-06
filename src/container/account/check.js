@@ -89,7 +89,7 @@ class Check extends Component {
                 onClick={() => this._onToggle('password')}
                 className="input-group-text clickStyle"
               >
-                <i className={this.state.toggle.password ? 'fa fa-eye' : 'fa fa-eye-slash'} />
+                <i className={this.state.toggle.password ? 'fa fa-eye-slash' : 'fa fa-eye'} />
               </span>
             </div>
           </div>
