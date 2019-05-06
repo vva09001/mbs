@@ -248,13 +248,20 @@ thead td {
 .input-group-custom {
   border: 1px solid #ced4da;
   border-radius: .25rem;
+  position: relative;
   input {
     border: 0;
   }
-  .input-group-text {
-    background: transparent;
-    border: 0;
+  .input-group-append {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    .input-group-text {
+      background: transparent;
+      border: 0;
+    }
   }
+
 }
 body {
   .btn-transparent {
