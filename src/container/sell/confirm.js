@@ -140,7 +140,7 @@ class Confirm extends Component {
           <div className="row">
             <div className="col-5 hl18">{t('Thuế TNCN (Do MBS chi trả)')}</div>
             <div className="col-7 hl18">
-              {currency(info.taxValue)} {t('VNĐ')}
+              {Math.round(currency(info.taxValue))} {t('VNĐ')}
             </div>
           </div>
           <div className="fw13">
