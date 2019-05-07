@@ -73,8 +73,8 @@ class Check extends Component {
         </div>
         <div className="form-group col-12">
           <label>{t('Mật khẩu')}</label>
-          <div className="d-flex input-group-custom">
-            <div className="flex-grow-1">
+          <div className="input-password">
+            <div className="wapper-password">
               <Input
                 onChange={e => this._onChange(e, 'password')}
                 value={this.state.params.password}
@@ -83,14 +83,10 @@ class Check extends Component {
                 className="form-control"
                 validations={[required]}
               />
-            </div>
-            <div className="input-group-append">
-              <span
+              <i
                 onClick={() => this._onToggle('password')}
-                className="input-group-text clickStyle"
-              >
-                <i className={this.state.toggle.password ? 'fa fa-eye-slash' : 'fa fa-eye'} />
-              </span>
+                className={this.state.toggle.password ? 'fa fa-eye-slash' : 'fa fa-eye'}
+              />
             </div>
           </div>
           <small className="form-text text-muted">

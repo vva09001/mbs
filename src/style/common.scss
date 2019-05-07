@@ -242,12 +242,9 @@ thead td {
 .ls {
   font-size: 25px;
 }
-.no-margin {
-  margin: 0 !important;
-}
 .input-group-custom {
   border: 1px solid #ced4da;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   position: relative;
   input {
     border: 0;
@@ -261,7 +258,6 @@ thead td {
       border: 0;
     }
   }
-
 }
 body {
   .btn-transparent {
@@ -1035,4 +1031,21 @@ body {
 }
 .lh35 {
   line-height: 35px;
+}
+i.fa.fa-eye-slash {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+i.fa.fa-eye {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.input-password {
+  position: relative;
+}
+.require {
+  padding-top: 5px;
+  color: #ff1a1a;
 }
