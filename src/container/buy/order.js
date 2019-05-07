@@ -41,7 +41,7 @@ class Order extends Component {
                 <td>{info.buyDate}</td>
               </tr>
               <tr>
-                <td>{t('Ngày đáo hạn')}</td>
+                <td>{t('Ngày Đáo Hạn')}</td>
                 <td>{info.maturityDate}</td>
               </tr>
               <tr>
@@ -75,7 +75,7 @@ class Order extends Component {
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi suất đáo hạn')}</td>
+                <td>{t('Lợi suất chưa tái đầu tư')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}

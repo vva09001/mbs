@@ -237,7 +237,8 @@ const Section5 = props => {
                 <tr>
                   <td colSpan="4" className="text-primary white-bg">
                     <i>
-                      {t('Lãi suất tái đầu tư')}: {items.length > 0 ? items[0].reinvestmentRate : 0}
+                      {t('Lãi suất tái đầu tư')} :{' '}
+                      {items.length > 0 ? items[0].reinvestmentRate : 0}
                       {t('%/năm')}
                     </i>
                   </td>
