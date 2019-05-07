@@ -19,7 +19,7 @@ const Flow = props => {
             <p className="mb-0">
               {t('Từ ngày')}:
               <span className="text-info">
-                <strong> {props.flowCash.couponDate}</strong>
+                <strong> {props.info.buyDate}</strong>
               </span>
             </p>
             <p className="mb-0">
