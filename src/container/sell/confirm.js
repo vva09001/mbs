@@ -5,24 +5,21 @@ import { withTranslation } from 'react-i18next';
 import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import { sellActions } from 'store/actions';
-import moment from 'moment';
+import _ from 'lodash';
 class Confirm extends Component {
   componentDidMount() {}
   _onUpdate() {
     this.props.update();
   }
   render() {
-    const { bond, info, t } = this.props;
-    const date = new Date();
-    const day = moment(date).format('DD');
-    const month = moment(date).format('MM');
-    const year = moment(date).format('YYYY');
+    const { bond, info, t, book } = this.props;
+    const sellDate = _.split(book.sellDate, '/');
     return (
       <Layout type={1} title={t('BÁN TRÁI PHIẾU')}>
         <div className="bond-buy-comfirm">
           <div className="row">
             <div className="col-12 text-right">
-              {t('Ngày')} {day} {t('tháng')} {month} {t('năm')} {year}
+              {t('Ngày')} {sellDate[0]} {t('tháng')} {sellDate[1]} {t('năm')} {sellDate[2]}
             </div>
           </div>
           <div className="row">
@@ -193,6 +190,7 @@ class Confirm extends Component {
 Confirm.propTypes = {
   bond: PropTypes.object,
   info: PropTypes.object,
+  book: PropTypes.object,
   update: PropTypes.func,
   t: PropTypes.func
 };
@@ -200,7 +198,8 @@ Confirm.propTypes = {
 const mapStateToProps = state => {
   return {
     bond: state.Bonds.detail,
-    info: state.Sell.info
+    info: state.Sell.info,
+    book: state.Sell.book
   };
 };
 
