@@ -38,7 +38,7 @@ const Flow = props => {
             </div>
             <div className="text-primary wpp">
               <i className="font14">
-                {t('Lợi suất đáo hạn')} :{' '}
+                {t('Lợi suất chưa tái đầu tư')} :{' '}
                 <strong className="text-info">
                   {currency(props.info.termNoninvest)}
                   %/
