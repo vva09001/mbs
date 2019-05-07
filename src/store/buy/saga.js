@@ -378,7 +378,7 @@ export function* verifyBuySaga() {
                 status: true
               }
             });
-          } else {
+          } else if (data.params.error_code === 'V06') {
             yield put({
               type: errorActions.ERROR,
               error: { message: VT_error.trade[data.params.error_code], status: true }
