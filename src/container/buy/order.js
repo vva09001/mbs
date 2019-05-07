@@ -41,7 +41,7 @@ class Order extends Component {
                 <td>{info.buyDate}</td>
               </tr>
               <tr>
-                <td>{t('Ngày Đáo Hạn')}</td>
+                <td>{t('Ngày kết thúc đầu tư')}</td>
                 <td>{info.maturityDate}</td>
               </tr>
               <tr>

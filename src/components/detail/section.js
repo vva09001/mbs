@@ -13,10 +13,10 @@ const Section1 = props => {
     return <Loading />;
   }
   return (
-    <div className="section">
+    <div className="section-2">
       <div className="row">
         <div className="col-12">
-          <h3 className="mb-4 mt-2">
+          <h3 className="mb-3 clb">
             {props.item.bondCode}
             <span
               className="link popup-click"
@@ -39,7 +39,7 @@ const Section1 = props => {
             <div className="col-5 no-pading-right">
               <span className="c">{t('Hạn mức')}</span>
             </div>
-            <div className="col-7 text-right no-pading-left">
+            <div className="col-7 text-right no-pading-left mb-2">
               <span className="xmbs c text-bold">
                 {currency(props.item.roomBalance)} {t('Trái Phiếu')}
               </span>

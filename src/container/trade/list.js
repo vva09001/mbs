@@ -47,7 +47,7 @@ class List extends Component {
                 contractCode: item.sellContractCode
               })
             }
-            className="button-trade rounded-pill border-0 btn-lg btn-block no-margin"
+            className="button-trade rounded-pill border-0 btn-lg btn-block m-0"
           >
             {this.props.t('SỬA')}
           </button>
