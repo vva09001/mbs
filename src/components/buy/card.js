@@ -32,7 +32,7 @@ const card = props => {
           </p>
         </li>
         <li className="list-group-item">
-          <span className="mlabel">{t('Ngày đáo hạn')}</span>
+          <span className="mlabel">{t('Ngày Đáo Hạn')}</span>
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">

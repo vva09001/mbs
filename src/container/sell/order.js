@@ -100,7 +100,7 @@ class Order extends Component {
               <div className="col-6 mdata">{sellDetail.buyDate}</div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Ngày đáo hạn')} :</div>
+              <div className="col-6 ">{t('Ngày Đáo Hạn')} :</div>
               <div className="col-6 mdata">{sellDetail.maturityDate}</div>
             </div>
             <div className="row row-padding">
