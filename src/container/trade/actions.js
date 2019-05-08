@@ -197,7 +197,7 @@ class Actions extends Component {
               </div>
               <div className="col-6 mdata">
                 <i>
-                  {Math.round(info.taxValue)} {t('VNĐ')}
+                  {currency(Math.round(info.taxValue))} {t('VNĐ')}
                 </i>
               </div>
             </div>
