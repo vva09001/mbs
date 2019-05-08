@@ -520,6 +520,25 @@ body {
     width: auto;
     padding: 0 35px;
   }
+  .max-hieght {
+    height: 100vh;
+    .wapper-link {
+      margin: auto;
+      .btn-primary {
+        color: #fff;
+        background: linear-gradient(to right, #0092c8, #005496);
+        height: 48px;
+        font-size: 17px;
+        width: 100%;
+        padding: 0 20px;
+        margin: auto;
+      }
+      .rounded-pill {
+        border-radius: 50rem !important;
+      }
+    }
+  }
+
   .btn-danger {
     background: linear-gradient(to right, #de7868, #d71920);
     height: 48px;
