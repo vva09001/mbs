@@ -30,7 +30,9 @@ const card = props => {
           <span className="float-right">{props.item.buyDate}</span>
         </li>
         <li className="list-group-item">
-          {props.item.isShell === 0 ? t('Ngày Kết Thúc Đầu Tư') : t('Ngày Kết Thúc Đầu Tư dự kiến')}
+          {props.item.isShell === 0
+            ? t('Ngày Kết Thúc Đầu Tư')
+            : t('Ngày Kết Thúc Đầu Tư (dự kiến)')}
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">

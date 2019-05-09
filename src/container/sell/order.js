@@ -96,27 +96,27 @@ class Order extends Component {
               </div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Ngày Giao Dịch (Mua)')} :</div>
+              <div className="col-6 ">{t('Ngày Giao Dịch (Mua)')} </div>
               <div className="col-6 mdata">{sellDetail.buyDate}</div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Ngày kết thúc đầu tư')} :</div>
+              <div className="col-6 ">{t('Ngày kết thúc đầu tư')} </div>
               <div className="col-6 mdata">{sellDetail.maturityDate}</div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Khối Lượng')} :</div>
+              <div className="col-6 ">{t('Khối Lượng')} </div>
               <div className="col-6 mdata">
                 {currency(sellDetail.buyVol)} {t('Trái Phiếu')}
               </div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Đơn Giá Giao Dịch')} :</div>
+              <div className="col-6 ">{t('Đơn Giá Giao Dịch')} </div>
               <div className="col-6 mdata">
                 {currency(sellDetail.buyPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Giá Trị Đầu Tư')} :</div>
+              <div className="col-6 ">{t('Giá Trị Đầu Tư')} </div>
               <div className="col-6 mdata">
                 {currency(sellDetail.buyValue)} {t('VNĐ')}
               </div>
@@ -129,43 +129,43 @@ class Order extends Component {
               </div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Ngày đề nghị bán')} :</div>
+              <div className="col-6 ">{t('Ngày đề nghị bán')} </div>
               <div className="col-6 mdata">{FormatTime(this.state.date)}</div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 lh38">{t('Ngày Giao Dịch (Bán)')} :</div>
+              <div className="col-6 lh38">{t('Ngày Giao Dịch (Bán)')} </div>
               <div className="col-6 mdata">
                 <div className="form-group">{this._sellDate()}</div>
               </div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Đơn Giá Giao Dịch')} :</div>
+              <div className="col-6 ">{t('Đơn Giá Giao Dịch')} </div>
               <div className="col-6 mdata">
                 {currency(info.sellPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Lợi suất')} :</div>
+              <div className="col-6 ">{t('Lợi suất')} </div>
               <div className="col-6 mdata">
                 {currency(info.termRate)}
                 {t('%/năm')}
               </div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Khối Lượng')} :</div>
+              <div className="col-6 ">{t('Khối Lượng')} </div>
               <div className="col-6 mdata">
                 {currency(info.sellVol)} {t('Trái Phiếu')}
               </div>
             </div>
             <div className="sum-field row row-padding">
-              <div className="col-6 mspot font-weight-bold">{t('Giá Trị Giao Dịch')} :</div>
+              <div className="col-6 mspot font-weight-bold">{t('Giá Trị Giao Dịch')} </div>
               <div className="col-6 mdata mspot font-weight-bold">
                 {currency(info.sellValue)} {t('VNĐ')}
               </div>
             </div>
             <div className="row row-padding">
               <div className="col-6">
-                <i>{t('Tỷ lệ thuế TNCN (%)')} :</i>
+                <i>{t('Tỷ lệ thuế TNCN (%)')} </i>
               </div>
               <div className="col-6 mdata">
                 <i>
@@ -176,7 +176,7 @@ class Order extends Component {
             </div>
             <div className="row row-padding fw13">
               <div className="col-6">
-                <i>{t('Thuế TNCN')} : </i>
+                <i>{t('Thuế TNCN')} </i>
                 <br />
                 <i>{t('(Do MBS chi trả)')}</i>
               </div>
