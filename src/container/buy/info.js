@@ -20,7 +20,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Trái Phiếu`)}</b>
+                <b>{t(`Mã Trái Phiếu`)}</b>
               </td>
               <td>{detail.bondCode}</td>
             </tr>
@@ -60,15 +60,16 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Lãi Suất`)}</b>
+                <b>{t(`Lãi suất Trái Phiếu`)}</b>
               </td>
               <td className="text-justify">
-                {t(`Lãi suất áp dụng cho`)} {detail.termFixCount}{' '}
-                {t(`kỳ tính lãi đầu tiên của Trái Phiếu là`)} {currency(detail.interestFixRate)}
+                {t(`Lãi suất áp dụng cho `)}
+                {detail.termFixCount}
+                {t(` kỳ tính lãi đầu tiên của Trái Phiếu là`)} {currency(detail.interestFixRate)}
                 {t(`%/năm`)}.
                 {detail.interestFloatRange !== 0
                   ? t(
-                      `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái Phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ`
+                      `Lãi suất áp dụng cho 2 kỳ tính lãi đầu tiên của Trái Phiếu là 10,5%/năm.Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái Phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ`
                     ) +
                     detail.interestFloatRange +
                     t(`%/năm`)
@@ -77,7 +78,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Kỳ Thanh Toán Lãi`)}</b>
+                <b>{t(`Kỳ Tính Lãi`)}</b>
               </td>
               <td>
                 {detail.couponPayment} {t(`tháng/lần`)}
@@ -85,7 +86,7 @@ const Info = ({ detail }) => {
             </tr>
             <tr>
               <td>
-                <b>{t(`Hình Thức`)}</b>
+                <b>{t(`Hình thức Trái Phiếu`)}</b>
               </td>
               <td>{detail.releaseForm}</td>
             </tr>

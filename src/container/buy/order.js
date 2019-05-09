@@ -109,7 +109,7 @@ class Order extends Component {
             <br />
             <Link to="/buy/term">
               <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
-              <i>{t('Điều khoản & Điều kiện mua Trái Phiếu')}</i>
+              <i>{t('Các Điều kiện và Điều kiện mua Trái Phiếu')}</i>
             </Link>
             <br />
             <Link to="/buy/flow">
@@ -120,7 +120,7 @@ class Order extends Component {
           <label className="form-check-label">
             <i>
               {t(
-                'Tôi xác nhận và đồng ý với các điều khoản, điều kiện mua Trái Phiếu đã nêu trên và các Văn Kiện Trái Phiếu liên quan.'
+                'Tôi xác nhận và đồng ý với "Các Điều khoản và Điều kiện mua Trái Phiếu" đã nêu trên và các Văn Kiện Trái Phiếu liên quan.'
               )}
             </i>
             <input

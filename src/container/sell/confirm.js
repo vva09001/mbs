@@ -5,22 +5,21 @@ import { withTranslation } from 'react-i18next';
 import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import { sellActions } from 'store/actions';
-import _ from 'lodash';
 class Confirm extends Component {
   componentDidMount() {}
   _onUpdate() {
     this.props.update();
   }
   render() {
-    const { bond, info, t, book } = this.props;
-    const sellDate = _.split(book.sellDate, '/');
+    const { bond, info, t } = this.props;
+    // const sellDate = _.split(book.sellDate, '/');
     return (
       <Layout type={1} title={t('BÁN TRÁI PHIẾU')}>
         <div className="bond-buy-comfirm">
           <div className="row">
-            <div className="col-12 text-right">
+            {/* <div className="col-12 text-right">
               {t('Ngày')} {sellDate[0]} {t('tháng')} {sellDate[1]} {t('năm')} {sellDate[2]}
-            </div>
+            </div> */}
           </div>
           <div className="row">
             <div className="col-12">
@@ -135,7 +134,7 @@ class Confirm extends Component {
             <div className="col-7 hl18">0 {t('VNĐ')}</div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Thuế TNCN (Do MBS chi trả)')}</div>
+            <div className="col-5 hl18">{t('Thuế TNCN')}</div>
             <div className="col-7 hl18">
               {currency(Math.round(info.taxValue))} {t('VNĐ')}
             </div>

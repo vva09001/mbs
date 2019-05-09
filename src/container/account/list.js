@@ -44,7 +44,7 @@ class List extends Component {
           </div>
           <div className="row">
             <div className="col-6 no-pading-right">
-              <div className="title-left bold tar">{t('Tổng số lượng')}: </div>
+              <div className="title-left bold tar">{t('Tổng')}: </div>
             </div>
             <div className="col-6 no-pading-left">
               <div className="title-right">

@@ -65,15 +65,6 @@ const Section3 = props => {
   return (
     <Fragment>
       <div className=" row align-items-center pading-top">
-        <label className="col-6 c">{t('Lợi suất đáo hạn')}</label>
-        <div className="col-6 text-right">
-          <b>
-            <span className="xmbs">{currency(props.item.termRate)}%</span>
-            <span className="xmbs">/{t('năm')}</span>
-          </b>
-        </div>
-      </div>
-      <div className=" row align-items-center">
         <label className="col-6 c">{t('Ngày kết thúc đầu tư')}</label>
         <div className="col-6 text-right">{props.item.maturityDate}</div>
       </div>
@@ -81,6 +72,15 @@ const Section3 = props => {
         <label className="col-6 c">{t('Thời gian nắm giữ')}</label>
         <div className="col-6 text-right c">
           {currency(props.item.numInvestDate)} {t('ngày')}
+        </div>
+      </div>
+      <div className=" row align-items-center">
+        <label className="col-6 c">{t('Lợi suất')}</label>
+        <div className="col-6 text-right">
+          <b>
+            <span className="xmbs">{currency(props.item.termRate)}%</span>
+            <span className="xmbs">/{t('năm')}</span>
+          </b>
         </div>
       </div>
       <div className=" row align-items-center">

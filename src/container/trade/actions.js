@@ -110,11 +110,11 @@ class Actions extends Component {
               <div className="col-form-div fwb">{t('Thông Tin Trái Phiếu Sở Hữu')}</div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Ngày Giao Dịch')} :</div>
+              <div className="col-6 col-form-div">{t('Ngày Giao Dịch (Mua)')} :</div>
               <div className="col-6 mdata">{detail.buyDate}</div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Ngày Đáo Hạn')} :</div>
+              <div className="col-6 col-form-div">{t('Ngày Kết Thúc Đầu Tư')} :</div>
               <div className="col-6 mdata">{detail.maturityDate}</div>
             </div>
             <div className="row">
@@ -130,15 +130,15 @@ class Actions extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Giá Trị Giao Dịch')} :</div>
-              <div className="col-6 mdata">
+              <div className="col-6 col-form-div font-weight-bold">{t('Giá Trị Giao Dịch')} :</div>
+              <div className="col-6 mdata font-weight-bold">
                 {currency(detail.buyValue)} {t('VNĐ')}
               </div>
             </div>
           </div>
           <div className="pb-2">
             <div className="sum-field titles row">
-              <div className="col-form-div fwb">{t('Đề Nghị Giao Dịch Bán Trái Phiếu')}</div>
+              <div className="col-form-div fwb">{t('Đề Nghị Bán Trái Phiếu')}</div>
             </div>
             <div className="row">
               <div className="col-6 col-form-div">{t('Ngày đề nghị bán')} :</div>
@@ -150,7 +150,7 @@ class Actions extends Component {
                   this.state.type === 'edit' ? 'col-6 col-form-div lh35' : 'col-6 col-form-div'
                 }
               >
-                {t('Ngày Giao Dịch')} :
+                {t('Ngày Giao Dịch (Bán)')} :
               </div>
               <div className="col-6 mdata">
                 <span className=" date">
@@ -165,7 +165,7 @@ class Actions extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Lợi suất đầu tư')} :</div>
+              <div className="col-6 col-form-div">{t('Lợi suất')} :</div>
               <div className="col-6 mdata">
                 {currency(info.termRate)}
                 {t('%/năm')}
@@ -178,7 +178,7 @@ class Actions extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Tổng Giá Trị Bán')} :</div>
+              <div className="col-6 col-form-div date">{t('Giá Trị Giao Dịch')} :</div>
               <div className="col-6 col-form-div text-blod date mdata">
                 {currency(info.sellValue)} {t('VNĐ')}
               </div>
@@ -193,7 +193,9 @@ class Actions extends Component {
             </div>
             <div className="row">
               <div className="col-6 col-form-div">
-                <i>{t('Thuế TNCN (Do MBS chi trả)')} :</i>
+                <i>{t('Thuế TNCN')} : </i>
+                <br />
+                <i>{t('(Do MBS chi trả)')}</i>
               </div>
               <div className="col-6 mdata">
                 <i>
