@@ -32,7 +32,7 @@ const card = props => {
         <li className="list-group-item">
           {props.item.isShell === 0
             ? t('Ngày Kết Thúc Đầu Tư')
-            : t('Ngày Kết Thúc Đầu Tư (dự kiến)')}
+            : t('Ngày Kết Thúc Đầu Tư (Dự Kiến)')}
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
