@@ -40,7 +40,7 @@ const card = props => {
           </p>
         </li>
         <li className="list-group-item">
-          {t('Giá trị đầu tư')}
+          {t('Giá Trị Đầu Tư')}
           <p className="float-right">
             <span className="quatity">{currency(props.item.buyValue)}</span>
             <span className="quatity"> {t('VNĐ')} </span>

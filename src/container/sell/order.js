@@ -145,7 +145,7 @@ class Order extends Component {
               </div>
             </div>
             <div className="row row-padding">
-              <div className="col-6 ">{t('Lợi suất')} </div>
+              <div className="col-6 ">{t('Lợi Suất')} </div>
               <div className="col-6 mdata">
                 {currency(info.termRate)}
                 {t('%/năm')}
