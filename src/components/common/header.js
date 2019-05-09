@@ -42,7 +42,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
                 }}
                 className={filterPicked === 1 ? 'dropdown-item active' : 'dropdown-item'}
               >
-                {t('Ngày đáo hạn tăng dần')}
+                {t('Ngày Đáo Hạn tăng dần')}
               </button>
               <button
                 onClick={() => {
