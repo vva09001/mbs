@@ -25,7 +25,7 @@ const card = props => {
           </span>
         </li>
         <li className="list-group-item">
-          <span className="mlabel">{t('Lãi suất')}</span>
+          <span className="mlabel">{t('Lãi Suất')}</span>
           <p className="float-right">
             <span className="clb ls">{currency(props.item.termRate)}%</span>
             <span className="clb">/{t('năm')}</span>
@@ -36,7 +36,7 @@ const card = props => {
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          <span className="mlabel">{t('Hạn mức')}</span>
+          <span className="mlabel">{t('Hạn Mức')}</span>
           <p className="float-right">
             <span className="clb">{currency(props.item.roomBalance) + t(' Trái Phiếu')}</span>
           </p>

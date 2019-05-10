@@ -1,7 +1,7 @@
 {
   "Lọc": "Lọc",
   "SL Trái Phiếu đang còn": "SL Trái Phiếu đang còn",
-  "Lãi suất": "Lãi suất",
+  "Lãi Suất": "Lãi Suất",
   "Ngày đáo hạn": "Ngày đáo hạn",
   "Tìm kiếm ứng dụng": "Tìm kiếm ứng dụng",
   "Đang còn": "Đang còn",
@@ -125,6 +125,7 @@
   "Lãi Suất giảm dần": "Lãi Suất giảm dần",
   "ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU": "ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU",
   "mua": "MUA",
+  "Hạn Mức": "Hạn Mức",
   "Hạn mức": "Hạn mức",
   "Mệnh giá": "Mệnh giá",
   "Trái Phiếu": "Trái Phiếu",
@@ -220,6 +221,6 @@
   "Lợi Suất": "Lợi Suất",
   "Giá Trị Đầu Tư": "Giá Trị Đầu Tư",
   "Ngày Kết Thúc Đầu Tư (Ban đầu)": "Ngày Kết Thúc Đầu Tư (Ban đầu)",
-  "Ngày Kết Thúc Đầu Tư (Dự kiến)" : "Ngày Kết Thúc Đầu Tư (Dự kiến)",
-  "Giá Trị Nhận Sau Đầu Tư" : "Giá Trị Nhận Sau Đầu Tư"
+  "Ngày Kết Thúc Đầu Tư (Dự kiến)": "Ngày Kết Thúc Đầu Tư (Dự kiến)",
+  "Giá Trị Nhận Sau Đầu Tư": "Giá Trị Nhận Sau Đầu Tư"
 }
