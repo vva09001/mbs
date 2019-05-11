@@ -53,7 +53,7 @@ const AppRouter = () => {
           <Route exact path="/trade/:type" component={TradeActions} />
 
           <Route exact path="/user/" component={AccountList} />
-          <Route path="/user/connect" component={AccountConnect} />
+          <Route path="/user/connect/" component={AccountConnect} />
         </Switch>
       </RootContainer>
     </Router>

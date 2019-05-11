@@ -7,6 +7,7 @@ import qs from 'query-string';
 import Layout from 'container/layout/layout-noAuth';
 import { accountActions, authActions } from 'store/actions';
 import history from 'utils/history';
+import { Redirect } from 'react-router';
 
 class Connect extends Component {
   componentDidMount() {
@@ -21,6 +22,9 @@ class Connect extends Component {
     }
   }
   render() {
+    if (this.props.isLinked) {
+      return <Redirect to="/" />;
+    }
     return (
       <Layout type={1} title="Yêu cầu liên kết tài khoản">
         <div className="bond-detail pt-3 max-hieght">
@@ -51,7 +55,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    checkAuth: authActions.auth,
+    checkAuth: query => {
+      dispatch(authActions.auth(query));
+    },
     resetStep: () => {
       dispatch({ type: accountActions.LINK_STEP, step: 1 });
     }
