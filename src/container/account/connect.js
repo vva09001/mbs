@@ -5,7 +5,6 @@ import Check from 'container/account/check';
 import Otp from 'container/account/otp';
 import qs from 'query-string';
 import Layout from 'container/layout/layout-noAuth';
-import { Redirect } from 'react-router';
 import { accountActions, authActions } from 'store/actions';
 import history from 'utils/history';
 
