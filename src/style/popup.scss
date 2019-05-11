@@ -11,7 +11,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   .popup-wrapper {
     padding: 20px 20px 55px;
-    width: 80%;
+    width: 90%;
     .popup-header {
       border-bottom: 1px solid rgb(199, 197, 197);
       position: absolute;
@@ -27,6 +27,8 @@
       max-height: 300px;
       overflow: scroll;
       font-size: 14px;
+      line-height: 18px;
+      width: 95%;
       i {
         font-style: initial;
       }

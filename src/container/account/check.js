@@ -93,11 +93,11 @@ class Check extends Component {
             ({t('Mật khẩu là mật khẩu giao dịch tại MBS')})
           </small>
         </div>
-        <div className="col-9">
+        <div className="col-10 wapper-link">
           <Button
             type="button"
             onClick={() => this._onClick()}
-            className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block mr-1"
+            className="btn btn-primary rounded-pill border-0 btn-lg btn-block mr-1"
           >
             {t('LIÊN KẾT TÀI KHOẢN')}
           </Button>

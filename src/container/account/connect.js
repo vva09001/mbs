@@ -23,7 +23,7 @@ class Connect extends Component {
   render() {
     return (
       <Layout type={1} title="Yêu cầu liên kết tài khoản">
-        <div className="bond-detail pt-3">
+        <div className="bond-detail pt-3 max-hieght">
           {this.props.step === 1 && <Check />}
           {this.props.step === 2 && <Otp />}
         </div>

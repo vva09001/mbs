@@ -26,15 +26,15 @@ const card = props => {
           </button>
         </li>
         <li className="list-group-item">
-          {t('Ngày Đáo Hạn')}
+          {t('Ngày Kết Thúc Đầu Tư (Ban đầu)')}
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Ngày bán dự kiến')}
+          {t('Ngày Kết Thúc Đầu Tư (Dự kiến)')}
           <span className="float-right">{props.item.sellDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Giá trị tiền đầu tư')}
+          {t('Giá Trị Đầu Tư')}
           <p className="float-right">
             <span className="quatity">
               {currency(props.item.buyValue)} {t('VNĐ')}
@@ -42,7 +42,7 @@ const card = props => {
           </p>
         </li>
         <li className="list-group-item">
-          {t('Tiền nhận sau đầu tư')}
+          {t('Giá Trị Nhận Sau Đầu Tư')}
           <p className="float-right">
             <span className="quatity">
               {currency(props.item.sellValue)} {t('VNĐ')}
@@ -50,7 +50,7 @@ const card = props => {
           </p>
         </li>
         <li className="list-group-item">
-          {t('Lợi suất đầu tư')}
+          {t('Lợi Suất')}
           <p className="float-right">
             <span className="quatity quatity-text">{currency(props.item.termRate)}</span>
             <span className="quatity">{t('%/năm')}</span>
