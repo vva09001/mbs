@@ -15,13 +15,7 @@ export function* authSaga() {
   yield takeEvery(actions.AUTH_REQUEST, function*(data) {
     try {
       // Get response
-      const params = {
-        customerId: data.params.customerId,
-        check_sum: data.params.check_sum,
-        merchant_code: data.params.merchant_code,
-        msisdn: data.params.msisdn,
-        time: data.params.time
-      };
+      const params = data.params;
       const res = yield Authentication(params);
       if (res.status === 200) {
         yield put({ type: actions.AUTH, auth: res.data });
