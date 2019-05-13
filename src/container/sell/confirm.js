@@ -35,13 +35,13 @@ class Confirm extends Component {
           </div>
 
           <h4 className="text-center mtitle mspot">
-            {t('Mã Trái Phiếu')}: {info.bondCode}
+            {t('bond_Code')}: {info.bondCode}
           </h4>
           <div className="row">
             <div className="col-3 npdr">{t('Kính gửi')}: </div>
             <div className="col-9">{`- ${bond.issuerBond}`}</div>
             <div className="col-3 npdr" />
-            <div className="col-9">{t('- Công ty Cổ phần Chứng khoán MB')}</div>
+            <div className="col-9"> - {t('company')}</div>
           </div>
           <div className="row text-justy">
             <div className="col-12">
@@ -147,8 +147,8 @@ class Confirm extends Component {
           </div>
           <div className="confirm-content">
             <p>
-              {t('Tổ chức (Ông/ Bà)')}:{' '}
-              <span className="text-blod">{t('Công ty cổ phần chứng khoán MB')}</span>{' '}
+              {t('Tổ chức (Ông/ Bà)')}:{''}
+              <span className="text-blod">{t('company')}</span>{' '}
               {t(
                 'được ghi tên trên Sổ Đăng Ký và được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB.'
               )}

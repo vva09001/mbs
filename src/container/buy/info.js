@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 const Info = ({ detail }) => {
   const { t } = useTranslation();
   return (
-    <Layout type={1} title="Thông tin Trái Phiếu">
+    <Layout type={1} title={t('Thông tin Trái Phiếu')}>
       <div className="bond-detail pdt10">
         <table className="table table-striped">
           <tbody>
@@ -63,13 +63,13 @@ const Info = ({ detail }) => {
                 <b>{t(`Lãi suất Trái Phiếu`)}</b>
               </td>
               <td className="text-justify">
-                {t(`Lãi suất áp dụng cho `)}
+                {t(`Lãi suất áp dụng cho`)}
                 {detail.termFixCount}
-                {t(` kỳ tính lãi đầu tiên của Trái Phiếu là`)} {currency(detail.interestFixRate)}
+                {t(`kỳ tính lãi đầu tiên của Trái Phiếu là`)} {currency(detail.interestFixRate)}
                 {t(`%/năm`)}.
                 {detail.interestFloatRange !== 0
                   ? t(
-                      ` Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái Phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ `
+                      `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái Phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ`
                     ) +
                     detail.interestFloatRange +
                     t(`%/năm`)
