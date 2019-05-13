@@ -14,14 +14,17 @@ class List extends Component {
     super(props);
     this.state = {
       toggle: false,
-      picked: 0
+      picked: 0,
+      pagination: {
+        num: 40,
+        page: 1
+      }
     };
   }
   componentDidMount() {
     this.props.bondsFetch({
-      order: 0,
-      num: 40,
-      page: 1
+      ...this.state.pagination,
+      order: 0
     });
   }
   _fetchDetail = params => {
@@ -59,7 +62,6 @@ class List extends Component {
     ));
   };
   render() {
-    // const { t } = this.props;
     if (this.props.loading) {
       return <Loading />;
     }
