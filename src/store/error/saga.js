@@ -6,6 +6,7 @@ export function* clearErrorSaga() {
     yield put({ type: actions.BUY_DONE, done: { message: '', status: false } });
     yield put({ type: actions.SELL_DONE, done: { message: '', status: false } });
     yield put({ type: actions.TRADE_DONE, done: { message: '', status: false } });
+    yield put({ type: actions.TRADE_EDIT_DONE, done: { message: '', status: false } });
     yield put({ type: actions.ERROR, error: { message: '', status: false } });
   });
 }

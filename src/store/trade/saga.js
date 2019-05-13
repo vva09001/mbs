@@ -248,14 +248,14 @@ export function* tradeUpdateSaga() {
       if (res.status === 200) {
         if (res.data.result === 0 && res.data.data !== null) {
           yield put({
-            type: errorActions.TRADE_DONE,
+            type: errorActions.TRADE_EDIT_DONE,
             done: {
               message:
                 'Quý khách đã sửa giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch',
               status: true
             }
           });
-          yield history.push({ pathname: '/' });
+          yield history.push({ pathname: '/trade' });
         } else {
           yield put({
             type: errorActions.ERROR,

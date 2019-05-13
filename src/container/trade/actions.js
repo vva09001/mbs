@@ -130,8 +130,8 @@ class Actions extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div font-weight-bold">{t('Giá Trị Giao Dịch')}</div>
-              <div className="col-6 mdata font-weight-bold">
+              <div className="col-6 col-form-div">{t('Giá Trị Giao Dịch')}</div>
+              <div className="col-6 mdata">
                 {currency(detail.buyValue)} {t('VNĐ')}
               </div>
             </div>

@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import history from 'utils/history';
 // components: header
@@ -32,64 +31,36 @@ header.propTypes = {
   type: PropTypes.number,
   title: PropTypes.string
 };
-const Alert = (message, toggle) => (
-  <Popup showPopup={() => toggle()}>
+const Alert = (message, toggle, closeText) => (
+  <Popup showPopup={() => toggle()} closeText={closeText}>
     <p>{message}</p>
   </Popup>
 );
+const AlertDone = (message, pathnameClose, pathnameShow, clear) => (
+  <PopupDone
+    showClosePopup={() => {
+      clear();
+      history.push({ pathname: pathnameClose });
+    }}
+    showViewPopup={() => {
+      clear();
+      history.push({ pathname: pathnameShow });
+    }}
+  >
+    <span>
+      <i>{message}</i>
+    </span>
+  </PopupDone>
+);
 const Layout = props => {
-  const { t } = useTranslation();
   return (
     <Fragment>
-      {props.buyDone.status && (
-        <PopupDone
-          showClosePopup={() => {
-            props.clear();
-            history.push({ pathname: '/buy/' });
-          }}
-          showViewPopup={() => {
-            props.clear();
-            history.push({ pathname: '/user/' });
-          }}
-        >
-          <span>
-            <i>{props.buyDone.message}</i>
-          </span>
-        </PopupDone>
-      )}
-      {props.sellDone.status && (
-        <PopupDone
-          showClosePopup={() => {
-            props.clear();
-            history.push({ pathname: '/sell/' });
-          }}
-          showViewPopup={() => {
-            props.clear();
-            history.push({ pathname: '/trade/' });
-          }}
-        >
-          <span>
-            <i>{props.sellDone.message}</i>
-          </span>
-        </PopupDone>
-      )}
-      {props.tradeDone.status && (
-        <PopupDone
-          showClosePopup={() => {
-            props.clear();
-            history.push({ pathname: '/trade/' });
-          }}
-          showViewPopup={() => {
-            props.clear();
-            history.push({ pathname: '/user/' });
-          }}
-        >
-          <span>
-            <i>{props.tradeDone.message}</i>
-          </span>
-        </PopupDone>
-      )}
-      {props.error.status && Alert(t(props.error.message), props.clear)}
+      {props.buyDone.status && AlertDone(props.buyDone.message, '/buy/', '/user/', props.clear)}
+      {props.sellDone.status && AlertDone(props.sellDone.message, '/sell/', '/trade/', props.clear)}
+      {props.tradeDone.status &&
+        AlertDone(props.tradeDone.message, '/trade/', '/user/', props.clear)}
+      {props.tradeEditDone.status && Alert(props.tradeEditDone.message, props.clear, 'XEM')}
+      {props.error.status && Alert(props.error.message, props.clear)}
       {header(props)}
       <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>
       <Footer active={props.active} />
@@ -105,6 +76,7 @@ Layout.propTypes = {
   buyDone: PropTypes.object,
   sellDone: PropTypes.object,
   tradeDone: PropTypes.object,
+  tradeEditDone: PropTypes.object,
   error: PropTypes.object,
   clear: PropTypes.func
 };
@@ -114,7 +86,8 @@ const mapStateToProps = state => {
     error: state.Error.error,
     buyDone: state.Error.buy_done,
     sellDone: state.Error.sell_done,
-    tradeDone: state.Error.trade_done
+    tradeDone: state.Error.trade_done,
+    tradeEditDone: state.Error.trade_edit_done
   };
 };
 

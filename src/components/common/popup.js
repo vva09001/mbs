@@ -10,7 +10,7 @@ const popup = props => {
         <div className="popup-body mb-2 text-center">{props.children}</div>
         <div className="popup-footer text-center">
           <button type="button" onClick={props.showPopup} className="mclose w100">
-            {t('ĐÓNG')}
+            {props.closeText || t('ĐÓNG')}
           </button>
         </div>
       </div>
@@ -20,6 +20,7 @@ const popup = props => {
 popup.propTypes = {
   showPopup: PropTypes.func,
   children: PropTypes.node,
-  title: PropTypes.string
+  title: PropTypes.string,
+  closeText: PropTypes.string
 };
 export default popup;

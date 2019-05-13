@@ -12,6 +12,10 @@ const initialState = {
     status: false,
     message: ''
   },
+  trade_edit_done: {
+    status: false,
+    message: ''
+  },
   error: {
     message: '',
     status: false
@@ -26,6 +30,8 @@ const Error = (state = initialState, action) => {
       return { ...state, sell_done: action.done };
     case actions.TRADE_DONE:
       return { ...state, trade_done: action.done };
+    case actions.TRADE_EDIT_DONE:
+      return { ...state, trade_edit_done: action.done };
     case actions.ERROR:
       return { ...state, error: action.error };
     default:
