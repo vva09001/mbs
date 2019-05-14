@@ -75,7 +75,9 @@ class List extends Component {
           </div>
         </div>
         <div className="list-conatainer">
-          {this.props.loading ? <Loading /> : this.props.bonds.length === 0 ? (
+          {this.props.loading ? (
+            <Loading />
+          ) : this.props.bonds.length === 0 ? (
             <div className="text-center wapper" />
           ) : (
             _.map(this.props.bonds, (item, index) => (
