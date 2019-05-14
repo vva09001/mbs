@@ -7,17 +7,36 @@ import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import Card from 'components/account/card';
 import Loading from 'components/common/loading';
+import Pagination from 'components/common/Pagination';
 import { accountActions, bondsActions } from 'store/actions';
 import history from 'utils/history';
 
 class List extends Component {
-  componentDidMount() {
-    this.props.getList({
-      num: 40,
-      page: 1,
-      order: 0
-    });
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: {
+        num: 40,
+        page: 1
+      }
+    };
   }
+  componentDidMount() {
+    this.props.getList(this.state.query);
+  }
+  onPagination = page => {
+    this.setState(
+      {
+        query: {
+          ...this.state.query,
+          page: page
+        }
+      },
+      () => {
+        this.props.getList(this.state.query);
+      }
+    );
+  };
   _onDetail = code => {
     this.props.bondsDetail({
       code: code
@@ -26,9 +45,6 @@ class List extends Component {
   };
   render() {
     const { t } = this.props;
-    if (this.props.loading) {
-      return <Loading />;
-    }
     return (
       <Layout type={2} title="Trái Phiếu nắm giữ" active="/user/">
         <div className="sell-title">
@@ -57,14 +73,21 @@ class List extends Component {
         </div>
         <div />
         <div className="list-conatainer">
-          {}
-          {this.props.bonds.length === 0 ? (
+          {this.props.loading ? (
+            <Loading />
+          ) : this.props.bonds.length === 0 ? (
             <div className="text-center wapper" />
           ) : (
             _.map(this.props.bonds, (item, index) => (
               <Card onDetail={this._onDetail} item={item} key={index} />
             ))
           )}
+          <Pagination
+            onClick={this.onPagination}
+            number={this.state.query.num}
+            total={this.props.total_list}
+            page={this.state.query.page}
+          />
         </div>
       </Layout>
     );
@@ -78,6 +101,7 @@ List.propTypes = {
   bondsDetail: PropTypes.func,
   t: PropTypes.func,
   total: PropTypes.number,
+  total_list: PropTypes.number,
   loading: PropTypes.bool
 };
 
@@ -85,6 +109,7 @@ const mapStateToProps = state => {
   return {
     bonds: state.Account.list,
     total: state.Account.total,
+    total_list: state.Account.total_list,
     loading: state.Account.loading
   };
 };

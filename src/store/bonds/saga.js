@@ -29,6 +29,7 @@ export function* bondsList() {
         // handle request
         if (res.data.result === 0 && res.data.data !== null) {
           yield put({ type: actions.BONDS, list: res.data.data.data });
+          yield put({ type: actions.BONDS_TOTAL, total: res.data.data.total });
         } else {
           yield put({
             type: errorActions.ERROR,

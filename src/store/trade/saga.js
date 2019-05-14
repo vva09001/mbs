@@ -25,7 +25,10 @@ export function* tradeListSaga() {
       // handle request
       if (res.status === 200) {
         if (res.data.result === 0 && res.data.data !== null) {
-          yield put({ type: actions.TRADE_LIST, list: res.data.data.data });
+          yield put({
+            type: actions.TRADE_LIST,
+            list: { data: res.data.data.data, total: res.data.data.total }
+          });
         } else {
           if (res.data.result === -1010) {
             yield history.push({ pathname: '/user/connect/' });

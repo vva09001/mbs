@@ -116,6 +116,7 @@ export function* accountBondsSaga() {
       if (res.status === 200) {
         if (res.data.result === 0 && res.data.data !== null) {
           yield put({ type: actions.ACCOUNT_LIST, list: res.data.data.data });
+          yield put({ type: actions.ACCOUNT_TOTAL_LIST, total: res.data.data.total });
           yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalValue });
         } else {
           if (res.data.result === -1010) {

@@ -7,15 +7,22 @@ import { currency } from 'utils/currency';
 import Layout from 'container/layout/layout';
 import Card from 'components/sell/card';
 import Loading from 'components/common/loading';
+import Pagination from 'components/common/Pagination';
 import { sellActions, bondsActions } from 'store/actions';
 import history from 'utils/history';
 
 class List extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: {
+        num: 40,
+        page: 1
+      }
+    };
+  }
   componentDidMount() {
-    this.props.getList({
-      num: 40,
-      page: 1
-    });
+    this.props.getList(this.state.query);
   }
   _getContract = params => {
     this.props.getContract(params);
@@ -26,11 +33,21 @@ class List extends Component {
     });
     history.push({ pathname: '/buy/info/' });
   };
+  onPagination = page => {
+    this.setState(
+      {
+        query: {
+          ...this.state.query,
+          page: page
+        }
+      },
+      () => {
+        this.props.getList(this.state.query);
+      }
+    );
+  };
   render() {
     const { t } = this.props;
-    if (this.props.loading) {
-      return <Loading />;
-    }
     return (
       <Layout type={2} title={t('BÁN TRÁI PHIẾU')}>
         <div className="sell-title">
@@ -58,13 +75,19 @@ class List extends Component {
           </div>
         </div>
         <div className="list-conatainer">
-          {this.props.bonds.length === 0 ? (
+          {this.props.loading ? <Loading /> : this.props.bonds.length === 0 ? (
             <div className="text-center wapper" />
           ) : (
             _.map(this.props.bonds, (item, index) => (
               <Card onDetail={this._onDetail} item={item} key={index} onClick={this._getContract} />
             ))
           )}
+          <Pagination
+            onClick={this.onPagination}
+            number={this.state.query.num}
+            total={this.props.total_list}
+            page={this.state.query.page}
+          />
         </div>
       </Layout>
     );
@@ -78,14 +101,16 @@ List.propTypes = {
   total: PropTypes.number,
   loading: PropTypes.bool,
   getContract: PropTypes.func,
-  t: PropTypes.func
+  t: PropTypes.func,
+  total_list: PropTypes.number
 };
 
 const mapStateToProps = state => {
   return {
     bonds: state.Sell.list,
     total: state.Sell.total,
-    loading: state.Sell.loading
+    loading: state.Sell.loading,
+    total_list: state.Sell.total_list
   };
 };
 

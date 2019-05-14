@@ -5,6 +5,7 @@ const actions = {
   BONDS_GET: 'BONDS_GET',
   BONDS_RESET: 'BONDS_RESET',
   BONDS_LOADING: 'BONDS_LOADING',
+  BONDS_TOTAL: 'BONDS_TOTAL',
   list: params => ({
     type: actions.BONDS_LIST,
     params

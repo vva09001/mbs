@@ -6,6 +6,7 @@ import { withTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 import Card from 'components/buy/card';
 import Loading from 'components/common/loading';
+import Pagination from 'components/common/Pagination';
 import bondsActions from 'store/bonds/actions';
 import buyActions from 'store/buy/actions';
 
@@ -14,18 +15,15 @@ class List extends Component {
     super(props);
     this.state = {
       toggle: false,
-      picked: 0,
-      pagination: {
+      query: {
         num: 40,
+        order: 0,
         page: 1
       }
     };
   }
   componentDidMount() {
-    this.props.bondsFetch({
-      ...this.state.pagination,
-      order: 0
-    });
+    this.props.bondsFetch(this.state.query);
   }
   _fetchDetail = params => {
     this.props.bondsDetail(params);
@@ -36,13 +34,17 @@ class List extends Component {
       code: code
     });
   };
-  _bondsFetch = params => {
+  _bondsFetch = (order, pagination) => {
     this.setState(
       {
-        picked: params.order
+        query: {
+          ...this.state.query,
+          order: order,
+          page: pagination || this.state.page
+        }
       },
       () => {
-        this.props.bondsFetch(params);
+        this.props.bondsFetch(this.state.query);
       }
     );
   };
@@ -61,20 +63,42 @@ class List extends Component {
       />
     ));
   };
+  onPagination = page => {
+    this.setState(
+      {
+        query: {
+          ...this.state.query,
+          page: page
+        }
+      },
+      () => {
+        this.props.bondsFetch(this.state.query);
+      }
+    );
+  };
   render() {
-    if (this.props.loading) {
-      return <Loading />;
-    }
     return (
       <Layout
         toggle={this.state.toggle}
         onClick={this._bondsFetch}
         onToggle={this._toggle}
-        filterPicked={this.state.picked}
+        filterPicked={this.state.query.order}
         title="Sản phẩm"
         active="/buy/"
       >
-        {this.props.bonds.length === 0 ? <div className="text-center wapper" /> : this._showList()}
+        {this.props.loading ? (
+          <Loading />
+        ) : this.props.bonds.length === 0 ? (
+          <div className="text-center wapper" />
+        ) : (
+          this._showList()
+        )}
+        <Pagination
+          onClick={this.onPagination}
+          number={this.state.query.num}
+          total={this.props.total}
+          page={this.state.query.page}
+        />
       </Layout>
     );
   }
@@ -87,12 +111,14 @@ List.propTypes = {
   profile: PropTypes.object,
   buyFetch: PropTypes.func,
   bondsDetail: PropTypes.func,
-  t: PropTypes.func
+  t: PropTypes.func,
+  total: PropTypes.number
 };
 
 const mapStateToProps = state => {
   return {
     bonds: state.Bonds.list,
+    total: state.Bonds.total,
     profile: state.Account.profile,
     loading: state.Bonds.loading
   };

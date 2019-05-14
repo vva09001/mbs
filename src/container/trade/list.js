@@ -8,13 +8,20 @@ import Card from 'components/trade/card';
 import Loading from 'components/common/loading';
 import { bondsActions, tradeActions } from 'store/actions';
 import history from 'utils/history';
-// import { currency } from 'utils/currency';
+import Pagination from 'components/common/Pagination';
+
 class List extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: {
+        num: 40,
+        page: 1
+      }
+    };
+  }
   componentDidMount() {
-    this.props.getList({
-      num: 40,
-      page: 1
-    });
+    this.props.getList(this.state.query);
   }
   _onClick = params => {
     this.props.getDetail(params);
@@ -24,6 +31,19 @@ class List extends Component {
       code: code
     });
     history.push({ pathname: '/buy/info/' });
+  };
+  onPagination = page => {
+    this.setState(
+      {
+        query: {
+          ...this.state.query,
+          page: page
+        }
+      },
+      () => {
+        this.props.getList(this.state.query);
+      }
+    );
   };
   _showList = () => {
     return _.map(this.props.bonds, (item, index) => (
@@ -57,9 +77,6 @@ class List extends Component {
   };
   render() {
     const { t } = this.props;
-    if (this.props.loading) {
-      return <Loading />;
-    }
     return (
       <Layout type={2} title="Quản lý giao dịch" active="/trade/">
         <div className="sell-title">
@@ -76,11 +93,19 @@ class List extends Component {
             </div>
           </div>
         </div>
-        {this.props.bonds.length === 0 ? (
+        {this.props.loading ? (
+          <Loading />
+        ) : this.props.bonds.length === 0 ? (
           <div className="text-center " />
         ) : (
           <div className="custom-card">{this._showList()}</div>
         )}
+        <Pagination
+          onClick={this.onPagination}
+          number={this.state.query.num}
+          total={this.props.total_list}
+          page={this.state.query.page}
+        />
       </Layout>
     );
   }
@@ -93,13 +118,15 @@ List.propTypes = {
   bondsDetail: PropTypes.func,
   t: PropTypes.func,
   loading: PropTypes.bool,
-  total: PropTypes.number
+  total: PropTypes.number,
+  total_list: PropTypes.number
 };
 
 const mapStateToProps = state => {
   return {
     bonds: state.Trade.list,
     total: state.Sell.total,
+    total_list: state.Trade.total,
     loading: state.Trade.loading
   };
 };

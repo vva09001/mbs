@@ -26,7 +26,10 @@ export function* sellListSaga() {
       if (res.status === 200) {
         if (res.data.result === 0 && res.data.data !== null) {
           yield put({ type: actions.SELL_TOTAL, total: res.data.data.totalValue });
-          yield put({ type: actions.SELL_LIST, list: res.data.data.data });
+          yield put({
+            type: actions.SELL_LIST,
+            list: { data: res.data.data.data, total: res.data.data.total }
+          });
         } else {
           // Check if account is not connected
           if (res.data.result === -1010) {

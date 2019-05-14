@@ -27,7 +27,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
             >
               <button
                 onClick={() => {
-                  onClick({ num: 40, page: 1, order: 0 });
+                  onClick(0);
                   onToggle();
                 }}
                 className={filterPicked === 0 ? 'dropdown-item active' : 'dropdown-item'}
@@ -36,7 +36,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
               </button>
               <button
                 onClick={() => {
-                  onClick({ num: 40, page: 1, order: 1 });
+                  onClick(1);
                   onToggle();
                   filterPicked = 1;
                 }}
@@ -46,7 +46,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
               </button>
               <button
                 onClick={() => {
-                  onClick({ num: 40, page: 1, order: 2 });
+                  onClick(2);
                   onToggle();
                   filterPicked = 2;
                 }}

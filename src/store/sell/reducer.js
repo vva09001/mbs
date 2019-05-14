@@ -9,7 +9,8 @@ const initialState = {
   date: [],
   book: {},
   loading: false,
-  total: 0
+  total: 0,
+  total_list: 0
 };
 
 const Sell = (state = initialState, action) => {
@@ -17,7 +18,7 @@ const Sell = (state = initialState, action) => {
     case actions.SELL_TOTAL:
       return { ...state, total: action.total };
     case actions.SELL_LIST:
-      return { ...state, list: action.list };
+      return { ...state, list: action.list.data, total_list: action.list.total };
     case actions.SELL_DETAIL:
       return { ...state, detail: action.detail };
     case actions.SELL_FLOW:
