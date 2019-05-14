@@ -5,9 +5,9 @@ import { currency } from 'utils/currency';
 
 import Icon from 'components/common/icon';
 
-const { t } = useTranslation();
-
 const card = props => {
+  const { t } = useTranslation();
+
   return (
     <div className="card">
       <ul className="list-group list-group-flush">
@@ -26,25 +26,25 @@ const card = props => {
           </button>
         </li>
         <li className="list-group-item">
-          {t('Ngày Giao Dịch (Mua)')}
+          {t('trading_day_(Buy)')}
           <span className="float-right">{props.item.buyDate}</span>
         </li>
         <li className="list-group-item">
           {props.item.isShell === 0
-            ? t('Ngày Kết Thúc Đầu Tư')
-            : t('Ngày Kết Thúc Đầu Tư (Dự Kiến)')}
+            ? t('Investment_End_Date')
+            : t('investment_end_date_(Expected)')}
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          {t('Khối Lượng')}
+          {t('mass')}
           <p className="float-right">
             <span className="quatity">
-              {currency(props.item.buyVol)} {t('Trái Phiếu')}
+              {currency(props.item.buyVol)} {t('bonds')}
             </span>
           </p>
         </li>
         <li className="list-group-item">
-          {t('Giá Trị Đầu Tư')}
+          {t('investment_value')}
           <p className="float-right">
             <span className="quatity">
               {currency(props.item.buyValue)} {t('VNĐ')}
@@ -52,7 +52,7 @@ const card = props => {
           </p>
         </li>
         <li className="list-group-item">
-          {t('Giá Trị Nhận Sau Đầu Tư')}
+          {t('post_investment_value')}
           <p className="float-right">
             <span className="quatity">
               {currency(props.item.sellValue)} {t('VNĐ')}
@@ -60,10 +60,10 @@ const card = props => {
           </p>
         </li>
         <li className="list-group-item">
-          {t('Lợi Suất')}
+          {t('Yield')}
           <p className="float-right">
             <span className="quatity quatity-text">{currency(props.item.termRate)}</span>
-            <span className="quatity"> {t('%/năm')}</span>
+            <span className="quatity"> {t('%/year')}</span>
           </p>
         </li>
         {props.children}

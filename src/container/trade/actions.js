@@ -77,7 +77,7 @@ class Actions extends Component {
     return (
       <Layout
         type={2}
-        title={this.state.type === 'edit' ? t('Sửa giao dịch bán') : t('Bán Trái Phiếu')}
+        title={this.state.type === 'edit' ? 'fixed_sale_transactions' : 'sell_bonds'}
       >
         {this.state.status && (
           <Popup
@@ -94,8 +94,8 @@ class Actions extends Component {
         <div
           className={
             this.state.type === 'edit'
-              ? t('bond-detail bond-detail-edit')
-              : t('bond-detail bond-detail-cancel')
+              ? 'bond-detail bond-detail-edit'
+              : 'bond-detail bond-detail-cancel'
           }
         >
           <div className="section">
@@ -107,30 +107,30 @@ class Actions extends Component {
           </div>
           <div className="pt-2">
             <div className="sum-field titles row">
-              <div className="col-form-div fwb">{t('Thông Tin Trái Phiếu Sở Hữu')}</div>
+              <div className="col-form-div fwb">{t('Property_Bond_Information')}</div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Ngày Giao Dịch (Mua)')}</div>
+              <div className="col-6 col-form-div">{t('trading_day_(Buy)')}</div>
               <div className="col-6 mdata">{detail.buyDate}</div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Ngày Kết Thúc Đầu Tư')}</div>
+              <div className="col-6 col-form-div">{t('investment_end_date')}</div>
               <div className="col-6 mdata">{detail.maturityDate}</div>
             </div>
             <div className="row">
-              <div className="col-6  npdr">{t('Khối Lượng')} </div>
+              <div className="col-6  npdr">{t('mass')} </div>
               <div className="col-6 mdata">
-                {currency(detail.buyVol)} {t('Trái Phiếu')}
+                {currency(detail.buyVol)} {t('bonds')}
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Đơn Giá Giao Dịch')}</div>
+              <div className="col-6 col-form-div">{t('transaction_price_unit')}</div>
               <div className="col-6 mdata">
                 {currency(detail.buyPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Giá Trị Giao Dịch')}</div>
+              <div className="col-6 col-form-div">{t('transaction_value')}</div>
               <div className="col-6 mdata">
                 {currency(detail.buyValue)} {t('VNĐ')}
               </div>
@@ -138,10 +138,10 @@ class Actions extends Component {
           </div>
           <div className="pb-2">
             <div className="sum-field titles row">
-              <div className="col-form-div fwb">{t('Đề Nghị Bán Trái Phiếu')}</div>
+              <div className="col-form-div fwb">{t('proposal_to_sell_bonds')}</div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Ngày đề nghị bán')}</div>
+              <div className="col-6 col-form-div">{t('Offer_date_for_sale')}</div>
               <div className="col-6 mdata">{FormatTime(this.state.date)}</div>
             </div>
             <div className="row">
@@ -150,7 +150,7 @@ class Actions extends Component {
                   this.state.type === 'edit' ? 'col-6 col-form-div lh35' : 'col-6 col-form-div'
                 }
               >
-                {t('Ngày Giao Dịch (Bán)')}
+                {t('trading_day_(sale)')}
               </div>
               <div className="col-6 mdata">
                 <span className=" date">
@@ -159,33 +159,33 @@ class Actions extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Đơn Giá Giao Dịch')}</div>
+              <div className="col-6 col-form-div">{t('transaction_price_unit')}</div>
               <div className="col-6 mdata">
                 {currency(info.sellPrice)} {t('VNĐ')}
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Lợi suất')}</div>
+              <div className="col-6 col-form-div">{t('yield')}</div>
               <div className="col-6 mdata">
                 {currency(info.termRate)}
-                {t('%/năm')}
+                {t('%/year')}
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div">{t('Khối Lượng')}</div>
+              <div className="col-6 col-form-div">{t('mass')}</div>
               <div className="col-6 mdata">
-                {currency(info.sellVol)} {t('Trái Phiếu')}
+                {currency(info.sellVol)} {t('bonds')}
               </div>
             </div>
             <div className="row">
-              <div className="col-6 col-form-div date">{t('Giá Trị Giao Dịch')}</div>
+              <div className="col-6 col-form-div date">{t('transaction_value')}</div>
               <div className="col-6 col-form-div text-blod date mdata">
                 {currency(info.sellValue)} {t('VNĐ')}
               </div>
             </div>
             <div className="row">
               <div className="col-6 col-form-div">
-                <i>{t('Tỷ lệ thuế TNCN (%)')}</i>
+                <i>{t('pit_rate_(%)')}</i>
               </div>
               <div className="col-6 mdata">
                 <i>{currency(info.taxPit)}%</i>
@@ -193,9 +193,9 @@ class Actions extends Component {
             </div>
             <div className="row">
               <div className="col-6 col-form-div">
-                <i>{t('Thuế TNCN')}</i>
+                <i>{t('pit_rate')}</i>
                 <br />
-                <i>{t('(Do MBS chi trả)')}</i>
+                <i>{t('payment_by_MBS')}</i>
               </div>
               <div className="col-6 mdata">
                 <i>
@@ -216,7 +216,7 @@ class Actions extends Component {
                   : 'btn btn-danger rounded-pill border-0 btn-lg btn-block'
               }
             >
-              {this.state.type === 'edit' ? t('SỬA BÁN') : t('HUỶ BÁN')}
+              {this.state.type === 'edit' ? t('edit_sell') : t('canecl_Sell')}
             </button>
           </div>
         </div>

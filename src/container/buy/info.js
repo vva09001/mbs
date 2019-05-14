@@ -8,103 +8,99 @@ import { useTranslation } from 'react-i18next';
 const Info = ({ detail }) => {
   const { t } = useTranslation();
   return (
-    <Layout type={1} title={t('Thông tin Trái Phiếu')}>
+    <Layout type={1} title="bond_information">
       <div className="bond-detail pdt10">
         <table className="table table-striped">
           <tbody>
             <tr>
               <td width="50%">
-                <b>{t(`Tổ Chức Phát Hành`)}</b>
+                <b>{t(`issuers`)}</b>
               </td>
               <td width="50%">{detail.issuerBond}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Mã Trái Phiếu`)}</b>
+                <b>{t(`bond_code`)}</b>
               </td>
               <td>{detail.bondCode}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Mệnh Giá`)}</b>
+                <b>{t(`denominations`)}</b>
               </td>
               <td>
-                {currency(detail.parValue)} {t(`VNĐ`)}/{t(`Trái Phiếu`)}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>{t(`Giá Phát Hành`)}</b>
-              </td>
-              <td>
-                {currency(detail.issuePrice)}% {t(`Mệnh Giá`)}
+                {currency(detail.parValue)} {t(`VNĐ`)}/{t(`bonds`)}
               </td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Kỳ Hạn`)}</b>
+                <b>{t(`release_price`)}</b>
+              </td>
+              <td>
+                {currency(detail.issuePrice)}% {t(`denominations`)}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>{t(`period`)}</b>
               </td>
               <td>{detail.termBond}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Ngày Phát Hành`)}</b>
+                <b>{t(`release_date`)}</b>
               </td>
               <td>{detail.releaseDate}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Ngày Đáo Hạn`)}</b>
+                <b>{t(`date_due`)}</b>
               </td>
               <td>{detail.maturityDate}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Lãi suất Trái Phiếu`)}</b>
+                <b>{t(`interest_on_bonds`)}</b>
               </td>
               <td className="text-justify">
-                {t(`Lãi suất áp dụng cho`)}
-                {detail.termFixCount}
-                {t(`kỳ tính lãi đầu tiên của Trái Phiếu là`)} {currency(detail.interestFixRate)}
-                {t(`%/năm`)}.
+                {t(`termFixCount`)} {''}
+                {detail.termFixCount} {''}
+                {t(`interestFixRate`)} {currency(detail.interestFixRate)}
+                {t(`%/year`)}.
                 {detail.interestFloatRange !== 0
-                  ? t(
-                      `Lãi suất áp dụng cho các kỳ tính lãi tiếp theo của Trái Phiếu sẽ được xác định bằng lãi suất tham chiếu cộng (+) biên độ`
-                    ) +
-                    detail.interestFloatRange +
-                    t(`%/năm`)
+                  ? t(`interestFloatRange`) + detail.interestFloatRange + t(`%/year`)
                   : ''}
               </td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Kỳ Tính Lãi`)}</b>
+                <b>{t(`interest_period`)}</b>
               </td>
               <td>
-                {detail.couponPayment} {t(`tháng/lần`)}
+                {detail.couponPayment} {t(`month/time`)}
               </td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Hình thức Trái Phiếu`)}</b>
+                <b>{t(`form_of_bond`)}</b>
               </td>
               <td>{detail.releaseForm}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Quyền Liên Quan Đến Trái Phiếu`)}</b>
+                <b>{t(`bond_related_rights`)}</b>
               </td>
               <td>{detail.rightBuyDesc}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Đại Lý Đăng Ký Lưu Ký`)}</b>
+                <b>{t(`agents_register_depository`)}</b>
               </td>
               <td>{detail.depositAgents}</td>
             </tr>
             <tr>
               <td>
-                <b>{t(`Đại Lý Thanh Toán`)}</b>
+                <b>{t(`payment_agent`)}</b>
               </td>
               <td>{detail.paymentAgents}</td>
             </tr>

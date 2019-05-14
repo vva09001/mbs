@@ -22,7 +22,7 @@ class HomePage extends Component {
           <div className="col-12 text-center">
             <h6 className="text-primary mt-3 mb-3">
               <img alt="logo" src="/img/logo_MBS.svg" className="mr-2 logoMBS" />
-              {t('MBS')}
+              {t('Company_homepage')}
             </h6>
           </div>
         </div>
@@ -33,7 +33,7 @@ class HomePage extends Component {
                 <Link to="/buy/">
                   <img src="/img/ic_buy.svg" alt="buy" />
                   <div className="text-buy">
-                    <h3>{t('MUA TRÁI PHIẾU')}</h3>
+                    <h3>{t('buy_bonds')}</h3>
                   </div>
                 </Link>
               </div>
@@ -43,7 +43,7 @@ class HomePage extends Component {
                 <Link to="/sell/">
                   <img src="/img/ic_sale.svg" alt="sell" />
                   <div className="text-sell">
-                    <h3>{t('BÁN TRÁI PHIẾU')}</h3>
+                    <h3>{t('sell_bonds')}</h3>
                   </div>
                 </Link>
               </div>

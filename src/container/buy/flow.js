@@ -9,49 +9,49 @@ import Layout from 'container/layout/layout';
 const Flow = props => {
   const { t } = props;
   return (
-    <Layout type={1} title={t('Đằng Ký Mua Trái Phiếu')}>
+    <Layout type={1} title="on_bond_purchase_sign">
       <div className="buy-wrapper">
         <h4 className="text-center mtitle text-uppercase">
-          {t('Dòng tiền nhận được khi mua Trái Phiếu')}
+          {t('cash_flow_received_when_buying_bonds')}
         </h4>
         <div className="row">
           <div className="col-12">
             <p className="mb-0">
-              {t('Từ ngày')} :
+              {t('since')} :
               <span className="text-info">
                 <strong> {props.info.buyDate}</strong>
               </span>
             </p>
             <p className="mb-0">
-              {t('Đến ngày')} :
+              {t('to_date')} :
               <span className="text-info">
                 <strong> {props.info.maturityDate}</strong>
               </span>
             </p>
-            <p>{t('Quý khách sẽ nhận được dòng tiền dự kiến như sau')}:</p>
+            <p>{t('you_will_receive_the_expected_cash_flow_as_follows')}:</p>
           </div>
         </div>
         <div className="row">
           <div className="col-12">
             <div className="p-2 bg999 text-white d-flex justify-content-between align-items-center">
-              <span>{t('Dòng tiền chưa bao gồm tái đầu tư coupon')}</span>
+              <span>{t('cash_flow_does_not_include_coupon_reinvestment')}</span>
             </div>
             <div className="text-primary wpp">
               <i className="font14">
-                {t('Lợi suất chưa tái đầu tư')} :{' '}
+                {t('the_yield_has_not_reinvested')} :{' '}
                 <strong className="text-info">
                   {currency(props.info.termNoninvest)}
                   %/
-                  {t('năm')}
+                  {t('year')}
                 </strong>
               </i>
             </div>
             <table className="table table-striped">
               <thead>
                 <tr className="text-primary">
-                  <td className="text-left">{t('Nội dung')}</td>
-                  <td>{t('Ngày thanh toán')}</td>
-                  <td>{t('Tiền nhận (VNĐ)')}</td>
+                  <td className="text-left">{t('content')}</td>
+                  <td>{t('date_of_payment')}</td>
+                  <td>{t('money_received_(VND)')}</td>
                 </tr>
               </thead>
               <tbody>
@@ -66,7 +66,7 @@ const Flow = props => {
               <tfoot>
                 <tr>
                   <td colSpan="2" className="text-primary">
-                    <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
+                    <strong>{t('total_cash_flow_from_Bonds')}</strong>
                   </td>
                   <td>
                     <h5 className="text-info tar">{currency(props.info.sumCashNoninvest)}</h5>
@@ -79,25 +79,25 @@ const Flow = props => {
         <div className="row">
           <div className="col-12">
             <div className="p-2 bg999 text-white d-flex justify-content-between align-items-center">
-              <span>{t('Dòng tiền đã bao gồm tái đầu tư coupon')}</span>
+              <span>{t('cash_flow_has_included_reinvestment_coupon')}</span>
             </div>
             <div className="text-primary wpp">
               <i className="font14">
-                {t('Lợi suất đã tái đầu tư')} :{' '}
+                {t('the_yield_has_reinvested')} :{' '}
                 <strong className="text-info">
                   {currency(props.info.termInvest)}
                   %/
-                  {t('năm')}
+                  {t('year')}
                 </strong>
               </i>
             </div>
             <table className="table table-striped table-responsive">
               <thead>
                 <tr className="text-primary">
-                  <td>{t('Từ ngày')}</td>
-                  <td>{t('Đến ngày')}</td>
-                  <td>{t('Coupon tái đầu tư')}</td>
-                  <td>{t('Lãi tái đầu tư (VNĐ)')}</td>
+                  <td>{t('since')}</td>
+                  <td>{t('to_date')}</td>
+                  <td>{t('coupon_reinvestment')}</td>
+                  <td>{t('reinvestment_interest_(VND)')}</td>
                 </tr>
               </thead>
               <tbody>
@@ -114,11 +114,11 @@ const Flow = props => {
                 <tr>
                   <td colSpan="4" className="text-primary white-bg">
                     <i>
-                      {t('Lãi suất tái đầu tư')} :{' '}
+                      {t('reinvestment_interest_rate')} :{' '}
                       {props.flow.flowInvest.length > 0
                         ? props.flow.flowInvest[0].reinvestmentRate
                         : 0}
-                      {t('%/năm')}
+                      {t('%/year')}
                     </i>
                   </td>
                 </tr>
@@ -126,7 +126,7 @@ const Flow = props => {
               <tfoot>
                 <tr>
                   <td colSpan="3" className="text-primary">
-                    <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
+                    <strong>{t('total_cash_flow_from_Bonds')}</strong>
                   </td>
                   <td>
                     <h5 className="text-info tar">{currency(props.info.sumCashInvest)}</h5>

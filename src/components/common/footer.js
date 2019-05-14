@@ -9,22 +9,22 @@ const footer = ({ active }) => {
   const datas = [
     {
       link: '/',
-      text: 'Mua bán',
+      text: 'footer_buy_sell',
       icon: 'ic_buySale'
     },
     {
       link: '/buy/',
-      text: 'Sản phẩm',
+      text: 'product',
       icon: 'ic_product'
     },
     {
       link: '/user/',
-      text: 'Tài sản',
+      text: 'asset',
       icon: 'ic_assets'
     },
     {
       link: '/trade/',
-      text: 'Quản lý GD',
+      text: 'manageGD',
       icon: 'ic_tradingM'
     }
   ];

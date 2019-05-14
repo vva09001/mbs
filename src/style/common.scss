@@ -1030,6 +1030,7 @@ body {
   height: 48px;
   margin: auto;
   color: #fff;
+  list-style: none;
   a {
     font-size: 17px;
     padding-top: 17px;
@@ -1070,3 +1071,8 @@ i.fa.fa-eye {
   padding-top: 5px;
   color: #ff1a1a;
 }
+.bg-white {
+  p {
+    margin-bottom: 0.25rem !important;
+  }
+} 

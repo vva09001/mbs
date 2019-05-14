@@ -25,20 +25,20 @@ const card = props => {
           </span>
         </li>
         <li className="list-group-item">
-          <span className="mlabel">{t('Lãi Suất')}</span>
+          <span className="mlabel">{t('interest_rate')}</span>
           <p className="float-right">
             <span className="clb ls">{currency(props.item.termRate)}%</span>
-            <span className="clb">/{t('năm')}</span>
+            <span className="clb">/{t('year')}</span>
           </p>
         </li>
         <li className="list-group-item">
-          <span className="mlabel">{t('Ngày Đáo Hạn')}</span>
+          <span className="mlabel">{t('date_due')}</span>
           <span className="float-right">{props.item.maturityDate}</span>
         </li>
         <li className="list-group-item">
-          <span className="mlabel">{t('Hạn Mức')}</span>
+          <span className="mlabel">{t('limit')}</span>
           <p className="float-right">
-            <span className="clb">{currency(props.item.roomBalance) + t('Trái Phiếu')}</span>
+            <span className="clb">{currency(props.item.roomBalance) + t('bonds')}</span>
           </p>
         </li>
         <li className="list-group-item justify-content-center">
@@ -48,7 +48,7 @@ const card = props => {
               onClick={() => props.fetchDetail({ code: props.item.bondCode })}
               className="btn btn-link rounded-pill border-0 btn-lg btn-block"
             >
-              {t('Mua')}
+              {t('buy')}
             </Link>
           </div>
         </li>

@@ -27,76 +27,75 @@ class Order extends Component {
   render() {
     const { bond, info, t } = this.props;
     return (
-      <Layout type={1} title={t('MUA TRÁI PHIẾU')}>
+      <Layout type={1} title={t('buy_bonds')}>
         <div className="bond-detail">
-          <h4 className="text-center mtitle">{t('Đăng Ký Mua Trái Phiếu')}</h4>
+          <h4 className="text-center mtitle">{t('register_to_buy_bonds')}</h4>
           <table className="table table-bordered bg-white">
             <tbody>
               <tr className="bgg">
-                <td width="50%">{t('Trái Phiếu')}</td>
+                <td width="50%">{t('bonds')}</td>
                 <td width="50%">{bond.bondCode}</td>
               </tr>
               <tr>
-                <td>{t('Ngày Giao Dịch')}</td>
+                <td>{t('day_trading')}</td>
                 <td>{info.buyDate}</td>
               </tr>
               <tr>
-                <td>{t('Ngày kết thúc đầu tư')}</td>
+                <td>{t('investment_end_date')}</td>
                 <td>{info.maturityDate}</td>
               </tr>
               <tr>
-                <td>{t('Khối lượng')}</td>
+                <td>{t('mass')}</td>
                 <td>
-                  {currency(info.buyVol)} {t('Trái Phiếu')}
+                  {currency(info.buyVol)} {t('bonds')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Đơn Giá Giao Dịch')}</td>
+                <td>{t('transaction_price_unit')}</td>
                 <td>
-                  {currency(info.buyPrice)} {t('VNĐ')}/{t('Trái Phiếu')}
+                  {currency(info.buyPrice)} {t('VNĐ')}/{t('bonds')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Giá Trị Giao Dịch')}</td>
+                <td>{t('transaction_value')}</td>
                 <td>
                   {currency(info.buyValue)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Thuế, Phí Giao Dịch')} </td>
+                <td>{t('tax_transaction_fees')} </td>
                 <td>
                   {currency(info.buyFee)} {t('VNĐ')}
                 </td>
               </tr>
               <tr className="bgg">
-                <td>{t('Tổng Giá Trị Giao Dịch')}</td>
+                <td>{t('total_transaction_value')}</td>
                 <td>
                   {currency(info.buyValue + info.buyFee)} {t('VNĐ')}
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi suất chưa tái đầu tư')}</td>
+                <td>{t('the_yield_has_not_reinvested')}</td>
                 <td>
                   <b>
                     {currency(info.termNoninvest)}
-                    {t('%/năm')}
+                    {t('%/year')}
                   </b>
                 </td>
               </tr>
               <tr>
-                <td>{t('Lợi suất đã tái đầu tư')}</td>
+                <td>{t('the_yield_has_reinvested')}</td>
                 <td>
                   <b>
                     {currency(info.termInvest)}
-                    {t('%/năm')}
+                    {t('%/year')}
                   </b>
                 </td>
               </tr>
               <tr>
-                <td>{t('Ngày thanh toán lãi')}</td>
+                <td>{t('interest_payment_date')}</td>
                 <td className="text-justify">
-                  {t('Tiền lãi Trái Phiếu được trả sau, định kỳ mỗi')} {info.couponPayment}{' '}
-                  {t('tháng một lần vào ngày cuối cùng của mỗi Kỳ Tính Lãi')}
+                  {t('couponPayment_info_01')} {info.couponPayment} {t('couponPayment_info_02')}
                 </td>
               </tr>
             </tbody>
@@ -104,26 +103,26 @@ class Order extends Component {
           <div className="term-condition">
             <Link to="/buy/info">
               <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
-              <i>{t('Thông tin Trái Phiếu')}</i>
+              <i>{t('bond_information')}</i>
             </Link>
             <br />
             <Link to="/buy/term">
               <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
-              <i>{t('Các Điều khoản và Điều kiện mua Trái Phiếu')}</i>
+              <i>{t('bond_terms_and_conditions')}</i>
             </Link>
             <br />
             <Link to="/buy/flow">
               <img alt="popup-click" src="/img/ic_info_16x16.svg" className="mr-2" />
-              <i>{t('Chi tiết dòng tiền')}</i>
+              <i>{t('cash_flow_details')}</i>
             </Link>
           </div>
           <label className="form-check-label">
             <i>
-              {t('Tôi xác nhận và đồng ý với')} {''}
+              {t('order_buy_confirm_01')} {''}
               {t('sign')}
-              {t('Các Điều khoản và Điều kiện mua Trái Phiếu')}
+              {t('order_buy_confirm_02')}
               {t('sign')} {''}
-              {t('đã nêu trên và các Văn Kiện Trái Phiếu liên quan.')}
+              {t('order_buy_confirm_03')}
             </i>
             <input
               type="checkbox"
@@ -141,7 +140,7 @@ class Order extends Component {
               className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
               disabled={!this.state.toggle.checkbox}
             >
-              {t('XÁC NHẬN')}
+              {t('confirm')}
             </button>
           </div>
         </div>
