@@ -38,7 +38,7 @@ const card = props => {
         <li className="list-group-item">
           <span className="mlabel">{t('Hạn Mức')}</span>
           <p className="float-right">
-            <span className="clb">{currency(props.item.roomBalance) + t(' Trái Phiếu')}</span>
+            <span className="clb">{currency(props.item.roomBalance) + t('Trái Phiếu')}</span>
           </p>
         </li>
         <li className="list-group-item justify-content-center">

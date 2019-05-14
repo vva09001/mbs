@@ -46,7 +46,7 @@ class List extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Layout type={2} title="Trái Phiếu nắm giữ" active="/user/">
+      <Layout type={2} title={t('Trái Phiếu nắm giữ')} active="/user/">
         <div className="sell-title">
           <div className="row">
             <div className="col-6 no-pading-right">

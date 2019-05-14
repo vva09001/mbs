@@ -194,9 +194,11 @@ class Order extends Component {
             </div>
             <label className="form-check-label">
               <i>
-                {t(
-                  'Tôi xác nhận và đồng ý với "Các Điều khoản và Điều kiện bán Trái Phiếu" đã nêu trên và các Văn Kiện Trái Phiếu liên quan.'
-                )}
+                {t('Tôi xác nhận và đồng ý với')} {''}
+                {t('sign')}
+                {t('Các Điều khoản và Điều kiện bán Trái Phiếu')}
+                {t('sign')} {''}
+                {t('đã nêu trên và các Văn Kiện Trái Phiếu liên quan.')}
               </i>
               <input
                 type="checkbox"
