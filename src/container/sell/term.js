@@ -85,7 +85,8 @@ const Term = () => {
           <p>
             <b>1.13. Giá trị tái đầu tư coupon</b>: là lãi tái đầu tư coupon Khách hàng nhận được,
             tính từ ngày Tổ Chức Phát Hành thanh toán coupon đến ngày Trái Phiếu đáo hạn (với giả
-            định KH tiếp tục đầu tư khoản coupon nhận được trong thời gian nắm giữ Trái Phiếu).
+            định Khách Hàng tiếp tục đầu tư khoản coupon nhận được trong thời gian nắm giữ Trái
+            Phiếu).
           </p>
           <p>
             <b>1.14. Giá trị Khách hàng nhận được cuối kỳ</b>: Là giá trị Khách hàng bán Trái Phiếu

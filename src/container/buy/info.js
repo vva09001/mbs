@@ -66,7 +66,7 @@ const Info = ({ detail }) => {
                 {t(`termFixCount`)} {''}
                 {detail.termFixCount} {''}
                 {t(`interestFixRate`)} {currency(detail.interestFixRate)}
-                {t(`%/year`)}.
+                {t(`%/year`)}. {''}
                 {detail.interestFloatRange !== 0
                   ? t(`interestFloatRange`) + detail.interestFloatRange + t(`%/year`)
                   : ''}
