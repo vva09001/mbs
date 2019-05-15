@@ -1,52 +1,59 @@
 import React from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 
 const Term = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
-    <Layout type={1} title="ĐIỀU KHOẢN & ĐIỀU KIỆN BÁN TRÁI PHIẾU">
+    <Layout type={1} title="terms_conditions_of_bond_sell">
       <div className="bond-detail">
         <div className="bg-white taj">
+          <p>{t('sell_term')}</p>
+          <h3 className="mb-3">{t('sell_term_title')}</h3>
+          <h4 className="mst mb-2 mb-2">{t('sell_article_1')}</h4>
           <p>
             Khách hàng và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các quy định
             được nêu tại Các Điều khoản và Điều kiện bán Trái Phiếu sau đây:
           </p>
-          <h3 className="mb-3"> CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN&nbsp;BÁN TRÁI PHIẾU</h3>
-          <h4 className="mst mb-2 mb-2">ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ</h4>
           <p>
-            <b>1.1. Trái Phiếu</b>: Là Trái Phiếu được xác định tại Đăng Ký Bán Trái Phiếu.
+            <b>{t('article_1.2')}</b>
+            {t('article_1.2_info')}
           </p>
           <p>
-            <b>1.2. Tổ Chức Phát Hành</b>: Là doanh nghiệp phát hành Trái Phiếu.
+            <b>{t('article_1.3')}</b>
+            {t('article_1.3_info')}
           </p>
           <p>
-            <b>1.3. Tổ Chức Lưu Ký Trái Phiếu</b>: là Trung tâm Lưu ký chứng khoán Việt Nam hoặc tổ
-            chức là thành viên của Trung tâm Lưu ký chứng khoán Việt Nam thực hiện dịch vụ lưu ký
-            Trái Phiếu doanh nghiệp cho Tổ Chức Phát Hành.
+            <b>{t('article_1.4')}</b>
+            {t('article_1.4_info')}
           </p>
           <p>
-            <b>1.4. Thông Tin Trái Phiếu Giao Dịch</b>: Là bản tóm tắt thông tin về Trái Phiếu.
+            <b>{t('article_1.5')}</b>
+            {t('article_1.5_info')}
           </p>
           <p>
-            <b>1.5. Các Văn Kiện Trái Phiếu</b>: Gồm Bản Công Bố Thông Tin doTổ Chức Phát Hành công
-            bố và các tài liệu khác có liên quan (nếu có).
+            <b>{t('article_1.6')}</b>
+            {t('article_1.6_info')}
           </p>
           <p>
-            <b>1.6. Bản Công Bố Thông Tin</b>: Là bản công bố thông tin về Trái Phiếu do Tổ Chức
-            Phát Hành ban hành.
+            <b>{t('article_1.7')}</b>
+            {t('article_1.7_info')}
           </p>
           <p>
             <b>1.7. Ngày Giao Dịch</b>: Là ngày Khách hàng bán Trái Phiếu.
           </p>
           <p>
-            <b>1.8. Đơn Giá Giao Dịch</b>: Là giá trị của 1 Trái Phiếu tại Ngày Giao Dịch. Đơn Giá
-            Giao Dịch do MBS xác định theo chính sách của MBS từng thời kỳ.
+            <b>{t('article_1.9')}</b>
+            {t('article_1.9_info')}
           </p>
           <p>
-            <b>1.9. Giá Trị Giao Dịch</b>: Giá Trị Giao Dịch = Đơn Giá Giao Dịch x Số lượng giao
-            dịch
+            <b>{t('article_1.10')}</b>
+            {t('article_1.10_info')}
           </p>
+          <p>{t('article_1.10_info_01')}</p>
+          <p>{t('article_1.10_info_02')}</p>
+          <p>{t('article_1.10_info_03')}</p>
+          <p>{t('article_1.10_info_04')}</p>
           <p>
             <b>1.10. Thuế, Phí Giao Dịch</b>: Là thuế, phí Khách hàng phải trả khi thực hiện giao
             dịch mua, bán Trái Phiếu, bao gồm:
@@ -66,10 +73,9 @@ const Term = () => {
             chuyển nhượng Trái Phiếu, áp dụng với Trái Phiếu chưa niêm yết. Phí chuyển nhượng được
             xác định theo quy định, chính sách của Đại lý chuyển nhượng Trái Phiếu từng thời kỳ.
           </p>
-          <p>– Thuế chuyển nhượng Trái Phiếu theo quy định của pháp luật.</p>
           <p>
-            <b>1.11. Tổng Giá Trị Giao Dịch</b>: Tổng Giá Trị Giao Dịch = Giá Trị Giao Dịch – Thuế,
-            Phí Giao Dịch (nếu có)
+            <b>{t('article_1.15')}</b>
+            {t('article_1.15_info')}
           </p>
           <p>
             <b>1.12. Coupon</b>: Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu có)) do Tổ
@@ -104,7 +110,7 @@ const Term = () => {
             định lãi suất được giả định như tại&nbsp;Chi tiết dòng tiền.
           </p>
           <img src="/img/images1.png" alt="logo" className="w-100" />
-          <p>Trong đó:</p>
+          <p>{t('article_1.16_info_03')}</p>
           <ul>
             <li>Tổng dòng tiền từ Trái Phiếu được xác định như mục 1.15 Điều 1;</li>
             <li>
@@ -183,20 +189,22 @@ const Term = () => {
             – Xác nhận Khách hàng đặt lệnh bán thành công trên hệ thống (ngoại trừ trường hợp lỗi hệ
             thống tin nhắn/ email do đường truyền).
           </p>
+          <h4 className="mst mb-2">{t('article_2')}</h4>
           <p>
-            – Cam kết nguồn tiền sử dụng để mua Trái Phiếu theo Hợp đồng này là nguồn tiền hợp pháp,
-            thuộc quyền sở hữu của MBS.
+            <b>{t('article_2.1')}</b>
+            {t('article_2.1_info')}
           </p>
           <p>
-            – Chịu các khoản Thuế, Phí Giao Dịch áp dụng đối với giao dịch mua, bán Trái Phiếu (nếu
-            có).
+            <b>{t('article_2.2')}</b>
+            {t('article_2.2_info')}
           </p>
           <p>
-            – Các quyền và nghĩa vụ khác theo thỏa thuận tại Hợp đồng này, Các Văn Kiện Trái Phiếu
-            và quy định của pháp luật.
+            <b>{t('article_2.3')}</b>
+            {t('article_2.3_info')}
           </p>
           <p>
-            <b>4.2. Quyền và nghĩa vụ của KH</b>
+            <b>{t('article_2.4')}</b>
+            {t('article_2.4_info')}
           </p>
           <p>
             – Khách hàng có trách nhiệm thực hiện các công việc liên quan đến việc chuyển nhượng
@@ -204,14 +212,15 @@ const Term = () => {
             định của pháp luật có liên quan.
           </p>
           <p>
-            – Chịu các khoản Thuế, Phí Giao Dịch áp dụng đối với giao dịch mua, bán Trái Phiếu (nếu
-            có).
+            <b>{t('article_2.6')}</b>
+            {t('article_2.6_info')}
           </p>
           <p>
             – Khách hàng cam kết thông tin của Khách hàng cung cấp cho MBS trên hệ thống này là
             chính xác, trung thực và sẽ sử dụng thông tin này để thực hiện thủ tục liên quan đến
             mua, bán Trái Phiếu giữa Khách hàng và MBS.
           </p>
+          <h4 className="mst mb-2">{t('article_3')}</h4>
           <p>
             – Khách hàng đồng ý rằng trừ trường hợp có sai sót rõ ràng về mặt số liệu tính toán, số
             liệu do MBS tính toán là số liệu cuối cùng được sử dụng
@@ -221,37 +230,37 @@ const Term = () => {
             dụng đối với Tài khoản giao dịch chứng khoán tại MBS (được sửa đổi, bổ sung, thay thế
             theo chính sách MBS từng thời kỳ).
           </p>
+          <h4 className="mst mb-2">{t('article_4')}</h4>
           <p>
-            – Các quyền và nghĩa vụ khác theo thỏa thuận tại Hợp đồng này, Các Văn Kiện Trái Phiếu
-            và quy định của pháp luật.
+            <b>{t('article_4.1')}</b>
           </p>
-          <h4 className="mst mb-2">ĐIỀU 5: VI PHẠM VÀ BỒI THƯỜNG THIỆT HẠI</h4>
+          <p>{t('article_4.1_info_01')}</p>
+          <p>{t('article_4.1_info_02')}</p>
+          <p>{t('article_4.1_info_03')}</p>
+          <p>{t('article_4.1_info_04')}</p>
+          <p>{t('article_4.1_info_05')}</p>
           <p>
-            Bất kỳ bên nào vi phạm các nghĩa vụ của mình tại Hợp đồng này phải có trách nhiệm khắc
-            phục vi phạm trong vòng 02 ngày làm việc kể từ ngày phát sinh vi phạm. Nếu quá thời hạn
-            trên, Bên vi phạm sẽ phải bồi thường toàn bộ thiệt hại thực tế phát sinh từ việc vi phạm
-            nghĩa vụ của mình theo Hợp đồng này.
+            <b>{t('article_4.2')}</b>
           </p>
-          <h4 className="mst mb-2">ĐIỀU 6: ĐIỀU KHOẢN THI HÀNH</h4>
+          <p>{t('article_4.1_info_01')}</p>
+          <p>{t('article_4.1_info_02')}</p>
+          <p>{t('article_4.1_info_03')}</p>
+          <p>{t('article_4.1_info_04')}</p>
+          <p>{t('article_4.1_info_05')}</p>
+          <p>{t('article_4.2_info_06')}</p>
+          <h4 className="mb-2 mst">{t('article_5')}</h4>
+          <p>{t('article_info')}</p>
+          <h4 className="mb-2 mst">{t('sell_article_6')}</h4>
           <p>
-            <b>6.1. Mỗi bên khẳng định rằng</b>: (i) Đã hiểu rõ quyền, nghĩa vụ lợi ích và các rủi
-            ro có thể xảy ra của việc giao kết Hợp đồng này và (ii) Việc giao kết, thực hiện Hợp
-            đồng này là hoàn toàn tự nguyện, không bị lừa dối, ép buộc và đã được thông qua bởi cấp
-            có thẩm quyền của mỗi bên.
-          </p>
-          <p>
-            <b>
-              6.2. Mỗi bên phải giữ bí mật nội dung của Hợp đồng này và chỉ được tiết lộ nội dung
-              của Hợp đồng này và/hoặc Các Văn Kiện Trái Phiếu (“Thông Tin Mật”) khi
-            </b>
-            : (i) được bên kia chấp thuận trước, (ii) nhằm tuân thủ pháp luật hoặc yêu cầu của cơ
-            quan nhà nước có thẩm quyền, (iii) nhằm phục vụ các mục đích kế toán, kiểm toán hoặc
-            thực hiện thủ tục chuyển quyền sở hữu các Trái Phiếu hoặc (iv) nhằm phục vụ việc tuân
-            thủ quy định nội bộ và vận hành khác của MBS. Quy định này vẫn có hiệu lực trong vòng 3
-            tháng kể từ ngày MBS chấp nhận giao dịch bán Trái Phiếu trên hệ thống của MBS.
+            <b>{t('sell_article_6.1')}</b>
+            {t('article_7.1_info_01')}
           </p>
           <p>
-            <b>6.3. Hợp đồng này được điều chỉnh và giải thích theo pháp luật Việt Nam.</b>
+            <b>{t('sell_article_6.2')}</b>
+            {t('article_7.2_info_02')}
+          </p>
+          <p>
+            <b>{t('sell_article_6.3')}</b>
           </p>
           <p>
             <b>

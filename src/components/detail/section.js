@@ -29,7 +29,7 @@ const Section1 = props => {
           </h3>
           <div className="row mb-3">
             <div className="col-7 no-pading-right">
-              <span className="c">{t('Ngày Đáo Hạn')}</span>
+              <span className="c">{t('date_due')}</span>
             </div>
             <div className="col-5 text-right no-pading-left">
               <p className="mb-0">{props.item.maturityDate}</p>
@@ -37,11 +37,11 @@ const Section1 = props => {
           </div>
           <div className="row">
             <div className="col-5 no-pading-right">
-              <span className="c">{t('Hạn mức')}</span>
+              <span className="c">{t('Level')}</span>
             </div>
             <div className="col-7 text-right no-pading-left mb-2">
               <span className="xmbs c text-bold">
-                {currency(props.item.roomBalance)} {t('Trái Phiếu')}
+                {currency(props.item.roomBalance)} {t('bonds')}
               </span>
             </div>
           </div>
@@ -65,27 +65,27 @@ const Section3 = props => {
   return (
     <Fragment>
       <div className=" row align-items-center pading-top">
-        <label className="col-6 c">{t('Ngày kết thúc đầu tư')}</label>
+        <label className="col-6 c">{t('investment_end_date')}</label>
         <div className="col-6 text-right">{props.item.maturityDate}</div>
       </div>
       <div className=" row align-items-center">
-        <label className="col-6 c">{t('Thời gian nắm giữ')}</label>
+        <label className="col-6 c">{t('time_to_hold')}</label>
         <div className="col-6 text-right c">
-          {currency(props.item.numInvestDate)} {t('ngày')}
+          {currency(props.item.numInvestDate)} {t('day')}
         </div>
       </div>
       <div className=" row align-items-center">
-        <label className="col-6 c">{t('Lợi suất')}</label>
+        <label className="col-6 c">{t('yield')}</label>
         <div className="col-6 text-right">
           <b>
-            <span className="xmbs">{currency(props.item.termRate)}%</span>
-            <span className="xmbs">/{t('năm')}</span>
+            <span className="xmbs">{currency(props.item.termRate)}</span>
+            <span className="xmbs">{t('%/year')}</span>
           </b>
         </div>
       </div>
       <div className=" row align-items-center">
         <label className="col-6 c">
-          {t('Lợi suất đã tái đầu tư')}
+          {t('the_yield_has_reinvested')}
           <img
             onClick={() => props.showPopup('popup')}
             alt="popup-click"
@@ -95,8 +95,8 @@ const Section3 = props => {
         </label>
         <div className="col-6 text-right">
           <b>
-            <span className="xmbs">{currency(props.item.termInvest)}%</span>
-            <span className="xmbs">/{t('năm')}</span>
+            <span className="xmbs">{currency(props.item.termInvest)}</span>
+            <span className="xmbs">{t('%/year')}</span>
           </b>
         </div>
       </div>
@@ -173,7 +173,7 @@ const Section4 = props => {
               <tfoot>
                 <tr>
                   <td colSpan="2" className="text-primary">
-                    <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
+                    <strong>{t('total_cash_flow_from_bonds')}</strong>
                   </td>
                   <td>
                     <h5 className="text-info tar">{currency(sum)}</h5>
@@ -237,9 +237,9 @@ const Section5 = props => {
                 <tr>
                   <td colSpan="4" className="text-primary white-bg">
                     <i>
-                      {t('Lãi suất tái đầu tư')} :{' '}
+                      {t('reinvestment_interest_rate')} :{' '}
                       {items.length > 0 ? items[0].reinvestmentRate : 0}
-                      {t('%/năm')}
+                      {t('%/year')}
                     </i>
                   </td>
                 </tr>
@@ -247,7 +247,7 @@ const Section5 = props => {
               <tfoot>
                 <tr>
                   <td colSpan="3" className="text-primary">
-                    <strong>{t('Tổng dòng tiền từ Trái Phiếu')}</strong>
+                    <strong>{t('total_cash_flow_from_bonds')}</strong>
                   </td>
                   <td>
                     <h5 className="text-info tar">{currency(sum)}</h5>

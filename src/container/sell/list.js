@@ -49,11 +49,11 @@ class List extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Layout type={2} title={t('BÁN TRÁI PHIẾU')}>
+      <Layout type={2} title="sell_bonds">
         <div className="sell-title">
           <div className="row">
             <div className="col-6 no-pading-right">
-              <div className="title-left bold tar">{t('Tổng giá trị đầu tư')}: </div>
+              <div className="title-left bold tar">{t('total_value_of_investment')}: </div>
             </div>
             <div className="col-6 no-pading-left">
               <div className="bold tar">
@@ -63,12 +63,12 @@ class List extends Component {
           </div>
           <div className="row">
             <div className="col-6 no-pading-right">
-              <div className="title-left bold tar">{t('Tổng')}: </div>
+              <div className="title-left bold tar">{t('total')}: </div>
             </div>
             <div className="col-6 no-pading-left">
               <div className="title-right">
                 <div className="bold">
-                  {this.props.bonds.length} {t('Hợp đồng')}
+                  {this.props.bonds.length} {t('contract')}
                 </div>
               </div>
             </div>

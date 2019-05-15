@@ -58,7 +58,7 @@ class List extends Component {
             }
             className="button-delete rounded-pill border-0 btn-lg btn-block mr-2"
           >
-            {this.props.t('HUỶ')}
+            {this.props.t('cancel')}
           </button>
           <button
             onClick={() =>
@@ -69,7 +69,7 @@ class List extends Component {
             }
             className="button-trade rounded-pill border-0 btn-lg btn-block m-0"
           >
-            {this.props.t('SỬA')}
+            {this.props.t('edit')}
           </button>
         </li>
       </Card>
@@ -78,16 +78,16 @@ class List extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Layout type={2} title="Quản lý giao dịch" active="/trade/">
+      <Layout type={2} title="transaction_management" active="/trade/">
         <div className="sell-title">
           <div className="row">
             <div className="col-6 no-pading-right">
-              <div className="title-left bold tar">{t('Tổng')}: </div>
+              <div className="title-left bold tar">{t('total')}: </div>
             </div>
             <div className="col-6 no-pading-left">
               <div className="title-right">
                 <div className="bold">
-                  {this.props.bonds.length} {t('Hợp đồng')}
+                  {this.props.bonds.length} {t('contract')}
                 </div>
               </div>
             </div>

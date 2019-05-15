@@ -83,7 +83,7 @@ class List extends Component {
         onClick={this._bondsFetch}
         onToggle={this._toggle}
         filterPicked={this.state.query.order}
-        title="Sản phẩm"
+        title="product"
         active="/buy/"
       >
         {this.props.loading ? (

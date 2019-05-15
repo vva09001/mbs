@@ -6,14 +6,14 @@ const popup = props => {
   return (
     <div className="popup">
       <div className="popup-wrapper rounded bg-white position-relative">
-        <div className="popup-header mb-2 text-center">{t('THÔNG BÁO')}</div>
+        <div className="popup-header mb-2 text-center">{t('notification')}</div>
         <div className="popup-body mb-2 text-center">{props.children}</div>
         <div className="popup-footer text-center">
           <button type="button" onClick={props.showClosePopup} className="mclose w50">
-            {props.closeText || t('ĐÓNG')}
+            {props.closeText || t('close')}
           </button>
           <button type="button" onClick={props.showViewPopup} className="mclose w50">
-            {props.viewText || t('XEM')}
+            {props.viewText || t('show')}
           </button>
         </div>
       </div>

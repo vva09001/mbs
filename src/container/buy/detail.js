@@ -81,23 +81,17 @@ class Detail extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Layout type={1} path="/" title={t('MUA TRÁI PHIẾU')}>
+      <Layout type={1} path="/" title={t('buy_bonds')}>
         {this.state.toggle.popup && (
-          <Popup title={t('ĐỊNH NGHĨA')} showPopup={() => this.showPopup('popup')}>
+          <Popup title={t('define')} showPopup={() => this.showPopup('popup')}>
             <p className="text-justify">
-              <strong>{t('Coupon')}:</strong> Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu
-              có)) do Tổ Chức Phát Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ
-              theo quy định của Tổ Chức Phát Hành đối với Trái Phiếu.
+              <strong>{t('Coupon')}:</strong> {t('define_info')}
             </p>
             <p className="text-justify">
-              <strong>{t('Tái đầu tư coupon')}:</strong> Là việc Khách Hàng tiếp tục đầu tư khoản
-              coupon nhận được vào các hạng mục đầu tư khác trong thời gian nắm giữ Trái Phiếu (ví
-              dụ gửi tiết kiệm….)
+              <strong>{t('reinvest_coupon')}:</strong> {t('reinvest_coupon_info')}
             </p>
             <p className="text-justify">
-              <strong>{t('Lợi suất đã tái đầu tư')}:</strong> Là lợi suất đầu tư Trái Phiếu Khách
-              Hàng nhận được đã bao gồm tái đầu tư coupon (với giả định Khách Hàng tiếp tục đầu tư
-              khoản coupon với lãi suất 7.2%/năm)
+              <strong>{t('the_yield_has_reinvested')}:</strong> {t('the_yield_has_reinvested_info')}
             </p>
           </Popup>
         )}
@@ -123,7 +117,7 @@ class Detail extends Component {
           </form>
           <div className="row mb-1">
             <label className="col-12 col-form-label clb">
-              <strong>{t('TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)')}</strong>
+              <strong>{t('RECEIVED_MONEY_(EXPECTED)')}</strong>
             </label>
           </div>
           {this.nonInvertRender()}
@@ -136,7 +130,7 @@ class Detail extends Component {
               onClick={() => this._setBuy()}
               className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
             >
-              {t('Mua')}
+              {t('buy')}
             </button>
           </div>
         </div>

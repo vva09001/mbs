@@ -1,13 +1,16 @@
 import React from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Layout from 'container/layout/layout';
 
 const Term = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
-    <Layout type={1} title="ĐIỀU KHOẢN & ĐIỀU KIỆN MUA TRÁI PHIẾU">
+    <Layout type={1} title="terms_conditions_of_bonding">
       <div className="bond-detail">
         <div className="bg-white taj">
+          <p>{t('term')}</p>
+          <h3 className="mb-3">{t('terms_and_conditions_of_bonding')}</h3>
+          <h4 className="mb-2 mst">{t('article_1')}</h4>
           <p>
             Khách hàng và CTCP Chứng khoán MB (MBS) thống nhất mua, bán Trái Phiếu theo các quy định
             được nêu tại Các Điều khoản và Điều kiện mua Trái Phiếu sau đây:
@@ -42,8 +45,8 @@ const Term = () => {
             được xác nhận trên hệ thống của MBS và Khách hàng chuyển tiền mua Trái Phiếu thành công.
           </p>
           <p>
-            <b>1.8 Đơn Giá Giao Dịch</b>: Là giá trị của 1 Trái Phiếu tại Ngày Giao Dịch. Đơn Giá
-            Giao Dịch do MBS xác định theo chính sách của MBS từng thời kỳ.
+            <b>{t('article_1.3')}</b>
+            {t('article_1.3_info')}
           </p>
           <p>
             <b>1.9 Giá Trị Giao Dịch</b>: Giá Trị Giao Dịch = Đơn Giá Giao Dịch x Khối lượng giao
@@ -68,16 +71,18 @@ const Term = () => {
             chuyển nhượng Trái Phiếu, áp dụng với Trái Phiếu chưa niêm yết. Phí chuyển nhượng được
             xác định theo quy định, chính sách của Đại lý chuyển nhượng Trái Phiếu từng thời kỳ.
           </p>
-          <p>– Thuế chuyển nhượng Trái Phiếu theo quy định của pháp luật.</p>
           <p>
-            <b>1.11 Tổng Giá Trị Giao Dịch</b> : Tổng Giá Trị Giao Dịch = Giá Trị Giao Dịch + Thuế,
-            Phí Giao Dịch (nếu có)
+            <b>{t('article_1.9')}</b>
+            {t('article_1.9_info')}
           </p>
           <p>
-            <b>1.12 Coupon</b>: Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu có)) do Tổ Chức
-            Phát Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ theo quy định của
-            Tổ Chức Phát Hành đối với Trái Phiếu.
+            <b>{t('article_1.10')}</b>
+            {t('article_1.10_info')}
           </p>
+          <p>{t('article_1.10_info_01')}</p>
+          <p>{t('article_1.10_info_02')}</p>
+          <p>{t('article_1.10_info_03')}</p>
+          <p>{t('article_1.10_info_04')}</p>
           <p>
             <b>1.13 Giá trị tái đầu tư coupon</b>: là lãi tái đầu tư coupon Khách hàng nhận được,
             tính từ ngày Tổ Chức Phát Hành thanh toán coupon đến ngày Trái Phiếu đáo hạn (với giả
@@ -91,7 +96,8 @@ const Term = () => {
             Phiếu.
           </p>
           <p>
-            <b>1.15 Tổng dòng tiền từ Trái Phiếu</b>:
+            <b>{t('article_1.13')}</b>
+            {t('article_1.13_info')}
           </p>
           <p>
             Tổng dòng tiền từ Trái Phiếu = Giá trị Khách hàng nhận được cuối kỳ + Coupon (nếu có) +
@@ -106,11 +112,12 @@ const Term = () => {
             theo&nbsp;%/năm/Giá trị đầu tư Trái Phiếu&nbsp;trên cơ sở 1 năm có 365 ngày.
           </p>
           <p>
-            Giả định Tổ Chức Phát Hành thanh toán đúng hạn, đủ gốc, lãi Trái Phiếu và coupon của các
-            kỳ chưa xác định lãi suất được giả định như tại&nbsp;Chi tiết dòng tiền.
+            <b>{t('article_1.16')}</b>
+            {t('article_1.16_info_01')}
           </p>
+          <p>{t('article_1.16_info_02')}</p>
           <img src="/img/images1.png" alt="logo" className="w-100" />
-          <p>Trong đó:</p>
+          <p>{t('article_1.16_info_03')}</p>
           <ul>
             <li>Tổng dòng tiền từ Trái Phiếu được xác định như mục 1.14 Điều 1;</li>
             <li>
@@ -206,14 +213,12 @@ const Term = () => {
             <b>4.2. Quyền và nghĩa vụ của Khách hàng</b>
           </p>
           <p>
-            – Được Tổ Chức Phát Hành Trái Phiếu thanh toán đầy đủ, đúng hạn gốc, lãi Trái Phiếu khi
-            đến hạn và bảo đảm việc thực hiện các quyền kèm theo (nếu có) theo các điều kiện, điều
-            khoản của Trái Phiếu khi phát hành.
+            <b>{t('article_2.2')}</b>
+            {t('article_2.2_info')}
           </p>
           <p>
-            – Được dùng Trái Phiếu để chuyển nhượng, cho, tặng, để lại, thừa kế, chiết khấu và sử
-            dụng Trái Phiếu làm tài sản bảo đảm trong các quan hệ dân sự và quan hệ thương mại theo
-            quy định của pháp luật.
+            <b>{t('article_2.3')}</b>
+            {t('article_2.3_info')}
           </p>
           <p>
             – Khách hàng cam kết thông tin của Khách hàng cung cấp cho MBS trên hệ thống này là
@@ -222,8 +227,8 @@ const Term = () => {
             tài khoản nhận các khoản tiền thanh toán liên quan đến giao dịch Trái Phiếu
           </p>
           <p>
-            – Chịu các khoản Thuế, Phí Giao Dịch áp dụng đối với giao dịch mua, bán Trái Phiếu (nếu
-            có).
+            <b>{t('article_2.5')}</b>
+            {t('article_2.5_info')}
           </p>
           <p>
             – Khách hàng đồng ý rằng trừ trường hợp có sai sót rõ ràng về mặt số liệu tính toán, số
@@ -239,6 +244,7 @@ const Term = () => {
             – Khách hàng cam kết nguồn tiền Khách hàng sử dụng để mua Trái Phiếu theo Các Điều Khoản
             và Điều Kiện mua Trái Phiếu là nguồn tiền hợp pháp, thuộc quyền sở hữu của Khách hàng;
           </p>
+          <h4 className="mb-2 mst">{t('article_3')}</h4>
           <p>
             – Khách hàng tuân thủ đầy đủ các điều khoản và điều kiện về giao dịch điện tử mà MBS áp
             dụng đối với Tài khoản giao dịch chứng khoán tại MBS (được sửa đổi, bổ sung, thay thế
@@ -256,6 +262,7 @@ const Term = () => {
             những thông tin mà Khách hàng đã thu thập, đánh giá, đã tham vấn độc lập (nếu có) mà
             không phụ thuộc vào tư vấn, đánh giá của MBS hoặc tổ chức/cá nhân nào thay mặt cho MBS.
           </p>
+          <h4 className="mb-2 mst">{t('article_4')}</h4>
           <p>
             (ii) Để tránh nhầm lẫn, Khách hàng thừa nhận rằng (a) các thông tin về Trái Phiếu mà MBS
             cung cấp cho Khách hàng trên hệ thống giao dịch điện tử là các thông tin chính xác mà Tổ
@@ -267,6 +274,11 @@ const Term = () => {
             giữa Khách hàng và MBS (bao gồm cả Các Điều Khoản và Điều Kiện mua Trái Phiếu) được dựa
             trên cơ sở tự do, tự nguyên cam kết, thỏa thuận của Các Bên;
           </p>
+          <p>{t('article_4.1_info_01')}</p>
+          <p>{t('article_4.1_info_02')}</p>
+          <p>{t('article_4.1_info_03')}</p>
+          <p>{t('article_4.1_info_04')}</p>
+          <p>{t('article_4.1_info_05')}</p>
           <p>
             (iii) Không phụ thuộc: Khách hàng hiểu và đồng ý rằng Khách hàng không dựa vào bất kỳ
             việc thẩm tra hoặc điều tra nào của MBS có thể tiến hành liên quan đến việc đầu tư vào
@@ -365,6 +377,10 @@ const Term = () => {
               Tổ Chức Phát Hành mua lại trước hạn.
             </li>
           </ul>
+          <p>{t('article_6_info_10')}</p>
+          <p>{t('article_6_info_11')}</p>
+          <p>{t('article_6_info_12')}</p>
+          <h4 className="mb-2 mst">{t('article_7')}</h4>
           <p>
             – Khoản điều chỉnh giảm sẽ được MBS thanh toán cho Khách hàng trong vòng năm (05) ngày
             làm việc kể từ ngày Khách hàng được Tổ Chức Phát Hành thanh toán tiền mua lại Trái Phiếu
@@ -401,7 +417,7 @@ const Term = () => {
             thành thủ tục chuyển nhượng Trái Phiếu cho bên thứ ba.
           </p>
           <p>
-            <b>7.3. Hợp đồng được điều chỉnh và giải thích theo pháp luật Việt Nam.</b>
+            <b>{t('article_7.3')}</b>
           </p>
           <p>
             <b>

@@ -37,13 +37,11 @@ class Confirm extends Component {
       return <Loading />;
     }
     return (
-      <Layout type={1} title="MUA TRÁI PHIẾU">
+      <Layout type={1} title={t('buy_bonds')}>
         <div className="bond-buy-comfirm">
           <div className="row">
             <div className="col-12">
-              <h4 className="text-center mtitle no-padding uppc">
-                {t('ĐỀ NGHỊ CHUYỂN NHƯỢNG TRÁI PHIẾU')}
-              </h4>
+              <h4 className="text-center mtitle no-padding uppc">{t('motion_bond_transfer')}</h4>
             </div>
           </div>
           <div className="row">
@@ -53,117 +51,103 @@ class Confirm extends Component {
           </div>
 
           <h4 className="text-center mtitle mspot">
-            {t('bond_Code')}: {info.bondCode}
+            {t('bond_code')}: {info.bondCode}
           </h4>
           <p className="bgdd">
-            <b>{t('Bên chuyển nhượng')}</b>
+            <b>{t('assignor')}</b>
           </p>
           <div className="row">
-            <div className="col-5 hl18">{t('Tên tổ chức')}</div>
-            <div className="col-7 hl18">{t('CTCP chứng khoán MB')}</div>
+            <div className="col-5 hl18">{t('organization_name')}</div>
+            <div className="col-7 hl18">{t('Company_homepage')}</div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Số ĐKKD')}</div>
-            <div className="col-7 hl18">{t('116/GP-UBCK, UBCKNN cấp 09/12/2013')}</div>
+            <div className="col-5 hl18">{t('business_registration')}</div>
+            <div className="col-7 hl18">{t('business_registration_info')}</div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Địa chỉ')}</div>
-            <div className="col-7 hl18 text-justify">
-              {t('Tầng M-3-7 Tòa nhà MB, Số 3 Liễu Giai - Ba Đình - Hà Nội')}
-            </div>
+            <div className="col-5 hl18">{t('address')}</div>
+            <div className="col-7 hl18 text-justify">{t('address_company')}</div>
           </div>
 
           <div className="row">
-            <div className="col-5 hl18">{t('Người đại diện')}</div>
-            <div className="col-7 hl18">
-              {t('Ông')} {t('Trần Hải Hà')}
-            </div>
+            <div className="col-5 hl18">{t('representative')}</div>
+            <div className="col-7 hl18">{t('mr')}</div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Chức vụ')}</div>
-            <div className="col-7 hl18">{t('Tổng Giám đốc')}</div>
+            <div className="col-5 hl18">{t('position')}</div>
+            <div className="col-7 hl18">{t('general_manage')}</div>
           </div>
           <p className="bgdd">
-            <b>{t('Bên nhận chuyển nhượng')}</b>
+            <b>{t('the_transferee')}</b>
           </p>
           <div className="mtable">
             <div className="row">
-              <div className="col-5 hl18">{t('Tên cá nhân')}</div>
+              <div className="col-5 hl18">{t('customer_name')}</div>
               <div className="col-7 hl18">{info.customerName}</div>
             </div>
             <div className="row">
-              <div className="col-5 hl18">{t('Số CMND/...')}</div>
+              <div className="col-5 hl18">{t('customer_id')}</div>
               <div className="col-7 hl18">{info.customerId}</div>
             </div>
             <div className="row">
-              <div className="col-5 hl18">{t('Ngày cấp')}</div>
+              <div className="col-5 hl18">{t('customer_id_date')}</div>
               <div className="col-7 hl18">{info.customerIddate}</div>
             </div>
             <div className="row">
-              <div className="col-5 hl18">{t('Nơi cấp')}</div>
+              <div className="col-5 hl18">{t('customer_id_place')}</div>
               <div className="col-7 hl18">{info.customerIdplace}</div>
             </div>
             <div className="row">
-              <div className="col-5 hl18">{t('Số Tài Khoản')}</div>
+              <div className="col-5 hl18">{t('cust_account_bank_code')}</div>
               <div className="col-7 hl18">{info.custAccountBankCode}</div>
             </div>
             <div className="row">
-              <div className="col-5 hl18">{t('Mở tại')}</div>
+              <div className="col-5 hl18">{t('cust_bank_name')}</div>
               <div className="col-7 hl18">{info.custBankName}</div>
             </div>
           </div>
           <p className="bgdd">
-            <b>{t('Nội dung chuyển nhượng')}</b>
+            <b>{t('transferable_content')}</b>
           </p>
           <div className="row">
-            <div className="col-5 hl18">{t('Khối Lượng')}</div>
+            <div className="col-5 hl18">{t('mass')}</div>
             <div className="col-7 hl18">
-              {currency(info.buyVol)} {t('Trái Phiếu')}
+              {currency(info.buyVol)} {t('bonds')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Mệnh giá')}</div>
+            <div className="col-5 hl18">{t('Denominations')}</div>
             <div className="col-7 hl18">
               {currency(bond.parValue)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Giá chuyển nhượng')}</div>
+            <div className="col-5 hl18">{t('transfer_price')}</div>
             <div className="col-7 hl18">
               {currency(info.buyPrice)} {t('VNĐ/Trái Phiếu')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Tổng giá trị chuyển nhượng')}</div>
+            <div className="col-5 hl18">{t('total_transfer_value')}</div>
             <div className="col-7 hl18">
               {currency(info.buyValue)} {t('VNĐ')}
             </div>
           </div>
           <div className="row">
-            <div className="col-5 hl18">{t('Phí chuyển nhượng')}</div>
+            <div className="col-5 hl18">{t('transfer_fee')}</div>
             <div className="col-7 hl18">0 VNĐ</div>
           </div>
           <div className="confirm-content">
             <p>
-              {t('Tổ chức (Ông/ Bà)')}: <span className="text-blod">{info.customerName}</span>{' '}
-              {t(
-                'được ghi tên trên Sổ Đăng Ký và được sở hữu, hưởng mọi quyền lợi và chịu trách nhiệm về số trái phiếu chuyển nhượng nói trên kể từ ngày có xác nhận đăng ký chuyển nhượng của Công ty Cổ phần Chứng khoán MB.'
-              )}
+              {t('organization_(Mr./Ms)')}: <span className="text-blod">{info.customerName}</span>{' '}
+              {t('confirm_content_1')}
             </p>
             <p>
-              {t(
-                'Bên nhận chuyển nhượng không chịu ảnh hưởng cũng như không phải chịu trách nhiệm về bất kỳ thỏa thuận liên quan đến Trái Phiếu giữa Tổ Chức Phát Hành và/hoặc Đại Lý Đăng Ký Lưu Ký và/hoặc Bên chuyển nhượng và/hoặc bên thứ ba nào khác mà Bên nhận chuyển nhượng không được thông báo bằng văn bản, ngoại trừ Bản Công Bố Thông Tin, Hợp Đồng Đại lý Đăng Ký Lưu Ký và Hợp đồng mua bán giữa Bên chuyển nhượng và Bên nhận chuyển nhượng.'
-              )}
-              {bond.issuerBond}{' '}
-              {t(
-                'ủy quyền cho Công ty Cổ phần Chứng khoán MB xác nhận đăng ký chuyển nhượng theo yêu cầu của các Nhà Đầu Tư (Bên chuyển nhượng, Bên nhận chuyển nhượng). Công ty Cổ phần Chứng khoán MB chỉ xác nhận tính hợp lệ về thủ tục và việc đăng ký quyền sở hữu trái phiếu, không xác nhận việc thanh toán giữa hai bên.'
-              )}
+              {t('confirm_content_2')}
+              {bond.issuerBond} {t('confirm_content_3')}
             </p>
             <p>
-              {t('Các Bên thừa nhận, trong mọi trường hợp,')} {bond.issuerBond}{' '}
-              {t(
-                'là đơn vị chịu trách nhiệm thanh toán gốc và/hoặc lãi Trái Phiếu cho Chủ Sở Hữu Trái Phiếu và cam đoan chịu trách nhiệm về tính đầy đủ, hợp pháp của nguồn tiền thanh toán gốc và/hoặc lãi cho Chủ Sở Hữu Trái Phiếu.'
-              )}
+              {t('confirm_content_4')} {bond.issuerBond} {t('confirm_content_5')}
             </p>
           </div>
         </div>
@@ -173,7 +157,7 @@ class Confirm extends Component {
               onClick={() => this._onApprove()}
               className="btn btn-primary bg-gradient-primary rounded-pill border-0 btn-lg btn-block"
             >
-              {t('XÁC NHẬN')}
+              {t('confirm')}
             </button>
           </div>
         </div>

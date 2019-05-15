@@ -32,7 +32,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
                 }}
                 className={filterPicked === 0 ? 'dropdown-item active' : 'dropdown-item'}
               >
-                {t('Lãi Suất giảm dần')}
+                {t('interest_rate_decreases')}
               </button>
               <button
                 onClick={() => {
@@ -42,7 +42,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
                 }}
                 className={filterPicked === 1 ? 'dropdown-item active' : 'dropdown-item'}
               >
-                {t('Ngày Đáo Hạn tăng dần')}
+                {t('maturity_date_increases_gradually')}
               </button>
               <button
                 onClick={() => {
@@ -52,7 +52,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
                 }}
                 className={filterPicked === 2 ? 'dropdown-item active' : 'dropdown-item'}
               >
-                {t('Hạn Mức giảm dần')}
+                {t('decreasing_Limit')}
               </button>
             </div>
           )}
