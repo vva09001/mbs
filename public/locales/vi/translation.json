@@ -40,7 +40,7 @@
   "investment_value": "Giá Trị Đầu Tư",
   "RECEIVED_MONEY_(EXPECTED)": "TỔNG TIỀN NHẬN ĐƯỢC (DỰ KIẾN)",
   "define": "ĐỊNH NGHĨA",
-  "define_info": "Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếucó)) do Tổ Chức Phát Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ theo quy định của Tổ Chức Phát Hành đối với Trái Phiếu.",
+  "define_info": "Là lãi Trái Phiếu (đã trừ thuế thu nhập cá nhân (nếu có)) do Tổ Chức Phát Hành thanh toán. Lãi suất coupon và cách tính lãi coupon căn cứ theo quy định của Tổ Chức Phát Hành đối với Trái Phiếu.",
   "reinvest_coupon": "Tái đầu tư coupon",
   "reinvest_coupon_info": "Là việc Khách Hàng tiếp tục đầu tư khoản coupon nhận được vào các hạng mục đầu tư khác trong thời gian nắm giữ Trái Phiếu (ví dụ gửi tiết kiệm….)",
   "the_yield_has_reinvested": "Lợi suất đã tái đầu tư",
