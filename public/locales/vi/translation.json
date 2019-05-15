@@ -288,5 +288,9 @@
   "sign": "''",
   "bonds_hold": "Trái Phiếu nắm giữ",
   "show": "xem",
-  "transaction_management" : "Quản lý giao dịch"
+  "yes": "Có",
+  "no": "KHÔNG",
+  "transaction_management" : "Quản lý giao dịch",
+  "cancelConFirm": "Quý khách có chắc chắn muốn hủy ?",
+  "editConFirm": "Quý khách có chắc chắn muốn sửa ?"
 }

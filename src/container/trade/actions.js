@@ -81,13 +81,13 @@ class Actions extends Component {
       >
         {this.state.status && (
           <Popup
-            closeText="KHÔNG"
-            viewText="CÓ"
+            closeText="no"
+            viewText="yes"
             showClosePopup={() => this._toggleState()}
             showViewPopup={() => this._onClick()}
           >
             <span>
-              <i>{this.state.type === 'edit' ? t('editConFirm') : t('caneConFirm')}</i>
+              <i>{this.state.type === 'edit' ? t('editConFirm') : t('cancelConFirm')}</i>
             </span>
           </Popup>
         )}

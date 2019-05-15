@@ -71,13 +71,14 @@ const Layout = props => {
   if (!props.isLoggedIn) {
     return (
       <Fragment>
-        {props.buyDone.status && AlertDone(props.buyDone.message, '/buy/', '/user/', props.clear)}
+        {props.buyDone.status &&
+          AlertDone(t(props.buyDone.message), '/buy/', '/user/', props.clear)}
         {props.sellDone.status &&
-          AlertDone(props.sellDone.message, '/sell/', '/trade/', props.clear)}
+          AlertDone(t(props.sellDone.message), '/sell/', '/trade/', props.clear)}
         {props.tradeDone.status &&
-          AlertDone(props.tradeDone.message, '/trade/', '/user/', props.clear)}
-        {props.tradeEditDone.status && Alert(props.tradeEditDone.message, props.clear, 'XEM')}
-        {props.error.status && Alert(props.error.message, props.clear)}
+          AlertDone(t(props.tradeDone.message), '/trade/', '/user/', props.clear)}
+        {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
+        {props.error.status && Alert(t(props.error.message), props.clear)}
         {header(props)}
         <div className="container-fluid min-vh-100 text-center">
           <div className="wapper">
@@ -93,12 +94,13 @@ const Layout = props => {
   }
   return (
     <Fragment>
-      {props.buyDone.status && AlertDone(props.buyDone.message, '/buy/', '/user/', props.clear)}
-      {props.sellDone.status && AlertDone(props.sellDone.message, '/sell/', '/trade/', props.clear)}
+      {props.buyDone.status && AlertDone(t(props.buyDone.message), '/buy/', '/user/', props.clear)}
+      {props.sellDone.status &&
+        AlertDone(t(props.sellDone.message), '/sell/', '/trade/', props.clear)}
       {props.tradeDone.status &&
-        AlertDone(props.tradeDone.message, '/trade/', '/user/', props.clear)}
-      {props.tradeEditDone.status && Alert(props.tradeEditDone.message, props.clear, 'XEM')}
-      {props.error.status && Alert(props.error.message, props.clear)}
+        AlertDone(t(props.tradeDone.message), '/trade/', '/user/', props.clear)}
+      {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
+      {props.error.status && Alert(t(props.error.message), props.clear)}
       {header(props)}
       <div className="container-fluid min-vh-100">{props.children}</div>
       <Footer active={props.active} />

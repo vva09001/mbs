@@ -10,10 +10,10 @@ const popup = props => {
         <div className="popup-body mb-2 text-center">{props.children}</div>
         <div className="popup-footer text-center">
           <button type="button" onClick={props.showClosePopup} className="mclose w50">
-            {props.closeText || t('close')}
+            {t(props.closeText) || t('close')}
           </button>
           <button type="button" onClick={props.showViewPopup} className="mclose w50">
-            {props.viewText || t('show')}
+            {t(props.viewText) || t('show')}
           </button>
         </div>
       </div>

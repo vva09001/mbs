@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import history from 'utils/history';
 // components: header
 import Header from 'components/common/header';
@@ -53,14 +54,16 @@ const AlertDone = (message, pathnameClose, pathnameShow, clear) => (
   </PopupDone>
 );
 const Layout = props => {
+  const { t } = useTranslation();
   return (
     <Fragment>
-      {props.buyDone.status && AlertDone(props.buyDone.message, '/buy/', '/user/', props.clear)}
-      {props.sellDone.status && AlertDone(props.sellDone.message, '/sell/', '/trade/', props.clear)}
+      {props.buyDone.status && AlertDone(t(props.buyDone.message), '/buy/', '/user/', props.clear)}
+      {props.sellDone.status &&
+        AlertDone(t(props.sellDone.message), '/sell/', '/trade/', props.clear)}
       {props.tradeDone.status &&
-        AlertDone(props.tradeDone.message, '/trade/', '/user/', props.clear)}
-      {props.tradeEditDone.status && Alert(props.tradeEditDone.message, props.clear, 'XEM')}
-      {props.error.status && Alert(props.error.message, props.clear)}
+        AlertDone(t(props.tradeDone.message), '/trade/', '/user/', props.clear)}
+      {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
+      {props.error.status && Alert(t(props.error.message), props.clear)}
       {header(props)}
       <div className="container-fluid vh-100 overflow-hidden">{props.children}</div>
       <Footer active={props.active} />
