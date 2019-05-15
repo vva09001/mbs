@@ -39,7 +39,7 @@ class Confirm extends Component {
             <div className="col-12">
               {t('confirm_sell_01')}
               {' ' + bond.issuerBond} – {t('Bond_Code')} {bond.bondCode + ' '}
-              {'confirm_sell_02'}
+              {t('confirm_sell_02')}
             </div>
           </div>
           <div className="sum-field titles row">
