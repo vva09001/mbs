@@ -590,7 +590,7 @@ body {
 
 .header-wrapper {
   padding: 10px 15px 9px;
-  background: linear-gradient(to right, #17adb0, #007edc);
+  background-color: rgb(236, 236, 236);
   color: #fff;
   min-height: 56px;
   & > div {
@@ -637,7 +637,8 @@ body {
   h3 {
     font-size: 16px;
     margin: 0;
-    font-weight: normal;
+    font-weight: bold;
+    color: #333;
   }
 
   .filter {
@@ -645,7 +646,7 @@ body {
     color: #fff;
     svg {
       margin-right: 12px;
-      fill: #fff;
+      fill: #347ABE;
     }
   }
   .icon-black {
@@ -1075,4 +1076,12 @@ i.fa.fa-eye {
   p {
     margin-bottom: 0.25rem !important;
   }
-} 
+}
+.navbar-toggler.back-togger.filter {
+  background-color: #347ABE;
+  border-radius: 100%;
+  width: 30px;
+  img {
+    margin: -5px;
+  }
+}
