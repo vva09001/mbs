@@ -8,6 +8,7 @@ import Header from 'components/common/header';
 import Header1 from 'components/common/header1';
 import Header2 from 'components/common/header2';
 import Header3 from 'components/common/header3';
+import Header4 from 'components/common/header4';
 import Popup from 'components/common/popup';
 import PopupDone from 'components/common/popup-done';
 import Footer from 'components/common/footer';
@@ -23,6 +24,8 @@ const header = props => {
       return <Header2 title={props.title} />;
     case 3:
       return <Header3 title={props.title} />;
+    case 4:
+      return <Header4 title={props.title} />;
     default:
       return <Header title={props.title} />;
   }
