@@ -18,6 +18,7 @@ const initialState = {
   },
   error: {
     message: '',
+    message2: '',
     status: false
   }
 };
@@ -33,7 +34,13 @@ const Error = (state = initialState, action) => {
     case actions.TRADE_EDIT_DONE:
       return { ...state, trade_edit_done: action.done };
     case actions.ERROR:
-      return { ...state, error: action.error };
+      return {
+        ...state,
+        error: {
+          ...state.error,
+          ...action.error
+        }
+      };
     default:
       return state;
   }

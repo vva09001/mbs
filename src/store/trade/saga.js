@@ -206,8 +206,7 @@ export function* tradeDeleteSaga() {
           yield put({
             type: errorActions.TRADE_DONE,
             done: {
-              message:
-                'Quý khách đã hủy giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch mua Trái Phiếu này tại màn hình Danh mục Trái Phiếu nắm giữ',
+              message: 'alert_trade_01',
               status: true
             }
           });
@@ -253,8 +252,7 @@ export function* tradeUpdateSaga() {
           yield put({
             type: errorActions.TRADE_EDIT_DONE,
             done: {
-              message:
-                'Quý khách đã sửa giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch',
+              message: 'alert_trade_02',
               status: true
             }
           });

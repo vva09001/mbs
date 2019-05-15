@@ -186,7 +186,7 @@ export function* checkMountBuySaga() {
         yield put({
           type: errorActions.ERROR,
           error: {
-            message: `Khối lượng Trái Phiếu đặt mua phải > ${volMin}`,
+            message: `alert_buy_01`,
             status: true
           }
         });
@@ -195,7 +195,8 @@ export function* checkMountBuySaga() {
         yield put({
           type: errorActions.ERROR,
           error: {
-            message: `Khối lượng Trái Phiếu đặt mua phải ≥ ${volMin}`,
+            message: `alert_buy_02`,
+            message2: volMin,
             status: true
           }
         });
@@ -204,7 +205,8 @@ export function* checkMountBuySaga() {
         yield put({
           type: errorActions.ERROR,
           error: {
-            message: `Khối lượng Trái Phiếu đặt mua phải ≤ ${volMax}`,
+            message: `alert_buy_03`,
+            message2: volMax,
             status: true
           }
         });
@@ -213,7 +215,7 @@ export function* checkMountBuySaga() {
       yield put({
         type: errorActions.ERROR,
         error: {
-          message: `Giá Trị Giao Dịch vượt quá giới hạn thanh toán tiền trong TK ViettelPay (tối đa 100 triệu/giao dịch). Quý khách vui lòng chọn Khối Lượng nhỏ hơn.`,
+          message: `alert_buy_04`,
           status: true
         }
       });
@@ -373,8 +375,7 @@ export function* verifyBuySaga() {
             yield put({
               type: errorActions.BUY_DONE,
               done: {
-                message:
-                  'Quý khách đã đăng ký mua Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Trái Phiếu nắm giữ.',
+                message: 'alert_buy_05',
                 status: true
               }
             });

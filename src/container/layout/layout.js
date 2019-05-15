@@ -78,7 +78,7 @@ const Layout = props => {
         {props.tradeDone.status &&
           AlertDone(t(props.tradeDone.message), '/trade/', '/user/', props.clear)}
         {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
-        {props.error.status && Alert(t(props.error.message), props.clear)}
+        {props.error.status && Alert(t(props.error.message) + props.error.message2, props.clear)}
         {header(props)}
         <div className="container-fluid min-vh-100 text-center">
           <div className="wapper">
@@ -100,7 +100,7 @@ const Layout = props => {
       {props.tradeDone.status &&
         AlertDone(t(props.tradeDone.message), '/trade/', '/user/', props.clear)}
       {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
-      {props.error.status && Alert(t(props.error.message), props.clear)}
+      {props.error.status && Alert(t(props.error.message) + props.error.message2, props.clear)}
       {header(props)}
       <div className="container-fluid min-vh-100">{props.children}</div>
       <Footer active={props.active} />

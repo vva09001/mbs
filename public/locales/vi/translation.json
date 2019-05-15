@@ -287,10 +287,19 @@
   "MUA TRÁI PHIẾU": "MUA TRÁI PHIẾU",
   "sign": "''",
   "bonds_hold": "Trái Phiếu nắm giữ",
-  "show": "xem",
+  "show": "XEM",
   "yes": "Có",
   "no": "KHÔNG",
   "transaction_management" : "Quản lý giao dịch",
   "cancelConFirm": "Quý khách có chắc chắn muốn hủy ?",
-  "editConFirm": "Quý khách có chắc chắn muốn sửa ?"
+  "editConFirm": "Quý khách có chắc chắn muốn sửa ?",
+  "alert_buy_01": "Khối lượng Trái Phiếu đặt mua phải > 0 ",
+  "alert_buy_02": "Khối lượng Trái Phiếu đặt mua phải ≥ ",
+  "alert_buy_03": "Khối lượng Trái Phiếu đặt mua phải ≤ ",
+  "alert_buy_04": "Giá Trị Giao Dịch vượt quá giới hạn thanh toán tiền trong TK ViettelPay (tối đa 100 triệu/giao dịch). Quý khách vui lòng chọn Khối Lượng nhỏ hơn.",
+  "alert_buy_05": "Quý khách đã đăng ký mua Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Trái Phiếu nắm giữ.",
+  "alert_sell_01": "Quý khách đã đăng ký bán Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Quản lý giao dịch",
+  "alert_trade_01": "Quý khách đã hủy giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch mua Trái Phiếu này tại màn hình Danh mục Trái Phiếu nắm giữ",
+  "alert_trade_02": "Quý khách đã sửa giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch"
+
 }

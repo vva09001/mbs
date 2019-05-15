@@ -223,8 +223,7 @@ export function* sellUpdateSaga() {
           yield put({
             type: errorActions.SELL_DONE,
             done: {
-              message:
-                'Quý khách đã đăng ký bán Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Quản lý giao dịch',
+              message: 'alert_sell_01',
               status: true
             }
           });
