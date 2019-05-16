@@ -18,8 +18,8 @@ class HomePage extends Component {
     const { t } = this.props;
     return (
       <Layout type={4} active="/">
-        <div className="row">
-          <div className="col-12 text-center">
+        <div className="row fixed-top hader-homepage">
+          <div className="col-12 text-center ">
             <h6 className="text-primary mt-3 mb-3">
               <img alt="logo" src="/img/logo_MBS.svg" className="mr-2 logoMBS" />
               {t('Company_homepage')}
