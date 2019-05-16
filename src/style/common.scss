@@ -840,7 +840,7 @@ body {
   }
 }
 .button-buy {
-  margin-top: 25% !important;
+  margin-top: 60% !important;
   img {
     width: 20%;
   }
@@ -1091,4 +1091,8 @@ i.fa.fa-eye {
   padding-right: 5px;
   padding-left: 5px;
   height: 100vh;
+  overflow: auto;
+  .hader-homepage {
+    background-color: #ececec;
+  }
 }
