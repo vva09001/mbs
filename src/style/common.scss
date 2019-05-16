@@ -335,7 +335,6 @@ body {
   }
 
   .container-fluid {
-    max-width: 750px;
     padding-top: 60px;
     padding-bottom: 59px;
     padding-right: 5px;
@@ -1086,12 +1085,13 @@ i.fa.fa-eye {
   }
 }
 .home_page {
-  max-width: 750px;
   padding-bottom: 59px;
   padding-right: 5px;
   padding-left: 5px;
   height: 100vh;
   overflow: auto;
+  margin-right: auto;
+  margin-left: auto;
   .hader-homepage {
     background-color: #ececec;
   }
