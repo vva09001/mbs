@@ -23,6 +23,8 @@ const header = props => {
       return <Header2 title={props.title} />;
     case 3:
       return <Header3 title={props.title} />;
+    case 4:
+      return null;
     default:
       return (
         <Header
@@ -102,7 +104,9 @@ const Layout = props => {
       {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
       {props.error.status && Alert(t(props.error.message) + props.error.message2, props.clear)}
       {header(props)}
-      <div className="container-fluid min-vh-100">{props.children}</div>
+      <div className={props.active === '/' ? 'home_page min-vh-100' : 'container-fluid min-vh-100'}>
+        {props.children}
+      </div>
       <Footer active={props.active} />
     </Fragment>
   );
