@@ -7,7 +7,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
   const { t } = useTranslation();
   return (
     <div className="header-wrapper fixed-top row align-items-center justify-content-end">
-      <div className="col-2 col-sm-1 text-center">
+      <div className="col-2 text-left pl-3">
         <button
           className="navbar-toggler back-togger filter"
           type="button"
@@ -19,7 +19,7 @@ const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
       <div className="col-8 text-center">
         <h3 className="uppc">{t(title)}</h3>
       </div>
-      <div className="col-2">
+      <div className="col-2 text-right">
         <div className="dropdown">
           <button onClick={() => onToggle()} className="navbar-toggler filter" type="button">
             <Icon name="ic_filter" width="20" height="20" />

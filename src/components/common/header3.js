@@ -6,7 +6,7 @@ const header = () => {
   const { t } = useTranslation();
   return (
     <div className="header-wrapper no-shadow fixed-top align-items-center row">
-      <div className="col-2 col-sm-1 text-center">
+      <div className="col-2 text-left pl-3">
         <button
           className="navbar-toggler back-togger filter"
           type="button"
