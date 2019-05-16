@@ -8,7 +8,6 @@ import Header from 'components/common/header';
 import Header1 from 'components/common/header1';
 import Header2 from 'components/common/header2';
 import Header3 from 'components/common/header3';
-import Header4 from 'components/common/header4';
 import Popup from 'components/common/popup';
 import PopupDone from 'components/common/popup-done';
 import Footer from 'components/common/footer';
@@ -25,7 +24,7 @@ const header = props => {
     case 3:
       return <Header3 title={props.title} />;
     case 4:
-      return <Header4 title={props.title} />;
+      return null;
     default:
       return (
         <Header
@@ -105,7 +104,9 @@ const Layout = props => {
       {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
       {props.error.status && Alert(t(props.error.message) + props.error.message2, props.clear)}
       {header(props)}
-      <div className="container-fluid min-vh-100">{props.children}</div>
+      <div className={props.active === '/' ? 'home_page min-vh-100' : 'container-fluid min-vh-100'}>
+        {props.children}
+      </div>
       <Footer active={props.active} />
     </Fragment>
   );

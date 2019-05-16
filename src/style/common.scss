@@ -646,7 +646,7 @@ body {
     color: #fff;
     svg {
       margin-right: 12px;
-      fill: #347ABE;
+      fill: #347abe;
     }
   }
   .icon-black {
@@ -1078,10 +1078,17 @@ i.fa.fa-eye {
   }
 }
 .navbar-toggler.back-togger.filter {
-  background-color: #347ABE;
+  background-color: #347abe;
   border-radius: 100%;
   width: 30px;
   img {
     margin: -5px;
   }
+}
+.home_page {
+  max-width: 750px;
+  padding-bottom: 59px;
+  padding-right: 5px;
+  padding-left: 5px;
+  height: 100vh;
 }
