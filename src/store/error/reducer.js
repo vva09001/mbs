@@ -1,5 +1,4 @@
 import actions from './actions';
-import error from 'utils/error';
 const initialState = {
   buy_done: {
     status: false,
@@ -35,9 +34,6 @@ const Error = (state = initialState, action) => {
     case actions.TRADE_EDIT_DONE:
       return { ...state, trade_edit_done: action.done };
     case actions.ERROR:
-      if (action.error.message === '') {
-        action.error.message = error['-9999'];
-      }
       return {
         ...state,
         error: {

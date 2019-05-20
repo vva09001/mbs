@@ -2,8 +2,6 @@ import actions from './actions';
 import { all, fork, put, takeEvery, select } from 'redux-saga/effects';
 import { list, detail } from 'services/bonds';
 import { accountProfile, getToken } from 'store/selectors';
-import Error from 'utils/error';
-import history from 'utils/history';
 import { errorActions } from 'store/actions';
 
 export function* bondsList() {
@@ -25,23 +23,14 @@ export function* bondsList() {
       }
       const res = yield list(params, token);
 
-      if (res.status === 200) {
-        // handle request
-        if (res.data.result === 0 && res.data.data !== null) {
-          yield put({ type: actions.BONDS, list: res.data.data.data });
-          yield put({ type: actions.BONDS_TOTAL, total: res.data.data.total });
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
-        }
+      if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.BONDS, list: res.data.data.data });
+        yield put({ type: actions.BONDS_TOTAL, total: res.data.data.total });
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.BONDS_LOADING, loading: false });
@@ -71,21 +60,13 @@ export function* bondsGet() {
       const res = yield detail(params, token);
 
       // handle request
-      if (res.status === 200) {
-        if (res.data.result === 0 && res.data.data !== null) {
-          yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
-        }
+      if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.BONDS_DETAIL, detail: res.data.data });
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.BONDS_LOADING, loading: false });

@@ -1,7 +1,6 @@
 import actions from './actions';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import { Authentication } from 'services/auth';
-import Error from 'utils/error';
 import {
   accountActions,
   errorActions,
@@ -26,11 +25,8 @@ export function* authSaga() {
         yield put({ type: bondsActions.BONDS_RESET });
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: {
-            message: Error[res.data.result],
-            status: true
-          }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
       }
     } catch (error) {

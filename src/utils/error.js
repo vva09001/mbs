@@ -120,5 +120,7 @@ export default {
   '-1100': 'Xác thực OTP chưa chính xác',
   '-1101': 'Chưa thiết lập OTP',
   '-1102': '',
-  '-9999': 'Lỗi ngoại lệ, lỗi khác'
+  '-9999': 'Lỗi ngoại lệ, lỗi khác',
+  '401': 'Quý khách chưa đăng nhập hệ thống.',
+  '-99999': 'Giao dịch bị gián đoạn. Quý khách vui lòng thực hiện lại.'
 };
