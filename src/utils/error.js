@@ -11,7 +11,7 @@ export default {
   '-9': 'Số TK đã được sử dụng',
   '-10': 'Người dùng không thể thực hiện cập nhật',
   '-11': 'Khách hàng không tồn tại',
-  '-12': 'Tài khoản không tồn tại',
+  '-12': 'Tài khoản/mật khẩu của Quý khách không đúng, vui lòng kiểm tra lại',
   '-13': 'Tài khoản hoặc số điện thoại đã tồn tại liên kết',
   '-14': 'Mật khẩu đăng nhập không đúng',
   '-15': 'Liên kết tài khoản đã bị hủy hoặc không tồn tại liên kết',
