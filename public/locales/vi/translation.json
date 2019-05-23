@@ -300,6 +300,7 @@
   "alert_buy_05": "Quý khách đã đăng ký mua Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Trái Phiếu nắm giữ.",
   "alert_sell_01": "Quý khách đã đăng ký bán Trái Phiếu thành công. Chi tiết giao dịch tại màn hình Danh mục Quản lý giao dịch",
   "alert_trade_01": "Quý khách đã hủy giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch mua Trái Phiếu này tại màn hình Danh mục Trái Phiếu nắm giữ",
-  "alert_trade_02": "Quý khách đã sửa giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch"
-
+  "alert_trade_02": "Quý khách đã sửa giao dịch bán Trái Phiếu thành công. Quý khách có thể xem lại thông tin giao dịch này tại màn hình Quản lý Giao dịch",
+  "collateral": "Tài sản bảo đảm",
+  "collateral_agents": "Đại lý quản lý tài sản bảo đảm"
 }
