@@ -13,14 +13,14 @@ export function* errorRequestSaga() {
           error: { message: Error[res.data.result], status: true }
         });
         if (
-          res.data.result !== '-11' ||
-          res.data.result !== '-9' ||
-          res.data.result !== '-12' ||
-          res.data.result !== '-13' ||
-          res.data.result !== '-14' ||
-          res.data.result !== '-15' ||
-          res.data.result !== '-1101' ||
-          res.data.result !== '-1100'
+          res.data.result !== -11 &&
+          res.data.result !== -9 &&
+          res.data.result !== -12 &&
+          res.data.result !== -13 &&
+          res.data.result !== -14 &&
+          res.data.result !== -15 &&
+          res.data.result !== -1101 &&
+          res.data.result !== -1100
         ) {
           yield history.push({ pathname: '/' });
         }
