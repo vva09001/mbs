@@ -338,7 +338,7 @@ body {
   }
 
   .container-fluid {
-    padding-top: 60px;
+    padding-top: 45px;
     padding-bottom: 59px;
     padding-right: 5px;
     padding-left: 5px;
@@ -591,10 +591,10 @@ body {
 }
 
 .header-wrapper {
-  padding: 10px 15px 9px;
+  padding: 0px 15px 0px;
   background-color: rgb(236, 236, 236);
   color: #fff;
-  min-height: 56px;
+  min-height: 40px;
   & > div {
     padding: 0;
   }
@@ -930,7 +930,7 @@ body {
 }
 .sell-title {
   background-color: #fff;
-  top: 56px;
+  top: 40px;
   margin-left: -5px;
   margin-right: 8px;
   position: fixed;
@@ -1078,14 +1078,14 @@ i.fa.fa-eye {
     margin-bottom: 0.25rem !important;
   }
 }
-.navbar-toggler.back-togger.filter {
-  background-color: #347abe;
-  border-radius: 100%;
-  width: 30px;
-  img {
-    margin: -5px;
-  }
-}
+// .navbar-toggler.back-togger.filter {
+//   background-color: #347abe;
+//   border-radius: 100%;
+//   width: 30px;
+//   img {
+//     margin: -5px;
+//   }
+// }
 .home_page {
   padding-bottom: 59px;
   padding-right: 5px;
