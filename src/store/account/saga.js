@@ -66,6 +66,10 @@ export function* accountLinkSaga() {
       if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
         yield put({ type: actions.LINK_STEP, step: 1 });
         yield put({ type: actions.PRORFILE, profile: { ...profile, isExist: 1 } });
+        yield put({
+          type: errorActions.ERROR,
+          error: { message: 'Liên kết tài khoản thành công.', status: true }
+        });
         yield history.goBack();
       } else {
         yield put({
