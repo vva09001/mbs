@@ -46,7 +46,7 @@
   "the_yield_has_reinvested": "Lợi suất đã tái đầu tư",
   "the_yield_has_reinvested_info": "Là lợi suất đầu tư Trái Phiếu Khách Hàng nhận được đã bao gồm tái đầu tư coupon (với giả định Khách Hàng tiếp tục đầu tư khoản coupon với lãi suất 7.2%/năm)",
   "total_cash_flow_from_bonds": "Tổng dòng tiền từ Trái Phiếu",
-  "reinvestment_interest_rate": "Lãi suất tái đầu tư",
+  "reinvestment_interest_rate": "Giả định: Lãi suất tái đầu tư",
   "close": "ĐÓNG",
   "notification": "THÔNG BÁO",
   "investment_end_date": "Ngày kết thúc đầu tư",
