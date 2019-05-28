@@ -12,7 +12,9 @@ export function* errorRequestSaga() {
           type: actions.ERROR,
           error: { message: Error[res.data.result], status: true }
         });
-        yield history.push({ pathname: '/' });
+        if (res.data.result === '-11') {
+          yield history.push({ pathname: '/' });
+        }
         break;
       case 401:
         yield put({ type: actions.ERROR, error: { message: Error['401'], status: true } });
