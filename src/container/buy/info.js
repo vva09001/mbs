@@ -108,13 +108,13 @@ const Info = ({ detail }) => {
               <td>
                 <b>{t(`collateral`)}</b>
               </td>
-              <td>{detail.collateral}</td>
+              <td className="text-justify white-space-pre-line">{detail.collateral}</td>
             </tr>
             <tr>
               <td>
                 <b>{t(`collateral_agents`)}</b>
               </td>
-              <td>{detail.collateralAgents}</td>
+              <td className="text-justify white-space-pre-line">{detail.collateralAgents}</td>
             </tr>
           </tbody>
         </table>
