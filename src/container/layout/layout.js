@@ -132,6 +132,7 @@ const Layout = props => {
       {header(props)}
       <div
         className={props.active === '/' ? 'home_page min-vh-100' : 'container-fluid min-vh-100'}
+        onTouchMove={e => scrollHandle(e)}
         onWheel={e => scrollHandle(e)}
       >
         {props.children}
