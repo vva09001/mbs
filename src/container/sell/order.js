@@ -209,7 +209,7 @@ class Order extends Component {
             </label>
           </div>
         </div>
-        <div className="button-fixed">
+        <div id="btn-fixed" className="button-fixed">
           <div className="wapper-button">
             <button
               onClick={() => this._onBook()}

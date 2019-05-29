@@ -6,7 +6,10 @@ import Icon from './icon';
 const header = ({ title, toggle, onToggle, onClick, filterPicked }) => {
   const { t } = useTranslation();
   return (
-    <div className="header-wrapper fixed-top row align-items-center justify-content-end pt-1">
+    <div
+      id="header"
+      className="header-wrapper fixed-top row align-items-center justify-content-end pt-1"
+    >
       <div className="col-2 text-left">
         <button className="navbar-toggler filter" type="button" onClick={() => history.goBack()}>
           <Icon name="ic_back" width="20" height="20" />

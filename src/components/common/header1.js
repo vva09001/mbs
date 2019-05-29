@@ -7,7 +7,10 @@ import Icon from './icon';
 const header = ({ title }) => {
   const { t } = useTranslation();
   return (
-    <div className="header-wrapper fixed-top row align-items-center justify-content-end pt-1">
+    <div
+      id="header"
+      className="header-wrapper fixed-top row align-items-center justify-content-end pt-1"
+    >
       <div className="col-2 text-left">
         <button
           className="navbar-toggler back-togger filter"

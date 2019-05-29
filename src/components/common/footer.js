@@ -29,7 +29,7 @@ const footer = ({ active }) => {
     }
   ];
   return (
-    <div className="footer-wrapper fixed-bottom">
+    <div id="footer" className="footer-wrapper fixed-bottom">
       {_.map(datas, (item, index) => (
         <Link key={index} to={item.link} className={active === item.link ? 'active' : ''}>
           <Icon name={item.icon} height="35" />
