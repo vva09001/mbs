@@ -20,7 +20,10 @@ export function* errorRequestSaga() {
           res.data.result !== -14 &&
           res.data.result !== -15 &&
           res.data.result !== -1101 &&
-          res.data.result !== -1100
+          res.data.result !== -1100 &&
+          res.data.result !== -25 &&
+          res.data.result !== -26 &&
+          res.data.result !== -27
         ) {
           yield history.push({ pathname: '/' });
         }
@@ -44,6 +47,7 @@ export function* clearErrorSaga() {
     yield put({ type: actions.TRADE_DONE, done: { message: '', status: false } });
     yield put({ type: actions.TRADE_EDIT_DONE, done: { message: '', status: false } });
     yield put({ type: actions.ERROR, error: { message: '', message2: '', status: false } });
+    yield put({ type: actions.TRANSER_DONE, done: { message: '', status: false } });
   });
 }
 

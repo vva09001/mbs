@@ -333,5 +333,15 @@
   "collateral": "Tài sản bảo đảm",
   "collateral_agents": "Đại lý quản lý tài sản bảo đảm",
   "alert_link_success": "Quý khách đã liên kết tài khoản thành công.",
-  "alert_otp_error": "Quý khách nhập mã OTP không chính xác, vui lòng thử lại."
+  "alert_otp_error": "Quý khách nhập mã OTP không chính xác, vui lòng thử lại.",
+  "request_transfer": "YÊU CẦU CHUYỂN KHOẢN",
+  "transfer_to": "Chuyển tới",
+  "mbs_name": "Công ty CP Chứng khoán MB",
+  "TKCK": "Tài khoản chứng khoán MBS (7 số)",
+  "account_no_exist": "Tài khoản không tồn tại",
+  "account_name": "Họ tên chủ tài khoản",
+  "money_transfer": "Số tiền chuyển (VNĐ)",
+  "des_transfer": "Nội dung chuyển khoản",
+  "make_transaction": "THỰC HIỆN GIAO DỊCH",
+  "alert_transfer_done": "Quý khách đã chuyển khoản thành công."
 }

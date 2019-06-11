@@ -409,7 +409,7 @@ body {
   .react-datepicker-wrapper {
     padding: calc(0.375rem + 1px) 20px;
     margin-bottom: 0;
-    background: #f4f4f4 url('/img/calendar.png') no-repeat center right 10px;
+    background: #f4f4f4 url("/img/calendar.png") no-repeat center right 10px;
     border-radius: 4px;
     width: 100%;
 
@@ -472,7 +472,7 @@ body {
       padding: 0;
       height: auto;
 
-      &[type='text'] {
+      &[type="text"] {
         border: 0;
         background: transparent;
       }
@@ -616,7 +616,7 @@ body {
       color: #fff;
       padding: 10px 10px;
     }
-    input[type='text'] {
+    input[type="text"] {
       background: transparent;
       color: #fff;
       border: 0;
@@ -692,7 +692,7 @@ body {
     border: 1px solid #c9cdd4;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       display: none;
       left: 9px;
@@ -1077,6 +1077,33 @@ i.fa.fa-eye {
   p {
     margin-bottom: 0.25rem !important;
   }
+}
+.h30 {
+  height: 30px;
+  margin-right: 10px;
+}
+.mbs-title {
+  font-weight: bold;
+  font-size: 14px;
+  color: #6c757d;
+}
+.form-text {
+  font-style: italic;
+}
+.mbs-name {
+  color: #005197;
+  line-height: 46px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.form-group-transfer {
+  margin-bottom: 30px;
+}
+.input-transfer {
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0;
+  font-size: 14px;
 }
 // .navbar-toggler.back-togger.filter {
 //   background-color: #347abe;

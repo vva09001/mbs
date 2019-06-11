@@ -10,6 +10,14 @@ const actions = {
   ACCOUNT_INFO: 'ACCOUNT_INFO',
   ACCOUNT_INFO_REQUEST: 'ACCOUNT_INFO_REQUEST',
   ACCOUNT_LOADING: 'ACCOUNT_LOADING',
+  CHECK_ACCOUNT_CODE: 'CHECK_ACCOUNT_CODE',
+  ACCOUNT_CODE_INFO: 'ACCOUNT_CODE_INFO',
+  TRANSER_MONEY: 'TRANSER_MONEY',
+  TRANSER_VERIFY_RESULT: 'TRANSER_VERIFY_RESULT',
+  setAccount: profile => ({
+    type: actions.PRORFILE,
+    profile
+  }),
   checkLink: params => ({
     type: actions.CHECK_LINK_REQUEST,
     params
@@ -24,6 +32,20 @@ const actions = {
   }),
   info: () => ({
     type: actions.ACCOUNT_INFO_REQUEST
+  }),
+  checkAccountCode: accountCode => ({
+    type: actions.CHECK_ACCOUNT_CODE,
+    accountCode
+  }),
+  transferMoney: (accountCode, money, des) => ({
+    type: actions.TRANSER_MONEY,
+    accountCode,
+    money,
+    des
+  }),
+  verifyResult: params => ({
+    type: actions.TRANSER_VERIFY_RESULT,
+    params
   })
 };
 export default actions;

@@ -6,6 +6,7 @@ const actions = {
   ERROR: 'ERROR',
   ERROR_REQUEST: 'ERROR_REQUEST',
   CLEAR_ERROR: 'CLEAR_ERROR',
+  TRANSER_DONE: 'TRANSER_DONE',
   error: error => ({
     type: actions.ERROR_REQUEST,
     error

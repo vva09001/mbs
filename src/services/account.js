@@ -54,4 +54,26 @@ const Info = (params, token) => {
     params: params
   });
 };
-export { Check, Register, CheckLink, Link, List, Info };
+
+const CheckAccountCode = (params, token) => {
+  return request({
+    url: '/api/payment/getAccountInfo',
+    method: 'get',
+    headers: {
+      Authorization: token
+    },
+    params: params
+  });
+};
+const Transfer = (params, token) => {
+  return request({
+    url: '/api/viettelpay/paymentCashIn',
+    method: 'get',
+    headers: {
+      Authorization: token
+    },
+    params: params
+  });
+};
+
+export { Check, Register, CheckLink, Link, List, Info, CheckAccountCode, Transfer };

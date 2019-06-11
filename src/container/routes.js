@@ -5,6 +5,9 @@ import { Router, Route, Switch } from 'react-router-dom';
 import history from 'utils/history';
 import RootContainer from 'container/rootContainer';
 import HomePage from 'container/homepage';
+import HomeTest from 'container/homepage/homeTest';
+import TransferVerify from 'container/account/verify';
+import Transfer from 'container/account/transfer';
 
 import BuyList from 'container/buy/list';
 import BuyDetail from 'container/buy/detail';
@@ -33,6 +36,7 @@ const AppRouter = () => {
       <RootContainer>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/pc" component={HomeTest} />
 
           <Route exact path="/buy/" component={BuyList} />
           <Route path="/buy/info/" component={BuyInfo} />
@@ -54,6 +58,8 @@ const AppRouter = () => {
 
           <Route exact path="/user/" component={AccountList} />
           <Route path="/user/connect/" component={AccountConnect} />
+          <Route path="/user/transfer/" component={Transfer} />
+          <Route path="/transfer/verify/" component={TransferVerify} />
         </Switch>
       </RootContainer>
     </Router>
