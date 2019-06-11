@@ -205,7 +205,7 @@ class Actions extends Component {
             </div>
           </div>
         </div>
-        <div className="button-fixed">
+        <div id="btn-fixed" className="button-fixed">
           <div className="wapper-button">
             <button
               type="button"

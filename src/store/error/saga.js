@@ -52,5 +52,5 @@ export function* clearErrorSaga() {
 }
 
 export default function* rootSaga() {
-  yield all([fork(clearErrorSaga)]);
+  yield all([fork(clearErrorSaga), fork(errorRequestSaga)]);
 }

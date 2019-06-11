@@ -50,7 +50,7 @@ class List extends Component {
     const { t } = this.props;
     return (
       <Layout type={2} title="sell_bonds">
-        <div className="sell-title">
+        <div id="sell-title" className="sell-title">
           <div className="row">
             <div className="col-6 no-pading-right">
               <div className="title-left bold tar">{t('total_value_of_investment')}: </div>

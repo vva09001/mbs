@@ -43,10 +43,9 @@ export function* sellListSaga() {
         }
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.SELL_LOADING, loading: false });
@@ -84,10 +83,9 @@ export function* sellInfoSaga() {
         }
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
       yield put({ type: actions.SELL_LOADING });
     } catch (error) {
@@ -109,21 +107,13 @@ export function* sellGetDateSaga() {
       const res = yield Date(params, token);
 
       // handle request
-      if (res.status === 200) {
-        if (res.data.result === 0 && res.data.data !== null) {
-          yield put({ type: actions.SELL_DATE, date: res.data.data });
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
-        }
+      if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.SELL_DATE, date: res.data.data });
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
@@ -144,21 +134,13 @@ export function* sellGetDetailSaga() {
       const res = yield Detail(params, token);
 
       // handle request
-      if (res.status === 200) {
-        if (res.data.result === 0 && res.data.data !== null) {
-          yield put({ type: actions.SELL_DETAIL, detail: res.data.data });
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
-        }
+      if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.SELL_DETAIL, detail: res.data.data });
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
@@ -218,28 +200,21 @@ export function* sellUpdateSaga() {
       const res = yield Update(params, token);
 
       // handle request
-      if (res.status === 200) {
-        if (res.data.result === 0 && res.data.data !== null) {
-          yield put({
-            type: errorActions.SELL_DONE,
-            done: {
-              message: 'alert_sell_01',
-              status: true
-            }
-          });
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
-        }
+      if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
+        yield put({
+          type: errorActions.SELL_DONE,
+          done: {
+            message: 'alert_sell_01',
+            status: true
+          }
+        });
+        yield history.push({ pathname: '/' });
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
       }
-      yield history.push({ pathname: '/' });
     } catch (error) {
       yield put({ type: errorActions.ERROR, error: error.message });
     }

@@ -123,7 +123,7 @@ class Detail extends Component {
           {this.nonInvertRender()}
           {this.invertRender()}
         </div>
-        <div className="button-fixed">
+        <div id="btn-fixed" className="button-fixed">
           <div className="wapper-button">
             <button
               type="button"

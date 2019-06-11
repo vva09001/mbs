@@ -27,22 +27,14 @@ export function* accountCheckLinkSaga() {
       };
       const res = yield CheckLink(params, token);
       // handle request
-      if (res.status === 200) {
-        if (res.data.result === 0 && res.data.data !== null) {
-          yield put({ type: actions.LINK_STEP, step: 2 });
-          yield put({ type: actions.LINK_STEP_DATA, data: params });
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
-        }
+      if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.LINK_STEP, step: 2 });
+        yield put({ type: actions.LINK_STEP_DATA, data: params });
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
@@ -73,23 +65,19 @@ export function* accountLinkSaga() {
       const res = yield Link(params, token);
 
       // handle request
-      if (res.status === 200) {
-        if (res.data.result === 0 && res.data.data !== null) {
-          yield put({ type: actions.LINK_STEP, step: 1 });
-          yield put({ type: actions.PRORFILE, profile: { ...profile, isExist: 1 } });
-          yield history.goBack();
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
-        }
-      } else {
+      if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.LINK_STEP, step: 1 });
+        yield put({ type: actions.PRORFILE, profile: { ...profile, isExist: 1 } });
         yield put({
           type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          error: { message: 'Liên kết tài khoản thành công.', status: true }
         });
-        yield history.push({ pathname: '/' });
+        yield history.goBack();
+      } else {
+        yield put({
+          type: errorActions.ERROR_REQUEST,
+          error: res
+        });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
@@ -132,10 +120,9 @@ export function* accountBondsSaga() {
         }
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });
@@ -163,21 +150,13 @@ export function* accountInfoSaga() {
       const res = yield Info(params, token);
 
       // handle request
-      if (res.status === 200) {
-        if (res.data.result === 0 && res.data.data !== null) {
-          yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalCastInvest });
-        } else {
-          yield put({
-            type: errorActions.ERROR,
-            error: { message: Error[res.data.result], status: true }
-          });
-        }
+      if (res.status === 200 && res.data.result === 0 && res.data.data !== null) {
+        yield put({ type: actions.ACCOUNT_INFO, total: res.data.data.totalCastInvest });
       } else {
         yield put({
-          type: errorActions.ERROR,
-          error: { message: res.data.message, status: true }
+          type: errorActions.ERROR_REQUEST,
+          error: res
         });
-        yield history.push({ pathname: '/' });
       }
 
       yield put({ type: actions.ACCOUNT_LOADING, loading: false });

@@ -104,6 +104,18 @@ const Info = ({ detail }) => {
               </td>
               <td>{detail.paymentAgents}</td>
             </tr>
+            <tr>
+              <td>
+                <b>{t(`collateral`)}</b>
+              </td>
+              <td className="text-justify white-space-pre-line">{detail.collateral}</td>
+            </tr>
+            <tr>
+              <td>
+                <b>{t(`collateral_agents`)}</b>
+              </td>
+              <td className="text-justify white-space-pre-line">{detail.collateralAgents}</td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -151,7 +151,7 @@ class Confirm extends Component {
             </p>
           </div>
         </div>
-        <div className="button-fixed">
+        <div id="btn-fixed" className="button-fixed">
           <div className="wapper-button button-comfirm link-sell">
             <button
               onClick={() => this._onApprove()}

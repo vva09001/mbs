@@ -20,7 +20,7 @@ class HomePage extends Component {
       <Layout type={4} active="/">
         <div className="row fixed-top hader-homepage">
           <div className="col-12 text-center ">
-            <h6 className="text-primary mt-3 mb-3">
+            <h6 className="text-primary mt-2 mb-2">
               <img alt="logo" src="/img/logo_MBS.svg" className="mr-2 logoMBS" />
               {t('Company_homepage')}
             </h6>

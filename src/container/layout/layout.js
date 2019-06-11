@@ -70,6 +70,32 @@ const AlertDone = (message, pathnameClose, pathnameShow, clear) => (
 );
 const Layout = props => {
   const { t } = useTranslation();
+  let scroll = 0;
+  function scrollHandle() {
+    if (window.scrollY > scroll) {
+      document.getElementById('header').style.visibility = 'hidden';
+      document.getElementById('footer').style.visibility = 'visible';
+      if (document.getElementById('btn-fixed')) {
+        document.getElementById('btn-fixed').style.bottom = '56px';
+      }
+      if (document.getElementById('sell-title')) {
+        document.getElementById('sell-title').style.top = '0px';
+      }
+      // document.getElementById('btn-fixed').style.bottom = '56px';
+      scroll = window.scrollY;
+    } else if (window.scrollY < scroll) {
+      document.getElementById('header').style.visibility = 'visible';
+      document.getElementById('footer').style.visibility = 'hidden';
+      if (document.getElementById('btn-fixed')) {
+        document.getElementById('btn-fixed').style.bottom = '0px';
+      }
+      if (document.getElementById('sell-title')) {
+        document.getElementById('sell-title').style.top = '40px';
+      }
+      // document.getElementById('btn-fixed').style.bottom = '0px';
+      scroll = window.scrollY;
+    }
+  }
   if (!props.isLoggedIn) {
     return (
       <Fragment>
@@ -104,7 +130,11 @@ const Layout = props => {
       {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
       {props.error.status && Alert(t(props.error.message) + props.error.message2, props.clear)}
       {header(props)}
-      <div className={props.active === '/' ? 'home_page min-vh-100' : 'container-fluid min-vh-100'}>
+      <div
+        className={props.active === '/' ? 'home_page min-vh-100' : 'container-fluid min-vh-100'}
+        onTouchMove={e => scrollHandle(e)}
+        onWheel={e => scrollHandle(e)}
+      >
         {props.children}
       </div>
       <Footer active={props.active} />
