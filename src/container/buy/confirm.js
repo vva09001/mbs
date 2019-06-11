@@ -99,11 +99,11 @@ class Confirm extends Component {
             </div>
             <div className="row">
               <div className="col-5 hl18">{t('cust_account_bank_code')}</div>
-              <div className="col-7 hl18">{info.custAccountBankCode}</div>
+              <div className="col-7 hl18">{info.accountBankCode}</div>
             </div>
             <div className="row">
               <div className="col-5 hl18">{t('cust_bank_name')}</div>
-              <div className="col-7 hl18">{info.custBankName}</div>
+              <div className="col-7 hl18">{info.bankName}</div>
             </div>
           </div>
           <p className="bgdd">

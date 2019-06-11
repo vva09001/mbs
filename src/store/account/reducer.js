@@ -12,7 +12,8 @@ const initialState = {
   list: [],
   total: 0,
   total_list: 0,
-  loading: false
+  loading: false,
+  infoAccount: {}
 };
 
 const Account = (state = initialState, action) => {
@@ -31,6 +32,8 @@ const Account = (state = initialState, action) => {
       return { ...state, total: action.total };
     case actions.ACCOUNT_LOADING:
       return { ...state, loading: action.loading };
+    case actions.ACCOUNT_CODE_INFO:
+      return { ...state, infoAccount: action.info };
     default:
       return state;
   }

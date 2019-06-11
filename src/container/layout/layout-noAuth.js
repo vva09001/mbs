@@ -66,6 +66,7 @@ const Layout = props => {
         AlertDone(t(props.tradeDone.message), '/trade/', '/user/', props.clear)}
       {props.tradeEditDone.status && Alert(t(props.tradeEditDone.message), props.clear, 'XEM')}
       {props.error.status && Alert(t(props.error.message) + props.error.message2, props.clear)}
+      {props.transferDone.status && Alert(t(props.transferDone.message), props.clear, t('close'))}
       {header(props)}
       <div className={props.active === '/' ? 'home_page min-vh-100' : 'container-fluid min-vh-100'}>
         {props.children}
@@ -84,6 +85,7 @@ Layout.propTypes = {
   sellDone: PropTypes.object,
   tradeDone: PropTypes.object,
   tradeEditDone: PropTypes.object,
+  transferDone: PropTypes.object,
   error: PropTypes.object,
   clear: PropTypes.func
 };
@@ -94,7 +96,8 @@ const mapStateToProps = state => {
     buyDone: state.Error.buy_done,
     sellDone: state.Error.sell_done,
     tradeDone: state.Error.trade_done,
-    tradeEditDone: state.Error.trade_edit_done
+    tradeEditDone: state.Error.trade_edit_done,
+    transferDone: state.Error.transfer_done
   };
 };
 

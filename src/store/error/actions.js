@@ -5,6 +5,11 @@ const actions = {
   TRADE_EDIT_DONE: 'TRADE_EDIT_DONE',
   ERROR: 'ERROR',
   CLEAR_ERROR: 'CLEAR_ERROR',
+  TRANSER_DONE: 'TRANSER_DONE',
+  error: error => ({
+    type: actions.ERROR_REQUEST,
+    error
+  }),
   clearError: () => ({
     type: actions.CLEAR_ERROR
   })
