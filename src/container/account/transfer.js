@@ -40,18 +40,21 @@ class Transfer extends Component {
     });
   };
   _onClick = () => {
-    const {params} = this.state;
-    this.props.transferMoney(params.accountBankCode, params.money,params.des);
+    this.props.transferMoney(
+      this.state.params.accountBankCode,
+      this.state.params.money,
+      this.state.params.des
+    );
   };
 
-  _onCheckAccountCode = (accountCode) => {
+  _onCheckAccountCode = accountCode => {
     if (accountCode !== '') {
       this.props.checkAccCountCode(accountCode);
       this.setState({
         checkCode: true
-      })
+      });
     }
-  }
+  };
 
   render() {
     const { t } = this.props;
@@ -80,16 +83,18 @@ class Transfer extends Component {
                 name="accountBankCode"
                 type="text"
                 className="form-control input-transfer"
-                onBlur={e => this._onCheckAccountCode(params.accountBankCode)}
+                onBlur={() => this._onCheckAccountCode(params.accountBankCode)}
                 placeholder={t('TKCK')}
               />
-              {
-                params.accountBankCode && checkCode ? this.props.infoAccount.accountName && checkCode ?
-                  <span className="form-text text-secondary">({`${t('account_name')}: ${this.props.infoAccount.accountName}`})</span>
-                  : <span className="form-text text-danger">
-                    ({t('account_no_exist')})
-                  </span> : null
-              }
+              {params.accountBankCode && checkCode ? (
+                this.props.infoAccount.accountName && checkCode ? (
+                  <span className="form-text text-secondary">
+                    ({`${t('account_name')}:${this.props.infoAccount.accountName}`})
+                  </span>
+                ) : (
+                  <span className="form-text text-danger">({t('account_no_exist')})</span>
+                )
+              ) : null}
             </div>
             <div className="form-group col-12 form-group-transfer">
               {/* <label>{t('money_transfer')}</label> */}
@@ -115,7 +120,6 @@ class Transfer extends Component {
                 placeholder={t('des_transfer')}
               />
             </div>
-            
             <div className="col-10 wapper-link">
               <Button
                 type="button"
@@ -128,7 +132,6 @@ class Transfer extends Component {
           </Form>
         </div>
       </Layout>
-      
     );
   }
 }
@@ -137,10 +140,12 @@ Transfer.propTypes = {
   checkAuth: PropTypes.func,
   checkAccCountCode: PropTypes.func,
   transferMoney: PropTypes.func,
+  infoAccount: PropTypes.object,
+  location: PropTypes.object,
   t: PropTypes.func
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     infoAccount: state.Account.infoAccount
   };
@@ -157,7 +162,7 @@ const mapDispatchToProps = dispatch => {
     transferMoney: (accountCode, money, des) => {
       dispatch(accountActions.transferMoney(accountCode, money, des));
     }
-  }
+  };
 };
 
 export default connect(

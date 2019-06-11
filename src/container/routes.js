@@ -7,7 +7,7 @@ import RootContainer from 'container/rootContainer';
 import HomePage from 'container/homepage';
 import HomeTest from 'container/homepage/homeTest';
 import TransferVerify from 'container/account/verify';
-import Transfer from 'container/account/transfer'
+import Transfer from 'container/account/transfer';
 
 import BuyList from 'container/buy/list';
 import BuyDetail from 'container/buy/detail';

@@ -33,7 +33,7 @@ const actions = {
   info: () => ({
     type: actions.ACCOUNT_INFO_REQUEST
   }),
-  checkAccountCode: (accountCode) => ({
+  checkAccountCode: accountCode => ({
     type: actions.CHECK_ACCOUNT_CODE,
     accountCode
   }),
@@ -46,6 +46,6 @@ const actions = {
   verifyResult: params => ({
     type: actions.TRANSER_VERIFY_RESULT,
     params
-  }),
+  })
 };
 export default actions;
