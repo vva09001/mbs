@@ -37,9 +37,10 @@ const actions = {
     type: actions.CHECK_ACCOUNT_CODE,
     accountCode
   }),
-  transferMoney: (accountCode, money, des) => ({
+  transferMoney: (accountCode, accountName, money, des) => ({
     type: actions.TRANSER_MONEY,
     accountCode,
+    accountName,
     money,
     des
   }),
