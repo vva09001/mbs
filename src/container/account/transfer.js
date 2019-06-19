@@ -117,6 +117,7 @@ class Transfer extends Component {
     let checkDes = true;
     if (params.des !== '') {
       checkDes = regex.test(params.des);
+      check = check && checkDes;
     }
     this.setState({
       validate: check,
