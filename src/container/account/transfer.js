@@ -8,18 +8,22 @@ import Layout from 'container/layout/layout-noAuth';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import Button from 'react-validation/build/button';
-import { required } from 'utils/validation';
+import NumberFormat from 'react-number-format';
+import Loading from 'components/common/loading';
+const regex = /^[a-zA-Z0-9 ]+$/;
 
 class Transfer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkCode: false,
+      checkAccount: false,
       params: {
         accountBankCode: '',
         money: '',
         des: ''
-      }
+      },
+      validate: true,
+      checkDes: true
     };
   }
 
@@ -29,36 +33,101 @@ class Transfer extends Component {
       this.props.checkAuth(query);
     }
   }
-  _onChange = (e, param) => {
-    const value = e.target.value;
+  _onChangeInputMoney = e => {
+    let nextValue = parseInt(e.target.value);
+    if (!nextValue) {
+      nextValue = '';
+    }
     this.setState({
-      checkCode: false,
       params: {
         ...this.state.params,
-        [param]: value
+        money: nextValue
+      }
+    });
+  };
+  _onChangeInputAccount = e => {
+    this.setState({
+      params: {
+        ...this.state.params,
+        accountBankCode: e.target.value
+      },
+      checkAccount: false
+    });
+  };
+  _onChangeInputDes = e => {
+    this.setState({
+      params: {
+        ...this.state.params,
+        des: e.target.value
+      },
+      checkDes: true
+    });
+  };
+  _onChange = (e, param) => {
+    const value = e.target.value;
+    let nextValue = '';
+    if (e.target.name === 'money') {
+      nextValue = parseInt(value);
+      if (!nextValue) {
+        nextValue = '';
+      }
+    } else {
+      nextValue = value;
+    }
+    this.setState({
+      params: {
+        ...this.state.params,
+        [param]: nextValue
       }
     });
   };
   _onClick = () => {
-    this.props.transferMoney(
-      this.state.params.accountBankCode,
-      this.state.params.money,
-      this.state.params.des
-    );
+    if (this.validateForm()) {
+      this.props.transferMoney(
+        this.state.params.accountBankCode,
+        encodeURI(this.props.infoAccount.accountName),
+        this.state.params.money,
+        this.state.params.des
+      );
+    }
   };
-
   _onCheckAccountCode = accountCode => {
     if (accountCode !== '') {
       this.props.checkAccCountCode(accountCode);
       this.setState({
-        checkCode: true
+        checkAccount: true
       });
     }
+  };
+  validateForm = () => {
+    const params = this.state.params;
+    let check = true;
+    if (
+      params.accountBankCode !== '' &&
+      this.props.infoAccount.accountName &&
+      params.money !== '' &&
+      params.money > 50000 &&
+      params.money < 1000000000 &&
+      params.des !== ''
+    ) {
+      check = true;
+    } else {
+      check = false;
+    }
+    let checkDes = true;
+    if (params.des !== '') {
+      checkDes = regex.test(params.des);
+    }
+    this.setState({
+      validate: check,
+      checkDes: checkDes
+    });
+    return check;
   };
 
   render() {
     const { t } = this.props;
-    const { params, checkCode } = this.state;
+    const { params, checkAccount, validate, checkDes } = this.state;
     return (
       <Layout type={1} title={t('request_transfer')}>
         <div className="bond-detail pt-3 max-hieght">
@@ -70,15 +139,10 @@ class Transfer extends Component {
           >
             <div className="form-group col-12">
               <label className="mbs-title">{t('transfer_to')}</label>
-              {/* <div className="d-flex">
-                <img className="h30" src="/img/logo.png" alt="logoMBS"/>
-                <label className="mbs-name">{t('mbs_name')}</label>  
-              </div> */}
             </div>
             <div className="form-group col-12 form-group-transfer">
-              {/* <label>{t('TKCK')}</label> */}
               <input
-                onChange={e => this._onChange(e, 'accountBankCode')}
+                onChange={this._onChangeInputAccount}
                 value={params.accountBankCode}
                 name="accountBankCode"
                 type="text"
@@ -86,39 +150,50 @@ class Transfer extends Component {
                 onBlur={() => this._onCheckAccountCode(params.accountBankCode)}
                 placeholder={t('TKCK')}
               />
-              {params.accountBankCode && checkCode ? (
-                this.props.infoAccount.accountName && checkCode ? (
-                  <span className="form-text text-secondary">
+              {params.accountBankCode ? (
+                this.props.loading ? (
+                  <Loading />
+                ) : this.props.infoAccount.accountName && checkAccount ? (
+                  <div className="form-text text-secondary">
                     ({`${t('account_name')}:${this.props.infoAccount.accountName}`})
-                  </span>
-                ) : (
-                  <span className="form-text text-danger">({t('account_no_exist')})</span>
-                )
+                  </div>
+                ) : checkAccount ? (
+                  <div className="form-text text-danger">({t('account_no_exist')})</div>
+                ) : null
               ) : null}
+              {!validate && params.accountBankCode === '' && (
+                <div className="form-text text-danger">{t('validate_account_transfer')}</div>
+              )}
             </div>
             <div className="form-group col-12 form-group-transfer">
-              {/* <label>{t('money_transfer')}</label> */}
+              <NumberFormat value={params.money} displayType={'text'} thousandSeparator={true} />
               <Input
                 onChange={e => this._onChange(e, 'money')}
                 value={params.money}
                 name="money"
-                type="text"
-                className="form-control input-transfer"
-                validations={[required]}
+                autoComplete="off"
+                className="form-control input-transfer white-text"
                 placeholder={t('money_transfer')}
               />
+              {!validate &&
+                (params.money === '' || params.money < 50000 || params.money > 1000000000) && (
+                  <div className="form-text text-danger">{t('validate_money_transfer')}</div>
+                )}
             </div>
             <div className="form-group col-12 form-group-transfer">
-              {/* <label>{t('des_transfer')}</label> */}
               <Input
-                onChange={e => this._onChange(e, 'des')}
+                onChange={this._onChangeInputDes}
                 value={params.des}
                 name="des"
                 type="text"
+                lang="en"
+                pattern="[A-Za-z0-9]"
                 className="form-control input-transfer"
-                validations={[required]}
                 placeholder={t('des_transfer')}
               />
+              {!validate && (params.des === '' || !checkDes) && (
+                <div className="form-text text-danger">{t('validate_content_transfer')}</div>
+              )}
             </div>
             <div className="col-10 wapper-link">
               <Button
@@ -137,6 +212,7 @@ class Transfer extends Component {
 }
 
 Transfer.propTypes = {
+  loading: PropTypes.bool,
   checkAuth: PropTypes.func,
   checkAccCountCode: PropTypes.func,
   transferMoney: PropTypes.func,
@@ -144,10 +220,15 @@ Transfer.propTypes = {
   location: PropTypes.object,
   t: PropTypes.func
 };
+Transfer.defaultProps = {
+  infoAccount: {},
+  location: {}
+};
 
 const mapStateToProps = state => {
   return {
-    infoAccount: state.Account.infoAccount
+    infoAccount: state.Account.infoAccount,
+    loading: state.Account.loading
   };
 };
 
@@ -159,8 +240,8 @@ const mapDispatchToProps = dispatch => {
     checkAccCountCode: accountCode => {
       dispatch(accountActions.checkAccountCode(accountCode));
     },
-    transferMoney: (accountCode, money, des) => {
-      dispatch(accountActions.transferMoney(accountCode, money, des));
+    transferMoney: (accountCode, accountName, money, des) => {
+      dispatch(accountActions.transferMoney(accountCode, accountName, money, des));
     }
   };
 };

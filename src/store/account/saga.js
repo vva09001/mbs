@@ -189,6 +189,7 @@ export function* checkAccountSaga() {
       if (res.status === 200) {
         if (res.data.result === 0) {
           yield put({ type: actions.ACCOUNT_CODE_INFO, info: res.data.data });
+          yield put({ type: actions.ACCOUNT_LOADING, loading: false });
         } else {
           yield put({ type: actions.ACCOUNT_CODE_INFO, info: {} });
         }
@@ -216,10 +217,11 @@ export function* requestTransferSaga() {
       const paramsPayment = {
         command: 'PAYMENT',
         accountCode: data.accountCode,
+        account_name: data.accountName,
         cancel_url: process.env.REACT_APP_URL + '/transfer/verify/',
         return_url: process.env.REACT_APP_URL + '/transfer/verify/',
         trans_amount: data.money,
-        des: data.des,
+        desc: data.des,
         custId: profile.customerId,
         version: '2.0'
       };

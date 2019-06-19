@@ -92,7 +92,7 @@
   "article_1.13": "1.13 Giá trị tái đầu tư coupon",
   "article_1.14": "1.14 Giá trị Khách Hàng nhận được cuối kỳ",
   "article_1.15": "1.15 Tổng dòng tiền từ Trái Phiếu",
-  "article_1.16": "1.16 Lợi suất đáo hạn",
+  "article_1.16": "1.16 Lợi suất",
   "article_1.16.1": " (tính trên thu nhập sau khi đã khấu trừ thuế thu nhập cá nhân nếu Khách Hàng là cá nhân)",
   "article_1.4_info": ": Là bản tóm tắt thông tin về Trái Phiếu.",
   "article_1.5_info": ": Gồm Bản Công Bố Thông Tin do Tổ Chức Phát Hành công bố và các tài liệu khác có liên quan (nếu có).",
@@ -258,7 +258,7 @@
   "sell_article_1": "ĐIỀU 1: GIẢI THÍCH THUẬT NGỮ",
   "sell_article_1.7_info": " Là ngày Khách Hàng bán Trái Phiếu",
   "sell_article_1.17": "1.17. Tài khoản ViettelPay",
-  "sell_article_1.17_info": ": Là tài khoản của Khách Hàng sử dụng trên ứng dụng ViettelPAY như 1 ví điện tử thanh toán",
+  "sell_article_1.17_info": ": Là tài khoản của Khách Hàng sử dụng trên ứng dụng ViettelPay như một ví điện tử thanh toán",
   "sell_article_1.1_info": ": Là Trái Phiếu được xác định tại Đăng Ký Bán Trái Phiếu.",
   "sell_article_2.1_info": ": Là Trái Phiếu được nêu tại Đăng Ký Bán Trái Phiếu, có các đặc điểm được nêu tại Thông Tin Trái Phiếu",
   "sell_article_2.2_info": ": Là Ngày Giao Dịch được nêu tại Đăng Ký Bán Trái Phiếu",
@@ -322,6 +322,7 @@
   "transaction_management": "Quản lý giao dịch",
   "cancelConFirm": "Quý khách có chắc chắn muốn hủy ?",
   "editConFirm": "Quý khách có chắc chắn muốn sửa ?",
+  "alert_buy_00": "Đang ngoài giờ giao dịch Trái Phiếu",
   "alert_buy_01": "Khối lượng Trái Phiếu đặt mua phải > 0 ",
   "alert_buy_02": "Khối lượng Trái Phiếu đặt mua phải ≥ ",
   "alert_buy_03": "Khối lượng Trái Phiếu đặt mua phải ≤ ",
@@ -341,7 +342,10 @@
   "account_no_exist": "Tài khoản không tồn tại",
   "account_name": "Họ tên chủ tài khoản",
   "money_transfer": "Số tiền chuyển (VNĐ)",
-  "des_transfer": "Nội dung chuyển khoản",
+  "des_transfer": "Nội dung (Vui lòng nhập ký tự không dấu)",
   "make_transaction": "THỰC HIỆN GIAO DỊCH",
-  "alert_transfer_done": "Quý khách đã chuyển khoản thành công."
+  "alert_transfer_done": "Quý khách đã chuyển khoản thành công.",
+  "validate_account_transfer": "Vui lòng nhập số tài khoản chứng khoán",
+  "validate_content_transfer": "Vui lòng nhập nội dung chuyển tiền không dấu",
+  "validate_money_transfer": "Vui lòng nhập số tiền chuyển (tối thiểu 50.000 VNĐ - tối đa 1.000.000.000 VNĐ)"
 }

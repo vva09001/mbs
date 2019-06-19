@@ -2,10 +2,11 @@ import actions from './actions';
 import { errorActions } from 'store/actions';
 import { all, fork, put, takeEvery, select, take } from 'redux-saga/effects';
 import { PaymentGateway, VerifyResult } from 'services/auth';
-import { Info, Flow, FlowCash, Update } from 'services/buy';
+import { Info, Flow, FlowCash, Update, CheckTime } from 'services/buy';
 import Error from 'utils/error';
 import VT_error from 'utils/viettel_error';
 import history from 'utils/history';
+import { currency } from 'utils/currency';
 import {
   accountProfile,
   buyInfo,
@@ -172,7 +173,7 @@ export function* checkMountBuySaga() {
           type: errorActions.ERROR,
           error: {
             message: `alert_buy_02`,
-            message2: volMin,
+            message2: currency(volMin),
             status: true
           }
         });
@@ -182,7 +183,7 @@ export function* checkMountBuySaga() {
           type: errorActions.ERROR,
           error: {
             message: `alert_buy_03`,
-            message2: volMax,
+            message2: currency(volMax),
             status: true
           }
         });
@@ -196,10 +197,33 @@ export function* checkMountBuySaga() {
         }
       });
     } else {
-      if (profile.isExist === 1) {
-        yield history.push({ pathname: '/buy/order/' });
+      const token = yield select(getToken);
+      const paramsCheck = {
+        userId: profile.userId,
+        channel: profile.channel
+      };
+      const res = yield CheckTime(paramsCheck, token);
+      if (res.status === 200) {
+        if (res.data.result !== 0) {
+          yield put({
+            type: errorActions.ERROR,
+            error: {
+              message: `alert_buy_00`,
+              status: true
+            }
+          });
+        } else {
+          if (profile.isExist === 1) {
+            yield history.push({ pathname: '/buy/order/' });
+          } else {
+            yield history.push({ pathname: '/user/connect/' });
+          }
+        }
       } else {
-        yield history.push({ pathname: '/user/connect/' });
+        yield put({
+          type: errorActions.ERROR_REQUEST,
+          error: res
+        });
       }
     }
   });

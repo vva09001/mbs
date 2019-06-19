@@ -90,4 +90,14 @@ const Delete = (params, token) => {
     params: params
   });
 };
-export { List, Detail, Info, Flow, FlowCash, Update, Contract, Approve, Delete };
+const CheckTime = (params, token) => {
+  return request({
+    url: '/api/bond/checkTransactionTime',
+    method: 'get',
+    headers: {
+      Authorization: token
+    },
+    params: params
+  });
+};
+export { List, Detail, Info, Flow, FlowCash, Update, Contract, Approve, Delete, CheckTime };
