@@ -106,8 +106,8 @@ class Transfer extends Component {
       params.accountBankCode !== '' &&
       this.props.infoAccount.accountName &&
       params.money !== '' &&
-      params.money > 50000 &&
-      params.money < 1000000000 &&
+      params.money >= 50000 &&
+      params.money <= 100000000 &&
       params.des !== ''
     ) {
       check = true;
@@ -177,7 +177,7 @@ class Transfer extends Component {
                 placeholder={t('money_transfer')}
               />
               {!validate &&
-                (params.money === '' || params.money < 50000 || params.money > 1000000000) && (
+                (params.money === '' || params.money < 50000 || params.money > 100000000) && (
                   <div className="form-text text-danger">{t('validate_money_transfer')}</div>
                 )}
             </div>

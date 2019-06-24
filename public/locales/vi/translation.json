@@ -339,13 +339,13 @@
   "transfer_to": "Chuyển tới",
   "mbs_name": "Công ty CP Chứng khoán MB",
   "TKCK": "Tài khoản chứng khoán MBS (7 số)",
-  "account_no_exist": "Tài khoản không tồn tại",
+  "account_no_exist": "Tài khoản không chính xác",
   "account_name": "Họ tên chủ tài khoản",
   "money_transfer": "Số tiền chuyển (VNĐ)",
   "des_transfer": "Nội dung (Vui lòng nhập ký tự không dấu)",
   "make_transaction": "THỰC HIỆN GIAO DỊCH",
   "alert_transfer_done": "Quý khách đã chuyển khoản thành công.",
-  "validate_account_transfer": "Vui lòng nhập số tài khoản chứng khoán",
-  "validate_content_transfer": "Vui lòng nhập nội dung chuyển tiền không dấu",
-  "validate_money_transfer": "Vui lòng nhập số tiền chuyển (tối thiểu 50.000 VNĐ - tối đa 1.000.000.000 VNĐ)"
+  "validate_account_transfer": "Vui lòng nhập số tài khoản chứng khoán.",
+  "validate_content_transfer": "Vui lòng nhập nội dung chuyển tiền không dấu.",
+  "validate_money_transfer": "Vui lòng nhập số tiền chuyển tối thiểu 50.000 VNĐ - tối đa 100.000.000 VNĐ/giao dịch."
 }
