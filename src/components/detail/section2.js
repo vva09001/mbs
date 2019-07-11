@@ -12,6 +12,14 @@ class Section2 extends Component {
     };
   }
   componentDidUpdate() {}
+  componentDidMount() {
+    if (this.props.code && this.props.params.volume) {
+      this.props.onFetch({
+        code: this.props.code,
+        volume: this.props.params.volume + 1
+      });
+    }
+  }
   handleMount(type) {
     if (type) {
       if (this.props.params.volume < 999999) {
@@ -88,7 +96,7 @@ class Section2 extends Component {
                 -
               </span>
               <input
-                type="number"
+                type="tel"
                 className="number form-control"
                 value={this.props.params.volume.toString()}
                 onChange={e => this._onChangeAmount(e)}
